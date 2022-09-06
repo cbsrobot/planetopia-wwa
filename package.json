@@ -25,7 +25,12 @@
     "electron-pack": "electron-builder"
   },
   "dependencies": {
-    "electron-serve": "^1.1.0"
+    "csv-parse": "^5.3.0",
+    "electron-serve": "^1.1.0",
+    "serialport": "^10.4.0",
+    "svelte-spa-router": "^3.3.0",
+    "timeago.js": "^4.0.2",
+    "url-slug": "^3.0.4"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",

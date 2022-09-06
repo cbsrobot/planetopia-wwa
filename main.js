@@ -1,8 +1,14 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, dialog } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, dialog, ipcMain } = require('electron');
+const rpath = require('path');
 const serve = require('electron-serve');
 const loadURL = serve({ directory: 'public' });
+
+const { SerialPort, ReadlineParser } = require('serialport')
+const path = '/dev/tty.usbserial-14120'
+const baudRate = 9600
+const port = new SerialPort({ path, baudRate })
+const parser = port.pipe(new ReadlineParser())
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -19,13 +25,27 @@ function createWindow() {
         height: 600,
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, 'preload.js'),
-            // enableRemoteModule: true,
-            // contextIsolation: false
+            preload: rpath.join(__dirname, 'preload.js'),
+            enableRemoteModule: true,
+            contextIsolation: false
         },
-        icon: path.join(__dirname, 'public/favicon.png'),
+        icon: rpath.join(__dirname, 'public/favicon.png'),
         show: false
     });
+
+    /*
+    // receive data from renderer
+    ipcMain.on('set-title', (event, title) => {
+      const webContents = event.sender
+      const win = BrowserWindow.fromWebContents(webContents)
+      win.setTitle(title)
+    })
+    */
+    
+    // send data to renderer
+    parser.on('data', data => {
+      mainWindow.webContents.send('rfid', data);
+    })
 
     // This block of code is intended for development purpose only.
     // Delete this entire block of code when you are ready to package the application.
@@ -76,3 +96,16 @@ app.on('activate', function () {
 });
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+
+/*
+ipcMain.on('ping-good', event => {
+  // It's so good because below have a delay 5s to execute, and this don't lock rendereder :)
+  setTimeout(() => {
+    console.log('GOOD finshed!')
+    // Send reply to a renderer
+    event.sender.send('ping-good-reply', 'pong')
+  }, 5000)
+})
+*/
+

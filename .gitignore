@@ -23,3 +23,9 @@ private
 
 # Desktop Services Store on macOS
 .DS_Store
+
+# libreoffice cache files
+.~*
+
+# temp stuff
+unused/
