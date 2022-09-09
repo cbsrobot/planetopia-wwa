@@ -4,7 +4,7 @@
   const { parse }       = require('csv-parse');
   const path            = require('path');
   
-  import Dot from "./Dot.svelte";
+  import ProgressIndicator from "./ProgressIndicator.svelte";
 
   const debug     = true
   const showerror = false
@@ -216,11 +216,7 @@
 {:else}
   <img alt="" style="position:absolute; top:{avatarpos[0]}; left:{avatarpos[1]}; width:{avatarpos[2]};" src="assets/avatar/{avatar}.jpg">
   <img alt="" style="position:absolute; top:{bubblepos[0]}; left:{bubblepos[1]};" src="{bubbleimage}">
-  <div id="dots">
-  {#each Array(s[type]["length"]) as _, index (index)}
-    <Dot page="{page}" index="{index}" />
-  {/each}
-  </div>
+  <ProgressIndicator position={page} length={s[type]["length"]}/>
   <p id="pagetext" style="top:{pagetextpos[0]}; left:{pagetextpos[1]}; width:{pagetextpos[2]}; height:{pagetextpos[3]}">
     {pagetext}
   </p>
@@ -348,12 +344,6 @@
   #languagewrapper > button {
     margin-top: 2em;
     min-width: 7em;
-  }
-
-  #dots {
-    position: absolute;
-    bottom: 60px;
-    width: 100%;
   }
 
   #debugmsg {
