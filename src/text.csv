@@ -1,5 +1,7 @@
 id,de,fr,en,x1,x2,x3
 next,Weiter,Suite,Next,,,
+back,Zurück,Retour,Back,,,
+home,Zum Anfang,Vers le début,Go to start,,,
 stop,Benutzer Wechseln,changer l'Utilisateur,change User,,,
 error,"Ein Fehler ist aufgetreten, bitte versuche es erneut und wenn es immer noch nicht geht, dann melde dich beim Personal.","Une erreur s'est produite, veuillez réessayer et si cela ne fonctionne toujours pas, contactez le personnel.","An error has occurred, please try again and if it still doesn't work, contact the staff.",,,
 jeton,Halte deinen Jeton auf den roten Punkt.,Place ton jeton sur le point rouge.,Hold your token on the red dot.,,,
