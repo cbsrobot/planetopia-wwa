@@ -19,7 +19,7 @@
 
   .top{
     justify-content: space-between;
-    
+
     position: absolute;
     top: 5%;
   }

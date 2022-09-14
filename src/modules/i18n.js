@@ -18,7 +18,7 @@ const fs = require("fs");
 import { writable, derived} from 'svelte/store';
 
 // Synchronously load textData from json file
-const rawData = fs.readFileSync("./src/text.csv", "utf8");
+const rawData = fs.readFileSync("./src/modules/text.csv", "utf8");
 const textData = parse(rawData, {
   skip_empty_lines: true,
   columns: true,

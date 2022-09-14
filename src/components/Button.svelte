@@ -1,5 +1,5 @@
 <script>
-  import { _ } from "./i18n.js";
+  import { _ } from "../modules/i18n.js";
 
   // choose from 5 different variants:
   // with icons: next, back, home
@@ -7,6 +7,7 @@
   export let next = false, back = false, home = false, plain_primary = false, plain_secondary = false;
 
   export let text = ""
+  // TODO: Add correct disabled styling
   export let disabled = false;
 
   let defaultText = "Click me!"
@@ -15,7 +16,7 @@
     if (next) defaultText = $_("next");
     if (home) defaultText = $_("home");
   }
-  $: buttonText = text != "" ? text : defaultText;
+  $: buttonText = text || defaultText;
 </script>
 
 <button on:click class:disabled class:next class:back class:home class:plain_primary class:plain_secondary>
@@ -32,14 +33,6 @@
 </button>
 
 <style>
-  /* button {
-    background-color: silver;
-  } */
-
-  .disabled {
-    border: 5px solid red;
-  }
-
   button {
     display: block;
     align-self: center;
@@ -81,5 +74,9 @@
 
   img {
     padding: 0 0.3rem;
+  }
+
+  .disabled {
+    border: 10px solid red;
   }
 </style>
