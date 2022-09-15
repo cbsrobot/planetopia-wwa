@@ -14,6 +14,6 @@
   #dots {
     position: absolute;
     bottom: 60px;
-    width: 100%;
+    width: 50%;
   }
 </style>
