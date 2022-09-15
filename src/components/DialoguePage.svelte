@@ -4,11 +4,11 @@
   let userData = { avatar: 3 };
 
   export let dialogueText = "Listen to my dialogue";
-  export let pageIndex;
+  export let pageIndex, totalPages;
 </script>
 
 
-<Navigation on:nextClick={() => pageIndex++} on:backClick={() => pageIndex--} />
+<Navigation bind:pageIndex={pageIndex} {totalPages} />
 <img alt="Insect Avatar" src="assets/avatar/{userData.avatar}.jpg" />
 <p id="dialogue">{dialogueText}</p>
 

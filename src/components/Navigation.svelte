@@ -1,19 +1,32 @@
 <script>
   import Button from "./Button.svelte";
   import { logOut } from "../modules/SessionManager.js";
+  import ProgressIndicator from "./ProgressIndicator.svelte";
 
-  import { createEventDispatcher } from "svelte";
-  const dispatch = createEventDispatcher();
+  export let pageIndex;
+  export let totalPages;
+
+  export let nextIncrement = 1;
+  export let backIncrement = -1;
+
+  function handleBackClick() {
+    if (pageIndex != undefined) pageIndex += backIncrement;
+  }
+
+  function handleNextClick() {
+    if (pageIndex != undefined) pageIndex += nextIncrement;
+  }
 </script>
 
 <div class="container top">
-  <Button back on:click={() => dispatch("backClick")} />
+  <Button back hidden={pageIndex < 1} on:click={handleBackClick} />
   <Button home on:click={() => logOut()} />
 </div>
 
 <div class="container bottom">
-  <Button next on:click={() => dispatch("nextClick")} />
+  <Button next hidden={pageIndex >= totalPages-1 } on:click={handleNextClick} />
 </div>
+<ProgressIndicator position={pageIndex + 1} length={totalPages} />
 
 <style>
   .container {
