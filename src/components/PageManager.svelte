@@ -10,7 +10,6 @@
 
     let pageIndex = 0;
     $: activePage = listOfPages[pageIndex]
-    $: console.log(activePage)
 
 </script>
 
