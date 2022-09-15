@@ -9,6 +9,7 @@
   export let text = ""
   // TODO: Add correct disabled styling
   export let disabled = false;
+  export let hidden = false;
 
   let defaultText = "Click me!"
   $:{
@@ -19,7 +20,7 @@
   $: buttonText = text || defaultText;
 </script>
 
-<button on:click class:disabled class:next class:back class:home class:plain_primary class:plain_secondary>
+<button on:click class:disabled class:hidden class:next class:back class:home class:plain_primary class:plain_secondary>
   {#if back}
     <img class="icon" alt="" src="assets/icons/back.svg" />
   {/if}
@@ -78,5 +79,9 @@
 
   .disabled {
     border: 10px solid red;
+  }
+
+  .hidden{
+    visibility: hidden;
   }
 </style>
