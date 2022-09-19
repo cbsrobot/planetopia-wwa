@@ -1,10 +1,15 @@
 <script>
   import Navigation from "./Navigation.svelte";
+  import { _ } from "../modules/i18n.js";
+  
   //   import { userData } from "../modules/DataManager";
   let userData = { avatar: 3 };
 
-  export let dialogueText = "Listen to my dialogue";
+  export let textPath;
   export let pageIndex, totalPages;
+
+  $: dialogueText = $_(textPath)
+
 </script>
 
 
