@@ -17,8 +17,8 @@ import { parse } from "csv-parse/sync";
 const fs = require("fs");
 import { writable, derived} from 'svelte/store';
 
-// Synchronously load textData from json file
-const rawData = fs.readFileSync("./src/modules/text.csv", "utf8");
+// Synchronously load textData from csv file
+const rawData = fs.readFileSync("public/assets/translations.csv", "utf8");
 const textData = parse(rawData, {
   skip_empty_lines: true,
   columns: true,
@@ -36,7 +36,11 @@ localeStore.subscribe(v => {
 // create a public derived store which automatically triggers updates whenever the locale changes
 export const _ = derived(
 	localeStore,
-	$localeStore => ((id) => textData.find(r => r.id === id)[currentLocale])
+	$localeStore => ((key, ext) => {
+    // join path key (.)
+    let id = ext ? [key, ext].join(".") : key
+    return textData.find(r => r.id === id)[currentLocale]
+  })
 );
 
 // public function to change the language 

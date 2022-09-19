@@ -1,0 +1,58 @@
+id,de,fr,en
+next,Weiter,Suite,Next
+back,Zurück,Retour,Back
+home,Zum Anfang,Vers le début,Go to start
+error,"Ein Fehler ist aufgetreten, bitte versuche es erneut und wenn es immer noch nicht geht, dann melde dich beim Personal.","Une erreur s'est produite, veuillez réessayer et si cela ne fonctionne toujours pas, contactez le personnel.","An error has occurred, please try again and if it still doesn't work, contact the staff."
+jeton,Halte deinen Jeton auf den roten Punkt.,Place ton jeton sur le point rouge.,Hold your token on the red dot.
+0.dialogue1,"Hallo, herzlich willkommen auf Planetopia.
+Ich begleite dich durch die Ausstellung.","Hello, bienvenue sur Planetopia.
+Je vais t’accompagner à travers l’exposition.","Hello, welcome to Planetopia.
+I will guide you through the exhibition."
+0.dialogue2,Erkennst du mich? #1,Tu me reconnais? #1,Do you recognise me? #1
+0.dialogue3,"Ja, ich weiss, wir Insekten nerven manchmal ein bisschen. Aber wir sind auch sehr nützlich.","Oui, je sais, nous les insectes sommes parfois énervants. Mais nous sommes aussi très utiles.","I know, insects like me can be a bit of a nuisance. But we have our uses too."
+0.dialogue4,"Wir bestäuben Pflanzen, damit Früchte und Samen entstehen.",Nous pollinisons les plantes pour qu’elles produisent des fruits et des graines.,We pollinate plants to help them make fruits and seeds.
+0.dialogue5,Einige von uns kontrollieren Schädlinge oder dienen grösseren Tieren als Futter.,Certains d’entre nous régulent les nuisibles ou servent de nourriture aux espèces plus grandes.,Some of us keep pests under control or act as food for bigger animals.
+0.dialogue6,Und andere helfen mit beim Zersetzen und Umwandeln von organischem Material. So machen wir Böden fruchtbar.,D’autres aident à décomposer ou transformer les matières organiques. Et ainsi à rendre le sol fertile.,Others help to break down and convert organic matter. That is how we keep the soil fertile.
+0.dialogue7,"Glaub mir, ohne uns Insekten seid ihr Menschen ziemlich aufgeschmissen.","Crois-moi, sans nous les insectes, les humains seraient plutôt paumés.","Believe me, without insects like me, people like you would be pretty lost."
+0.question1,"Wann hast du eigentlich zum letzten Mal einem Insekt zugeguckt? Ich meine, so richtig, länger als 5 Sekunden?","Quand as-tu regardé un insecte pour la dernière fois? Je veux dire: vraiment, plus que 5 secondes?","When was the last time you watched an insect? I mean really watched it, for longer than 5 seconds?"
+0.question1.answer0,Das mache ich häufig.,Je le fais souvent.,I do that quite often.
+0.question1.answer1,Das ist schon eine Weile her.,Il y a un moment déjà., It has been a while.
+0.question1.answer2,"Mache ich nur, wenn ihr mich nervt.",Je le fais seulement quand il m’énerve.,I only do that if one of you gets on my nerves.
+0.question1.answer3,Keine Ahnung., Aucune idée., No idea.
+0.dialogue8,"Aha, interessant. Ich habe noch viele spannende Fragen an dich.","Ah, intéressant. J’ai encore beaucoup de questions passionnantes à te poser.","Ah, that’s interesting. I have a few more fascinating questions to ask you."
+0.dialogue9,"Überall, wo du eine solche Computer-Station siehst, kannst du dich mit deinem Jeton anmelden. Dann sehen wir uns wieder.","Partout où tu verras une station comme celle-ci, tu peux t’annoncer au moyen de ton jeton. Alors à plus!","Wherever you see a computer terminal like this one, you can log in using your token. And then we will meet again."
+0.dialogue10,"Zum Schluss finden wir gemeinsam heraus, was du für die Umwelt tun kannst.","À la fin, nous trouverons ensemble ce que tu peux faire pour l’environnement.",At the end we will find out what you can do for the environment.
+0.dialogueEnd0,Bist du dabei? Mega! Dann sehen wir uns bei der nächsten Station. Tschüss!,Tu participes? Super! Alors à plus à la prochaine station. Tchao!,Are you up for it? Great! See you at the next terminal so. Bye!
+0.dialogueEnd1,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden über Kleider.,Tu participes? Super! Alors commençons tout de suite par l’habillement.,Are you up for it? Great! So let’s keep going and talk about clothes.
+0.dialogueEnd2,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden übers Wohnen.,Tu participes? Super! Alors continuons avec le logement.,Are you up for it? Great! So let’s keep going and talk about your home.
+0.dialogueEnd3,"Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden darüber, wie du unterwegs bist.",Tu participes? Super! Alors continuons tout de suite avec la mobilité.,Are you up for it? Great! So let’s keep going and talk about how you move around.
+0.dialogueEnd4,"Hallo, ich habe schon auf dich gewartet. Bist du viel unterwegs? Ja, ich weiss, ich frage ein bisschen viel. Ich bin halt sehr neugierig.","Hello, je t’attendais. Tu te déplaces beaucoup? Oui, je sais, je pose beaucoup de questions. Je suis très curieux!","Hi, I’ve been waiting for you. Are you on the road a lot? I know, I’m asking lots of questions. You see, I’m a bit nosy."
+1.dialogue1,"Hallo, da bist du ja wieder.","Hello, c’est à nouveau toi.","Hi, there you are again."
+1.dialogue2,"Übrigens: Wenn du mehr über mich erfahren willst, dann tippe mich an!","Au fait: si tu veux en savoir plus sur moi, touche-moi du doigt!","By the way, if you want to know more about me, then just tap me!"
+1.dialogue3,"So, sprechen wir ein bisschen über Kleidung.","O.K., parlons donc de vêtements.","Right, let’s talk a bit about clothes."
+1.question1,Wie viele Kleider hängen bei dir im Schrank? (Unterhosen und Socken nicht mitgerechnet.),Combien de vêtements y a-t-il dans ton armoire? (Sans les slips et les chaussettes.),How many items of clothing are in your wardrobe? (Not counting socks and underwear.)
+1.question1.answer0,Um die 50 Kleidungsstücke.,Une cinquantaine.,Around 50 items.
+1.question1.answer1,Um die 100 Kleidungsstücke.,Une centaine.,Around 100 items.
+1.question1.answer2,Sicher mehr als 100 Kleidungsstücke.,Sûrement plus de 100.,Definitely more than 100 items.
+1.question1.answer3,Ich kann es wirklich nicht sagen.,Je n’en sais rien.,I really could not say.
+1.question2,Wie viele Lieblings-T-Shirts hast du?,Combien de t-shirts préférés as-tu?,How many favourite T-shirts do you have?
+1.question2.answer0,Ich habe kein Lieblings-T-Shirt.,Je n’ai pas de t-shirt préféré.,I don’t have a favourite T-shirt.
+1.question2.answer1,"Eines, das ich heiss und innig liebe.","Un, que j’adore!",One that I absolutely love!
+1.question2.answer2,"Ich habe 3–5, die ich oft trage.",J’en ai 3 à 5 que je porte souvent.,I have 3 to 5 that I wear a lot.
+1.question2.answer3,Ich wechsle zwischen 15 Favoriten.,J’alterne entre mes 15 préférés.,I alternate between 15 of them.
+1.question3,"Achtest du beim Kauf darauf, aus welchen Fasern die Kleider gemacht sind?",Est-ce que tu regardes en quelle matière sont faits les vêtements que tu achètes?,"When you buy clothes, do you pay attention to the fibres they are made of?"
+1.question3.answer0,"Ja, ich achte beim Kleiderkaufen genau auf die Fasern.","Oui, je regarde soigneusement l’étiquette.","Yes, I pay close attention to the fibres the clothes are made of."
+1.question3.answer1,"Ja, ich achte darauf, welche Fasern sich gut anfühlen.","Oui, je regarde quelle matière est agréable à porter.","Yes, I make sure to choose fibres that feel nice on the skin."
+1.question3.answer2,"Nein, ich wähle lieber danach aus, wie ein Kleidungsstück aussieht.","Non, je choisis plutôt selon l’apparence.","No, I prefer to buy clothes that I like the look of."
+1.question3.answer3,"Ach, es gibt verschiedene Fasern?","Quoi, il existe plusieurs matières?","Oh, are there different fibres?"
+1.question4,Wie oft kommt ein Paket mit Kleidern oder Schuhen bei dir an?,À quelle fréquence reçois-tu des paquets contenant des vêtements ou des chaussures?,How often do you get a delivery of clothes or shoes?
+1.question4.answer0,0- bis 2-mal pro Jahr.,0 à 2 fois par an.,0 to 2 times a year.
+1.question4.answer1,1- bis 2-mal pro Halbjahr.,1 à 2 fois par semestre.,2 to 4 times a year.
+1.question4.answer2,1- bis 2-mal im Monat.,1 à 2 fois par mois.,Once or twice a month.
+1.question4.answer3,1- bis 2-mal in der Woche.,1 à 2 fois par semaine.,Once or twice a week.
+1.question5,"Würdest du mehr Geld für Kleider ausgeben, wenn du ein unbegrenztes Budget hättest?",Est-ce que tu dépenserais plus d’argent pour des vêtements si ton budget était illimité?,Would you spend more money on clothes if your budget was unlimited?
+1.question5.answer0,"Nein, ich möchte eher weniger Kleider kaufen.","Non, j’aimerais plutôt acheter moins de vêtements.","No, I would actually like to buy less clothes."
+1.question5.answer1,"Ja, dann könnte ich robustere Qualität kaufen.","Oui, je pourrais acheter des vêtements de meilleure qualité.","Yes, I could buy better-quality clothes that would last longer."
+1.question5.answer2,"Ja, dann könnte ich mir mehr Markenkleider leisten.","Oui, je pourrais me payer davantage de vêtements de marque.","Yes, I could afford to buy more brand-name clothes."
+1.question5.answer3,"Ja, dann würde ich auch mehr einkaufen.","Oui, j'en achèterais davantage.","Yes, I would buy more."
+1.dialogue4,"Ssssssuper, vielen Dank! Bis zur nächsten Station.","Ssssssuper, merci! À plus à la prochaine station.","Ssssssuper, thanks! See you at the next terminal."
