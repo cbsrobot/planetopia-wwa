@@ -1,15 +1,14 @@
 <script>
-    import DialoguePage from './DialoguePage.svelte';
+    import { generatePageList } from "../modules/PageListFactory.js";
+    import { loggedIn } from "../modules/SessionManager.js";
 
-    let listOfPages = [
-        { name: "Dialogue", component: DialoguePage, props: {dialogueText: "Text 1"}},
-        { name: "Dialogue", component: DialoguePage, props: {dialogueText: "Text 2"}},
-        { name: "Dialogue", component: DialoguePage, props: {dialogueText: "Text 3"}},
-    ]
-    $: totalPages = listOfPages.length;
+    let pagesList = []
+    $: if($loggedIn) pagesList = generatePageList()
+    $: totalPages = pagesList.length;
+    
 
     let pageIndex = 0;
-    $: activePage = listOfPages[pageIndex]
+    $: activePage = pagesList[pageIndex]
 
 </script>
 
