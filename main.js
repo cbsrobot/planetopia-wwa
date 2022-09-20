@@ -3,12 +3,63 @@ const { app, BrowserWindow, dialog, ipcMain } = require('electron');
 const rpath = require('path');
 const serve = require('electron-serve');
 const loadURL = serve({ directory: 'public' });
+const { SerialPort, ReadlineParser } = require("serialport");
 
-const { SerialPort, ReadlineParser } = require('serialport')
-const path = '/dev/tty.usbserial-14120'
-const baudRate = 9600
-const port = new SerialPort({ path, baudRate })
-const parser = port.pipe(new ReadlineParser())
+
+
+let serport;
+let parser;
+const baudRate = 9600;
+let allowedPorts = [
+    "/dev/tty.usbmodem143101", 
+    "/dev/tty.usbmodem143201",
+    "/dev/tty.usbmodem144101", 
+    "COM1", 
+    "COM2", 
+    "COM3"
+];
+
+async function listSerialPorts() {
+    if (serport) return;
+    await SerialPort.list().then((ports, err) => {
+        if (err) return;
+        ports.some((p) => {
+            if (allowedPorts.includes(p.path)) {
+                let path = p.path;
+                serport = new SerialPort({ path, baudRate });
+
+                serport.on("error", function (err) {
+                    serport = undefined;
+                    parser = undefined;
+                });
+
+                parser = serport.pipe(new ReadlineParser());
+                parser.on("data", (data) => {
+                    mainWindow.webContents.send('rfid', data);
+                });
+            }
+        });
+    });
+}
+
+setInterval(() => {
+    listSerialPorts();
+}, 5000);
+
+//const { SerialPort, ReadlineParser } = require('serialport')
+//const allowedSerialPorts = ["/dev/tty.usbmodem143201"]
+//console.log(SerialPort.list())
+
+// Run the command.
+//const { portStatus, portList } = listPorts(true);
+
+//let port;
+//let parser;
+
+//const path = '/dev/tty.usbmodem143201'
+//const baudRate = 9600
+//const port = new SerialPort({ path, baudRate })
+//const parser = port.pipe(new ReadlineParser())
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -36,16 +87,16 @@ function createWindow() {
     /*
     // receive data from renderer
     ipcMain.on('set-title', (event, title) => {
-      const webContents = event.sender
-      const win = BrowserWindow.fromWebContents(webContents)
-      win.setTitle(title)
+        const webContents = event.sender
+        const win = BrowserWindow.fromWebContents(webContents)
+        win.setTitle(title)
     })
     */
     
     // send data to renderer
-    parser.on('data', data => {
-      mainWindow.webContents.send('rfid', data);
-    })
+    //parser.on('data', data => {
+    //  mainWindow.webContents.send('rfid', data);
+    //})
 
     // This block of code is intended for development purpose only.
     // Delete this entire block of code when you are ready to package the application.
