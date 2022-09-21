@@ -1,6 +1,6 @@
 <script>
     import { generatePageList } from "../modules/PageListFactory.js";
-    import { loggedIn } from "../modules/SessionManager.js";
+    import { loggedIn } from "../modules/DataManager.js";
 
     let pagesList = []
     $: if($loggedIn) pagesList = generatePageList()

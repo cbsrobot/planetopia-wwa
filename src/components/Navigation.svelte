@@ -1,6 +1,6 @@
 <script>
   import Button from "./Button.svelte";
-  import { logOut } from "../modules/SessionManager.js";
+  import { logOut } from "../modules/DataManager.js";
   import ProgressIndicator from "./ProgressIndicator.svelte";
 
   export let pageIndex;

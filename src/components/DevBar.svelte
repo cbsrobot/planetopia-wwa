@@ -1,5 +1,5 @@
 <script>
-  import { rfid, loggedIn, simulateLogIn, logOut } from "../modules/SessionManager.js";
+  import { userData, loggedIn, simulateLogIn, logOut } from "../modules/DataManager.js";
   
   export let text = ""
 
@@ -9,7 +9,7 @@
 <div>
   <span on:click={() => simulateLogIn()}>Log in</span> | 
   <span on:click={() => logOut()}>Log out</span> |  
-  {loggedInFlag} {" RFID: " + $rfid} | {text}
+  {loggedInFlag} {" RFID: " + $userData?.rfid} | {text}
 </div>
 
 <style>

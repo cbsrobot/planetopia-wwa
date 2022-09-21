@@ -2,8 +2,7 @@
   import Navigation from "./Navigation.svelte";
   import { _ } from "../modules/i18n.js";
 
-  //   import { userData } from "../modules/DataManager";
-  let userData = { avatar: 10 };
+  import { userData } from "../modules/DataManager";
 
   export let textPath;
   export let pageIndex, totalPages;
@@ -14,14 +13,14 @@
     // get avatar hints
     const re = /#(\d)/i;
     const match = str.match(re);
-    const avatarNr = userData.avatar;
+    const avatarNr = $userData.avatar;
     let text = match ? str.replace(re, $_(`${match[1]}.insect${avatarNr}`)) : str;
     return text;
   }
 </script>
 
 <Navigation bind:pageIndex {totalPages} />
-<img alt="Insect Avatar" src="assets/avatar/{userData.avatar}.jpg" />
+<img alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
 <p id="dialogue">{dialogueText}</p>
 
 <style>

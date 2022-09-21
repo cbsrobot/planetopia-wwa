@@ -1,6 +1,6 @@
 <script>
   import { onDestroy } from "svelte";
-  import { loggedIn, logOut } from "./modules/SessionManager.js";
+  import { loggedIn, logOut } from "./modules/DataManager.js";
   import PageManager from "./components/PageManager.svelte";
   import DevBar from "./components/DevBar.svelte";
   import LogInPage from "./components/LogInPage.svelte";
