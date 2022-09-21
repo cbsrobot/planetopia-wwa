@@ -21,7 +21,7 @@ const _globalData = writable({});
 export const globalData = derived(_globalData, ($_globalData) => $_globalData);
 
 ipcRenderer.on("rfid", (event, response) => {
-  logIn(response);
+  logIn(response.split(":")[1]);
 });
 
 export function simulateLogIn() {
@@ -58,6 +58,7 @@ function logIn(rfid) {
     .then((data) => {
         console.log("Data:", data)
         _userData.set(data);
+        clearInterval(activePing);
         activePing = setInterval(checkActive, 1000);
         loggedIn.set(true)
     })
