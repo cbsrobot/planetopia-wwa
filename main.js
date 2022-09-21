@@ -81,7 +81,8 @@ function createWindow() {
             contextIsolation: false
         },
         icon: rpath.join(__dirname, 'public/favicon.png'),
-        show: false
+        show: false,
+        autoHideMenuBar: true,
     });
 
     /*
