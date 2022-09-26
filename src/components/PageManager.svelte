@@ -2,6 +2,8 @@
     import { generatePageList } from "../modules/PageListFactory.js";
     import { loggedIn } from "../modules/DataManager.js";
 
+    import StationIndicator from './StationIndicator.svelte';
+
     let pagesList = []
     $: if($loggedIn) pagesList = generatePageList()
     $: totalPages = pagesList.length;
@@ -13,3 +15,4 @@
 </script>
 
 <svelte:component this={activePage.component} {...activePage.props} bind:pageIndex={pageIndex} {totalPages}/>
+<StationIndicator/>
