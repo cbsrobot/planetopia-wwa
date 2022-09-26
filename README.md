@@ -1,3 +1,6 @@
+Allow serial port access:
+$ sudo usermod -a -G dialout $USER
+
 <div align="center">
 <img alt="Electron Svelte Crossover Banner" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/svg/Electron_Svelte.svg" width="580" />
 </div>
