@@ -73,4 +73,10 @@
     font-size: 2rem;
     background-color: #f2f2f2;
   }
+
+  @font-face {
+    font-family: "MANIC";
+    font-style: normal;
+    src: local(""), url("/fonts/MANIC-Regular.woff2") format("woff2");
+  }
 </style>

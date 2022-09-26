@@ -22,14 +22,14 @@
 
 <button on:click class:disabled class:hidden class:next class:back class:home class:plain_primary class:plain_secondary>
   {#if back}
-    <img class="icon" alt="" src="assets/icons/back.svg" />
+    <img alt="" src="assets/icons/back.svg" />
   {/if}
   <span>{buttonText}</span>
   {#if next}
-    <img class="icon" alt="" src="assets/icons/next.svg" />
+    <img alt="" src="assets/icons/next.svg" />
   {/if}
   {#if home}
-    <img class="icon" alt="" src="assets/icons/home.svg" />
+    <img alt="" src="assets/icons/home.svg" />
   {/if}
 </button>
 
@@ -42,6 +42,9 @@
     color: #2d2d2d;
     font-size: 2rem;
     outline: none;
+
+    font-family: 'MANIC', sans-serif;
+    text-transform: uppercase;
 
     border: solid 5px;
 
@@ -75,6 +78,8 @@
 
   img {
     padding: 0 0.3rem;
+    height: 2rem;
+    width: 2rem;
   }
 
   .disabled {
