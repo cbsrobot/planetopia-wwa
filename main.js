@@ -14,9 +14,11 @@ let allowedPorts = [
     "/dev/tty.usbmodem143101", 
     "/dev/tty.usbmodem143201",
     "/dev/tty.usbmodem144101", 
-    "COM1", 
+    "COM1",
     "COM2", 
-    "COM3"
+    "COM3",
+    "/dev/ttyACM0",
+    "/dev/ttyACM1"
 ];
 
 async function listSerialPorts() {
@@ -29,6 +31,7 @@ async function listSerialPorts() {
                 serport = new SerialPort({ path, baudRate });
 
                 serport.on("error", function (err) {
+                    console.log("SerialPort Error", err)
                     serport = undefined;
                     parser = undefined;
                 });
@@ -99,6 +102,31 @@ function createWindow() {
     //  mainWindow.webContents.send('rfid', data);
     //})
 
+    //mainWindow.webContents.openDevTools()
+    mainWindow.webContents.on('before-input-event', (event, input) => {
+        /*
+        if (input.control && input.key.toLowerCase() === 'i') {
+            console.log('Pressed Control+I')
+            event.preventDefault()
+        }
+        */
+
+        if (input.key.toLowerCase() === '0') {
+            mainWindow.webContents.openDevTools()
+            event.preventDefault()
+        }
+
+        if (input.key.toLowerCase() === '9') {
+            mainWindow.setKiosk(!mainWindow.kiosk)
+            event.preventDefault()
+        }
+
+        if (input.key === 'Escape') {
+            app.quit()
+        }
+    })
+
+
     // This block of code is intended for development purpose only.
     // Delete this entire block of code when you are ready to package the application.
     if (isDev()) {
@@ -132,7 +160,24 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+//app.on('ready', createWindow);
+
+app.whenReady().then(() => {
+    createWindow()
+  
+    app.on('activate', function () {
+      // On macOS it's common to re-create a window in the app when the
+      // dock icon is clicked and there are no other windows open.
+      if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    })
+    
+    function enterFullscreen(arg) {
+      mainWindow.setKiosk(!mainWindow.kiosk);
+    }
+  
+    setTimeout(enterFullscreen, 500);
+  
+  })
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
