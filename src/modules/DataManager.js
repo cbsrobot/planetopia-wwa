@@ -1,5 +1,3 @@
-const API_URL = process.env.API_URL || "http://localhost:3000";
-
 const API_URL = process.env.IS_PROD === "true" ?  process.env.API_URL : "http://localhost:3000";
 const STATION = process.env.STATION || 0;
 
@@ -21,8 +19,8 @@ const _globalData = writable({});
 export const globalData = derived(_globalData, ($_globalData) => $_globalData);
 
 ipcRenderer.on("rfid", (event, response) => {
-  logIn(response.split(":")[1]);
-  console.log(response)
+  console.log(response, "detected")
+  logIn(String(response).replace("UID:", ""));
 });
 
 export function simulateLogIn() {
