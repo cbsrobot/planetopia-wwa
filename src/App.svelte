@@ -69,14 +69,20 @@
     height: 1080px;
     overflow: hidden;
     margin: 0 auto;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Sanuk", sans-serif;
     font-size: 2rem;
     background-color: #f2f2f2;
   }
-
   @font-face {
     font-family: "MANIC";
     font-style: normal;
+    font-weight: normal;
     src: local(""), url("/fonts/MANIC-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Sanuk";
+    src: url("/fonts/sanukot-regular-webfont.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
   }
 </style>
