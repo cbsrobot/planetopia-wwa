@@ -32,3 +32,5 @@ unused/
 
 
 *.numbers
+
+.env

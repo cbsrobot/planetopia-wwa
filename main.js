@@ -4,8 +4,7 @@ const rpath = require('path');
 const serve = require('electron-serve');
 const loadURL = serve({ directory: 'public' });
 const { SerialPort, ReadlineParser } = require("serialport");
-
-
+require('dotenv').config()
 
 let serport;
 let parser;
@@ -171,12 +170,11 @@ app.whenReady().then(() => {
       if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
     
-    function enterFullscreen(arg) {
+    function enterKiosk() {
       mainWindow.setKiosk(!mainWindow.kiosk);
     }
-  
-    setTimeout(enterFullscreen, 500);
-  
+    
+    if(process.env.IS_PROD === "true") setTimeout(enterKiosk, 500);
   })
 
 // Quit when all windows are closed.
