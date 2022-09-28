@@ -15,11 +15,10 @@
     padding: 1rem 1rem;
     margin: 0 1rem;
     color: #2d2d2d;
-    font-size: 2rem;
     outline: none;
 
     font-family: 'MANIC', sans-serif;
-    text-transform: uppercase;
+    font-size: 3.5rem;
 
     position: absolute;
     width: 95%;
@@ -34,5 +33,7 @@
 
   img {
     padding: 0;
+    height: 2rem;
+    width: 2rem;
   }
 </style>
