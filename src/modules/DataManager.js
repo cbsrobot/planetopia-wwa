@@ -23,16 +23,19 @@ ipcRenderer.on("rfid", (event, response) => {
   logIn(String(response).replace("UID:", ""));
 });
 
-export function simulateLogIn() {
-    const randomStr = Math.random().toString(16).substr(2, 8);
-    logIn(randomStr);
+export function simulateLogIn(rfid) {
+    if(rfid){
+      logIn(rfid);
+    }else{
+      const randomStr = Math.random().toString(16).substr(2, 8);
+      logIn(randomStr);
+    }
 }
 
 function checkActive() {
     fetch(`${API_URL}/api/users/${currentRfid}/logged-in-station`, {method: 'GET'})
     .then(response => response.json())
     .then(data => {
-        console.log("ping", data)
         if(data.loggedInStation != STATION){
             logOut();
         }
@@ -80,7 +83,23 @@ export function setLanguage(language) {
   setLocale(locale);
 }
 
-export function setAnswer() {}
+export function setAnswer(stationNumber, questionNumber, points) {
+  var requestOptions = {
+    method: 'PUT',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      "station": stationNumber,
+      "question": questionNumber,
+      "points": points,
+    })
+  };
+
+  fetch(`${API_URL}/api/users/${currentRfid}/answer`, requestOptions)
+    .then(response => response.json())
+    .then(data => _userData.set(data))
+    .catch(error => console.log('error', error));
+
+}
 
 function getUserDataFromServer() {}
 
