@@ -1,12 +1,25 @@
 <script>
-  import ProgressIndicator from "./ProgressIndicator.svelte";
-  import Button from "./Button.svelte";
-  import { _ , setLocale } from "./i18n.js";
+  import { _ , setLocale } from "./modules/i18n.js";
+  setLocale("de")
+
+  // import ProgressIndicator from "./ProgressIndicator.svelte";
+  // import Button from "./Button.svelte";
+  // import Navigation from "./components/Navigation.svelte";
+  // import PageManager from './components/PageManager.svelte';
+  // import DevView from './components/DevView.svelte';
+  // import StationIndicator from './components/StationIndicator.svelte';
+  // import Selectable from './components/Selectable.svelte';
+  // import QuestionPage from "./components/QuestionPage.svelte";
+
 </script>
 
 <main>
-  <Button home on:click={() => setLocale("en")} />
-  <ProgressIndicator position={5} length={9}/>
+  
+  <!-- <ProgressIndicator position={5} length={9}/> -->
+  <!-- <StationIndicator/> -->
+  <!-- <Selectable></Selectable> -->
+  <!-- <QuestionPage textPath="1.question4" pageIndex={3} totalPages={11}/> -->
+
 </main>
 
 <style>
@@ -23,8 +36,20 @@
     height: 1080px;
     overflow: hidden;
     margin: 0 auto;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Sanuk", sans-serif;
     font-size: 2rem;
-    background-color: #f2f2f2;
+    background: linear-gradient(236.04deg, rgba(252, 234, 189, 0.3456) 33.11%, rgba(172, 232, 210, 0.432) 73.6%), #D2E8E1;
+  }
+  @font-face {
+    font-family: "MANIC";
+    font-style: normal;
+    font-weight: normal;
+    src: local(""), url("/fonts/MANIC-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Sanuk";
+    src: url("/fonts/sanukot-regular-webfont.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
   }
 </style>
