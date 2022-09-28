@@ -7,9 +7,10 @@
 </script>
 
 <div>
-  <span on:click={() => simulateLogIn()}>Log in</span> | 
-  <span on:click={() => logOut()}>Log out</span> |  
-  {loggedInFlag} {" RFID: " + $userData?.rfid} | {text}
+  <span on:click={() => simulateLogIn()}>Log in random</span> | 
+  <span on:click={() => simulateLogIn("123")}>Log in with id "123"</span> | 
+  {loggedInFlag} {" RFID: " + $userData?.rfid} | 
+  <span on:click={() => logOut()}>Log out</span> | {text} 
 </div>
 
 <style>
