@@ -33,12 +33,10 @@ export function simulateLogIn(rfid) {
 }
 
 function checkActive() {
-    fetch(`${API_URL}/api/users/${currentRfid}/logged-in-station`, {method: 'GET'})
+    fetch(`${API_URL}/api/users/${currentRfid}/active`, {method: 'GET'})
     .then(response => response.json())
     .then(data => {
-        if(data.loggedInStation != STATION){
-            logOut();
-        }
+        if(!data.active) logOut();
     })
     .catch(error => console.log('error', error));
 }
