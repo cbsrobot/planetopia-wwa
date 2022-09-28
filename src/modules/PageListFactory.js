@@ -91,5 +91,28 @@ export function generatePageList() {
       throw new Error(STATION + " is not a valid station number")
   }
 
+  
+  pageList = addStationNumbersToProps(pageList);
+  pageList = addQuestionNumbersToProps(pageList);
+  return pageList
+}
+
+// Utility function that adds "props.stationNumber: 0" (example)
+function addStationNumbersToProps(pageList){
+  pageList.forEach(page => {
+    page.props.stationNumber = parseInt(page.props.textPath.charAt(0)) 
+  });
   return pageList;
 }
+
+// Utility function that adds "props.questionNumber: 2" (example)
+function addQuestionNumbersToProps(pageList){
+  pageList.forEach(page => {
+    if(page.component == QuestionPage){
+      page.props.questionNumber= parseInt(page.props.textPath.slice(-1));
+    }
+  });
+  return pageList;
+}
+
+
