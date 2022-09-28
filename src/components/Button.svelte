@@ -83,7 +83,10 @@
   }
 
   .disabled {
-    border: 10px solid red;
+    background-color: #a6a6a6;
+    color: #dedede;
+    border-color: #dedede;
+    pointer-events: none;
   }
 
   .hidden{
