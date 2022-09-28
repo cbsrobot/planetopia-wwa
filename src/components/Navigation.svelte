@@ -2,6 +2,8 @@
   import Button from "./Button.svelte";
   import { logOut } from "../modules/DataManager.js";
   import ProgressIndicator from "./ProgressIndicator.svelte";
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
 
   export let pageIndex;
   export let totalPages;
@@ -9,12 +11,15 @@
   export let nextIncrement = 1;
   export let backIncrement = -1;
 
+  export let disableNext = false;
+
   function handleBackClick() {
     if (pageIndex != undefined) pageIndex += backIncrement;
   }
 
   function handleNextClick() {
     if (pageIndex != undefined) pageIndex += nextIncrement;
+    dispatch("nextClicked");
   }
 </script>
 
@@ -24,7 +29,7 @@
 </div>
 
 <div class="container bottom">
-  <Button next hidden={pageIndex >= totalPages-1 } on:click={handleNextClick} />
+  <Button next on:click={handleNextClick} disabled={disableNext} hidden={pageIndex >= totalPages - 1} />
 </div>
 <ProgressIndicator position={pageIndex + 1} length={totalPages} />
 
