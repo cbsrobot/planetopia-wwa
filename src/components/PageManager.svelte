@@ -15,4 +15,4 @@
 </script>
 
 <svelte:component this={activePage.component} {...activePage.props} bind:pageIndex={pageIndex} {totalPages}/>
-<StationIndicator/>
+<StationIndicator station={activePage.props.stationNumber}/>
