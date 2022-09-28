@@ -1,39 +1,119 @@
 <script>
   import Navigation from "./Navigation.svelte";
-  //   import { userData } from "../modules/DataManager";
+  import Selectable from "./Selectable.svelte";
+  import { userData, setAnswer } from "../modules/DataManager";
   import { _ } from "../modules/i18n.js";
+  // import { onMount } from 'svelte';
 
   export let textPath;
   export let pageIndex, totalPages;
+
+  export let stationNumber;
+  export let questionNumber;
+
+  let answers = [
+    { textKey: "answer0", points: 0 },
+    { textKey: "answer1", points: 1 },
+    { textKey: "answer2", points: 2 },
+    { textKey: "answer3", points: 3 },
+  ];
+  shuffleArray(answers);
+
+  let selected = null;
+  $: neutral = selected === null ? true : false;
+
+  // Convert points from database back to selected index
+  $: {
+    const points = parseInt($userData.stations[stationNumber].questions[questionNumber]);
+    const answer = answers.find((a) => a.points === points);
+    selected = (answer == undefined) ? null : answers.indexOf(answer);
+  }
+
+  function saveAnswer(){
+    setAnswer(stationNumber, questionNumber, answers[selected].points)
+  }
+
+
+
+  // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
 </script>
 
-<Navigation bind:pageIndex {totalPages} />
-<p class="question">{$_(textPath)}</p>
-<div class="answer-container">
-  <p class="answer">{$_(textPath, "answer0")}</p>
-  <p class="answer">{$_(textPath, "answer1")}</p>
-  <p class="answer">{$_(textPath, "answer2")}</p>
-  <p class="answer">{$_(textPath, "answer3")}</p>
+<Navigation on:nextClicked={saveAnswer} bind:pageIndex={pageIndex} {totalPages} disableNext={neutral} />
+
+<div class="content">
+  <p class="question">{$_(textPath)}</p>
+  <div class="answer-container">
+    <div class="row">
+      <Selectable
+        on:click={() => {
+          selected = 0;
+        }}
+        {neutral}
+        selected={selected == 0}
+        text={$_(textPath, answers[0].textKey)}
+      />
+      <Selectable
+        on:click={() => {
+          selected = 1;
+        }}
+        {neutral}
+        selected={selected == 1}
+        text={$_(textPath, answers[1].textKey)}
+      />
+    </div>
+    <div class="row">
+      <Selectable
+        on:click={() => {
+          selected = 2;
+        }}
+        {neutral}
+        selected={selected == 2}
+        text={$_(textPath, answers[2].textKey)}
+      />
+      <Selectable
+        on:click={() => {
+          selected = 3;
+        }}
+        {neutral}
+        selected={selected == 3}
+        text={$_(textPath, answers[3].textKey)}
+      />
+    </div>
+  </div>
 </div>
 
 <style>
+  .content {
+    /* position: absolute; */
+    /* top: 20px; */
+    width: 90%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
   .question {
     display: block;
-    position: absolute;
     text-align: left;
-    font-size: 3rem;
-
-    top: 150px;
+    font-size: 52px;
     width: 1000px;
   }
 
-  .answer-container{
+  .answer-container {
     display: block;
-    position: absolute;
-    top: 400px;
+    width: 100%;
   }
 
-  .answer {
-    text-align: left;
+  .row {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: flex-start;
   }
 </style>
