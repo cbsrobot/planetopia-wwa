@@ -72,7 +72,7 @@
     margin: 0 auto;
     font-family: "Sanuk", sans-serif;
     font-size: 2rem;
-    background-color: #f2f2f2;
+    background: linear-gradient(236.04deg, rgba(252, 234, 189, 0.3456) 33.11%, rgba(172, 232, 210, 0.432) 73.6%), #D2E8E1;
     user-select: none;
   }
 
