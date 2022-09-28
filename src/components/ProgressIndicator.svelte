@@ -1,19 +1,18 @@
 <script>
   export let position = 0;
   export let length = 0;
-  import Dot from "./Dot.svelte";
 </script>
 
-<div id="dots">
-  {#each Array(length) as _, i (i)}
-    <Dot filled={i < position} />
-  {/each}
-</div>
+<div>{position} / {length}</div>
 
 <style>
-  #dots {
+  div {
     position: absolute;
     bottom: 60px;
     width: 50%;
+
+    font-family: 'MANIC', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
   }
 </style>
