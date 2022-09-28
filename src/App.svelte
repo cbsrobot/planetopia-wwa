@@ -8,7 +8,8 @@
   const TIMEOUT_WARNING = 600; // in seconds
   const TIMEOUT_RESET = 610; // in seconds
 
-  const SHOW_DEV_BAR = true;
+  const IS_PROD = Boolean(process.env.IS_PROD === "true")
+  const SHOW_DEV_BAR = ! IS_PROD;
 
   let lastInteraction = new Date();
   let inactiveTime = 0;
@@ -29,7 +30,7 @@
   }
 </script>
 
-<main on:click={interactionDetected}>
+<main on:click={interactionDetected} class:selectable-text = { ! IS_PROD }>
   {#if $loggedIn}
     {#if inactiveTime < TIMEOUT_WARNING}
       <PageManager />
@@ -72,6 +73,11 @@
     font-family: "Sanuk", sans-serif;
     font-size: 2rem;
     background-color: #f2f2f2;
+    user-select: none;
+  }
+
+  .selectable-text{
+    user-select: auto;
   }
   @font-face {
     font-family: "MANIC";
