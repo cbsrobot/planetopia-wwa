@@ -4,9 +4,10 @@
   import PageManager from "./components/PageManager.svelte";
   import DevBar from "./components/DevBar.svelte";
   import LogInPage from "./components/LogInPage.svelte";
+  import InactiveWarningPage from "./components/InactiveWarningPage.svelte";
 
-  const TIMEOUT_WARNING = 600; // in seconds
-  const TIMEOUT_RESET = 610; // in seconds
+  const TIMEOUT_WARNING = 30; // in seconds
+  const TIMEOUT_RESET = 40; // in seconds
 
   const IS_PROD = Boolean(process.env.IS_PROD === "true")
   const SHOW_DEV_BAR = ! IS_PROD;
@@ -35,10 +36,10 @@
     {#if inactiveTime < TIMEOUT_WARNING}
       <PageManager />
     {:else}
-      <p>Tap screen or you will be logged out</p>
+      <InactiveWarningPage/>
     {/if}
   {:else}
-    <LogInPage />
+    <LogInPage/>
   {/if}
 
   {#if SHOW_DEV_BAR}
@@ -72,7 +73,7 @@
     margin: 0 auto;
     font-family: "Sanuk", sans-serif;
     font-size: 2rem;
-    background: linear-gradient(236.04deg, rgba(252, 234, 189, 0.3456) 33.11%, rgba(172, 232, 210, 0.432) 73.6%), #D2E8E1;
+    background: linear-gradient(236.04deg, rgba(252, 234, 189, 0.504) 33.11%, rgba(172, 232, 210, 0.63) 73.6%), #D2E8E1;
     user-select: none;
   }
 
