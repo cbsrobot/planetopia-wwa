@@ -2,10 +2,11 @@
   import { _ } from "../modules/i18n.js";
 </script>
 
-<h2>{$_("inactive-warning")}</h2>
+<h2>{$_("station-complete")}</h2>
 
 <style>
   h2 {
     font-size: 56px;
+    width: 50%;
   }
 </style>
