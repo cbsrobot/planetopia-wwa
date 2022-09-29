@@ -1,11 +1,14 @@
 <script>
   import { _ } from "../modules/i18n.js";
   export let station = 0;
+  export let text = true;
 </script>
 
 <div>
   <img class="icon" alt="" src={`assets/icons/${station}.svg`} />
-  <span>{$_(String(station))}</span>
+  {#if text}
+    <span>{$_(String(station))}</span>
+  {/if}
 </div>
 
 <style>
@@ -17,7 +20,7 @@
     color: #2d2d2d;
     outline: none;
 
-    font-family: 'MANIC', sans-serif;
+    font-family: "MANIC", sans-serif;
     font-size: 3.5rem;
 
     position: absolute;

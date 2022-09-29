@@ -1,8 +1,10 @@
 <script>
   import { _, locale, setLocale } from "../modules/i18n.js";
   import Button from "./Button.svelte";
+  import StationIndicator from "./StationIndicator.svelte";
 </script>
 
+<StationIndicator station={parseInt(process.env.STATION)} text={false} />
 {#if ! $locale}
   <div class="language-container">
     <Button on:click={() => setLocale("de")} plain_primary handwritten = {false} text="Deutsch" />
