@@ -5,6 +5,12 @@ home,Zum Anfang,Vers le début,Go to start
 error,"Ein Fehler ist aufgetreten, bitte versuche es erneut und wenn es immer noch nicht geht, dann melde dich beim Personal.","Une erreur s'est produite, veuillez réessayer et si cela ne fonctionne toujours pas, contactez le personnel.","An error has occurred, please try again and if it still doesn't work, contact the staff."
 jeton,Halte deinen Jeton auf den roten Punkt.,Place ton jeton sur le point rouge.,Hold your token on the red dot.
 no-jeton,Kein Jeton dabei? Wende dich an die Kommunikator:innen oder hole einen Jeton am Empfang.,,
+inactive-warning,Bist du noch da? Dann tippe auf den Screen!,Tu es encore là? Touche l’écran du doigt!,Are you still there? Then tap the screen!
+station-complete,Hier warst du schon und hast alle Fragen beantwortet.,Tu es déjà venu ici et tu as répondu à toutes les questions.,You’ve been here already and have answered all the questions.
+station-partly-complete,Da bist du ja wieder. Willst du mit der nächsten Frage weiterfahren?,"C’est encore toi. Tu veux aller à la question suivante?
+",There you are again. Would you like to continue with the next question?
+station-partly-complete.continue,Weiterfahren,Continuer,Continue
+station-partly-complete.restart,Zum Anfang,Retourner au début,Go to start
 0,Intro,,
 1,Kleidung,,
 2,Wohnen,,
@@ -63,6 +69,191 @@ I will guide you through the exhibition."
 1.question5.answer2,"Ja, dann könnte ich mir mehr Markenkleider leisten.","Oui, je pourrais me payer davantage de vêtements de marque.","Yes, I could afford to buy more brand-name clothes."
 1.question5.answer3,"Ja, dann würde ich auch mehr einkaufen.","Oui, j'en achèterais davantage.","Yes, I would buy more."
 1.dialogue4,"Ssssssuper, vielen Dank! Bis zur nächsten Station.","Ssssssuper, merci! À plus à la prochaine station.","Ssssssuper, thanks! See you at the next terminal."
+,,,
+2.dialogue1,"Hallo, schön, dich zu wiederzusehen. Komm, wir sprechen über das Wohnen.","Hello, c’est chouette de te revoir. Viens, parlons de logement.","Hi, it’s nice to see you again. Let’s talk about your home."
+2.dialogue2,"Übrigens. Willst du wissen, wo ich lebe? Dann tippe mich an!",Au fait: tu veux savoir où je vis? Alors touche-moi du doigt!,"By the way, would you like to know where I live? Then just tap me!"
+2.dialogue3,"Also, bist du bereit für meine Fragen?","Bon, tu es prêt pour mes questions?","OK, are you ready for my questions?"
+2.question1,"Wie lange dauert es, um dein Zuhause gründlich zu staubsaugen?",Combien de temps te faut-il pour aspirer à fond chez toi?,How long does it take you to vacuum-clean your home?
+2.question1.answer0,Weniger als eine halbe Stunde.,Moins d’une demi-heure.,Less than half an hour.
+2.question1.answer1,Eine halbe Stunde.,Une demi-heure.,Half an hour.
+2.question1.answer2,Etwa eine Stunde.,Environ 1 heure.,About 1 hour.
+2.question1.answer3,Mehr als 1 Stunde.,Plus d’1 heure.,More than 1 hour.
+2.question2,"Weisst du, wie dein Zuhause geheizt wird?",Sais-tu comment ton logement est chauffé?,Do you know how your home is heated?
+2.question2.answer0,Ich heize meine Wohnung so gut wie nicht.,Je ne chauffe quasiment pas mon appartement.,I don’t really heat my home.
+2.question2.answer1,"Mit erneuerbarer Energie (Fernwärme, Wärmepumpe, Holzheizung).","Avec une énergie renouvelable (chaleur à distance, pompe à chaleur, bois).","With energy from a renewable source (district heating, heat pump, wood-fired heating)."
+2.question2.answer2,Mit Öl oder Gas.,Au fuel ou au gaz.,With oil or gas.
+2.question2.answer3,Nein.,Non.,No.
+2.question3,"Wie viele Streaming-Abos für Serien, Filme und Musik hast du?","Combien d’abonnements de streaming as-tu pour des séries, des films ou de la musique?",How many subscriptions to film or music streaming services do you have?
+2.question3.answer0,Keines.,Aucun.,None.
+2.question3.answer1,1.,1.,1.
+2.question3.answer2,2 bis 3.,2 à 3.,2 or 3.
+2.question3.answer3,Mehr als 3.,Plus de 3.,More than 3.
+2.question4,Wie gut bist du im Ausmisten?,Est-ce que tu te débarrasses facilement des choses?,How good are you at decluttering your home?
+2.question4.answer0,"Schlecht, denn ich habe gar nicht so viele Sachen.","Non, car je n’en ai pas beaucoup.","Not very good, but I don’t have that many things."
+2.question4.answer1,"Super, ich kann vieles weitergeben oder ins Brocki bringen.","Oui, je donne plein de choses ou les apporte dans une boutique de seconde main.","Great, I like to pass things on to other people or bring them to the charity shop."
+2.question4.answer2,"Schlecht, ich habe zu viele Sachen zu Hause.","Non, j’ai trop de choses chez moi.","Not very good, I have too much stuff."
+2.question4.answer3,"Super, ich fülle mehrmals im Jahr mehrere Abfallsäcke.","Oui, je remplis plusieurs sacs poubelle par an.","Really good, I fill several bin liners several times a year."
+2.question5,Was machst du an einem kalten Winterabend?,Que fais-tu par une froide soirée d’hiver?,What do you do on a cold winter’s evening?
+2.question5.answer0,Ich kuschle mich in eine Decke.,Je m’enroule dans une couverture.,I snuggle under a blanket.
+2.question5.answer1,Ich trinke etwas Heisses.,Je bois quelque chose de chaud.,I make myself a hot drink.
+2.question5.answer2,Ich nehme ein warmes Bad.,Je prends un bain chaud.,I take a hot bath.
+2.question5.answer3,Ich drehe die Heizung hoch.,Je monte le chauffage.,I turn up the heating.
+2.dialogue4,Das ging ja fix! Ich freue mich schon auf die nächste Fragerunde. Bis bald!,C’est allé vite! Je me réjouis déjà de te revoir pour la prochaine série de questions. À toute!,That was quick! I look forward to the next round of questions. See you soon!
+,,,
+3.dialogue1,"Hallo, ich habe schon auf dich gewartet. Bist du viel unterwegs? Ja, ich weiss, ich frage ein bisschen viel. Ich bin halt sehr neugierig.","Hello, je t’attendais. Tu te déplaces beaucoup? Oui, je sais, je pose beaucoup de questions. Je suis très curieux!","Hi, I’ve been waiting for you. Are you on the road a lot? I know, I’m asking lots of questions. You see, I’m a bit nosy."
+3.dialogue2,Willst du noch etwas über mich erfahren? Dann tippe mich an!,Tu veux savoir d’autres choses sur moi? Alors touche-moi du doigt!,Would you like to know more about me? Then just tap me!
+3.dialogue3,"So, hier sind meine fünf Fragen zum Thema Mobilität.",Voici mes 5 questions sur le thème de la mobilité.,"OK, here are my five questions about mobility."
+3.question1,Wie legst du den Weg zur Arbeit oder zur Schule zurück?,Comment vas-tu au travail ou à l’école?,How do you get to work or school?
+3.question1.answer0,"Zu Fuss, beziehungsweise: Ich habe gar keinen Arbeits- oder Schulweg.","À pied, ou pas du tout.",On foot; or: I don’t actually travel to work or school.
+3.question1.answer1,Mit dem Velo.,À vélo.,By bicycle.
+3.question1.answer2,Mit dem öffentlichen Verkehr.,En transports publics.,By public transport.
+3.question1.answer3,Mit dem Auto.,En voiture.,By car.
+3.question2,Wie viele Fahrzeuge mit Motor gibt es in deinem Haushalt?,Combien de véhicules à moteur y a-t-il chez toi?,How many motor vehicles does your household own?
+3.question2.answer0,Keines.,Aucun.,None.
+3.question2.answer1,1.,1.,1.
+3.question2.answer2,2.,2.,2.
+3.question2.answer3,Mehr als 3.,Plus de 3.,More than 3.
+3.question3,Wie reist du in die Ferien?,Comment pars-tu en vacances?,How do you go on your holidays?
+3.question3.answer0,"Ich wähle mein Ziel so, dass ich umweltfreundlich reisen kann.",Je choisis ma destination de manière à pouvoir voyager sans nuire à l’environnement.,I choose a destination that allows me to travel in an environmentally friendly way.
+3.question3.answer1,"Ich überlege mir immer, wie ich das Fliegen vermeiden kann.",Je regarde toujours si je peux éviter de prendre l’avion.,I always try to avoid air travel.
+3.question3.answer2,"Ich achte darauf, dass ich möglichst bequem reisen kann.",Je cherche à voyager confortablement.,I choose the mode of transport that allows me to travel in comfort.
+3.question3.answer3,"Ich wähle das Verkehrsmittel, mit dem ich am schnellsten ans Ziel komme.",Je choisis le moyen de transport le plus rapide pour arriver à destination.,I choose the mode of transport that gets me there the fastest.
+3.question4,Wo wohnst du?,Où habites-tu?,Where do you live?
+3.question4.answer0,In einer grösseren Stadt.,Dans une grande ville.,In a relatively big city.
+3.question4.answer1,In einer Kleinstadt.,Dans une petite ville.,In a small town.
+3.question4.answer2,In der Agglomeration.,Dans une agglomération.,In an urban area.
+3.question4.answer3,Auf dem Land.,À la campagne.,In a rural area.
+3.question5,Wie bist du in der Natur unterwegs?,Comment te déplaces-tu dans la nature?,How do you move around in nature?
+3.question5.answer0,Ich geniesse vor allem Ruhe in der Natur.,J’apprécie surtout le calme de la nature.,I mainly enjoy the peace and quiet in nature.
+3.question5.answer1,Ich bin oft zu Fuss oder mit dem Velo unterwegs.,Je me balade souvent à pied ou à vélo.,I often move around on foot or by bicycle.
+3.question5.answer2,Mich zieht es an spektakuläre Orte in der Natur.,J’aime les coins spectaculaires de la nature.,I love to go the spectacular places in nature.
+3.question5.answer3,"Ich treibe gerne Sport wie Skifahren, Windsurfen, Mountainbiking …","Je fais du sport, comme du ski, de la planche à voile, du VTT...","I like to do sports like skiing, windsurfing, mountain biking..."
+3.dialogue4,Das ging ja fix! Ich freue mich schon auf die nächste Fragerunde. Bis bald!,C’est allé vite! Je me réjouis déjà de te revoir pour la prochaine série de questions. À toute!,That was quick! I look forward to the next round of questions. See you soon!
+,,,
+4.dialogue1,"Hallo, da bist du ja wieder. Ich wundere mich ja immer ein bisschen, was ihr Menschen so alles esst.","Hello, tu es de nouveau là. Je suis toujours un peu étonné de voir ce que vous les humains mangez.","Hi, there you are again. I always wonder what people eat."
+4.dialogue2,"Willst du wissen, was ich gerne esse? Dann tippe mich an!",Tu veux savoir ce que j’aime manger? Alors touche-moi du doigt!,Would you like to know what I like to eat? Then just tap me!
+4.dialogue3,"So, jetzt bist du wieder dran.","Bon, c’est à toi.","Right, your turn again."
+4.question1,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
 ,,,
 ,,,
 0.insect1,Ich bin ein Abendpfauenauge.,Je suis un Sphinx demi-paon.,I am an eyed hawkmoth.
