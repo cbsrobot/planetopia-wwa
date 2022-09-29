@@ -81,15 +81,6 @@ export function logOut() {
     clearInterval(activePing);
 }
 
-export function setLanguage(language) {
-  // send language to server
-  // post request with currentRfid
-
-  // on response setLocale in i18n
-  const locale = "fr";
-  setLocale(locale);
-}
-
 export function setAnswer(stationNumber, questionNumber, points) {
   var requestOptions = {
     method: 'PUT',
@@ -105,7 +96,22 @@ export function setAnswer(stationNumber, questionNumber, points) {
     .then(response => response.json())
     .then(data => _userData.set(data))
     .catch(error => console.log('error', error));
+}
 
+export function setLastPage(stationNumber, lastPageStr) {
+  var requestOptions = {
+    method: 'PUT',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      "station": stationNumber,
+      "lastPage": lastPageStr,
+    })
+  };
+
+  fetch(`${API_URL}/api/users/${currentRfid}/last-page`, requestOptions)
+    .then(response => response.json())
+    .then(data => _userData.set(data))
+    .catch(error => console.log('error', error));
 }
 
 function getUserDataFromServer() {}

@@ -6,6 +6,7 @@
 
   export let textPath;
   export let pageIndex, totalPages;
+  export let stationNumber;
 
   $: dialogueText = injectAvatarInfo($_(textPath));
 
@@ -19,7 +20,7 @@
   }
 </script>
 
-<Navigation bind:pageIndex {totalPages} />
+<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath}/>
 <img alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
 <p id="dialogue">{dialogueText}</p>
 

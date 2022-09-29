@@ -8,8 +8,7 @@
   export let textPath;
   export let pageIndex, totalPages;
 
-  export let stationNumber;
-  export let questionNumber;
+  export let stationNumber, questionNumber;
 
   let answers = [
     { textKey: "answer0", points: 0 },
@@ -20,6 +19,8 @@
   shuffleArray(answers);
 
   let selected = null;
+
+  $: saveAnswer(selected)
   $: neutral = selected === null ? true : false;
 
   // Convert points from database back to selected index
@@ -29,8 +30,8 @@
     selected = (answer == undefined) ? null : answers.indexOf(answer);
   }
 
-  function saveAnswer(){
-    setAnswer(stationNumber, questionNumber, answers[selected].points)
+  function saveAnswer(selection){
+    if(selection != undefined) setAnswer(stationNumber, questionNumber, answers[selection].points)
   }
 
 
@@ -44,7 +45,8 @@
   }
 </script>
 
-<Navigation on:nextClicked={saveAnswer} bind:pageIndex={pageIndex} {totalPages} disableNext={neutral} />
+<!-- on:nextClicked={saveAnswer} -->
+<Navigation  bind:pageIndex={pageIndex} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
 
 <div class="content">
   <p class="question">{$_(textPath)}</p>
