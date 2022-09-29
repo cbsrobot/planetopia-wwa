@@ -6,8 +6,8 @@
   import LogInPage from "./components/LogInPage.svelte";
   import InactiveWarningPage from "./components/InactiveWarningPage.svelte";
 
-  const TIMEOUT_WARNING = 30; // in seconds
-  const TIMEOUT_RESET = 40; // in seconds
+  const TIMEOUT_WARNING = 20; // in seconds
+  const TIMEOUT_RESET = 30; // in seconds
 
   const IS_PROD = Boolean(process.env.IS_PROD === "true")
   const SHOW_DEV_BAR = ! IS_PROD;
