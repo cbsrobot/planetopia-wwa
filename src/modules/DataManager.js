@@ -1,8 +1,9 @@
 const API_URL = process.env.IS_PROD === "true" ?  process.env.API_URL : "http://localhost:3000";
+// const API_URL = process.env.API_URL;
 const STATION = process.env.STATION || 0;
 
 import { writable, derived, readable } from "svelte/store";
-import { _, setLocale } from "./i18n.js";
+import { _, setLocale, resetLocale, locale } from "./i18n.js";
 const { ipcRenderer } = require("electron");
 
 const _userData = writable(undefined);
@@ -11,6 +12,11 @@ export const userData = derived(_userData, ($_userData) => $_userData);
 let currentRfid;
 userData.subscribe((userData) => {
   currentRfid = userData?.rfid;
+});
+
+let currentLocale
+locale.subscribe((loc) => {
+  currentLocale = loc
 });
 
 export const loggedIn = writable(false);
@@ -44,12 +50,13 @@ function checkActive() {
 let activePing;
 
 function logIn(rfid) {
+  console.log("try to log in")
   var requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       logIn: true,
-      station: STATION,
+      language: currentLocale,
     }),
   };
 
@@ -58,6 +65,7 @@ function logIn(rfid) {
     .then((data) => {
         console.log("Data:", data)
         _userData.set(data);
+        setLocale(data.language);
         clearInterval(activePing);
         activePing = setInterval(checkActive, 1000);
         loggedIn.set(true)
@@ -68,6 +76,7 @@ function logIn(rfid) {
 export function logOut() {
     loggedIn.set(false)
     _userData.set(undefined);
+    resetLocale();
     console.log("Logged out");
     clearInterval(activePing);
 }

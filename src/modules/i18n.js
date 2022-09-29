@@ -25,7 +25,9 @@ const textData = parse(rawData, {
 });
 
 // store locale in a writable store
-const localeStore = writable("de");
+const localeStore = writable(undefined); 
+export const locale = derived(localeStore, ($localeStore) => $localeStore);
+
 
 // subscribe to localeStore to be able to use the current value
 let currentLocale;
@@ -47,9 +49,11 @@ export const _ = derived(
 export function setLocale(locale) {
   if (locale === "en" || locale === "de" || locale === "fr") {
     localeStore.set(locale);
-    console.log("🚀 ~ setLocale ~ currentLocale", currentLocale)
-    
   } else {
     throw new Error(locale + " is not a supported locale!");
   }
+}
+
+export function resetLocale(){
+  localeStore.set(undefined);
 }

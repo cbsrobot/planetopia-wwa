@@ -4,7 +4,7 @@
   // choose from 5 different variants:
   // with icons: next, back, home
   // without icons: plain-primary, plain-secondary
-  export let next = false, back = false, home = false, plain_primary = false, plain_secondary = false;
+  export let next = false, back = false, home = false, plain_primary = false, plain_secondary = false, handwritten = true;
 
   export let text = ""
   // TODO: Add correct disabled styling
@@ -20,7 +20,7 @@
   $: buttonText = text || defaultText;
 </script>
 
-<button on:click class:disabled class:hidden class:next class:back class:home class:plain_primary class:plain_secondary>
+<button on:click class:disabled class:hidden class:next class:back class:home class:plain_primary class:plain_secondary class:handwritten>
   {#if back}
     <img alt="" src="assets/icons/back.svg" />
   {/if}
@@ -43,15 +43,17 @@
     font-size: 2rem;
     outline: none;
 
-    font-family: 'MANIC', sans-serif;
-    text-transform: uppercase;
-
     border: solid 5px;
 
     border-top-left-radius: 255px 15px;
     border-top-right-radius: 15px 225px;
     border-bottom-right-radius: 225px 15px;
     border-bottom-left-radius: 15px 255px;
+  }
+
+  .handwritten{
+    font-family: 'MANIC', sans-serif;
+    text-transform: uppercase;
   }
 
   .plain_primary,
