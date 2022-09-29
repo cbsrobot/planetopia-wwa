@@ -29,6 +29,8 @@
     inactiveTime = 0;
     lastInteraction = new Date();
   }
+  $: if ($loggedIn) interactionDetected();
+
 </script>
 
 <main on:click={interactionDetected} class:selectable-text = { ! IS_PROD }>

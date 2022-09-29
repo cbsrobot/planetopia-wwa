@@ -33,7 +33,7 @@ export function simulateLogIn(rfid) {
     if(rfid){
       logIn(rfid);
     }else{
-      const randomStr = Math.random().toString(16).substr(2, 8);
+      const randomStr = Math.random().toString(16).substr(2, 5);
       logIn(randomStr);
     }
 }
@@ -50,7 +50,13 @@ function checkActive() {
 let activePing;
 
 function logIn(rfid) {
-  console.log("try to log in")
+
+  // if it is a new rfid chip log out old chip (but dont delete the chosen language)
+  if(currentRfid && rfid != currentRfid){
+    logOut(false); 
+  }
+
+  // log in to new session
   var requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -59,6 +65,8 @@ function logIn(rfid) {
       language: currentLocale,
     }),
   };
+
+  console.log("🚀 ~ logIn ~ currentLocale", currentLocale)
 
   fetch(`${API_URL}/api/users/${rfid}`, requestOptions)
     .then((response) => response.json())
@@ -73,10 +81,10 @@ function logIn(rfid) {
     .catch((error) => console.log("error", error));
 }
 
-export function logOut() {
+export function logOut(languageReset = true) {
     loggedIn.set(false)
     _userData.set(undefined);
-    resetLocale();
+    if(languageReset) resetLocale();
     console.log("Logged out");
     clearInterval(activePing);
 }
