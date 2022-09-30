@@ -1,5 +1,6 @@
 <script>
   import { _ } from "../modules/i18n.js";
+  
 </script>
 
 <h2>{$_("station-complete")}</h2>

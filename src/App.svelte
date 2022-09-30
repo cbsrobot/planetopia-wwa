@@ -1,13 +1,15 @@
 <script>
   import { onDestroy } from "svelte";
   import { loggedIn, logOut } from "./modules/DataManager.js";
+  import { resetLocale } from "./modules/i18n.js";
   import PageManager from "./components/PageManager.svelte";
   import DevBar from "./components/DevBar.svelte";
   import LogInPage from "./components/LogInPage.svelte";
   import InactiveWarningPage from "./components/InactiveWarningPage.svelte";
 
-  const TIMEOUT_WARNING = 20; // in seconds
-  const TIMEOUT_RESET = 30; // in seconds
+  const TIMEOUT_WARNING = 30; // in seconds
+  const TIMEOUT_RESET = 40; // in seconds
+  const TIMEOUT_RESET_LANGUAGE = 30
 
   const IS_PROD = Boolean(process.env.IS_PROD === "true")
   const SHOW_DEV_BAR = ! IS_PROD;
@@ -17,6 +19,9 @@
 
   // Log out after specified timeout
   $: if ($loggedIn && inactiveTime > TIMEOUT_RESET) logOut();
+
+  // Reset language choice after specified inactive time
+  $: if ( ! $loggedIn && inactiveTime > TIMEOUT_RESET_LANGUAGE) resetLocale();
 
   // update inactive time every second
   const interval = setInterval(() => {
