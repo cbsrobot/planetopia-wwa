@@ -3,8 +3,8 @@ $ sudo usermod -a -G dialout $USER
 
 Add a .env file on the root level with following content
 STATION=0
-IS_PROD="false"
-API_URL="http://127.0.0.1:3000"
+IS_PROD=false
+API_URL=http://10.7.0.111:3000
 
 <div align="center">
 <img alt="Electron Svelte Crossover Banner" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/svg/Electron_Svelte.svg" width="580" />
