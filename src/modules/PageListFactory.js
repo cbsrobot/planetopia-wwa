@@ -1,15 +1,10 @@
 import DialoguePage from "../components/DialoguePage.svelte";
 import QuestionPage from "../components/QuestionPage.svelte";
-import StationCompletePage from "../components/StationCompletePage.svelte";
-import StationPartlyCompletePage from "../components/StationPartlyCompletePage.svelte";
 import { userData } from "./DataManager.js";
 import { get } from "svelte/store";
 
 let envStation = parseInt(process.env.STATION);
-const STATION = envStation != undefined ? envStation : 3;
-
-const stationComplete = { component: StationCompletePage, props: {} };
-const stationPartlyComplete = { component: StationPartlyCompletePage, props: {} };
+export const STATION = envStation != undefined ? envStation : 3;
 
 const introCore = [
   { component: DialoguePage, props: { textPath: "0.dialogue1" } },
@@ -68,8 +63,19 @@ const mobilityCore = [
   { component: DialoguePage, props: { textPath: "3.dialogue4" } },
 ];
 
-const foodStart = [];
-const foodCore = [];
+const foodStart = { component: DialoguePage, props: { textPath: "4.dialogue1" } };
+const foodCore = [
+  { component: DialoguePage, props: { textPath: "4.dialogue2" } },
+  { component: DialoguePage, props: { textPath: "4.dialogue3" } },
+  { component: QuestionPage, props: { textPath: "4.question1" } },
+  { component: QuestionPage, props: { textPath: "4.question2" } },
+  { component: QuestionPage, props: { textPath: "4.question3" } },
+  { component: QuestionPage, props: { textPath: "4.question4" } },
+  { component: QuestionPage, props: { textPath: "4.question5" } },
+  { component: DialoguePage, props: { textPath: "4.dialogue4" } },
+  { component: DialoguePage, props: { textPath: "4.dialogue5" } },
+  { component: DialoguePage, props: { textPath: "4.dialogue6" } },
+];
 
 const evaluationStart = [];
 const evaluationCore = [];
@@ -81,16 +87,6 @@ function introComplete() {
 // based on User Data and station number
 export function generatePageList() {
   let pageList = [];
-
-  if (get(userData).stations[STATION].complete) {
-    // hier warst du schon und hast alles beantwortet
-    pageList.push(stationComplete);
-  } else if (Object.keys(get(userData).stations[STATION].questions).length > 0) {
-    // an ort und stell fortfahren
-    pageList.push(stationPartlyComplete)
-  } else {
-    // standard case
-  }
 
   switch (STATION) {
     case 0:
@@ -126,6 +122,16 @@ export function generatePageList() {
         pageList.push(...introCore);
         pageList.push(introEnd[STATION]);
         pageList.push(...mobilityCore);
+      }
+      break;
+    case 4:
+      if (introComplete()) {
+        pageList.push(foodStart);
+        pageList.push(...foodCore);
+      } else {
+        pageList.push(...introCore);
+        pageList.push(introEnd[STATION]);
+        pageList.push(...foodCore);
       }
       break;
     default:

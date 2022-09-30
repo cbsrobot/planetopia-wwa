@@ -9,6 +9,7 @@ inactive-warning,Bist du noch da? Dann tippe auf den Screen!,Tu es encore là? T
 station-complete,Hier warst du schon und hast alle Fragen beantwortet.,Tu es déjà venu ici et tu as répondu à toutes les questions.,You’ve been here already and have answered all the questions.
 station-partly-complete,Da bist du ja wieder. Willst du mit der nächsten Frage weiterfahren?,"C’est encore toi. Tu veux aller à la question suivante?
 ",There you are again. Would you like to continue with the next question?
+station-partly-complete2,Da bist du ja wieder. Willst du dort weiterfahren wo du aufgehört hast?,,
 station-partly-complete.continue,Weiterfahren,Continuer,Continue
 station-partly-complete.restart,Zum Anfang,Retourner au début,Go to start
 0,Intro,,
@@ -133,34 +134,36 @@ I will guide you through the exhibition."
 4.dialogue1,"Hallo, da bist du ja wieder. Ich wundere mich ja immer ein bisschen, was ihr Menschen so alles esst.","Hello, tu es de nouveau là. Je suis toujours un peu étonné de voir ce que vous les humains mangez.","Hi, there you are again. I always wonder what people eat."
 4.dialogue2,"Willst du wissen, was ich gerne esse? Dann tippe mich an!",Tu veux savoir ce que j’aime manger? Alors touche-moi du doigt!,Would you like to know what I like to eat? Then just tap me!
 4.dialogue3,"So, jetzt bist du wieder dran.","Bon, c’est à toi.","Right, your turn again."
-4.question1,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
+4.question1,"Wenn du ein grösseres Budget fürs Essen hättest, wie würdest du es ausgeben?","Si ton budget alimentation était moins limité, comment le dépenserais-tu?","If you had a bigger food budget, what would you spend the extra money on?"
+4.question1.answer0,Ich würde mehr Biolebensmittel und lokale Produkte kaufen.,J’achèterais davantage de produits bio et locaux.,I would buy more organic food and local produce.
+4.question1.answer1,Ich würde auf bessere Qualität achten.,Je veillerais davantage à la qualité.,I would buy better-quality food.
+4.question1.answer2,"Ich würde mehr Lebensmittel 
+einkaufen.",J’achèterais plus de nourriture.,I would buy more food.
+4.question1.answer3,Ich würde mehr exotische und ausgefallene Delikatessen kaufen.,J’achèterais plus de produits fins ou exotiques.,I would buy more exotic or unusual products.
+4.question2,Wie häufig isst du Fleisch oder Fisch?,À quelle fréquence manges-tu de la viande ou du poisson?,How often do you eat meat or fish?
+4.question2.answer0,Nie.,Jamais.,Never.
+4.question2.answer1,1- bis 2-mal in der Woche.,1 à 2 fois par semaine.,Once or twice a week.
+4.question2.answer2,3- bis 5-mal pro Woche.,3 à 5 fois par semaine.,3 to 5 times a week.
+4.question2.answer3,Täglich.,Tous les jours.,Every day.
+4.question3,Wie oft schmeisst du Lebensmittel weg?,À quelle fréquence jettes-tu de la nourriture?,How often do you throw away food?
+4.question3.answer0,Sehr selten.,Très rarement.,Very rarely.
+4.question3.answer1,Hin und wieder.,De temps en temps.,Every now and then.
+4.question3.answer2,1- bis 2-mal pro Monat.,1 à 2 fois par mois.,Once or twice a month.
+4.question3.answer3,Jede Woche.,Toutes les semaines.,Every week.
+4.question4,"Planst du im Voraus, was du in den kommenden Tagen essen willst?",Est-ce que tu prévois à l’avance ce que tu vas manger les jours suivants?,Do you plan your menu ahead?
+4.question4.answer0,"Ja, ich mache einen Menüplan und schreibe eine Einkaufsliste.","Oui, je fais un plan des menus et une liste de commissions.","Yes, I plan my meals and write a shopping list."
+4.question4.answer1,"Ja, ich mache einen groben Menüplan.","Oui, je fais plus ou moins un menu.","Yes, I make a rough plan."
+4.question4.answer2,"Nein, ich entscheide beim Einkaufen, was es heute gibt.","Non, je décide en fonction de ce que je trouve.","No, I decide when I’m shopping what I’m going to cook today."
+4.question4.answer3,"Nein, ich esse meistens, worauf ich gerade Lust habe.","Non, j’achète généralement ce qui me fait envie.","No, I usually eat whatever I feel like eating."
+4.question5,Magst du Hafermilch?,Aimes-tu le lait d’avoine?,Do you like oat milk?
+4.question5.answer0,"Ja, finde ich besser als Kuhmilch, zum Beispiel auch für einen Cappuccino mit Schaum.","Oui, je le préfère au lait de vache, y compris dans un cappuccino.","Yes, I prefer it to cow’s milk and like to use it in cappuccino for the foam."
+4.question5.answer1,"Ja, aber ich trinke sie nicht so oft.","Oui, mais je n’en bois pas souvent.","Yes, but I don’t have it very often."
+4.question5.answer2,Der Kaffee schmeckt halt schon nicht ganz so gut …,Le café n’est plus tout à fait aussi bon.,"Well, the coffee isn’t as nice..."
+4.question5.answer3,Habe ich noch nie probiert.,Je n’ai jamais goûté.,I have never tried it.
+4.dialogue4,"Jetzt hast du alle meine Fragen beantwortet. War doch gar nicht so schlimm, oder?","Tu as répondu à toutes mes questions. C’était pas si dur, ou bien?","You have answered all my questions. That wasn’t so bad, was it?"
+4.dialogue5,"Bei der letzten Station erfährst du, was du für die Umwelt tun kannst. Das wird super, ich schwör’s!","À la dernière station, tu apprendras ce que tu peux faire pour l’environnement. Promis-juré, c’était super!","At the last terminal you will find out what you can do for the environment. It will be great, I promise!"
+4.dialogue6,"Gut, bis zur nächsten Station.
+Tschüss!","On se voit à la prochaine station, tchao!","OK, see you at the next terminal. Bye!"
 ,,,
 ,,,
 ,,,
