@@ -1,6 +1,5 @@
 const API_URL = process.env.IS_PROD === "true" ?  process.env.API_URL : "http://localhost:3000";
 // const API_URL = process.env.API_URL;
-const STATION = process.env.STATION || 0;
 
 import { writable, derived, readable } from "svelte/store";
 import { _, setLocale, resetLocale, locale } from "./i18n.js";
@@ -11,6 +10,7 @@ export const userData = derived(_userData, ($_userData) => $_userData);
 
 let currentRfid;
 userData.subscribe((userData) => {
+  console.log("userData", userData);
   currentRfid = userData?.rfid;
 });
 
@@ -44,34 +44,40 @@ function checkActive() {
     .then(data => {
         if(!data.active) logOut();
     })
-    .catch(error => console.log('error', error));
+    .catch(error => console.log(error));
 }
 
 let activePing;
 
 function logIn(rfid) {
 
-  // if it is a new rfid chip log out old chip (but dont delete the chosen language)
+  // if it is a new rfid chip log out old chip
   if(currentRfid && rfid != currentRfid){
-    logOut(false); 
+    console.log("forced log out")
+    logOut(); 
+  }
+
+  const body = {}
+  body.logIn = true
+
+  if(currentLocale){
+    body.language = currentLocale
   }
 
   // log in to new session
   var requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      logIn: true,
-      language: currentLocale,
-    }),
+    body: JSON.stringify({...body}),
   };
-
-  console.log("🚀 ~ logIn ~ currentLocale", currentLocale)
 
   fetch(`${API_URL}/api/users/${rfid}`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
-        console.log("Data:", data)
+        if(!data.language) {
+          console.log("Log in failed because language was not set"); 
+          return;
+        }
         _userData.set(data);
         setLocale(data.language);
         clearInterval(activePing);
@@ -81,10 +87,10 @@ function logIn(rfid) {
     .catch((error) => console.log("error", error));
 }
 
-export function logOut(languageReset = true) {
+export function logOut() {
     loggedIn.set(false)
     _userData.set(undefined);
-    if(languageReset) resetLocale();
+    resetLocale();
     console.log("Logged out");
     clearInterval(activePing);
 }
@@ -103,7 +109,7 @@ export function setAnswer(stationNumber, questionNumber, points) {
   fetch(`${API_URL}/api/users/${currentRfid}/answer`, requestOptions)
     .then(response => response.json())
     .then(data => _userData.set(data))
-    .catch(error => console.log('error', error));
+    .catch(error => console.log(error));
 }
 
 export function setLastPage(stationNumber, lastPageStr) {
@@ -119,7 +125,7 @@ export function setLastPage(stationNumber, lastPageStr) {
   fetch(`${API_URL}/api/users/${currentRfid}/last-page`, requestOptions)
     .then(response => response.json())
     .then(data => _userData.set(data))
-    .catch(error => console.log('error', error));
+    .catch(error => console.log(error));
 }
 
 function getUserDataFromServer() {}

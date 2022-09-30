@@ -2,14 +2,15 @@
   import { _, locale, setLocale } from "../modules/i18n.js";
   import Button from "./Button.svelte";
   import StationIndicator from "./StationIndicator.svelte";
+  import { STATION } from "../modules/PageListFactory";
 </script>
 
-<StationIndicator station={parseInt(process.env.STATION)} text={false} />
-{#if ! $locale}
+<StationIndicator station={STATION} text={false} />
+{#if !$locale}
   <div class="language-container">
-    <Button on:click={() => setLocale("de")} plain_primary handwritten = {false} text="Deutsch" />
-    <Button on:click={() => setLocale("fr")} plain_primary handwritten = {false} text="Français" />
-    <Button on:click={() => setLocale("en")} plain_primary handwritten = {false} text="English" />
+    <Button on:click={() => setLocale("de")} plain_primary handwritten={false} text="Deutsch" />
+    <Button on:click={() => setLocale("fr")} plain_primary handwritten={false} text="Français" />
+    <Button on:click={() => setLocale("en")} plain_primary handwritten={false} text="English" />
   </div>
 {:else}
   <div class="jeton-container">

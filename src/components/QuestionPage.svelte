@@ -3,7 +3,6 @@
   import Selectable from "./Selectable.svelte";
   import { userData, setAnswer } from "../modules/DataManager";
   import { _ } from "../modules/i18n.js";
-  // import { onMount } from 'svelte';
 
   export let textPath;
   export let pageIndex, totalPages;
@@ -26,8 +25,8 @@
   // Convert points from database back to selected index
   $: {
     const points = parseInt($userData.stations[stationNumber].questions[questionNumber]);
-    const answer = answers.find((a) => a.points === points);
-    selected = (answer == undefined) ? null : answers.indexOf(answer);
+    const answerIndex = answers.findIndex((a) => a.points === points);
+    selected = (answerIndex < 0) ? null : answerIndex;
   }
 
   function saveAnswer(selection){

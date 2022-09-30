@@ -1,7 +1,8 @@
 <script>
-  import Button from "./Button.svelte";
   import { logOut, setLastPage} from "../modules/DataManager.js";
+  import Button from "./Button.svelte";
   import ProgressIndicator from "./ProgressIndicator.svelte";
+  import StationIndicator from "./StationIndicator.svelte";
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
 
@@ -17,7 +18,6 @@
   export let disableNext = false;
 
   $: setLastPage(station, pageID)
-  // $: console.log(station, pageID)
 
   function handleBackClick() {
     if (pageIndex != undefined) pageIndex += backIncrement;
@@ -28,6 +28,10 @@
     dispatch("nextClicked");
   }
 </script>
+
+{#if station != undefined}
+  <StationIndicator station={station} />
+{/if}
 
 <div class="container top">
   <Button back hidden={pageIndex < 1} on:click={handleBackClick} />
