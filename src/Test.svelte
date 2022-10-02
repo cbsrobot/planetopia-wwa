@@ -1,6 +1,6 @@
 <script>
   import { _ , setLocale } from "./modules/i18n.js";
-  // setLocale("de")
+  setLocale("de")
 
   // import ProgressIndicator from "./ProgressIndicator.svelte";
   // import Button from "./Button.svelte";
@@ -10,7 +10,8 @@
   // import StationIndicator from './components/StationIndicator.svelte';
   // import Selectable from './components/Selectable.svelte';
   // import QuestionPage from "./components/QuestionPage.svelte";
-  import LogInPage from "./components/LogInPage.svelte";
+  // import LogInPage from "./components/LogInPage.svelte";
+  import InfoOverlay from "./components/InfoOverlay.svelte";
 
 </script>
 
@@ -20,7 +21,9 @@
   <!-- <StationIndicator/> -->
   <!-- <Selectable></Selectable> -->
   <!-- <QuestionPage textPath="1.question4" pageIndex={3} totalPages={11}/> -->
-  <LogInPage/>
+  <!-- <LogInPage/> -->
+
+  <InfoOverlay textPath={"2.insect2"}/>
 
 </main>
 
