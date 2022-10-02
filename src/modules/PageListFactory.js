@@ -1,5 +1,6 @@
-import DialoguePage from "../components/DialoguePage.svelte";
-import QuestionPage from "../components/QuestionPage.svelte";
+import DialoguePage from "../pages/DialoguePage.svelte";
+import QuestionPage from "../pages/QuestionPage.svelte";
+import InfoPage from "../pages/InfoPage.svelte";
 import { userData } from "./DataManager.js";
 import { get } from "svelte/store";
 
@@ -77,8 +78,31 @@ const foodCore = [
   { component: DialoguePage, props: { textPath: "4.dialogue6" } },
 ];
 
-const evaluationStart = [];
-const evaluationCore = [];
+const evaluationStart = {
+  firstLogIn: { component: InfoPage, props: { textPath: "5.dialogueStart1" } },
+  noAnswers: { component: InfoPage, props: { textPath: "5.dialogueStart2" } },
+  notAllAnswers: { component: DialoguePage, props: { textPath: "5.dialogueStart3" } },
+  allComplete: { component: DialoguePage, props: { textPath: "5.dialogueStart4" } },
+};
+
+const evaluationCore = [
+  { component: DialoguePage, props: { textPath: "5.dialogue2" } },
+  { component: DialoguePage, props: { textPath: "5.dialogue3" } },
+  { component: DialoguePage, props: { textPath: "5.dialogue4" } },
+  { component: DialoguePage, props: { textPath: "5.dialogue5" } },
+  { component: DialoguePage, props: { textPath: "5.dialogue6" } },
+  { component: DialoguePage, props: { textPath: "5.dialogue7" } },
+  // { component: AreaSelectionPage, props: { textPath: "5.areaSelection" } },
+  { component: DialoguePage, props: { textPath: "5.dialogue8" } },
+  // { component: WwaSelectionPage, props: { textPath: "5.wwaSelection" } },
+  // { component: DialoguePage, props: { textPath: "-> text depending on wwaSelection (5.dialogueClothes, 5.dialogueLiving, 5.dialogueMobility, 5.dialogueFood, 5.dialogueSpecial, 5.dialogueGeneral)" } },
+  // { component: WwaConfirmation1, props: { textPath: "5.wwaConfirmation1" } },
+  // { component: WwaConfirmation2, props: { textPath: "5.wwaConfirmation2" } },
+  { component: DialoguePage, props: { textPath: "5.dialogue9" } },
+  // { component: EmailAcceptPage, props: { textPath: "5.emailAccept" } },
+  // { component: EmailPromptPage, props: { textPath: "5.emailPrompt" } },
+  { component: DialoguePage, props: { textPath: "5.dialogue10" } },
+];
 
 function introComplete() {
   return get(userData).stations[0].complete;
@@ -133,6 +157,17 @@ export function generatePageList() {
         pageList.push(introEnd[STATION]);
         pageList.push(...foodCore);
       }
+      break;
+    case 5:
+      // TODO: Implement logic
+      // push one of the 4 start screens depending on answer state
+      pageList.push(evaluationStart.firstLogIn);
+      pageList.push(evaluationStart.noAnswers);
+      pageList.push(evaluationStart.notAllAnswers);
+      pageList.push(evaluationStart.allComplete);
+
+      pageList.push(...evaluationCore);
+      
       break;
     default:
       throw new Error(STATION + " is not a valid station number");
