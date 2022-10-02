@@ -1,9 +1,10 @@
 <script>
   import { _ } from "../modules/i18n.js";
+  export let textPath;
   
 </script>
 
-<h2>{$_("station-complete")}</h2>
+<h2>{$_(textPath)}</h2>
 
 <style>
   h2 {

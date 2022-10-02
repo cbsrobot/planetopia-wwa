@@ -23,6 +23,11 @@
     if (pageIndex != undefined) pageIndex += backIncrement;
   }
 
+  // TODO: Coordinate behaviour with revisit -> UX Testing
+  function handleHomeClick(){
+    logOut();
+  }
+
   function handleNextClick() {
     if (pageIndex != undefined) pageIndex += nextIncrement;
     dispatch("nextClicked");
@@ -35,7 +40,7 @@
 
 <div class="container top">
   <Button back hidden={pageIndex < 1} on:click={handleBackClick} />
-  <Button home on:click={() => logOut()} />
+  <Button home on:click={handleHomeClick} />
 </div>
 
 <div class="container bottom">

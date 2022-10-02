@@ -1,6 +1,6 @@
 <script>
-  import Navigation from "./Navigation.svelte";
-  import Selectable from "./Selectable.svelte";
+  import Navigation from "../components/Navigation.svelte";
+  import Selectable from "../components/Selectable.svelte";
   import { userData, setAnswer } from "../modules/DataManager";
   import { _ } from "../modules/i18n.js";
 
@@ -19,7 +19,7 @@
 
   let selected = null;
 
-  $: saveAnswer(selected)
+ 
   $: neutral = selected === null ? true : false;
 
   // Convert points from database back to selected index
@@ -29,6 +29,7 @@
     selected = (answerIndex < 0) ? null : answerIndex;
   }
 
+  $: saveAnswer(selected)
   function saveAnswer(selection){
     if(selection != undefined) setAnswer(stationNumber, questionNumber, answers[selection].points)
   }
@@ -44,7 +45,6 @@
   }
 </script>
 
-<!-- on:nextClicked={saveAnswer} -->
 <Navigation  bind:pageIndex={pageIndex} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
 
 <div class="content">

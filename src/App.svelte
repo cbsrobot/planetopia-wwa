@@ -2,16 +2,16 @@
   import { onDestroy } from "svelte";
   import { loggedIn, logOut } from "./modules/DataManager.js";
   import { resetLocale } from "./modules/i18n.js";
-  import PageManager from "./components/PageManager.svelte";
+  import PageManager from "./pages/PageManager.svelte";
   import DevBar from "./components/DevBar.svelte";
-  import LogInPage from "./components/LogInPage.svelte";
-  import InactiveWarningPage from "./components/InactiveWarningPage.svelte";
+  import LogInPage from "./pages/LogInPage.svelte";
+  import InactiveWarningPage from "./pages/InactiveWarningPage.svelte";
 
   const TIMEOUT_WARNING = 30; // in seconds
   const TIMEOUT_RESET = 40; // in seconds
-  const TIMEOUT_RESET_LANGUAGE = 30
+  const TIMEOUT_RESET_LANGUAGE = 30;
 
-  const IS_PROD = Boolean(process.env.IS_PROD === "true")
+  const IS_PROD = Boolean(process.env.IS_PROD === "true");
   const SHOW_DEV_BAR = ! IS_PROD;
 
   let lastInteraction = new Date();
@@ -80,7 +80,7 @@
     margin: 0 auto;
     font-family: "Sanuk", sans-serif;
     font-size: 2rem;
-    background: linear-gradient(236.04deg, rgba(252, 234, 189, 0.504) 33.11%, rgba(172, 232, 210, 0.63) 73.6%), #D2E8E1;
+    background: linear-gradient(236.04deg, rgba(252, 234, 189, 0.504) 33.11%, rgba(172, 232, 210, 0.63) 73.6%), #d2e8e1;
     user-select: none;
   }
 

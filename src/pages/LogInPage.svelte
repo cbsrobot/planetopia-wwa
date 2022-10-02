@@ -1,7 +1,7 @@
 <script>
   import { _, locale, setLocale } from "../modules/i18n.js";
-  import Button from "./Button.svelte";
-  import StationIndicator from "./StationIndicator.svelte";
+  import Button from "../components/Button.svelte";
+  import StationIndicator from "../components/StationIndicator.svelte";
   import { STATION } from "../modules/PageListFactory";
 </script>
 

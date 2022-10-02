@@ -1,6 +1,6 @@
 <script>
   import { _ } from "../modules/i18n.js";
-  import Button from "./Button.svelte";
+  import Button from "../components/Button.svelte";
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
 
@@ -22,8 +22,8 @@
 <div class="content">
   <h2>{$_("station-partly-complete")}</h2>
   <div class="button-container">
-    <Button text={$_("station-partly-complete.restart")} on:click={handleRestartClick} handwritten=false/>
-    <Button plain_primary text={$_("station-partly-complete.continue")} on:click={handleContinueClick} handwritten=false/>
+    <Button text={$_("station-partly-complete.restart")} on:click={handleRestartClick} handwritten={false}/>
+    <Button plain_primary text={$_("station-partly-complete.continue")} on:click={handleContinueClick} handwritten={false}/>
   </div>
 </div>
 

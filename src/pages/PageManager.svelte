@@ -1,8 +1,8 @@
 <script>
   import { generatePageList, STATION } from "../modules/PageListFactory.js";
   import { loggedIn, userData } from "../modules/DataManager.js";
-  import StationCompletePage from "../components/StationCompletePage.svelte";
-  import StationPartlyCompletePage from "../components/StationPartlyCompletePage.svelte";
+  import InfoPage from "./InfoPage.svelte";
+  import ContinuePage from "./ContinuePage.svelte";
 
   const STATES = {
     SHOW_PAGES: 1,
@@ -45,7 +45,7 @@
 {#if state === STATES.SHOW_PAGES}
   <svelte:component this={activePage.component} {...activePage.props} bind:pageIndex {totalPages} />
 {:else if state === STATES.SHOW_PARTLY_COMPLETE}
-  <StationPartlyCompletePage continuePageIndex={5} bind:pageIndex on:exit={() => (state = STATES.SHOW_PAGES)} />
+  <ContinuePage continuePageIndex={continuePageIndex} bind:pageIndex on:exit={() => (state = STATES.SHOW_PAGES)} />
 {:else if state === STATES.SHOW_COMPLETE}
-  <StationCompletePage />
+  <InfoPage textPath={"station-complete"} />
 {/if}
