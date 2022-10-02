@@ -1,5 +1,6 @@
 <script>
-  import Navigation from "./Navigation.svelte";
+  import Navigation from "../components/Navigation.svelte";
+  import InfoOverlay from "../components/InfoOverlay.svelte";
   import { _ } from "../modules/i18n.js";
 
   import { userData } from "../modules/DataManager";
@@ -8,21 +9,26 @@
   export let pageIndex, totalPages;
   export let stationNumber;
 
-  $: dialogueText = injectAvatarInfo($_(textPath));
+  let overlayOpen = false;
+  $: avatarNr = $userData.avatar;
+  $: overlayTextPath = `${stationNumber}.insect${avatarNr}`
 
+  $: dialogueText = injectAvatarInfo($_(textPath));
   function injectAvatarInfo(str) {
-    // get avatar hints
     const re = /#(\d)/i;
     const match = str.match(re);
-    const avatarNr = $userData.avatar;
     let text = match ? str.replace(re, $_(`${match[1]}.insect${avatarNr}`)) : str;
     return text;
   }
 </script>
 
 <Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath}/>
-<img alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+<img on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
 <p id="dialogue">{dialogueText}</p>
+
+{#if overlayOpen}
+  <InfoOverlay on:exit = {() => overlayOpen = false} textPath={overlayTextPath}/>
+{/if}
 
 <style>
   img {
