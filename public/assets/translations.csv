@@ -12,11 +12,13 @@ station-partly-complete,Da bist du ja wieder. Willst du mit der nächsten Frage 
 station-partly-complete2,Da bist du ja wieder. Willst du dort weiterfahren wo du aufgehört hast?,,
 station-partly-complete.continue,Weiterfahren,Continuer,Continue
 station-partly-complete.restart,Zum Anfang,Retourner au début,Go to start
+yes,Ja,Oui,Yes
+no,Nein,Non,No
 0,Intro,,
-1,Kleidung,,
-2,Wohnen,,
-3,Mobilität,,
-4,Ernährung,,
+1,Kleidung,Habillement,Clothes
+2,Wohnen,Logement,The home
+3,Mobilität,Mobilité,Mobility
+4,Ernährung,Alimentation,Food
 5,Auswertung,,
 0.dialogue1,"Hallo, herzlich willkommen auf Planetopia.
 Ich begleite dich durch die Ausstellung.","Hello, bienvenue sur Planetopia.
@@ -40,7 +42,7 @@ I will guide you through the exhibition."
 0.dialogueEnd1,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden über Kleider.,Tu participes? Super! Alors commençons tout de suite par l’habillement.,Are you up for it? Great! So let’s keep going and talk about clothes.
 0.dialogueEnd2,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden übers Wohnen.,Tu participes? Super! Alors continuons avec le logement.,Are you up for it? Great! So let’s keep going and talk about your home.
 0.dialogueEnd3,"Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden darüber, wie du unterwegs bist.",Tu participes? Super! Alors continuons tout de suite avec la mobilité.,Are you up for it? Great! So let’s keep going and talk about how you move around.
-0.dialogueEnd4,"Hallo, ich habe schon auf dich gewartet. Bist du viel unterwegs? Ja, ich weiss, ich frage ein bisschen viel. Ich bin halt sehr neugierig.","Hello, je t’attendais. Tu te déplaces beaucoup? Oui, je sais, je pose beaucoup de questions. Je suis très curieux!","Hi, I’ve been waiting for you. Are you on the road a lot? I know, I’m asking lots of questions. You see, I’m a bit nosy."
+0.dialogueEnd4,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden übers Essen.,Tu participes? Super! Alors continuons avec l’alimentation.,Are you up for it? Great! So let’s keep going and talk about food.
 1.dialogue1,"Hallo, da bist du ja wieder.","Hello, c’est à nouveau toi.","Hi, there you are again."
 1.dialogue2,"Übrigens: Wenn du mehr über mich erfahren willst, dann tippe mich an!","Au fait: si tu veux en savoir plus sur moi, touche-moi du doigt!","By the way, if you want to know more about me, then just tap me!"
 1.dialogue3,"So, sprechen wir ein bisschen über Kleidung.","O.K., parlons donc de vêtements.","Right, let’s talk a bit about clothes."
@@ -165,94 +167,41 @@ einkaufen.",J’achèterais plus de nourriture.,I would buy more food.
 4.dialogue6,"Gut, bis zur nächsten Station.
 Tschüss!","On se voit à la prochaine station, tchao!","OK, see you at the next terminal. Bye!"
 ,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
+5.dialogueStart1,Bitte geh zum Anfang der Ausstellung und melde dich bei einer der Computerstationen an.,Va au début de l’exposition et annonce-toi à une station.,Please go to the beginning of the exhibition and log in at one of the computer terminals.
+5.dialogueStart2,"Du hast leider einige Stationen übersprungen. Geh zu einer Computerstation im Bereich Kleidung, Wohnen, Mobilität oder Ernährung.","Tu as malheureusement sauté quelques stations. Va à celle qui est dans la zone de l’habillement, du logement, de la mobilité ou de l’alimentation.","Unfortunately you have skipped some of the terminals. Go to a terminal in the clothes, living, mobility or food areas."
+5.dialogueStart3,"Hallihallo, ich habe schon auf dich gewartet. Du hast noch nicht alle Stationen besucht. Möchtest du die Auswertung trotzdem machen?","Coucou, je t’attendais. Tu n’as pas encore vu toutes les stations. Tu veux quand même faire l’évaluation?","Hi there, I have been waiting for you. You haven’t visited all the terminals yet. Would you like to do the evaluation anyway?"
+5.dialogueStart4,"Hallihallo, ich habe schon auf dich gewartet. Bist du bereit für die Auswertung?","Coucou, je t’attendais. Tu es prêt.e pour l’évaluation?","Hi there, I have been waiting for you. Are you ready to do the evaluation?"
+5.dialogue2,"Gut, dann wollen wir mal.","C’est bien, alors allons-y.","OK, let's go."
+5.dialogue3,"Wir schliessen jetzt ein Weltwandels-Abkommen ab. 
+Du weisst nicht, was das ist?",Nous allons conclure un accord sur le changement mondial. Tu ne sais pas ce que c’est?,We are going to sign a world change agreement. You don’t know what that is?
+5.dialogue4,"Ganz einfach: Wir entscheiden zusammen, was du für die Umwelt tun kannst. Damit sich die Welt verändert.",C’est simple: nous décidons ensemble de ce que tu peux faire pour l’environnement. Afin que le monde change.,"It’s very simple: together, we will decide what you can do for the environment so that the world can change."
+5.dialogue5,Schau mal auf die Wände in diesem Raum. Dort siehst du ganz viele Weltwandels-Abkommen.,Regarde les murs de cette salle. Tu peux y voir toutes sortes d’accords sur le changement mondial.,Have a look at the walls in this room. You will see many other world change agreements.
+5.dialogue6,"Ich habe mir alle deine Antworten gemerkt. Einen Moment noch, die Auswertung läuft …","J’ai noté toutes tes réponses. Attends un peu, l’évaluation est en cours...","I have saved all your answers. Just a moment, the evaluation is ongoing..."
+5.dialogue7,"Hier ist das Resultat! Der Balken zeigt an, wie umweltbewusst du in den einzelnen Bereichen lebst.",Voilà le résultat! La barre indique à quel point ton mode de vie est écologique dans les différents domaines de la vie.,Here is your result! The bar shows how environmentally friendly your lifestyle is in different areas.
+5.result,Dein Umweltbewusstsein,Ta conscience écologique,Your environmental awareness
+5.areaSelection,In welchem Bereich möchtest du aktiv werden?,Dans quel domaine souhaites-tu agir?,Which of the areas would you like to change?
+5.areaSelection.special,Special Engagement,Engagement spécial,Special involvement
+5.dialogue8,"Gute Wahl! Also, ich schlage dir zwei Weltwandels-Abkommen vor und du kannst eines davon auswählen.",Bon choix! Je te propose donc deux accords sur le changement mondial et tu peux choisir l’un des deux.,"Great choice! OK, I will propose two world change agreements and you can choose one of them."
+5.wwaSelection,"Welches Weltwandelsabkommen möchtest du abschliessen?
+",Quel accord souhaites-tu conclure?,Which world change agreement would you like to sign?
+5.wwaSelection.count,## Leute haben dieses Abkommen bereits abgeschlossen.,## des gens ont déjà conclu cet accord.,## people have already signed this agreement.
+5.dialogueClothes,"Grossartig! Weniger und schlauer einkaufen, das passt bestens bei Kleidern.",,
+5.dialogueLiving,Toll! Weniger Energieverbrauch schenkt beim Wohnen besonders ein.,,
+5.dialogueMobility,"Kluge Entscheidung! Bahn und Muckis statt Verbrennungsmotoren, das bringt uns voran.",,
+5.dialogueFood,"Weniger Tier, mehr Neues ausprobieren! Das schmeckt mir!",,
+5.dialogueSpecial,Mutig! Du packst das!,,
+5.dialogueGeneral,"Eine Herausforderung, genau das richtige für dich. Super!",,
+5.wwaConfirmation1,"Bist du sicher, dass du dieses Weltwandels-Abkommen abschliessen willst?",Tu es sûr.e de vouloir conclure cet accord?,Are you sure this is the world change agreement you would like to sign?
+5.wwaConfirmation2,Nimmst du die Herausforderung wirklich an?,Tu veux vraiment relever ce défi?,Are you really going to accept the challenge?
+5.wwaConfirmation2.accept,Aber sicher! Ich will doch die Welt retten.,Bien sûr! Il faut sauver le monde.,"Sure! After all, I want to save the world."
+5.wwaConfirmation2.rethink,Ich muss es mir nochmals überlegen.,Il faut encore que j’y réfléchisse.,I would like to think about it again.
+5.dialogue9,"Wow!! Du bist super! Herzlichen Dank, dass du mithilfst, die Welt zu retten!",Ouah! Tu es super! Un grand merci d’aider à sauver le monde!,Wow! You are great! Thank you so much for helping to save the world!
+5.emailAccept,Möchtest du dir das Weltwandels-Abkommen nach Hause mailen?,Tu aimerais envoyer l’accord chez toi par mail?,Would you like to email the world change agreement to yourself?
+5.emailPrompt,Weltwandels-Abkommen zuschicken.,Envoyer l’accord sur le changement mondial.,Send the world change agreement.
+5.emailPrompt.question,Gib deine E-Mail-Adresse ein.,Saisis ton adresse électronique.,Enter your email address.
+5.emailPrompt.textField,Email-Adresse eingeben.,Saisir l’adresse électronique.,Enter email address.
+5.emailPrompt.newsletter,Ich will auch den Newsletter des Museums erhalten.,J’aimerais aussi recevoir la newsletter du musée.,I would also like to receive the Museum Newsletter.
+5.dialogue10,Ich wünsche dir viel Erfolg beim Weltwandel. Tschüss! Wir schaffen das!,Je te souhaite beaucoup de succès dans le changement mondial. Tchao! On va y arriver!,Good luck with your world change. Bye! We can do this!
 ,,,
 ,,,
 ,,,
