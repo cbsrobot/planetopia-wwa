@@ -56,7 +56,7 @@
       const answer = $userData.stations[STATION].questions[pageList[previousPageIndex].props.questionNumber]
       const jumpToIndex = pageList[previousPageIndex].conditionalJump[answer]
       if (jumpToIndex) {
-        //TODO clear previous selected data
+        //TODO clear previous saved data
         //setAnswer(stationNumber, questionNumber, points)
         pageIndex = jumpToIndex
       }

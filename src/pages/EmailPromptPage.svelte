@@ -1,11 +1,12 @@
 <script>
   const { ipcRenderer } = require("electron");
-  import { onMount } from "svelte";
   const validator = require("email-validator");
-
+  
+  import { onMount } from "svelte";
+  
   import Navigation from "../components/Navigation.svelte";
   import WwaImage from "../components/WwaImage.svelte";
-  import { userData, setAnswer } from "../modules/DataManager";
+  import { userData } from "../modules/DataManager";
   import { _ } from "../modules/i18n.js";
 
   import Keyboard from "simple-keyboard";
@@ -14,11 +15,9 @@
 
   export let textPath;
   export let pageIndex, totalPages;
-
   export let stationNumber;
 
   let simpleKeyboard = false;
-
   let validated = true;
 
   $: neutral = validated;
@@ -43,18 +42,19 @@
   function onChange(input) {
     document.querySelector(".input").value = input;
     validated = ! validator.validate(input)
-    //console.log("Input changed", input);
+    // console.log("Input changed", input);
   }
 
   function onKeyPress(button) {
-    //console.log("Button pressed", button);
+    // stub
+    // console.log("Button pressed", button);
   }
 
   function handleNextClicked() {
     // gather all facts and send email
     let emailaddress = document.querySelector(".input").value;
     if (!validator.validate(emailaddress)) {
-      // just to be sure
+      // check once more
       console.log("wrong email address");
       pageIndex -= 1;
       return;
@@ -65,6 +65,7 @@
       subject: "Planetopia",
       html: `<p>${$_("email", "").replace(/(?:\r\n|\r|\n)/g, "<br>")}</p>`,
       //"file": "path/to/pdf"
+      // TODO: add email? , selected WWA text
     });
     //TODO: should it bubble up ?
   }
@@ -72,14 +73,7 @@
   let overlayOpen = false;
 </script>
 
-<Navigation
-  bind:pageIndex
-  on:nextClicked={handleNextClicked}
-  {totalPages}
-  station={stationNumber}
-  pageID={textPath}
-  disableNext={neutral}
-/>
+<Navigation bind:pageIndex on:nextClicked={handleNextClicked} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral} />
 <WwaImage textPath="" />
 
 <div class="content">
@@ -160,9 +154,7 @@
     display: none;
   }
 
-  *,
-  *:before,
-  *:after {
+  *, *:before, *:after {
     box-sizing: border-box;
   }
 </style>
