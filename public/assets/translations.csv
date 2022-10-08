@@ -1,360 +1,483 @@
-id,de,fr,en
-next,Weiter,Suite,Next
-back,Zurück,Retour,Back
-home,Zum Anfang,Vers le début,Go to start
-error,"Ein Fehler ist aufgetreten, bitte versuche es erneut und wenn es immer noch nicht geht, dann melde dich beim Personal.","Une erreur s'est produite, veuillez réessayer et si cela ne fonctionne toujours pas, contactez le personnel.","An error has occurred, please try again and if it still doesn't work, contact the staff."
-jeton,Halte deinen Jeton auf den roten Punkt.,Place ton jeton sur le point rouge.,Hold your token on the red dot.
-no-jeton,Kein Jeton dabei? Wende dich an die Kommunikator:innen oder hole einen Jeton am Empfang.,,
-inactive-warning,Bist du noch da? Dann tippe auf den Screen!,Tu es encore là? Touche l’écran du doigt!,Are you still there? Then tap the screen!
-station-complete,Hier warst du schon und hast alle Fragen beantwortet.,Tu es déjà venu ici et tu as répondu à toutes les questions.,You’ve been here already and have answered all the questions.
-station-partly-complete,Da bist du ja wieder. Willst du mit der nächsten Frage weiterfahren?,"C’est encore toi. Tu veux aller à la question suivante?
-",There you are again. Would you like to continue with the next question?
-station-partly-complete2,Da bist du ja wieder. Willst du dort weiterfahren wo du aufgehört hast?,,
-station-partly-complete.continue,Weiterfahren,Continuer,Continue
-station-partly-complete.restart,Zum Anfang,Retourner au début,Go to start
-yes,Ja,Oui,Yes
-no,Nein,Non,No
-0,Intro,,
-1,Kleidung,Habillement,Clothes
-2,Wohnen,Logement,The home
-3,Mobilität,Mobilité,Mobility
-4,Ernährung,Alimentation,Food
-5,Auswertung,,
+id,de,fr,en,,
+next,Weiter,Suite,Next,,
+back,Zurück,Retour,Back,,
+home,Zum Anfang,Vers le début,Go to start,,
+error,"Ein Fehler ist aufgetreten, bitte versuche es erneut und wenn es immer noch nicht geht, dann melde dich beim Personal.","Une erreur s'est produite, réessaye et si cela ne fonctionne toujours pas, contacte le personnel.","An error has occurred, please try again and if it still doesn't work, contact the staff.",,
+jeton,Halte deinen Jeton auf den roten Punkt.,Place ton jeton sur le point rouge.,Hold your token on the red dot.,,
+no-jeton,Keinen Jeton dabei? Wende dich an die Kommunikator:innen oder hole einen Jeton an der Museumskasse.,Tu n'as pas de jeton? Adresse-toi à un communicateur ou une communicatrice ou va en chercher un à la caisse du musée.,Don't have a token? Ask the communicators or get a token at the museum's front desk.,,
+inactive-warning,Bist du noch da? Dann tippe auf den Screen!,Tu es encore là? Touche l’écran du doigt!,Are you still there? Then tap the screen!,,
+station-complete,Hier warst du schon und hast alle Fragen beantwortet.,Tu es déjà venu ici et tu as répondu à toutes les questions.,You’ve been here already and have answered all the questions.,,
+station-partly-complete,Da bist du ja wieder. Willst du mit der nächsten Frage weiterfahren?,C’est encore toi. Tu veux aller à la question suivante?,There you are again. Would you like to continue with the next question?,,
+station-partly-complete2,Da bist du ja wieder. Willst du dort weiterfahren wo du aufgehört hast?,C'est encore toi. Tu veux continuer là où tu avais arrêté?,There you are again. Would you like to continue where you left off?,,
+station-partly-complete.continue,Weiterfahren,Continuer,Continue,,
+station-partly-complete.restart,Zum Anfang,Retourner au début,Go to start,,
+yes,Ja,Oui,Yes,,
+no,Nein,Non,No,,
+0,Intro,Introduction,Introduction,,
+1,Kleidung,Habillement,Clothes,,
+2,Wohnen,Logement,The home,,
+3,Mobilität,Mobilité,Mobility,,
+4,Ernährung,Alimentation,Food,,
+5,Auswertung,Evaluation,Evaluation,,
 0.dialogue1,"Hallo, herzlich willkommen auf Planetopia.
 Ich begleite dich durch die Ausstellung.","Hello, bienvenue sur Planetopia.
 Je vais t’accompagner à travers l’exposition.","Hello, welcome to Planetopia.
-I will guide you through the exhibition."
-0.dialogue2,Erkennst du mich? #0,Tu me reconnais? #0,Do you recognise me? #0
-0.dialogue3,"Ja, ich weiss, wir Insekten nerven manchmal ein bisschen. Aber wir sind auch sehr nützlich.","Oui, je sais, nous les insectes sommes parfois énervants. Mais nous sommes aussi très utiles.","I know, insects like me can be a bit of a nuisance. But we have our uses too."
-0.dialogue4,"Wir bestäuben Pflanzen, damit Früchte und Samen entstehen.",Nous pollinisons les plantes pour qu’elles produisent des fruits et des graines.,We pollinate plants to help them make fruits and seeds.
-0.dialogue5,Einige von uns kontrollieren Schädlinge oder dienen grösseren Tieren als Futter.,Certains d’entre nous régulent les nuisibles ou servent de nourriture aux espèces plus grandes.,Some of us keep pests under control or act as food for bigger animals.
-0.dialogue6,Und andere helfen mit beim Zersetzen und Umwandeln von organischem Material. So machen wir Böden fruchtbar.,D’autres aident à décomposer ou transformer les matières organiques. Et ainsi à rendre le sol fertile.,Others help to break down and convert organic matter. That is how we keep the soil fertile.
-0.dialogue7,"Glaub mir, ohne uns Insekten seid ihr Menschen ziemlich aufgeschmissen.","Crois-moi, sans nous les insectes, les humains seraient plutôt paumés.","Believe me, without insects like me, people like you would be pretty lost."
-0.question1,"Wann hast du eigentlich zum letzten Mal einem Insekt zugeguckt? Ich meine, so richtig, länger als 5 Sekunden?","Quand as-tu regardé un insecte pour la dernière fois? Je veux dire: vraiment, plus que 5 secondes?","When was the last time you watched an insect? I mean really watched it, for longer than 5 seconds?"
-0.question1.answer0,Das mache ich häufig.,Je le fais souvent.,I do that quite often.
-0.question1.answer1,Das ist schon eine Weile her.,Il y a un moment déjà., It has been a while.
-0.question1.answer2,"Mache ich nur, wenn ihr mich nervt.",Je le fais seulement quand il m’énerve.,I only do that if one of you gets on my nerves.
-0.question1.answer3,Keine Ahnung., Aucune idée., No idea.
-0.dialogue8,"Aha, interessant. Ich habe noch viele spannende Fragen an dich.","Ah, intéressant. J’ai encore beaucoup de questions passionnantes à te poser.","Ah, that’s interesting. I have a few more fascinating questions to ask you."
-0.dialogue9,"Überall, wo du eine solche Computer-Station siehst, kannst du dich mit deinem Jeton anmelden. Dann sehen wir uns wieder.","Partout où tu verras une station comme celle-ci, tu peux t’annoncer au moyen de ton jeton. Alors à plus!","Wherever you see a computer terminal like this one, you can log in using your token. And then we will meet again."
-0.dialogue10,"Zum Schluss finden wir gemeinsam heraus, was du für die Umwelt tun kannst.","À la fin, nous trouverons ensemble ce que tu peux faire pour l’environnement.",At the end we will find out what you can do for the environment.
-0.dialogueEnd0,Bist du dabei? Mega! Dann sehen wir uns bei der nächsten Station. Tschüss!,Tu participes? Super! Alors à plus à la prochaine station. Tchao!,Are you up for it? Great! See you at the next terminal so. Bye!
-0.dialogueEnd1,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden über Kleider.,Tu participes? Super! Alors commençons tout de suite par l’habillement.,Are you up for it? Great! So let’s keep going and talk about clothes.
-0.dialogueEnd2,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden übers Wohnen.,Tu participes? Super! Alors continuons avec le logement.,Are you up for it? Great! So let’s keep going and talk about your home.
-0.dialogueEnd3,"Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden darüber, wie du unterwegs bist.",Tu participes? Super! Alors continuons tout de suite avec la mobilité.,Are you up for it? Great! So let’s keep going and talk about how you move around.
-0.dialogueEnd4,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden übers Essen.,Tu participes? Super! Alors continuons avec l’alimentation.,Are you up for it? Great! So let’s keep going and talk about food.
-1.dialogue1,"Hallo, da bist du ja wieder.","Hello, c’est à nouveau toi.","Hi, there you are again."
-1.dialogue2,"Übrigens: Wenn du mehr über mich erfahren willst, dann tippe mich an!","Au fait: si tu veux en savoir plus sur moi, touche-moi du doigt!","By the way, if you want to know more about me, then just tap me!"
-1.dialogue3,"So, sprechen wir ein bisschen über Kleidung.","O.K., parlons donc de vêtements.","Right, let’s talk a bit about clothes."
-1.question1,Wie viele Kleider hängen bei dir im Schrank? (Unterhosen und Socken nicht mitgerechnet.),Combien de vêtements y a-t-il dans ton armoire? (Sans les slips et les chaussettes.),How many items of clothing are in your wardrobe? (Not counting socks and underwear.)
-1.question1.answer0,Um die 50 Kleidungsstücke.,Une cinquantaine.,Around 50 items.
-1.question1.answer1,Um die 100 Kleidungsstücke.,Une centaine.,Around 100 items.
-1.question1.answer2,Sicher mehr als 100 Kleidungsstücke.,Sûrement plus de 100.,Definitely more than 100 items.
-1.question1.answer3,Ich kann es wirklich nicht sagen.,Je n’en sais rien.,I really could not say.
-1.question2,Wie viele Lieblings-T-Shirts hast du?,Combien de t-shirts préférés as-tu?,How many favourite T-shirts do you have?
-1.question2.answer0,Ich habe kein Lieblings-T-Shirt.,Je n’ai pas de t-shirt préféré.,I don’t have a favourite T-shirt.
-1.question2.answer1,"Eines, das ich heiss und innig liebe.","Un, que j’adore!",One that I absolutely love!
-1.question2.answer2,"Ich habe 3–5, die ich oft trage.",J’en ai 3 à 5 que je porte souvent.,I have 3 to 5 that I wear a lot.
-1.question2.answer3,Ich wechsle zwischen 15 Favoriten.,J’alterne entre mes 15 préférés.,I alternate between 15 of them.
-1.question3,"Achtest du beim Kauf darauf, aus welchen Fasern die Kleider gemacht sind?",Est-ce que tu regardes en quelle matière sont faits les vêtements que tu achètes?,"When you buy clothes, do you pay attention to the fibres they are made of?"
-1.question3.answer0,"Ja, ich achte beim Kleiderkaufen genau auf die Fasern.","Oui, je regarde soigneusement l’étiquette.","Yes, I pay close attention to the fibres the clothes are made of."
-1.question3.answer1,"Ja, ich achte darauf, welche Fasern sich gut anfühlen.","Oui, je regarde quelle matière est agréable à porter.","Yes, I make sure to choose fibres that feel nice on the skin."
-1.question3.answer2,"Nein, ich wähle lieber danach aus, wie ein Kleidungsstück aussieht.","Non, je choisis plutôt selon l’apparence.","No, I prefer to buy clothes that I like the look of."
-1.question3.answer3,"Ach, es gibt verschiedene Fasern?","Quoi, il existe plusieurs matières?","Oh, are there different fibres?"
-1.question4,Wie oft kommt ein Paket mit Kleidern oder Schuhen bei dir an?,À quelle fréquence reçois-tu des paquets contenant des vêtements ou des chaussures?,How often do you get a delivery of clothes or shoes?
-1.question4.answer0,0- bis 2-mal pro Jahr.,0 à 2 fois par an.,0 to 2 times a year.
-1.question4.answer1,1- bis 2-mal pro Halbjahr.,1 à 2 fois par semestre.,2 to 4 times a year.
-1.question4.answer2,1- bis 2-mal im Monat.,1 à 2 fois par mois.,Once or twice a month.
-1.question4.answer3,1- bis 2-mal in der Woche.,1 à 2 fois par semaine.,Once or twice a week.
-1.question5,"Würdest du mehr Geld für Kleider ausgeben, wenn du ein unbegrenztes Budget hättest?",Est-ce que tu dépenserais plus d’argent pour des vêtements si ton budget était illimité?,Would you spend more money on clothes if your budget was unlimited?
-1.question5.answer0,"Nein, ich möchte eher weniger Kleider kaufen.","Non, j’aimerais plutôt acheter moins de vêtements.","No, I would actually like to buy less clothes."
-1.question5.answer1,"Ja, dann könnte ich robustere Qualität kaufen.","Oui, je pourrais acheter des vêtements de meilleure qualité.","Yes, I could buy better-quality clothes that would last longer."
-1.question5.answer2,"Ja, dann könnte ich mir mehr Markenkleider leisten.","Oui, je pourrais me payer davantage de vêtements de marque.","Yes, I could afford to buy more brand-name clothes."
-1.question5.answer3,"Ja, dann würde ich auch mehr einkaufen.","Oui, j'en achèterais davantage.","Yes, I would buy more."
-1.dialogue4,"Ssssssuper, vielen Dank! Bis zur nächsten Station.","Ssssssuper, merci! À plus à la prochaine station.","Ssssssuper, thanks! See you at the next terminal."
-,,,
-2.dialogue1,"Hallo, schön, dich zu wiederzusehen. Komm, wir sprechen über das Wohnen.","Hello, c’est chouette de te revoir. Viens, parlons de logement.","Hi, it’s nice to see you again. Let’s talk about your home."
-2.dialogue2,"Übrigens. Willst du wissen, wo ich lebe? Dann tippe mich an!",Au fait: tu veux savoir où je vis? Alors touche-moi du doigt!,"By the way, would you like to know where I live? Then just tap me!"
-2.dialogue3,"Also, bist du bereit für meine Fragen?","Bon, tu es prêt pour mes questions?","OK, are you ready for my questions?"
-2.question1,"Wie lange dauert es, um dein Zuhause gründlich zu staubsaugen?",Combien de temps te faut-il pour aspirer à fond chez toi?,How long does it take you to vacuum-clean your home?
-2.question1.answer0,Weniger als eine halbe Stunde.,Moins d’une demi-heure.,Less than half an hour.
-2.question1.answer1,Eine halbe Stunde.,Une demi-heure.,Half an hour.
-2.question1.answer2,Etwa eine Stunde.,Environ 1 heure.,About 1 hour.
-2.question1.answer3,Mehr als 1 Stunde.,Plus d’1 heure.,More than 1 hour.
-2.question2,"Weisst du, wie dein Zuhause geheizt wird?",Sais-tu comment ton logement est chauffé?,Do you know how your home is heated?
-2.question2.answer0,Ich heize meine Wohnung so gut wie nicht.,Je ne chauffe quasiment pas mon appartement.,I don’t really heat my home.
-2.question2.answer1,"Mit erneuerbarer Energie (Fernwärme, Wärmepumpe, Holzheizung).","Avec une énergie renouvelable (chaleur à distance, pompe à chaleur, bois).","With energy from a renewable source (district heating, heat pump, wood-fired heating)."
-2.question2.answer2,Mit Öl oder Gas.,Au fuel ou au gaz.,With oil or gas.
-2.question2.answer3,Nein.,Non.,No.
-2.question3,"Wie viele Streaming-Abos für Serien, Filme und Musik hast du?","Combien d’abonnements de streaming as-tu pour des séries, des films ou de la musique?",How many subscriptions to film or music streaming services do you have?
-2.question3.answer0,Keines.,Aucun.,None.
-2.question3.answer1,1.,1.,1.
-2.question3.answer2,2 bis 3.,2 à 3.,2 or 3.
-2.question3.answer3,Mehr als 3.,Plus de 3.,More than 3.
-2.question4,Wie gut bist du im Ausmisten?,Est-ce que tu te débarrasses facilement des choses?,How good are you at decluttering your home?
-2.question4.answer0,"Schlecht, denn ich habe gar nicht so viele Sachen.","Non, car je n’en ai pas beaucoup.","Not very good, but I don’t have that many things."
-2.question4.answer1,"Super, ich kann vieles weitergeben oder ins Brocki bringen.","Oui, je donne plein de choses ou les apporte dans une boutique de seconde main.","Great, I like to pass things on to other people or bring them to the charity shop."
-2.question4.answer2,"Schlecht, ich habe zu viele Sachen zu Hause.","Non, j’ai trop de choses chez moi.","Not very good, I have too much stuff."
-2.question4.answer3,"Super, ich fülle mehrmals im Jahr mehrere Abfallsäcke.","Oui, je remplis plusieurs sacs poubelle par an.","Really good, I fill several bin liners several times a year."
-2.question5,Was machst du an einem kalten Winterabend?,Que fais-tu par une froide soirée d’hiver?,What do you do on a cold winter’s evening?
-2.question5.answer0,Ich kuschle mich in eine Decke.,Je m’enroule dans une couverture.,I snuggle under a blanket.
-2.question5.answer1,Ich trinke etwas Heisses.,Je bois quelque chose de chaud.,I make myself a hot drink.
-2.question5.answer2,Ich nehme ein warmes Bad.,Je prends un bain chaud.,I take a hot bath.
-2.question5.answer3,Ich drehe die Heizung hoch.,Je monte le chauffage.,I turn up the heating.
-2.dialogue4,Das ging ja fix! Ich freue mich schon auf die nächste Fragerunde. Bis bald!,C’est allé vite! Je me réjouis déjà de te revoir pour la prochaine série de questions. À toute!,That was quick! I look forward to the next round of questions. See you soon!
-,,,
-3.dialogue1,"Hallo, ich habe schon auf dich gewartet. Bist du viel unterwegs? Ja, ich weiss, ich frage ein bisschen viel. Ich bin halt sehr neugierig.","Hello, je t’attendais. Tu te déplaces beaucoup? Oui, je sais, je pose beaucoup de questions. Je suis très curieux!","Hi, I’ve been waiting for you. Are you on the road a lot? I know, I’m asking lots of questions. You see, I’m a bit nosy."
-3.dialogue2,Willst du noch etwas über mich erfahren? Dann tippe mich an!,Tu veux savoir d’autres choses sur moi? Alors touche-moi du doigt!,Would you like to know more about me? Then just tap me!
-3.dialogue3,"So, hier sind meine fünf Fragen zum Thema Mobilität.",Voici mes 5 questions sur le thème de la mobilité.,"OK, here are my five questions about mobility."
-3.question1,Wie legst du den Weg zur Arbeit oder zur Schule zurück?,Comment vas-tu au travail ou à l’école?,How do you get to work or school?
-3.question1.answer0,"Zu Fuss, beziehungsweise: Ich habe gar keinen Arbeits- oder Schulweg.","À pied, ou pas du tout.",On foot; or: I don’t actually travel to work or school.
-3.question1.answer1,Mit dem Velo.,À vélo.,By bicycle.
-3.question1.answer2,Mit dem öffentlichen Verkehr.,En transports publics.,By public transport.
-3.question1.answer3,Mit dem Auto.,En voiture.,By car.
-3.question2,Wie viele Fahrzeuge mit Motor gibt es in deinem Haushalt?,Combien de véhicules à moteur y a-t-il chez toi?,How many motor vehicles does your household own?
-3.question2.answer0,Keines.,Aucun.,None.
-3.question2.answer1,1.,1.,1.
-3.question2.answer2,2.,2.,2.
-3.question2.answer3,Mehr als 3.,Plus de 3.,More than 3.
-3.question3,Wie reist du in die Ferien?,Comment pars-tu en vacances?,How do you go on your holidays?
-3.question3.answer0,"Ich wähle mein Ziel so, dass ich umweltfreundlich reisen kann.",Je choisis ma destination de manière à pouvoir voyager sans nuire à l’environnement.,I choose a destination that allows me to travel in an environmentally friendly way.
-3.question3.answer1,"Ich überlege mir immer, wie ich das Fliegen vermeiden kann.",Je regarde toujours si je peux éviter de prendre l’avion.,I always try to avoid air travel.
-3.question3.answer2,"Ich achte darauf, dass ich möglichst bequem reisen kann.",Je cherche à voyager confortablement.,I choose the mode of transport that allows me to travel in comfort.
-3.question3.answer3,"Ich wähle das Verkehrsmittel, mit dem ich am schnellsten ans Ziel komme.",Je choisis le moyen de transport le plus rapide pour arriver à destination.,I choose the mode of transport that gets me there the fastest.
-3.question4,Wo wohnst du?,Où habites-tu?,Where do you live?
-3.question4.answer0,In einer grösseren Stadt.,Dans une grande ville.,In a relatively big city.
-3.question4.answer1,In einer Kleinstadt.,Dans une petite ville.,In a small town.
-3.question4.answer2,In der Agglomeration.,Dans une agglomération.,In an urban area.
-3.question4.answer3,Auf dem Land.,À la campagne.,In a rural area.
-3.question5,Wie bist du in der Natur unterwegs?,Comment te déplaces-tu dans la nature?,How do you move around in nature?
-3.question5.answer0,Ich geniesse vor allem Ruhe in der Natur.,J’apprécie surtout le calme de la nature.,I mainly enjoy the peace and quiet in nature.
-3.question5.answer1,Ich bin oft zu Fuss oder mit dem Velo unterwegs.,Je me balade souvent à pied ou à vélo.,I often move around on foot or by bicycle.
-3.question5.answer2,Mich zieht es an spektakuläre Orte in der Natur.,J’aime les coins spectaculaires de la nature.,I love to go the spectacular places in nature.
-3.question5.answer3,"Ich treibe gerne Sport wie Skifahren, Windsurfen, Mountainbiking …","Je fais du sport, comme du ski, de la planche à voile, du VTT...","I like to do sports like skiing, windsurfing, mountain biking..."
-3.dialogue4,Das ging ja fix! Ich freue mich schon auf die nächste Fragerunde. Bis bald!,C’est allé vite! Je me réjouis déjà de te revoir pour la prochaine série de questions. À toute!,That was quick! I look forward to the next round of questions. See you soon!
-,,,
-4.dialogue1,"Hallo, da bist du ja wieder. Ich wundere mich ja immer ein bisschen, was ihr Menschen so alles esst.","Hello, tu es de nouveau là. Je suis toujours un peu étonné de voir ce que vous les humains mangez.","Hi, there you are again. I always wonder what people eat."
-4.dialogue2,"Willst du wissen, was ich gerne esse? Dann tippe mich an!",Tu veux savoir ce que j’aime manger? Alors touche-moi du doigt!,Would you like to know what I like to eat? Then just tap me!
-4.dialogue3,"So, jetzt bist du wieder dran.","Bon, c’est à toi.","Right, your turn again."
-4.question1,"Wenn du ein grösseres Budget fürs Essen hättest, wie würdest du es ausgeben?","Si ton budget alimentation était moins limité, comment le dépenserais-tu?","If you had a bigger food budget, what would you spend the extra money on?"
-4.question1.answer0,Ich würde mehr Biolebensmittel und lokale Produkte kaufen.,J’achèterais davantage de produits bio et locaux.,I would buy more organic food and local produce.
-4.question1.answer1,Ich würde auf bessere Qualität achten.,Je veillerais davantage à la qualité.,I would buy better-quality food.
-4.question1.answer2,"Ich würde mehr Lebensmittel 
-einkaufen.",J’achèterais plus de nourriture.,I would buy more food.
-4.question1.answer3,Ich würde mehr exotische und ausgefallene Delikatessen kaufen.,J’achèterais plus de produits fins ou exotiques.,I would buy more exotic or unusual products.
-4.question2,Wie häufig isst du Fleisch oder Fisch?,À quelle fréquence manges-tu de la viande ou du poisson?,How often do you eat meat or fish?
-4.question2.answer0,Nie.,Jamais.,Never.
-4.question2.answer1,1- bis 2-mal in der Woche.,1 à 2 fois par semaine.,Once or twice a week.
-4.question2.answer2,3- bis 5-mal pro Woche.,3 à 5 fois par semaine.,3 to 5 times a week.
-4.question2.answer3,Täglich.,Tous les jours.,Every day.
-4.question3,Wie oft schmeisst du Lebensmittel weg?,À quelle fréquence jettes-tu de la nourriture?,How often do you throw away food?
-4.question3.answer0,Sehr selten.,Très rarement.,Very rarely.
-4.question3.answer1,Hin und wieder.,De temps en temps.,Every now and then.
-4.question3.answer2,1- bis 2-mal pro Monat.,1 à 2 fois par mois.,Once or twice a month.
-4.question3.answer3,Jede Woche.,Toutes les semaines.,Every week.
-4.question4,"Planst du im Voraus, was du in den kommenden Tagen essen willst?",Est-ce que tu prévois à l’avance ce que tu vas manger les jours suivants?,Do you plan your menu ahead?
-4.question4.answer0,"Ja, ich mache einen Menüplan und schreibe eine Einkaufsliste.","Oui, je fais un plan des menus et une liste de commissions.","Yes, I plan my meals and write a shopping list."
-4.question4.answer1,"Ja, ich mache einen groben Menüplan.","Oui, je fais plus ou moins un menu.","Yes, I make a rough plan."
-4.question4.answer2,"Nein, ich entscheide beim Einkaufen, was es heute gibt.","Non, je décide en fonction de ce que je trouve.","No, I decide when I’m shopping what I’m going to cook today."
-4.question4.answer3,"Nein, ich esse meistens, worauf ich gerade Lust habe.","Non, j’achète généralement ce qui me fait envie.","No, I usually eat whatever I feel like eating."
-4.question5,Magst du Hafermilch?,Aimes-tu le lait d’avoine?,Do you like oat milk?
-4.question5.answer0,"Ja, finde ich besser als Kuhmilch, zum Beispiel auch für einen Cappuccino mit Schaum.","Oui, je le préfère au lait de vache, y compris dans un cappuccino.","Yes, I prefer it to cow’s milk and like to use it in cappuccino for the foam."
-4.question5.answer1,"Ja, aber ich trinke sie nicht so oft.","Oui, mais je n’en bois pas souvent.","Yes, but I don’t have it very often."
-4.question5.answer2,Der Kaffee schmeckt halt schon nicht ganz so gut …,Le café n’est plus tout à fait aussi bon.,"Well, the coffee isn’t as nice..."
-4.question5.answer3,Habe ich noch nie probiert.,Je n’ai jamais goûté.,I have never tried it.
-4.dialogue4,"Jetzt hast du alle meine Fragen beantwortet. War doch gar nicht so schlimm, oder?","Tu as répondu à toutes mes questions. C’était pas si dur, ou bien?","You have answered all my questions. That wasn’t so bad, was it?"
-4.dialogue5,"Bei der letzten Station erfährst du, was du für die Umwelt tun kannst. Das wird super, ich schwör’s!","À la dernière station, tu apprendras ce que tu peux faire pour l’environnement. Promis-juré, c’était super!","At the last terminal you will find out what you can do for the environment. It will be great, I promise!"
+I will guide you through the exhibition.",,
+0.dialogue2,Erkennst du mich? #0,Tu me reconnais? #0,Do you recognise me? #0,,
+0.dialogue3,"Ja, ich weiss, wir Insekten nerven manchmal ein bisschen. Aber wir sind auch sehr nützlich.","Oui, je sais, nous les insectes sommes parfois énervants. Mais nous sommes aussi très utiles.","I know, insects like me can be a bit of a nuisance. But we have our uses too.",,
+0.dialogue4,"Wir bestäuben Pflanzen, damit Früchte und Samen entstehen.",Nous pollinisons les plantes pour qu’elles produisent des fruits et des graines.,We pollinate plants to help them make fruits and seeds.,,
+0.dialogue5,Einige von uns kontrollieren Schädlinge oder dienen grösseren Tieren als Futter.,Certains d’entre nous régulent les nuisibles ou servent de nourriture aux espèces plus grandes.,Some of us keep pests under control or act as food for bigger animals.,,
+0.dialogue6,Und andere helfen mit beim Zersetzen und Umwandeln von organischem Material. So machen wir Böden fruchtbar.,D’autres aident à décomposer ou transformer les matières organiques. Et ainsi à rendre le sol fertile.,Others help to break down and convert organic matter. That is how we keep the soil fertile.,,
+0.dialogue7,"Glaub mir, ohne uns Insekten seid ihr Menschen ziemlich aufgeschmissen.","Crois-moi, sans nous les insectes, les humains seraient plutôt paumés.","Believe me, without insects like me, people like you would be pretty lost.",,
+0.question1,"Wann hast du eigentlich zum letzten Mal einem Insekt zugeguckt? Ich meine, so richtig, länger als 5 Sekunden?","Quand as-tu regardé un insecte pour la dernière fois? Je veux dire: vraiment, plus que 5 secondes?","When was the last time you watched an insect? I mean really watched it, for longer than 5 seconds?",,
+0.question1.answer0,Das mache ich häufig.,Je le fais souvent.,I do that quite often.,,
+0.question1.answer1,Das ist schon eine Weile her.,Il y a un moment déjà., It has been a while.,,
+0.question1.answer2,"Mache ich nur, wenn ihr mich nervt.",Je le fais seulement quand vous m'énervez.,I only do that if one of you gets on my nerves.,,
+0.question1.answer3,Keine Ahnung., Aucune idée., No idea.,,
+0.dialogue8,"Aha, interessant. Ich habe noch viele spannende Fragen an dich.","Ah, intéressant. J’ai encore beaucoup de questions passionnantes à te poser.","Ah, that’s interesting. I have a few more fascinating questions to ask you.",,
+0.dialogue9,"Überall, wo du eine solche Computer-Station siehst, kannst du dich mit deinem Jeton anmelden. Dann sehen wir uns wieder.","Partout où tu verras une station comme celle-ci, tu peux t’annoncer au moyen de ton jeton. Alors à plus!","Wherever you see a computer terminal like this one, you can log in using your token. And then we will meet again.",,
+0.dialogue10,"Zum Schluss finden wir gemeinsam heraus, was du für die Umwelt tun kannst.","À la fin, nous trouverons ensemble ce que tu peux faire pour l’environnement.",At the end we will find out what you can do for the environment.,,
+0.dialogueEnd0,Bist du dabei? Mega! Dann sehen wir uns bei der nächsten Station. Tschüss!,Tu participes? Super! Alors à plus à la prochaine station. Tchao!,Are you up for it? Great! See you at the next terminal. So bye for now!,,
+0.dialogueEnd1,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden über Kleider.,Tu participes? Super! Alors commençons tout de suite par l’habillement.,Are you up for it? Great! So let’s keep going and talk about clothes.,,
+0.dialogueEnd2,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden übers Wohnen.,Tu participes? Super! Alors continuons avec le logement.,Are you up for it? Great! So let’s keep going and talk about your home.,,
+0.dialogueEnd3,"Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden darüber, wie du unterwegs bist.",Tu participes? Super! Alors continuons tout de suite avec la mobilité.,Are you up for it? Great! So let’s keep going and talk about how you move around.,,
+0.dialogueEnd4,Bist du dabei? Mega! Dann fahren wir doch gleich weiter und reden übers Essen.,Tu participes? Super! Alors continuons avec l’alimentation.,Are you up for it? Great! So let’s keep going and talk about food.,,
+1.dialogue1,"Hallo, da bist du ja wieder.","Hello, c’est à nouveau toi.","Hi, there you are again.",,
+1.dialogue2,"Übrigens: Wenn du mehr über mich erfahren willst, dann tippe mich an!","Au fait: si tu veux en savoir plus sur moi, touche-moi du doigt!","By the way, if you want to know more about me, then just tap me!",,
+1.dialogue3,"So, sprechen wir ein bisschen über Kleidung.","O.K., parlons donc de vêtements.","Right, let’s talk a bit about clothes.",,
+1.question1,Wie viele Kleider hängen bei dir im Schrank? (Unterhosen und Socken nicht mitgerechnet.),Combien de vêtements y a-t-il dans ton armoire? (Sans les slips et les chaussettes.),How many items of clothing are in your wardrobe? (Not counting socks and underwear.),,
+1.question1.answer0,Um die 50 Kleidungsstücke.,Une cinquantaine.,Around 50 items.,,
+1.question1.answer1,Um die 100 Kleidungsstücke.,Une centaine.,Around 100 items.,,
+1.question1.answer2,Sicher mehr als 100 Kleidungsstücke.,Sûrement plus de 100.,Definitely more than 100 items.,,
+1.question1.answer3,Ich kann es wirklich nicht sagen.,Je n’en sais rien.,I really could not say.,,
+1.question2,Wie viele Lieblings-T-Shirts hast du?,Combien de t-shirts préférés as-tu?,How many favourite T-shirts do you have?,,
+1.question2.answer0,Ich habe kein Lieblings-T-Shirt.,Je n’ai pas de t-shirt préféré.,I don’t have a favourite T-shirt.,,
+1.question2.answer1,"Eines, das ich heiss und innig liebe.","Un, que j’adore!",One that I absolutely love!,,
+1.question2.answer2,"Ich habe 3–5, die ich oft trage.",J’en ai 3 à 5 que je porte souvent.,I have 3 to 5 that I wear a lot.,,
+1.question2.answer3,Ich wechsle zwischen 15 Favoriten.,J’alterne entre mes 15 préférés.,I alternate between 15 of them.,,
+1.question3,"Achtest du beim Kauf darauf, aus welchen Fasern die Kleider gemacht sind?",Est-ce que tu regardes en quelle matière sont faits les vêtements que tu achètes?,"When you buy clothes, do you pay attention to the fibres they are made of?",,
+1.question3.answer0,"Ja, ich achte beim Kleiderkaufen genau auf die Fasern.","Oui, je regarde soigneusement l’étiquette.","Yes, I pay close attention to the fibres the clothes are made of.",,
+1.question3.answer1,"Ja, ich achte darauf, welche Fasern sich gut anfühlen.","Oui, je regarde quelle matière est agréable à porter.","Yes, I make sure to choose fibres that feel nice on the skin.",,
+1.question3.answer2,"Nein, ich wähle lieber danach aus, wie ein Kleidungsstück aussieht.","Non, je choisis plutôt selon l’apparence.","No, I prefer to buy clothes that I like the look of.",,
+1.question3.answer3,"Ach, es gibt verschiedene Fasern?","Quoi, il existe plusieurs matières?","Oh, are there different fibres?",,
+1.question4,Wie oft kommt ein Paket mit Kleidern oder Schuhen bei dir an?,À quelle fréquence reçois-tu des paquets contenant des vêtements ou des chaussures?,How often do you get a delivery of clothes or shoes?,,
+1.question4.answer0,0- bis 2-mal pro Jahr.,0 à 2 fois par an.,0 to 2 times a year.,,
+1.question4.answer1,1- bis 2-mal pro Halbjahr.,1 à 2 fois par semestre.,2 to 4 times a year.,,
+1.question4.answer2,1- bis 2-mal im Monat.,1 à 2 fois par mois.,Once or twice a month.,,
+1.question4.answer3,1- bis 2-mal in der Woche.,1 à 2 fois par semaine.,Once or twice a week.,,
+1.question5,"Würdest du mehr Geld für Kleider ausgeben, wenn du ein unbegrenztes Budget hättest?",Est-ce que tu dépenserais plus d’argent pour des vêtements si ton budget était illimité?,Would you spend more money on clothes if your budget was unlimited?,,
+1.question5.answer0,"Nein, ich möchte eher weniger Kleider kaufen.","Non, j’aimerais plutôt acheter moins de vêtements.","No, I would actually like to buy less clothes.",,
+1.question5.answer1,"Ja, dann könnte ich robustere Qualität kaufen.","Oui, je pourrais acheter des vêtements de meilleure qualité.","Yes, I could buy better-quality clothes that would last longer.",,
+1.question5.answer2,"Ja, dann könnte ich mir mehr Markenkleider leisten.","Oui, je pourrais me payer davantage de vêtements de marque.","Yes, I could afford to buy more brand-name clothes.",,
+1.question5.answer3,"Ja, dann würde ich auch mehr einkaufen.","Oui, j'en achèterais davantage.","Yes, I would buy more.",,
+1.dialogue4,"Ssssssuper, vielen Dank! Bis zur nächsten Station.","Ssssssuper, merci! À plus à la prochaine station.","Ssssssuper, thanks! See you at the next terminal.",,
+,,,,,
+2.dialogue1,"Hallo, schön, dich zu wiederzusehen. Komm, wir sprechen über das Wohnen.","Hello, c’est chouette de te revoir. Viens, parlons de logement.","Hi, it’s nice to see you again. Let’s talk about your home.",,
+2.dialogue2,"Übrigens. Willst du wissen, wo ich lebe? Dann tippe mich an!",Au fait: tu veux savoir où je vis? Alors touche-moi du doigt!,"By the way, would you like to know where I live? Then just tap me!",,
+2.dialogue3,"Also, bist du bereit für meine Fragen?","Bon, tu es prêt pour mes questions?","OK, are you ready for my questions?",,
+2.question1,"Wie lange dauert es, um dein Zuhause gründlich zu staubsaugen?",Combien de temps te faut-il pour aspirer à fond chez toi?,How long does it take you to vacuum-clean your home?,,
+2.question1.answer0,Weniger als eine halbe Stunde.,Moins d’une demi-heure.,Less than half an hour.,,
+2.question1.answer1,Eine halbe Stunde.,Une demi-heure.,Half an hour.,,
+2.question1.answer2,Etwa eine Stunde.,Environ 1 heure.,About 1 hour.,,
+2.question1.answer3,Mehr als 1 Stunde.,Plus d’1 heure.,More than 1 hour.,,
+2.question2,"Weisst du, wie dein Zuhause geheizt wird?",Sais-tu comment ton logement est chauffé?,Do you know how your home is heated?,,
+2.question2.answer0,Ich heize meine Wohnung so gut wie nicht.,Je ne chauffe quasiment pas mon appartement.,I don’t really heat my home.,,
+2.question2.answer1,"Mit erneuerbarer Energie (Fernwärme, Wärmepumpe, Holzheizung).","Avec une énergie renouvelable (chaleur à distance, pompe à chaleur, bois).","With energy from a renewable source (district heating, heat pump, wood-fired heating).",,
+2.question2.answer2,Mit Öl oder Gas.,Au fuel ou au gaz.,With oil or gas.,,
+2.question2.answer3,Nein.,Non.,No.,,
+2.question3,"Wie viele Streaming-Abos für Serien, Filme und Musik hast du?","Combien d’abonnements de streaming as-tu pour des séries, des films ou de la musique?",How many subscriptions to film or music streaming services do you have?,,
+2.question3.answer0,Keines.,Aucun.,None.,,
+2.question3.answer1,1,1,1,,
+2.question3.answer2,2 bis 3.,2 à 3.,2 or 3.,,
+2.question3.answer3,Mehr als 3.,Plus de 3.,More than 3.,,
+2.question4,Wie gut bist du im Ausmisten?,Est-ce que tu te débarrasses facilement des choses?,How good are you at decluttering your home?,,
+2.question4.answer0,"Schlecht, denn ich habe gar nicht so viele Sachen.","Non, car je n’en ai pas beaucoup.","Not very good, but I don’t have that many things.",,
+2.question4.answer1,"Super, ich kann vieles weitergeben oder ins Brocki bringen.","Oui, je donne plein de choses ou les apporte dans une boutique de seconde main.","Great, I like to pass things on to other people or bring them to the charity shop.",,
+2.question4.answer2,"Schlecht, ich habe zu viele Sachen zu Hause.","Non, j’ai trop de choses chez moi.","Not very good, I have too much stuff.",,
+2.question4.answer3,"Super, ich fülle mehrmals im Jahr mehrere Abfallsäcke.","Oui, je remplis plusieurs sacs poubelle par an.","Really good, I fill several bin liners several times a year.",,
+2.question5,Was machst du an einem kalten Winterabend?,Que fais-tu par une froide soirée d’hiver?,What do you do on a cold winter’s evening?,,
+2.question5.answer0,Ich kuschle mich in eine Decke.,Je m’enroule dans une couverture.,I snuggle under a blanket.,,
+2.question5.answer1,Ich trinke etwas Heisses.,Je bois quelque chose de chaud.,I make myself a hot drink.,,
+2.question5.answer2,Ich nehme ein warmes Bad.,Je prends un bain chaud.,I take a hot bath.,,
+2.question5.answer3,Ich drehe die Heizung hoch.,Je monte le chauffage.,I turn up the heating.,,
+2.dialogue4,Das ging ja fix! Ich freue mich schon auf die nächste Fragerunde. Bis bald!,C’est allé vite! Je me réjouis déjà de te revoir pour la prochaine série de questions. À toute!,That was quick! I look forward to the next round of questions. See you soon!,,
+,,,,,
+3.dialogue1,"Hallo, ich habe schon auf dich gewartet. Bist du viel unterwegs? Ja, ich weiss, ich frage ein bisschen viel. Ich bin halt sehr neugierig.","Hello, je t’attendais. Tu te déplaces beaucoup? Oui, je sais, je pose beaucoup de questions. Je suis très curieux!","Hi, I’ve been waiting for you. Are you on the road a lot? I know, I’m asking lots of questions. You see, I’m a bit nosy.",,
+3.dialogue2,Willst du noch etwas über mich erfahren? Dann tippe mich an!,Tu veux savoir d’autres choses sur moi? Alors touche-moi du doigt!,Would you like to know more about me? Then just tap me!,,
+3.dialogue3,"So, hier sind meine fünf Fragen zum Thema Mobilität.",Voici mes 5 questions sur le thème de la mobilité.,"OK, here are my five questions about mobility.",,
+3.question1,Wie legst du den Weg zur Arbeit oder zur Schule zurück?,Comment vas-tu au travail ou à l’école?,How do you get to work or school?,,
+3.question1.answer0,"Zu Fuss, beziehungsweise: Ich habe gar keinen Arbeits- oder Schulweg.","À pied, ou pas du tout.",On foot, or: I don’t actually travel to work or school., or: I don’t actually travel to work or school.
+3.question1.answer1,Mit dem Velo.,À vélo.,By bicycle.,,
+3.question1.answer2,Mit dem öffentlichen Verkehr.,En transports publics.,By public transport.,,
+3.question1.answer3,Mit dem Auto.,En voiture.,By car.,,
+3.question2,Wie viele Fahrzeuge mit Motor gibt es in deinem Haushalt?,Combien de véhicules à moteur y a-t-il chez toi?,How many motor vehicles does your household own?,,
+3.question2.answer0,Keines.,Aucun.,None.,,
+3.question2.answer1,1,1,1,,
+3.question2.answer2,2,2,2,,
+3.question2.answer3,Mehr als 3.,Plus de 3.,More than 3.,,
+3.question3,Wie reist du in die Ferien?,Comment pars-tu en vacances?,How do you go on your holidays?,,
+3.question3.answer0,"Ich wähle mein Ziel so, dass ich umweltfreundlich reisen kann.",Je choisis ma destination de manière à pouvoir voyager sans nuire à l’environnement.,I choose a destination that allows me to travel in an environmentally friendly way.,,
+3.question3.answer1,"Ich überlege mir immer, wie ich das Fliegen vermeiden kann.",Je regarde toujours si je peux éviter de prendre l’avion.,I always try to avoid air travel.,,
+3.question3.answer2,"Ich achte darauf, dass ich möglichst bequem reisen kann.",Je cherche à voyager confortablement.,I choose the mode of transport that allows me to travel in comfort.,,
+3.question3.answer3,"Ich wähle das Verkehrsmittel, mit dem ich am schnellsten ans Ziel komme.",Je choisis le moyen de transport le plus rapide pour arriver à destination.,I choose the mode of transport that gets me there the fastest.,,
+3.question4,Wo wohnst du?,Où habites-tu?,Where do you live?,,
+3.question4.answer0,In einer grösseren Stadt.,Dans une grande ville.,In a relatively big city.,,
+3.question4.answer1,In einer Kleinstadt.,Dans une petite ville.,In a small town.,,
+3.question4.answer2,In der Agglomeration.,Dans une agglomération.,In an urban area.,,
+3.question4.answer3,Auf dem Land.,À la campagne.,In a rural area.,,
+3.question5,Wie bist du in der Natur unterwegs?,Comment te déplaces-tu dans la nature?,How do you move around in nature?,,
+3.question5.answer0,Ich geniesse vor allem Ruhe in der Natur.,J’apprécie surtout le calme de la nature.,I mainly enjoy the peace and quiet in nature.,,
+3.question5.answer1,Ich bin oft zu Fuss oder mit dem Velo unterwegs.,Je me balade souvent à pied ou à vélo.,I often move around on foot or by bicycle.,,
+3.question5.answer2,Mich zieht es an spektakuläre Orte in der Natur.,J’aime les coins spectaculaires de la nature.,I love to go the spectacular places in nature.,,
+3.question5.answer3,"Ich treibe gerne Sport wie Skifahren, Windsurfen, Mountainbiking …","Je fais du sport, comme du ski, de la planche à voile, du VTT...","I like to do sports like skiing, windsurfing, mountain biking...",,
+3.dialogue4,Das ging ja fix! Ich freue mich schon auf die nächste Fragerunde. Bis bald!,C’est allé vite! Je me réjouis déjà de te revoir pour la prochaine série de questions. À toute!,That was quick! I look forward to the next round of questions. See you soon!,,
+,,,,,
+4.dialogue1,"Hallo, da bist du ja wieder. Ich wundere mich ja immer ein bisschen, was ihr Menschen so alles esst.","Hello, tu es de nouveau là. Je suis toujours un peu étonné de voir ce que vous les humains mangez.","Hi, there you are again. I always wonder what people eat.",,
+4.dialogue2,"Willst du wissen, was ich gerne esse? Dann tippe mich an!",Tu veux savoir ce que j’aime manger? Alors touche-moi du doigt!,Would you like to know what I like to eat? Then just tap me!,,
+4.dialogue3,"So, jetzt bist du wieder dran.","Bon, c’est à toi.","Right, your turn again.",,
+4.question1,"Wenn du ein grösseres Budget fürs Essen hättest, wie würdest du es ausgeben?","Si ton budget alimentation était moins limité, comment le dépenserais-tu?","If you had a bigger food budget, what would you spend the extra money on?",,
+4.question1.answer0,Ich würde mehr Biolebensmittel und lokale Produkte kaufen.,J’achèterais davantage de produits bio et locaux.,I would buy more organic food and local produce.,,
+4.question1.answer1,Ich würde auf bessere Qualität achten.,Je veillerais davantage à la qualité.,I would buy better-quality food.,,
+4.question1.answer2,Ich würde mehr Lebensmittel einkaufen.,J’achèterais plus de nourriture.,I would buy more food.,,
+4.question1.answer3,Ich würde mehr exotische und ausgefallene Delikatessen kaufen.,J’achèterais plus de produits fins ou exotiques.,I would buy more exotic or unusual products.,,
+4.question2,Wie häufig isst du Fleisch oder Fisch?,À quelle fréquence manges-tu de la viande ou du poisson?,How often do you eat meat or fish?,,
+4.question2.answer0,Nie.,Jamais.,Never.,,
+4.question2.answer1,1- bis 2-mal in der Woche.,1 à 2 fois par semaine.,Once or twice a week.,,
+4.question2.answer2,3- bis 5-mal pro Woche.,3 à 5 fois par semaine.,3 to 5 times a week.,,
+4.question2.answer3,Täglich.,Tous les jours.,Every day.,,
+4.question3,Wie oft schmeisst du Lebensmittel weg?,À quelle fréquence jettes-tu de la nourriture?,How often do you throw away food?,,
+4.question3.answer0,Sehr selten.,Très rarement.,Very rarely.,,
+4.question3.answer1,Hin und wieder.,De temps en temps.,Every now and then.,,
+4.question3.answer2,1- bis 2-mal pro Monat.,1 à 2 fois par mois.,Once or twice a month.,,
+4.question3.answer3,Jede Woche.,Toutes les semaines.,Every week.,,
+4.question4,"Planst du im Voraus, was du in den kommenden Tagen essen willst?",Est-ce que tu prévois à l’avance ce que tu vas manger les jours suivants?,Do you plan your menu ahead?,,
+4.question4.answer0,"Ja, ich mache einen Menüplan und schreibe eine Einkaufsliste.","Oui, je fais un plan des menus et une liste de commissions.","Yes, I plan my meals and write a shopping list.",,
+4.question4.answer1,"Ja, ich mache einen groben Menüplan.","Oui, je fais plus ou moins un menu.","Yes, I make a rough plan.",,
+4.question4.answer2,"Nein, ich entscheide beim Einkaufen, was es heute gibt.","Non, je décide en fonction de ce que je trouve.","No, I decide when I’m shopping what I’m going to cook today.",,
+4.question4.answer3,"Nein, ich esse meistens, worauf ich gerade Lust habe.","Non, j’achète généralement ce qui me fait envie.","No, I usually eat whatever I feel like eating.",,
+4.question5,Magst du Hafermilch?,Aimes-tu le lait d’avoine?,Do you like oat milk?,,
+4.question5.answer0,"Ja, finde ich besser als Kuhmilch, zum Beispiel auch für einen Cappuccino mit Schaum.","Oui, je le préfère au lait de vache, y compris dans un cappuccino.","Yes, I prefer it to cow’s milk and like to use it in cappuccino for the foam.",,
+4.question5.answer1,"Ja, aber ich trinke sie nicht so oft.","Oui, mais je n’en bois pas souvent.","Yes, but I don’t have it very often.",,
+4.question5.answer2,Der Kaffee schmeckt halt schon nicht ganz so gut …,Le café n’est plus tout à fait aussi bon.,"Well, the coffee isn’t as nice...",,
+4.question5.answer3,Habe ich noch nie probiert.,Je n’ai jamais goûté.,I have never tried it.,,
+4.dialogue4,"Jetzt hast du alle meine Fragen beantwortet. War doch gar nicht so schlimm, oder?","Tu as répondu à toutes mes questions. C’était pas si dur, ou bien?","You have answered all my questions. That wasn’t so bad, was it?",,
+4.dialogue5,"Bei der letzten Station erfährst du, was du für die Umwelt tun kannst. Das wird super, ich schwör’s!","À la dernière station, tu apprendras ce que tu peux faire pour l’environnement. Promis-juré, c’était super!","At the last terminal you will find out what you can do for the environment. It will be great, I promise!",,
 4.dialogue6,"Gut, bis zur nächsten Station.
-Tschüss!","On se voit à la prochaine station, tchao!","OK, see you at the next terminal. Bye!"
-,,,
-5.dialogueStart1,Bitte geh zum Anfang der Ausstellung und melde dich bei einer der Computerstationen an.,Va au début de l’exposition et annonce-toi à une station.,Please go to the beginning of the exhibition and log in at one of the computer terminals.
-5.dialogueStart2,"Du hast leider einige Stationen übersprungen. Geh zu einer Computerstation im Bereich Kleidung, Wohnen, Mobilität oder Ernährung.","Tu as malheureusement sauté quelques stations. Va à celle qui est dans la zone de l’habillement, du logement, de la mobilité ou de l’alimentation.","Unfortunately you have skipped some of the terminals. Go to a terminal in the clothes, living, mobility or food areas."
-5.dialogueStart3,"Hallihallo, ich habe schon auf dich gewartet. Du hast noch nicht alle Stationen besucht. Möchtest du die Auswertung trotzdem machen?","Coucou, je t’attendais. Tu n’as pas encore vu toutes les stations. Tu veux quand même faire l’évaluation?","Hi there, I have been waiting for you. You haven’t visited all the terminals yet. Would you like to do the evaluation anyway?"
-5.dialogueStart4,"Hallihallo, ich habe schon auf dich gewartet. Bist du bereit für die Auswertung?","Coucou, je t’attendais. Tu es prêt.e pour l’évaluation?","Hi there, I have been waiting for you. Are you ready to do the evaluation?"
-5.dialogue2,"Gut, dann wollen wir mal.","C’est bien, alors allons-y.","OK, let's go."
-5.dialogue3,"Wir schliessen jetzt ein Weltwandels-Abkommen ab. 
-Du weisst nicht, was das ist?",Nous allons conclure un accord sur le changement mondial. Tu ne sais pas ce que c’est?,We are going to sign a world change agreement. You don’t know what that is?
-5.dialogue4,"Ganz einfach: Wir entscheiden zusammen, was du für die Umwelt tun kannst. Damit sich die Welt verändert.",C’est simple: nous décidons ensemble de ce que tu peux faire pour l’environnement. Afin que le monde change.,"It’s very simple: together, we will decide what you can do for the environment so that the world can change."
-5.dialogue5,Schau mal auf die Wände in diesem Raum. Dort siehst du ganz viele Weltwandels-Abkommen.,Regarde les murs de cette salle. Tu peux y voir toutes sortes d’accords sur le changement mondial.,Have a look at the walls in this room. You will see many other world change agreements.
-5.dialogue6,"Ich habe mir alle deine Antworten gemerkt. Einen Moment noch, die Auswertung läuft …","J’ai noté toutes tes réponses. Attends un peu, l’évaluation est en cours...","I have saved all your answers. Just a moment, the evaluation is ongoing..."
-5.dialogue7,"Hier ist das Resultat! Der Balken zeigt an, wie umweltbewusst du in den einzelnen Bereichen lebst.",Voilà le résultat! La barre indique à quel point ton mode de vie est écologique dans les différents domaines de la vie.,Here is your result! The bar shows how environmentally friendly your lifestyle is in different areas.
-5.result,Dein Umweltbewusstsein,Ta conscience écologique,Your environmental awareness
-5.areaSelection,In welchem Bereich möchtest du aktiv werden?,Dans quel domaine souhaites-tu agir?,Which of the areas would you like to change?
-5.areaSelection.special,Special Engagement,Engagement spécial,Special involvement
-5.dialogue8,"Gute Wahl! Also, ich schlage dir zwei Weltwandels-Abkommen vor und du kannst eines davon auswählen.",Bon choix! Je te propose donc deux accords sur le changement mondial et tu peux choisir l’un des deux.,"Great choice! OK, I will propose two world change agreements and you can choose one of them."
-5.wwaSelection,"Welches Weltwandelsabkommen möchtest du abschliessen?
-",Quel accord souhaites-tu conclure?,Which world change agreement would you like to sign?
-5.wwaSelection.count,## Leute haben dieses Abkommen bereits abgeschlossen.,## des gens ont déjà conclu cet accord.,## people have already signed this agreement.
-5.dialogueClothes,"Grossartig! Weniger und schlauer einkaufen, das passt bestens bei Kleidern.",,
-5.dialogueLiving,Toll! Weniger Energieverbrauch schenkt beim Wohnen besonders ein.,,
-5.dialogueMobility,"Kluge Entscheidung! Bahn und Muckis statt Verbrennungsmotoren, das bringt uns voran.",,
-5.dialogueFood,"Weniger Tier, mehr Neues ausprobieren! Das schmeckt mir!",,
-5.dialogueSpecial,Mutig! Du packst das!,,
-5.dialogueGeneral,"Eine Herausforderung, genau das richtige für dich. Super!",,
-5.wwaConfirmation1,"Bist du sicher, dass du dieses Weltwandels-Abkommen abschliessen willst?",Tu es sûr.e de vouloir conclure cet accord?,Are you sure this is the world change agreement you would like to sign?
-5.wwaConfirmation2,Nimmst du die Herausforderung wirklich an?,Tu veux vraiment relever ce défi?,Are you really going to accept the challenge?
-5.wwaConfirmation2.accept,Aber sicher! Ich will doch die Welt retten.,Bien sûr! Il faut sauver le monde.,"Sure! After all, I want to save the world."
-5.wwaConfirmation2.rethink,Ich muss es mir nochmals überlegen.,Il faut encore que j’y réfléchisse.,I would like to think about it again.
-5.dialogue9,"Wow!! Du bist super! Herzlichen Dank, dass du mithilfst, die Welt zu retten!",Ouah! Tu es super! Un grand merci d’aider à sauver le monde!,Wow! You are great! Thank you so much for helping to save the world!
-5.emailAccept,Möchtest du dir das Weltwandels-Abkommen nach Hause mailen?,Tu aimerais envoyer l’accord chez toi par mail?,Would you like to email the world change agreement to yourself?
-5.emailPrompt,Weltwandels-Abkommen zuschicken.,Envoyer l’accord sur le changement mondial.,Send the world change agreement.
-5.emailPrompt.question,Gib deine E-Mail-Adresse ein.,Saisis ton adresse électronique.,Enter your email address.
-5.emailPrompt.textField,Email-Adresse eingeben.,Saisir l’adresse électronique.,Enter email address.
-5.emailPrompt.newsletter,Ich will auch den Newsletter des Museums erhalten.,J’aimerais aussi recevoir la newsletter du musée.,I would also like to receive the Museum Newsletter.
-5.dialogue10,Ich wünsche dir viel Erfolg beim Weltwandel. Tschüss! Wir schaffen das!,Je te souhaite beaucoup de succès dans le changement mondial. Tchao! On va y arriver!,Good luck with your world change. Bye! We can do this!
-,,,
-,,,
-,,,
-,,,
-,,,
-,,,
-0.insect1,Ich bin ein Abendpfauenauge.,Je suis un Sphinx demi-paon.,I am an eyed hawkmoth.
-0.insect2,Ich bin ein Alpenbock.,Je suis une Rosalie des Alpes.,I am an Alpine longhorn beetle.
-0.insect3,Ich bin eine Alpenschrecke.,Je suis une Decticelle montagnarde.,I am a bush cricket of the species Anonconotus alpinus.
-0.insect4,Ich bin eine Berglandhummel.,Je suis un Bourdon montagnard.,I am a bilberry bumblebee.
-0.insect5,Ich bin ein Berg-Sandlaufkäfer.,Je suis une Cicindèle des bois.,I am a ground beetle of the species Cicindela sylvicola.
-0.insect6,Ich bin eine Blaue Federlibelle.,Je suis un Agrion à larges pattes.,I am a white-legged damselfly.
-0.insect7,Ich bin eine Blaugrüne Mosaikjungfer.,Je suis une Æschne bleue.,I am a southern hawker.
-0.insect8,Ich bin eine Blauschwarze Holzbiene.,Je suis une Abeille charpentière.,I am a violet carpenter bee.
-0.insect9,Ich bin eine Büffelzirpe.,Je suis une Cicadelle bison.,I am a buffalo treehopper.
-0.insect10,Ich bin ein Bunter Grashüpfer.,Je suis un Criquet verdelet.,I am a common green grasshopper.
-0.insect11,Ich bin eine Dornzikade.,Je suis un Demi-diable.,I am a thorn-hopper.
-0.insect12,Ich bin ein Eichenwidderbock.,Je suis un Clyte arqué.,I am a beetle of the species Plagionotus arcuatus.
-0.insect13,Ich bin eine Feldgrille.,Je suis un Grill champêtre.,I am a field cricket.
-0.insect14,Ich bin ein Feldmaikäfer.,Je suis un Hanneton commun.,I am a common cockchafer.
-0.insect15,Ich bin eine Gebänderte Prachtlibelle.,Je suis un Caloptéryx éclatant.,I am a banded demoiselle.
-0.insect16,Ich bin ein Gebänderter Pinselkäfer.,Je suis une Trichie fasciée.,I am a Eurasian bee beetle.
-0.insect17,Ich bin eine Gelbe Dungfliege.,Je suis un Scatophage du fumier.,I am a yellow dung fly.
-0.insect18,Ich bin eine Gelbfüssige Kamelhalsfliege.,Je suis une Dichrostigma flavipes.,I am a snakefly of the species Dichrostigma flavipes.
-0.insect19,Ich bin eine Goldene Schneckenhausbiene.,Je suis une Osmia aurulenta.,I am a mason bee of the species Osmia aurulenta.
-0.insect20,Ich bin ein Grosser Wollschweber.,Je suis un Grand bombyle.,I am a large bee-fly.
-0.insect21,Ich bin eine Hainschwebfliege.,Je suis un Syrphe ceinturé.,I am a marmalade hoverfly.
-0.insect22,Ich bin ein Haselblattroller.,Je suis un Apodère du noisetier.,I am a hazel-leaf roller weevil.
-0.insect23,Ich bin eine Juni-Langhornbiene.,Je suis un Eucère à longues antennes.,I am a long-horned bee of the species Eucera longicornis.
-0.insect24,Ich bin eine Punktierte Zartschrecke.,Je suis une Leptophye ponctuée.,I am a speckled bush cricket.
-0.insect25,Ich bin ein Rosen-Flechtenbärchen.,Je suis une Rosette.,I am a rosy footman.
-0.insect26,Ich bin eine Schwarze Mörtelbiene.,Je suis une Abeille maçonne à poils roux.,I am a bee of the species Megachile parietina.
-0.insect27,Ich bin eine Schwarzfühler-Hakenwespe.,Je suis un Ancistrocerus aux cornes noires.,I am a potter wasp of the species Ancistrocerus nigricornis.
-0.insect28,Ich bin ein Schwarzfühleriger Totengräber.,Je suis un Nécrophore imitateur.,I am a burying beetle of the species Nicrophorus vespilloides.
-0.insect29,Ich bin ein Seidiger Glanzrüssler.,Je suis un Charançon vert soyeux.,I am a green immigrant leaf weevil.
-0.insect30,Ich bin eine Senf-Blauschillersandbiene.,Je suis une Andrena agilissima.,I am a mining bee of the species Andrena agilissima.
-1.insect1,Ich gehöre zur Ordnung der Schmetterlinge und habe eine Flügelspannweite von 6 bis 9 Zentimetern.,J’appartiens à l’ordre des Lépidoptères et mes ailes ont une envergure de 6 à 9 centimètres.,I belong to the Lepidoptera order of insects and have a wingspan of 6 to 9 centimetres.
-1.insect2,Ich gehöre zur Ordnung der Käfer und bin 18 bis 38 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 18 à 38 millimètres.,I belong to the Coleoptera order of insects and am 18 to 38 millimetres long.
-1.insect3,Ich gehöre zur Ordnung der Heuschrecken und bin 16 bis 23 Millimeter lang.,J’appartiens à l’ordre des Orthoptères et je mesure 16 à 23 millimètres.,I belong to the Orthoptera order of insects and am 16 to 23 millimetres long.
-1.insect4,Ich gehöre zur Ordnung der Hautflügler und bin 9 bis 16 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 9 à 16 millimètres.,I belong to the Hymenoptera order of insects and am 9 to 16 millimetres long.
-1.insect5,Ich gehöre zur Ordnung der Käfer und bin 12 bis 17 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 12 à 17 millimètres.,I belong to the Coleoptera order of insects and am 12 to 17 millimetres long.
-1.insect6,"Ich gehöre zur Ordnung der Libellen, bin etwa 3,5 Zentimeter lang und habe eine Flügelspannweite von 4,5 Zentimetern.","J’appartiens à l’ordre des Odonates, je mesure environ 3,5 centimètres et mes ailes ont une envergure de 4,5 centimètres.","I belong to the Odonata order of insects, am approximately 3.5 centimetres long and have a wingspan of 4.5 centimetres."
-1.insect7,"Ich gehöre zur Ordnung der Libellen, bin 7 bis 8 Zentimeter lang und habe eine Flügelspannweite von bis zu 11 Zentimetern.","J’appartiens à l’ordre des Odonates, je mesure 7 à 8 centimètres et mes ailes ont une envergure pouvant atteindre 11 centimètres.","I belong to the Odonata order of insects, am 7 to 8 centimetres long and have a wingspan of up to 11 centimetres."
-1.insect8,Ich gehöre zur Ordnung der Hautflügler und bin 20 bis 28 Millimeter lang und ganz dunkel.,"J’appartiens à l’ordre des Hyménoptères, je mesure 20 à 28 millimètres et je suis très foncé.","I belong to the Hymenoptera order of insects, am 20 to 28 millimetres long and very dark in colour."
-1.insect9,Ich gehöre zur Ordnung der Zikaden und bin 6 bis 9 Millimeter lang.,J’appartiens à l’ordre des Hémiptères et je mesure 6 à 9 millimètres.,I belong to the Hemiptera order of insects and am 6 to 9 millimetres long.
-1.insect10,Ich gehöre zur Ordnung der Heuschrecken und bin 13 bis 24 Millimeter lang.,J’appartiens à l’ordre des Orthoptères et je mesure 13 à 24 millimètres.,I belong to the Orthoptera order of insects and am 13 to 24 millimetres long.
-1.insect11,Ich gehöre zur Ordnung der Zikaden und bin 7 bis 10 Millimeter lang.,J’appartiens à l’ordre des Hémiptères et je mesure 7 à 10 millimètres.,I belong to the Hemiptera order of insects and am 7 to 10 millimetres long.
-1.insect12,Ich gehöre zur Ordnung der Käfer und bin 8 bis 20 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 8 à 20 millimètres.,I belong to the Coleoptera order of insects and am 8 to 20 millimetres long.
-1.insect13,Ich gehöre zur Ordnung der Heuschrecken und bin 20 bis 26 Millimeter lang.,J’appartiens à l’ordre des Orthoptères et je mesure 20 à 26 millimètres.,I belong to the Orthoptera order of insects and am 20 to 26 millimetres long.
-1.insect14,Ich gehöre zur Ordnung der Käfer und bin 2 bis 3 Zentimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 2 à 3 centimètres.,I belong to the Coleoptera order of insects and am 20 to 30 millimetres long.
-1.insect15,"Ich gehöre zur Ordnung der Libellen, bin etwa 5 Zentimeter lang und habe eine Flügelspannweite von etwa 7 Zentimetern.","J’appartiens à l’ordre des Odonates, je mesure environ 5 centimètres et mes ailes ont une envergure d’environ 7 centimètres.","I belong to the Odonata order of insects, am approximately 5 centimetres long and have a wingspan of around 7 centimetres."
-1.insect16,Ich gehöre zur Ordnung der Käfer und bin 9 bis 12 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 9 à 12 millimètres.,I belong to the Coleoptera order of insects and am 9 to 12 millimetres long.
-1.insect17,Ich gehöre zur Ordnung der Zweiflügler und bin 6 bis 12 Millimeter lang.,J’appartiens à l’ordre des Diptères et je mesure 6 à 12 millimètres.,I belong to the Diptera order of insects and am 6 to 12 millimetres long.
-1.insect18,Ich gehöre zur Ordnung der Kamelhalsfliegen und bin 8 bis 20 Millimeter lang.,J’appartiens à l’ordre des Raphidioptères et je mesure 8 à 20 millimètres.,I belong to the Raphidioptera order of insects and am 8 to 20 millimetres long.
-1.insect19,Ich gehöre zur Ordnung der Hautflügler und bin 8 bis 10 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 8 à 10 millimètres.,I belong to the Hymenoptera order of insects and am 8 to 10 millimetres long.
-1.insect20,Ich gehöre zur Ordnung der Zweiflügler und bin 8 bis 12 Millimeter lang.,J’appartiens à l’ordre des Diptères et je mesure 8 à 12 millimètres.,I belong to the Diptera order of insects and am 8 to 12 millimetres long.
-1.insect21,Ich gehöre zur Ordnung der Zweiflügler und bin 7 bis 12 Millimeter lang.,J’appartiens à l’ordre des Diptères et je mesure 7 à 12 millimètres.,I belong to the Diptera order of insects and am 7 to 12 millimetres long.
-1.insect22,Ich gehöre zur Ordnung der Käfer und bin 6 bis 8 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 6 à 8 millimètres.,I belong to the Coleoptera order of insects and am 6 to 8 millimetres long.
-1.insect23,Ich gehöre zur Ordnung der Hautflügler und bin 12 bis 15 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 12 à 15 millimètres.,I belong to the Hymenoptera order of insects and am 12 to 15 millimetres long.
-1.insect24,Ich gehöre zur Ordnung der Heuschrecken und bin 10 bis 18 Millimeter lang.,J’appartiens à l’ordre des Orthoptères et je mesure 10 à 18 millimètres.,I belong to the Orthoptera order of insects and am 10 to 18 millimetres long.
-1.insect25,Ich gehöre zur Ordnung der Schmetterlinge und habe eine Flügelspannweite von 23 bis 27 Millimetern.,J’appartiens à l’ordre des Lépidoptères et mes ailes ont une envergure de 23 à 27 millimètres.,I belong to the Lepidoptera order of insects and have a wingspan of 23 to 27 millimetres.
-1.insect26,Ich gehöre zur Ordnung der Hautflügler und bin 14 bis 18 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 14 à 18 millimètres.,I belong to the Hymenoptera order of insects and am 14 to 18 millimetres long.
-1.insect27,Ich gehöre zur Ordnung der Hautflügler und bin 9 bis 13 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 9 à 13 millimètres.,I belong to the Hymenoptera order of insects and am 9 to 13 millimetres long.
-1.insect28,Ich gehöre zur Ordnung der Käfer und bin 12 bis 18 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 12 à 18 millimètres.,I belong to the Coleoptera order of insects and am 12 to 18 millimetres long.
-1.insect29,Ich gehöre zur Ordnung der Käfer und bin 5 bis 7 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 5 à 7 millimètres.,I belong to the Coleoptera order of insects and am 5 to 7 millimetres long.
-1.insect30,Ich gehöre zur Ordnung der Hautflügler und bin 14 bis 15 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 14 à 15 millimètres.,I belong to the Hymenoptera order of insects and am 14 to 15 millimetres long.
-2.insect1,"Du findest mich von Mai bis Juli in Wäldern und an Gewässern, manchmal auch in Parks und Gärten.","Tu me trouveras de mai à juillet dans des forêts et au bord de cours d’eau, parfois aussi dans des parcs et des jardins.","From May to July you can find me in forests and near water, and sometimes in parks and gardens."
-2.insect2,"Du findest mich von Juni bis September auf Laubbäumen, mit Vorliebe auf einzeln stehenden Buchen.","Tu me trouveras de juin à septembre sur des feuillus, et de préférence des hêtres isolés.","From June to September you can find me on broadleaf trees, preferably on solitary beech trees."
-2.insect3,"Du findest mich von Juli bis Oktober in den Alpen (bis 2300 m ü. M.), am liebsten im niedrigen Gras oder auf Kies.","Tu me trouveras de juillet à octobre dans les Alpes (jusqu’à 2300 m d’altitude), de préférence dans des herbes rases ou sur du gravier.","From July to October you can find me in the Alps (up to 2,300 m above sea level), preferably in low grass or on gravel."
-2.insect4,Du findest mich von April bis September in den Alpen (bis 3200 m ü. M.).,Tu me trouveras d’avril à septembre dans les Alpes (jusqu’à 3200 m d’altitude).,"From April to September you can find me in the Alps (up to 3,200 m above sea level)."
-2.insect5,"Du findest mich von April bis August auf trockenen, lehmigen Böden, in Kiesgruben und Steinbrüchen, oft in bergiger Gegend.","Tu me trouveras d’avril à août sur des sols argileux, secs, dans des carrières de gravier et de pierre, souvent à la montagne.","From April to August you can find me on dry, loamy soils, in gravel pits and stone quarries, often in mountainous regions."
-2.insect6,Du findest mich von Mai bis September am Ufer von stehenden und langsam fliessenden Gewässern.,Tu me trouveras de mai à septembre au bord d’eaux stagnantes ou coulant lentement.,From May to September you can find me on the banks of stagnant or slow-flowing water courses.
-2.insect7,Du findest mich von Juli bis Oktober an stehenden und langsam fliessenden Gewässern.,Tu me trouveras de juillet à octobre au bord d’eaux stagnantes ou coulant lentement.,From July to October you can find me on the banks of stagnant or slow-flowing water courses.
-2.insect8,Du findest mich von März bis August an sonnigen Standorten an den Rändern von menschlichen Siedlungen.,Tu me trouveras de mars à août à des endroits ensoleillés en bordure de zones habitées.,From March to August you can find me in sunny locations on the edges of human settlements.
-2.insect9,"Du findest mich von Juli bis Oktober an Flüssen, Bächen und Gräben im hohen Gras und in Gebüschen.","Tu me trouveras de juillet à octobre au bord de rivières ou de ruisseaux, dans des fossés entourés d’herbes hautes et des buissons.","From July to October you can find me near rivers, streams and ditches in high grass and in shrubs."
-2.insect10,"Du findest mich von Juni bis September, in warmen Jahren auch bis November, auf offenen Wiesen und in Mooren.","Tu me trouveras de juin à septembre, et même novembre les années chaudes, dans les prairies ouvertes et les marais.","From June to September, and in warmer years until November, you can find me in open meadows and marshes."
-2.insect11,Du findest mich von Mai bis August in Gebüschen und niedrigen Bäumen.,Tu me trouveras de mai à août dans des buissons et de petits arbres.,From May to August you can find me in shrubs and low trees.
-2.insect12,"Du findest mich von Mai bis Juni in Laubwäldern, mit Vorliebe auf Eichen.","Tu me trouveras de mai à juin dans les forêts de feuillus, avec une préférence pour les chênes.","From May to June you can find me in deciduous forests, preferably in oak trees."
-2.insect13,"Du findest mich von Mai bis Juni auf trockener Erde, wo ich in kleinen Erdhöhlen lebe.","Tu me trouveras de mai à juin sur des sols secs, où je vis dans de petits terriers.","From May to June you can find me on dry soil, where I live in a small burrow."
-2.insect14,Du findest mich von Mai bis Juni im offenen Feld und an Waldrändern.,Tu me trouveras de mai à juin dans des champs et en bordure de forêt.,From May to June you can find me in open spaces and on the edge of the forest.
-2.insect15,"Du findest mich von Mai bis September an sonnigen, krautreichen Ufern von Bächen und Flüssen.",Tu me trouveras de mai à septembre sur les bords ensoleillés et herbacés des ruisseaux et des rivières.,"From May to September you can find me on sunny, herbaceous banks of streams and rivers."
-2.insect16,"Du findest mich von Juni bis Juli, vorwiegend auf Waldwiesen und an Waldrändern im Berggebiet.","Tu me trouveras en juin et juillet, principalement dans des clairières et en bordure de forêt à la montagne.",From June to July you can mainly find me in glades and on the edge of the forest in mountainous regions.
-2.insect17,"Du findest mich von April bis Oktober in ländlichen Gebieten, vor allem in der Nähe von Kuhweiden.","Tu me trouveras d’avril à octobre dans les régions rurales, essentiellement près des pâturages des vaches.","From April to October you can find me in rural areas, mainly near cow pastures."
-2.insect18,Du findest mich von Mai bis Juli in Wäldern und Lichtungen an trockener Lage.,"Tu me trouveras de mai à juillet dans des forêts et des clairières, dans des endroits secs.",From May to July you can find me in forests and forest clearings in dry locations.
-2.insect19,"Du findest mich von März bis August an Waldrändern, Kalkfelswänden und Wiesen.","Tu me trouveras de mars à août en bordure de forêt, sur des parois calcaires et dans des prairies.","From March to August you can find me on the edges of forests, on limestone cliff walls and in meadows."
-2.insect20,"Du findest mich von April bis Juni an Weg- und Waldrändern, auf Lichtungen und Wiesen, manchmal auch in Gärten.","Tu me trouveras d’avril à juin en bordure de chemins et de forêts, dans des clairières et des prairies, parfois aussi dans des jardins.","From April to June you can find me on the edges of forests and paths, in forest clearings and meadows and sometimes in gardens too."
-2.insect21,"Du findest mich von März bis Oktober überall, wo es Blumen hat.",Tu me trouveras de mars à octobre partout où il y a des fleurs.,From March to October you can find me wherever there are flowers.
-2.insect22,"Du findest mich von Mai bis September auf Haselnusssträuchern, manchmal auch auf anderen Laubbäumen.","Tu me trouveras de mai à septembre sur des noisetiers, parfois aussi sur d’autres feuillus.",From May to September you can find me on hazelnut trees and sometimes in other broadleaf trees.
-2.insect23,Du findest mich von April bis August in Wiesen und Gebüschen an warmer Lage.,"Tu me trouveras d’avril à août dans des prairies et des buissons, à des endroits chauds.",From April to August you can find me in meadows and shrubs in warm locations.
-2.insect24,"Du findest mich von Juli bis September an Waldrändern, in Gebüschen und Gärten.","Tu me trouveras de juillet à septembre en bordure de forêt, dans les buissons et les jardins.","From July to September you can find me on the edges of forests, in shrubs and in gardens."
-2.insect25,Du findest mich von Juni bis August in feuchtwarmen Waldgebieten.,Tu me trouveras de juin à août dans des forêts chaudes et humides.,From June to August you can find me in warm and humid forest areas.
-2.insect26,"Du findest mich von April bis Juni an warmen, sandigen oder steinigen Orten.","Tu me trouveras d’avril à juin dans des endroits chauds, sablonneux ou pierreux.","From April to June you can find me in warm, sandy or stony locations."
-2.insect27,"Du findest mich von März bis Oktober auf feuchten Wiesen, häufig in Siedlungsbereichen von Menschen.","Tu me trouveras de mars à octobre dans des prairies humides, souvent près des lieux habités par les humains.","From March to October you can find me in wet meadows, often near human settlements."
-2.insect28,"Du findest mich von April bis September an Waldrändern, häufig auf toten Tieren, abgestorbenen Pflanzen und Pilzen.","Tu me trouveras d’avril à septembre en bordure de forêt, souvent sur des animaux, des plantes et des champignons morts.","From April to September you can find me on the edge of the forest, often on dead animals, plants or mushrooms."
-2.insect29,Du findest mich von Mai bis August auf Laubbäumen und Sträuchern.,Tu me trouveras de mai à août sur des feuillus et des buissons.,From May to August you can find me in deciduous trees and in shrubs.
-2.insect30,"Du findest mich von Mai bis Juni in Sand-, Kies- und Lehmgruben, aber auch an Mauern von menschlichen Siedlungen.","Tu me trouveras de mai à juin dans carrières de sable, de gravier ou d’argile, mais aussi sur les murs d’habitats humains.","From May to June you can find me in sand, gravel or clay pits and on walls in human settlements."
-3.insect1,Die zwei blauen Punkte auf meinen Flügeln sehen aus wie Augen. Damit schrecke ich Feinde ab.,Les deux points bleus sur mes ailes ressemblent à des yeux. C’est pour faire peur à mes ennemis.,Two blue dots on my wings look like eyes. They help me scare off my enemies.
-3.insect2,"Ich bin eine stark bedrohte Art und stehe unter Schutz. In der Schweiz komme ich nur noch im Jura, im Wallis, im Tessin und im Churer Rheintal vor.","Je suis une espèce très menacée et protégée. En Suisse, on ne me trouve plus que dans le Jura, en Valais, au Tessin et dans le Rheintal grison.","My species is critically endangered and protected. In Switzerland I can only be found in the Jura, Valais and Ticino regions and in the Chur Rhine Valley."
-3.insect3,"Wenn die Sonne scheint, singe ich – aber so hoch, dass ihr Menschen es kaum hören könnt.","Quand le soleil brille, je chante, mais si haut que les humains ne m’entendent presque pas.","When the sun shines, I like to sing, but at such a high pitch that humans can barely hear me."
-3.insect4,"Ich lebe in Völkern von etwa 50 bis 120 Tieren. Es gibt Arbeiterinnen, Drohnen und eine Königin, wie bei den Honigbienen.","Je vis dans des colonies de 50 à 120 individus. Il y a parmi nous des ouvriers, des faux bourdons et une reine, comme chez les abeilles.","I live in a colony of about 50 to 120 individuals. We have workers, drones and a queen, just like the honeybees."
-3.insect5,"Ich heisse zwar Laufkäfer, kann aber auch sehr gut fliegen.","Je marche vite, mais sais aussi très bien voler.","While I am known as a ground beetle, I am also very comfortable flying."
-3.insect6,"Nachdem ich aus der Larve geschlüpft bin, lebe ich etwa fünf Wochen lang.","Une fois sorti de ma larve, je vis environ cinq semaines.","After emerging from the larval stage, I live for about five weeks."
-3.insect7,Ich gehöre zu den häufigsten Grosslibellen in Europa.,Je suis une des libellules les plus répandues en Europe.,I am one of the most common dragonflies in Europe.
-3.insect8,"Als Einsiedlerbiene lebe ich nicht in einem Bienenvolk, sondern niste alleine in abgestorbenem Holz.","En tant qu’ermite, je ne vis pas dans une colonie, mais niche seule dans du bois mort.",As a solitary bee I do not live in a colony but build my nest alone in dead wood.
-3.insect9,Ich wurde nach 1900 von Nordamerika nach Europa eingeschleppt. Inzwischen bin ich hier heimisch.,J’ai été importée d’Amérique du Nord en Europe après 1900. Je suis aujourd’hui une espèce indigène.,I was introduced to Europe from North America sometime after 1900. I have now become a native species here.
-3.insect10,"Ich bin in Mitteleuropa häufig anzutreffen. Meine Färbung ist spektakulär, findest du nicht?","Je suis répandue en Europe centrale. Ma couleur est spectaculaire, non?","I am common in Central Europe. My colouration is spectacular, don’t you think?"
-3.insect11,Ich gehöre zur Familie der Buckelzirpen. Weltweit sind von uns bis jetzt 3200 Arten bekannt. Ihr habt aber noch nicht alle entdeckt.,Je fais partie de la famille des membracides. Il en existe à notre connaissance 3200 sortes dans le monde. Mais il en reste à découvrir.,"I am a member of the Membracidae family of treehoppers. So far, 3,200 species are known worldwide. However, not all of us have yet been discovered."
-3.insect12,Ich sehe ein bisschen aus wie eine Wespe. Das schützt mich vor Feinden.,Je ressemble un peu à une guêpe. Ça me protège de mes ennemis.,I look a little bit like a wasp. This helps to protect me from my enemies.
-3.insect13,"Ich kann nicht fliegen und springe nur selten, aber ich bin eine gute Läuferin.","Je ne peux pas voler et ne saute que rarement, mais je suis un bon marcheur.","I am flightless and rarely hop, but I am a very good runner."
-3.insect14,Meistens fliege ich erst in der Abenddämmerung.,"Le plus souvent, je ne vole qu’à la tombée du jour.",I do not usually fly around until dusk.
-3.insect15,Im Jahr 2008 war ich das Tier des Jahres in der Schweiz.,J’ai été couronné animal de l’année 2008 en Suisse.,In 2008 I was declared Swiss Animal of the Year.
-3.insect16,Durch die gelb-weisse Behaarung am Körper sehe ich ein wenig aus wie eine Hummel. Das schützt mich vor Feinden.,Les poils blanc-jaune de mon corps me font ressembler à un bourdon. Ça me protège de mes ennemis.,The yellow and white hairs on my body make me look a little like a bumblebee. This helps to protect me from my enemies.
-3.insect17,"Ich sitze oft auf Kuhfladen und helfe mit, diese abzubauen. Das ist eben auch wichtig.",Je m’installe souvent sur les bouses de vache et aide à leur décomposition. C’est une tâche importante.,I often sit on cowpats and help to break them down. This is an important job too.
-3.insect18,Es gibt auf der Erde rund 250 verschiedene Kamelhalsfliegen. 16 davon kommen in Mitteleuropa vor.,Il existe environ 250 raphidioptères différents sur Terre. On en trouve 16 en Europe centrale.,There are some 250 different species of snakefly in the world. Only 16 can be found in Central Europe.
-3.insect19,"Ich bin eine Einsiedlerbiene. Im Sommer suche ich ein leeres Schneckenhaus, baue darin ein Nest aus zerkauten Pflanzenteilen und lege ein Ei hinein.","Je suis un ermite. L’été, je cherche une coquille d’escargot vide, j’y fais mon nid à base d’herbes mâchées et j’y ponds un œuf.",I am a solitary bee. In the summer I try to find an empty snail shell where I can build my nest from chewed-up plant matter and then lay an egg in it.
-3.insect20,"Ich sehe zwar ein wenig aus wie eine Hummel, gehöre aber zu den Fliegen.","Je ressemble un peu à un bourdon, mais je compte au nombre des mouches.",I look a little bit like a bumblebee but I am actually a type of fly.
-3.insect21,"Ich bin ein Wanderinsekt. Im Frühling ziehe ich gegen Norden, im Herbst gegen Süden. Dabei überquere ich sogar Alpenpässe.","Je suis un insecte migrateur. Au printemps, je pars vers le nord, l’automne, je reviens vers le sud. Je franchis même des cols alpins.","I am a migratory insect. In the spring I migrate northwards, in the autumn I go back south. I even cross Alpine passes."
-3.insect22,Zur Eiablage wickle ich ein Haselblatt zu einem Röllchen zusammen und lege ein bis zwei Eier in dieses Nest.,"Pour pondre mes œufs, j’enroule une feuille de noisetier et dépose un à deux œufs dans ce nid.",I make a nest by rolling a hazel leaf into a small cigar-shaped roll and then lay one or two eggs into it.
-3.insect23,"Wie die meisten Wildbienen, lebe ich als Einzelgängerin. Die langen Dinger auf meinem Kopf sind nicht Hörner, sondern Fühler.","Comme la plupart des abeilles sauvages, je suis un solitaire. Les longs trucs sur mon corps ne sont pas des cornes, mais des antennes.",Like most wild bees I am a solitary insect. The long appendages on my head are not horns but antennae.
-3.insect24,"Die Fühler auf meinem Kopf können bis zu viermal so lang werden wie mein Körper. Elegant, nicht?","Mes antennes peuvent être quatre fois plus longues que mon corps. Élégant, non?","The antennae on my head can be four times as long as my body. Very elegant, aren’t they?"
-3.insect25,"Als Nachtfalter fliege ich meistens, wenn es dunkel ist. Deshalb fällt euch Menschen auch kaum auf, wie chic ich aussehe.","Papillon de nuit, je vole le plus souvent quand il fait sombre. C’est pourquoi vous les humains ne voyez pas comme je suis chic.","As a moth, I usually fly around in the dark. That is why humans rarely realise how pretty I am."
-3.insect26,"Ich bin eine bedrohte Art und stehe unter Schutz. In der Schweiz gibt es nur noch wenige, kleine Populationen.","Je suis une espèce menacée et protégée. En Suisse, il ne reste plus que de rares et petites populations.",My species is endangered and protected. There are only a few small populations left in Switzerland.
-3.insect27,Als Einsiedlerwespe lege ich meine Eier in Holzröhrchen und -löcher. Siehst du meine typische Wespentaille?,"Ermite, je ponds mes œufs dans des trous d’arbres. Tu vois ma taille de guêpe si typique?",As a solitary bee I lay my eggs in wooden tubes or holes. Can you see my classic wasp waist?
-3.insect28,"Ich helfe mit, abgestorbenes Material wie tote Tiere und Pflanzen zu beseitigen. Auch Totengräber sind eben wichtig.",J’aide à éliminer les restes de plantes et d’animaux morts. Les nécrophores jouent aussi un rôle important.,I help to clear away dead matter including animal carcasses and plants. As a burying beetle I perform the important work of a grave digger.
-3.insect29,"Mein Körper ist eigentlich schwarz, aber ich bin mit grün schillernden Schuppen bedeckt. Hübsch, nicht?","Mon corps est en fait noir, mais je suis recouvert d’écailles vertes brillantes. C’est beau, non?","My body is in fact black but I am covered in brilliant green scales. Pretty, aren’t I?"
-3.insect30,Ich kann sehr schnell fliegen und suche meine Nahrung im Umkreis von etwa einem Kilometer.,Je peux voler très vite et je cherche ma nourriture dans un rayon d’environ un kilomètre.,I can fly very fast and cover an area of about a kilometre around my nest in search of food.
-4.insect1,"Ich ernähre mich von Nektar und Pflanzensäften, mag aber auch den Saft von überreifen Früchten.","Je me nourris du nectar et de la sève des plantes, mais j’aime aussi le jus des fruits blets.",I feed on nectar and the sap of plants but also like to drink the juice of overripe fruit.
-4.insect2,Ich ernähre mich von Blättern und vom Holz von Buchen.,Je me nourris de feuilles et du bois des hêtres.,I feed on leaves and the wood of beech trees.
-4.insect3,"Ich ernähre mich von Pflanzen, jage aber auch andere Insekten.","Je me nourris de plantes, mais je chasse aussi d’autres insectes.","I mainly feed on plants, but I also hunt other insects."
-4.insect4,Ich ernähre mich von Nektar und bin wichtig für die Bestäubung von Pflanzen.,Je me nourris de nectar et suis un pollinisateur important pour les plantes.,I feed on nectar and am an important pollinator of plants.
-4.insect5,Ich bin ein Jäger und ernähre mich von Insekten.,Je suis un chasseur et me nourris d’insectes.,I am a hunter and feed on insects.
-4.insect6,"Ich bin eine Jägerin und ernähre mich von Insekten, die kleiner sind als ich.",Je suis un chasseur et me nourris d’insectes plus petits que moi.,I am a hunter and feed on insects that are smaller than me.
-4.insect7,Ich ernähre mich von Insekten und unternehme ausgedehnte Jagdflüge.,Je me nourris d’insectes et j’entreprends de longs vols pour chasser.,I feed on insects and go on long flights to hunt my prey.
-4.insect8,Ich ernähre mich von Nektar und Pollen und bin wichtig für die Bestäubung der Blüten.,Je me nourris de nectar et de pollen et joue un rôle important pour la pollinisation des fleurs.,I feed on nectar and pollen and am an important pollinator of flowers.
-4.insect9,Ich ernähre mich von unterschiedlichen Pflanzensäften.,Je me nourris de la sève de différentes plantes.,I feed on the sap of various plants.
-4.insect10,Ich ernähre mich vorwiegend von Gräsern.,Je me nourris principalement d’herbes.,I feed mainly on grasses.
-4.insect11,Ich ernähre mich von unterschiedlichen Pflanzensäften.,Je me nourris de la sève de différentes plantes.,I feed on the sap of various plants.
-4.insect12,Ich ernähre mich von Blättern und Rinde.,Je me nourris de feuilles et d’écorces.,I feed on leaves and tree bark.
-4.insect13,Ich ernähre mich von Pflanzenteilen und kleinen Insekten.,Je me nourris de bouts de plantes et de petits insectes.,I feed on plant matter and small insects.
-4.insect14,"Ich ernähre mich von Blättern von Eichen, Buchen und Obstbäumen.","Je me nourris de feuilles de chêne, de hêtre et d’arbres fruitiers.","I feed on the leaves of oak, beech and fruit trees."
-4.insect15,Ich bin eine Jägerin und ernähre mich von Insekten.,Je suis un chasseur et me nourris d’insectes.,I am a hunter and feed on insects.
-4.insect16,Ich ernähre mich von Blütensaft und kleinen Insekten.,Je me nourris de la sève des fleurs et de petits insectes.,I feed on the sap of flowers and on small insects.
-4.insect17,"Ich ernähre mich von Pollen und Nektar, jage aber auch kleinere Insekten.","Je me nourris de pollen et de nectar, mais je chasse aussi les petits insectes.",I feed on pollen and nectar but also like to hunt small insects.
-4.insect18,"Ich fresse andere Insekten, vor allem Blattläuse.","Je mange d’autres insectes, prinicpalement des pucerons.","I feed on other insects, mainly on greenfly."
-4.insect19,"Ich ernähre mich von Nektar und Pollen von sechs Pflanzenarten, vor allem von Schmetterlings- und Lippenblütlern.","Je me nourris du nectar et du pollen de six sortes de plantes, essentiellement des faboidées et des lamiacées.","I feed on the nectar and pollen of six different plant species, mainly Faboideae and Lamiaceae."
-4.insect20,"Ich ernähre mich von Nektar, den ich mit meinem langen Rüssel aus den Blüten sauge.",Je me nourris de nectar que j’aspire des fleurs à l’aide de ma longue trompe.,I feed on nectar by inserting my long proboscis into the flowers.
-4.insect21,Ich ernähre mich von Nektar und Pollen und bin wichtig für die Bestäubung. Als Larve fresse ich massenhaft Blattläuse.,"Je me nourris de nectar et de pollen et je joue un rôle important dans la pollinisation. Au stade larvaire, je mange des quantités de pucerons.",I feed on nectar and pollen and am an important pollinator of flowers. In my larval stage I eat copious amounts of greenfly.
-4.insect22,Ich ernähre mich von den Blättern des Haselstrauchs.,Je me nourris de feuilles de noisetier.,I feed on the leaves of hazelnut trees.
-4.insect23,"Ich ernähre mich von Pollen, am liebsten von Schmetterlingsblütlern. Ich bin wichtig für die Bestäubung.","Je me nourris de pollen, de préférence de faboidées. Je suis important pour la pollinisation.","I feed on pollen, preferably of Faboideae. I am an important pollinator."
-4.insect24,"Ich ernähre mich von Blättern von Laubbäumen, Rosen und Himbeeren.","Je me nourris des feuilles d’arbres feuillus, de roses et de framboises.","I feed on the leaves of deciduous trees, roses and raspberries."
-4.insect25,"Ich ernähre mich von Nektar und Pflanzensäften, mag aber auch den Saft von überreifen Früchten.","Je me nourris de nectar et de sève, j’aime aussi les fruits blets.","I feed on nectar and the sap of plants, but I also like the juice of overripe fruit."
-4.insect26,Ich ernähre mich vom Nektar von Schmetterlings- und Lippenblütlern und bin wichtig für ihre Bestäubung.,Je me nourris du nectar de faboidées et de lamiacées et suis importante pour la pollinisation.,I feed on the nectar of the Faboideae and Lamiaceae families of plants and am an important pollinator.
-4.insect27,Ich ernähre mich von Nektar und Pollen und bin wichtig für die Bestäubung von Blüten.,Je me nourris de nectar et de pollen et je joue un rôle important dans la pollinisation.,I feed on nectar and pollen and am an important pollinator of flowers.
-4.insect28,Ich ernähre mich von Tierkadavern und jage auch andere Insekten.,Je me nourris de cadavres d’animaux et je chasse aussi d’autres insectes.,I feed on animal carcasses and also hunt other insects.
-4.insect29,"Ich ernähre mich von den Blättern der Bäume und Sträucher, auf denen ich lebe.",Je me nourris des feuilles des arbres et des buissons sur lesquels je vis.,I feed on the leaves of the trees and shrubs I live in.
-4.insect30,"Ich ernähre mich von Pollen und Nektar, und zwar ausschliesslich von Kreuzblütlern.","Je me nourris de pollen et de nectar, mais exclusivement de brassicacées.",I feed on pollen and nectar but only of the Brassicaceae family of plants.
+Tschüss!","On se voit à la prochaine station, tchao!","OK, see you at the next terminal. Bye!",,
+,,,,,
+5.dialogueStart1,Bitte geh zum Anfang der Ausstellung und melde dich bei einer der Computerstationen an.,Va au début de l’exposition et annonce-toi à une station.,Please go to the beginning of the exhibition and log in at one of the computer terminals.,,
+5.dialogueStart2,"Du hast leider einige Stationen übersprungen. Geh zu einer Computerstation im Bereich Kleidung, Wohnen, Mobilität oder Ernährung.","Tu as malheureusement sauté quelques stations. Va à celle qui est dans la zone de l’habillement, du logement, de la mobilité ou de l’alimentation.","Unfortunately you have skipped some of the terminals. Go to a terminal in the clothes, living, mobility or food areas.",,
+5.dialogueStart3,"Hallihallo, ich habe schon auf dich gewartet. Du hast noch nicht alle Stationen besucht. Möchtest du die Auswertung trotzdem machen?","Coucou, je t’attendais. Tu n’as pas encore vu toutes les stations. Tu veux quand même faire l’évaluation?","Hi there, I have been waiting for you. You haven’t visited all the terminals yet. Would you like to do the evaluation anyway?",,
+5.dialogueStart4,"Hallihallo, ich habe schon auf dich gewartet. Bist du bereit für die Auswertung?","Coucou, je t’attendais. Tu es prêt.e pour l’évaluation?","Hi there, I have been waiting for you. Are you ready to do the evaluation?",,
+5.dialogue2,"Gut, dann wollen wir mal.","C’est bien, alors allons-y.","OK, let's go.",,
+5.dialogue3,"Wir schliessen jetzt ein Weltwandels-Abkommen ab. Du weisst nicht, was das ist?",Nous allons conclure un accord sur le changement mondial. Tu ne sais pas ce que c’est?,We are going to sign a world change agreement. You don’t know what that is?,,
+5.dialogue4,"Ganz einfach: Wir entscheiden zusammen, was du für die Umwelt tun kannst. Damit sich die Welt verändert.",C’est simple: nous décidons ensemble de ce que tu peux faire pour l’environnement. Afin que le monde change.,"It’s very simple: together, we will decide what you can do for the environment so that the world can change.",,
+5.dialogue5,Schau mal auf die Wände in diesem Raum. Dort siehst du ganz viele Weltwandels-Abkommen.,Regarde les murs de cette salle. Tu peux y voir toutes sortes d’accords sur le changement mondial.,Have a look at the walls in this room. You will see many other world change agreements.,,
+5.dialogue6,"Ich habe mir alle deine Antworten gemerkt. Einen Moment noch, die Auswertung läuft …","J’ai noté toutes tes réponses. Attends un peu, l’évaluation est en cours...","I have saved all your answers. Just a moment, the evaluation is ongoing...",,
+5.dialogue7,"Hier ist das Resultat! Der Balken zeigt an, wie umweltbewusst du in den einzelnen Bereichen lebst.",Voilà le résultat! La barre indique à quel point ton mode de vie est écologique dans les différents domaines de la vie.,Here is your result! The bar shows how environmentally friendly your lifestyle is in different areas.,,
+5.result,Dein Umweltbewusstsein,Ta conscience écologique,Your environmental awareness,,
+5.areaSelection1,In welchem Bereich möchtest du aktiv werden?,Dans quel domaine souhaites-tu agir?,Which of the areas would you like to change?,,
+5.areaSelection1.answer0,Kleidung,Habillement,Clothes,,
+5.areaSelection1.answer1,Wohnen,Logement,The home,,
+5.areaSelection1.answer2,Mobilität,Mobilité,Mobility,,
+5.areaSelection1.answer3,Ernährung,Alimentation,Food,,
+5.areaSelection1.special,Special Engagement,Engagement spécial,Special involvement,,
+5.dialogue8,"Gute Wahl! Also, ich schlage dir zwei Weltwandels-Abkommen vor und du kannst eines davon auswählen.",Bon choix! Je te propose donc deux accords sur le changement mondial et tu peux choisir l’un des deux.,"Great choice! OK, I will propose two world change agreements and you can choose one of them.",,
+5.wwaSelection2,Welches Weltwandels-Abkommen möchtest du abschliessen?,Quel accord sur le changement mondial souhaites-tu conclure?,Which world change agreement would you like to sign?,,
+5.wwaSelection2.count,## Leute haben dieses Abkommen bereits abgeschlossen.,## des gens ont déjà conclu cet accord.,## people have already signed this agreement.,,
+5.dialogueClothes,"Grossartig! Weniger und schlauer einkaufen, das passt bestens bei Kleidern.","Génial! Acheter moins et malin, c’est parfait pour les vêtements.",Great! Buying less and being clever about what you buy, that really suits the planet.,
+5.dialogueLiving,Toll! Weniger Energieverbrauch schenkt beim Wohnen besonders ein.,"Super! Consommer moins d’énergie, c’est particulièrement payant dans le logement.",Brilliant! Using less energy in the home is very cool.,,
+5.dialogueMobility,"Kluge Entscheidung! Bahn und Muckis statt Verbrennungsmotoren, das bringt uns voran.","Sage décision! Le train et les biscoteaux plutôt que les moteurs à combustion, ça nous fait avancer.",A wise decision! Taking the train and using your muscles instead of combustion engines, that will get us further.,
+5.dialogueFood,"Weniger Tier, mehr Neues ausprobieren! Das schmeckt mir!","Moins de produits animaux, plus de nouveauté! Ça me plaît!",Less animals and tasting more new things! Sweet!,,
+5.dialogueSpecial,Mutig! Du packst das!,Courageux! Tu vas le faire!,Very brave! You can do this!,,
+5.dialogueGeneral,"Eine Herausforderung, genau das Richtige für dich. Super!","Un défi, c’est exactement ce qu’il te faut. Super!","A challenge, exactly what you need. Fantastic!",,
+5.wwaConfirmation3,"Bist du sicher, dass du dieses Weltwandels-Abkommen abschliessen willst?",Tu es sûr.e de vouloir conclure cet accord?,Are you sure this is the world change agreement you would like to sign?,,
+5.wwaConfirmation4,Nimmst du die Herausforderung wirklich an?,Tu veux vraiment relever ce défi?,Are you really going to accept the challenge?,,
+5.wwaConfirmation4.accept,Aber sicher! Ich will doch die Welt retten.,Bien sûr! Il faut sauver le monde.,"Sure! After all, I want to save the world.",,
+5.wwaConfirmation4.rethink,Ich muss es mir nochmals überlegen.,Il faut encore que j’y réfléchisse.,I would like to think about it again.,,
+5.dialogue9,"Wow!! Du bist super! Herzlichen Dank, dass du mithilfst, die Welt zu retten!",Ouah! Tu es super! Un grand merci d’aider à sauver le monde!,Wow! You are great! Thank you so much for helping to save the world!,,
+5.emailAccept5,Möchtest du dir das Weltwandels-Abkommen nach Hause mailen?,Tu aimerais envoyer l’accord sur le changement mondial chez toi par mail?,Would you like to email the world change agreement to yourself?,,
+5.emailPrompt6,Weltwandels-Abkommen zuschicken.,Envoyer l’accord sur le changement mondial.,Send the world change agreement.,,
+5.emailPrompt6.question,Gib deine E-Mail-Adresse ein.,Saisis ton adresse électronique.,Enter your email address.,,
+5.emailPrompt6.textField,E-Mail-Adresse eingeben.,Saisir l’adresse électronique.,Enter email address.,,
+5.emailPrompt6.newsletter,Ich will auch den Newsletter des Museums erhalten.,J’aimerais aussi recevoir la newsletter du musée.,I would also like to receive the Museum Newsletter.,,
+5.dialogue10,Ich wünsche dir viel Erfolg beim Weltwandel. Tschüss! Wir schaffen das!,Je te souhaite beaucoup de succès dans le changement mondial. Tchao! On va y arriver!,Good luck with your world change. Bye! We can do this!,,
+,,,,,
+5.wwaSelection2.clothes.hard.answer0,"Ich notiere ein halbes Jahr lang, welche Kleider ich trage. Was ich in dieser Zeit nicht anziehe, verschenke ich oder gebe es in den Secondhand-Handel.","Je note pendant six mois quels vêtements je porte. Ceux que je n’ai pas mis pendant ce temps, je les donne à quelqu’un ou les apporte dans une boutique de seconde main.",For the next six months I will keep a record of all the clothes I wear. Any items I don’t wear during that period will be brought to a charity or second-hand shop.,,
+5.wwaSelection2.clothes.hard.answer1,Ich veranstalte in den nächsten drei Monaten eine Kleidertauschparty mit meinem Freundeskreis und meinen Bekannten.,J’organise dans les trois mois une soirée troc de vêtements avec mon cercle d’amis et de copains/copines.,I will organise a clothes-swapping party with friends and family in the next three months.,,
+5.wwaSelection2.clothes.hard.answer2,Ich kaufe ab Montag für ein halbes Jahr keine neuen Kleider mehr.,"À partir de lundi, je n’achète plus de nouveaux vêtements pendant six mois.",For six months from Monday I will stop buying new clothes.,,
+5.wwaSelection2.clothes.hard.answer3,Ab Montag kaufe ich nur noch Kleider aus Naturfasern.,"À partir de lundi, je n’achète plus que des vêtements en fibres naturelles.",From Monday I will only buy clothes made of natural fibres.,,
+5.wwaSelection2.clothes.hard.answer4,"Ab Montag plane ich meine Kleiderkäufe voraus und betrete einen Laden nur dann, wenn ich vorher weiss, was ich brauche.","À partir de lundi, je planifie mes achats de vêtements et n’entre plus dans un magasin que si jְ’ai besoin de quelque chose.",From Monday I will plan my clothes shopping and will only visit a clothes shop to buy the specific item or items I need.,,
+,,,,,
+5.wwaSelection2.clothes.medium.answer0,Ich kaufe ab nächsten Montag ein Jahr lang nur noch Bio-Baumwollkleider.,"À partir de lundi, je n’achète plus que des vêtements en coton bio pendant un an.","For a period of one year from Monday, I will only buy organic cotton clothes.",,
+5.wwaSelection2.clothes.medium.answer1,"Ich lasse im nächsten halben Jahr drei Kleidungsstücke flicken, statt Ersatz zu kaufen.",Je fais repriser trois vêtements pendant six mois plutôt que de les remplacer par de nouveaux.,Over the next six months I will have three of my clothes items mended instead of replacing them.,,
+5.wwaSelection2.clothes.medium.answer2,In den nächsten sechs Monaten kaufe ich keine neuen Schuhe.,Je n’achète plus de nouvelles chaussures pendant six mois.,I will stop buying new shoes for the next six months.,,
+5.wwaSelection2.clothes.medium.answer3,Ich reduziere meine Bestellungen im Onlinehandel auf acht Pakete im Jahr.,Je réduis mes commandes sur Internet à huit paquets par an.,I will reduce my online shopping to eight parcels a year.,,
+5.wwaSelection2.clothes.medium.answer4,Im nächsten halben Jahr bevorzuge ich beim Einkaufen ökologisch produzierte Kleidung.,Je privilégie pendant six mois l’achat de vêtements produits de manière écologique.,Over the next six months I will preferably buy clothes from eco-friendly production.,,
+,,,,,
+5.wwaSelection2.clothes.easy.answer0,Im nächsten Monat putze und pflege ich alle meine Schuhe mindestens einmal.,Je nettoie et j’entretiens toutes mes chaussures au moins une fois le mois prochain.,Over the next month I will clean and look after my shoes at least once.,,
+5.wwaSelection2.clothes.easy.answer1,Ich trage meine Winterjacke oder meinen Wintermantel eine Saison länger.,Je porte mon manteau ou ma veste d’hiver une saison de plus.,I will hold on to my winter coat for another year.,,
+5.wwaSelection2.clothes.easy.answer2,"Bis in zwei Wochen kenne ich zwei Möglichkeiten, Kleider auszuleihen oder zu mieten.","D’ici deux semaines, je connaîtrai deux moyens d’emprunter ou de louer des vêtements.",In two weeks’ time I will have found two places where I can borrow or rent clothes.,,
+5.wwaSelection2.clothes.easy.answer3,Bei meiner nächsten Jeans achte ich auf gute Qualität und kaufe nur ein Stück.,"La prochaine fois, j’achète une seule paire de jeans de bonne qualité.",The next time I buy a new pair of denim trousers I will make sure they are of good quality and will only buy one pair.,,
+5.wwaSelection2.clothes.easy.answer4,Bei meiner nächsten Onlinebestellung wähle ich einen ökologischen Anbieter.,"La prochaine fois que je passe une commande sur Internet, je choisis une marque écologique.","When I place my next online order, I will choose an eco-friendly brand.",,
+,,,,,
+5.wwaSelection2.living.hard.answer0,Ich setze mich während der nächsten drei Monate für ökologischen Strom bei mir zu Hause ein.,Je m’engage pendant trois mois pour que le courant utilisé chez moi soit écologique.,Over the next three months I will do my best to make sure that the electricity in my home is eco-friendly.,,
+5.wwaSelection2.living.hard.answer1,Ich setze mich während der nächsten drei Monate für eine fossilfreie Heizung bei mir zu Hause ein.,Je m’engage pendant trois mois en faveur d’un chauffage sans énergie fossile dans mon logement.,Over the next three months I will do my best to make sure that the heating system in my home is free of fossil fuels.,,
+5.wwaSelection2.living.hard.answer2,Ich kaufe ein Jahr lang keine neuen Haushaltsgegenstände.,Je n’achète rien de nouveau pour mon logement pendant un an.,I will not buy any new household items in the next twelve months.,,
+5.wwaSelection2.living.hard.answer3,Ich dusche im Sommerhalbjahr nur kalt.,Je ne prends que des douches froides pendant les mois d’été.,I will only have cold showers in the summer months.,,
+5.wwaSelection2.living.hard.answer4,Ich reduziere meinen Abfall bis in einem halben Jahr um mindestens ein Drittel.,Je réduis d’au moins un tiers ma production de déchets pendant les six prochains mois.,In six months’ time I will have reduced my waste by at least one third.,,
+,,,,,
+5.wwaSelection2.living.medium.answer0,Ab Montag wasche ich nur noch mit 30° statt 40° und 60° statt 95°.,"À partir de lundi, je lave à 30° au lieu de 40° et à 60° au lieu de 95°.",From Monday I will wash everything at 30° instead of 40° and at 60° instead of 95°.,,
+5.wwaSelection2.living.medium.answer1,Ich kaufe drei Monate lang keine Billigprodukte «made in Asia».,Je n’achète plus de trucs bon marché «made in Asia» pendant trois mois.,For the next three months I will not buy any cheap items “made in Asia”.,,
+5.wwaSelection2.living.medium.answer2,Ich reduziere die Wärme in meiner Wohnung um ein Grad.,Je réduis la température de mon appartement de 1 degré.,I will turn down the heating in my apartment by one degree.,,
+5.wwaSelection2.living.medium.answer3,Ich schalte ab nächsten Montag alle Elektrogeräte bei mir zu Hause ganz aus (kein Stand-by).,"À partir de lundi, j’arrête tous les appareils électriques chez moi (pas de mode veille).",From Monday I will turn off all my electronic devices (not on standby).,,
+5.wwaSelection2.living.medium.answer4,Ab Montag lege ich jede Woche einen streamingfreien Tag ein.,"À partir de lundi, je passe une journée par semaine sans streaming.",From Monday I will have one streaming-free day every week.,,
+,,,,,
+5.wwaSelection2.living.easy.answer0,Ich montiere bis in einem Monat eine Wassersparbrause in meiner Dusche.,"D’ici un mois, je monte un pommeau de douche éco dans ma salle de bain.",By this time next month I will have installed a water-saving shower head.,,
+5.wwaSelection2.living.easy.answer1,"Ich bringe in den nächsten vier Wochen alle Haushaltsgeräte, die sich nicht mehr reparieren lassen, zum Recycling.","Pendant les quatre prochaines semaines, j’apporte au recyclage tous les appareils ménagers qui ne peuvent être réparés.",Over the next four weeks I will recycle all household appliances that cannot be repaired.,,
+5.wwaSelection2.living.easy.answer2,Ich schaffe mir bis in einem Monat einen Wasserkocher an und verzichte auf die Pfanne auf dem Herd.,"D’ici un mois, j’achète une bouilloire et je renonce à faire chauffer de l’eau dans une casserole.",By this time next month I will have purchased a kettle and will no longer boil water in a pan.,,
+5.wwaSelection2.living.easy.answer3,"Ich nutze ab nächsten Montag Verpackungen (Beutel, Folien, Gläser etc.) mehrmals.","À partir de lundi, j’utilise les emballages plusieurs fois (sachets, film plastique, verres, etc.).","From Monday I will reuse any packaging (bags, foil, glass jars, etc.) several times.",,
+5.wwaSelection2.living.easy.answer4,Ich lüfte in der kalten Jahreszeit nur kurz und verzichte im Sommer auf Klimageräte.,J’aère brièvement pendant les mois d’hiver et je renonce aux climatiseurs l’été.,In the colder months I will air my home for short periods only and in the summer months I will refrain from using air conditioning.,,
+,,,,,
+5.wwaSelection2.mobility.hard.answer0,Ich verzichte ab Montag für zwei Jahre auf Flüge.,"À partir de lundi, je renonce à l’avion pendant deux ans.",From Monday I will avoid air travel for two years.,,
+5.wwaSelection2.mobility.hard.answer1,Ich bewege mich in meiner Freizeit drei Monate lang nur mit Muskelkraft vorwärts.,Je ne me sers plus que de mes muscles pour me déplacer pour mes loisirs pendant trois mois.,For the next three months I will only use my own muscles to move around in my spare time.,,
+5.wwaSelection2.mobility.hard.answer2,Ich fahre in den nächsten drei Monaten nicht Auto.,Je ne prends plus ma voiture pendant trois mois.,For the next three months I will not use my car.,,
+5.wwaSelection2.mobility.hard.answer3,"Bei meiner nächsten grossen Reise achte ich darauf, alle Wege mit umweltschonenden Verkehrsmitteln zurückzulegen.","Lors de mon prochain grand voyage, je veille à faire tous mes trajets par des moyens de transport qui ménagent l’environnement.",On my next longer journey I will make sure to use eco-friendly modes of transport only.,,
+5.wwaSelection2.mobility.hard.answer4,Ich schaffe ein ÖV-Abo an.,J’achète un abonnement de transport.,I will purchase a public transport season ticket.,,
+,,,,,
+5.wwaSelection2.mobility.medium.answer0,Ich plane meine nächsten Auslandferien mit der Bahn.,Je planifie mes prochaines vacances à l’étranger avec le train.,I will travel by train to my next foreign holiday destination.,,
+5.wwaSelection2.mobility.medium.answer1,Ich lasse das Auto zwei Tage in der Woche stehen.,Je renonce à la voiture deux jours par semaine.,I will refrain from using my car on two days every week.,,
+5.wwaSelection2.mobility.medium.answer2,Ich bewege mich in meiner Freizeit einen Monat lang nur mit Muskelkraft.,Je ne me sers plus que de mes muscles pour me déplacer pour mes loisirs pendant un mois.,For one month I will only use my own muscles to move around in my spare time.,,
+5.wwaSelection2.mobility.medium.answer3,Ich bestreite einen Monat lang alle Alltagserledigungen mit dem ÖV oder dem Velo.,Je ne me sers plus que des transports publics ou de mon vélo dans la vie quotidienne pendant un mois.,For one month I will run all my errands by public transport or bicycle.,,
+5.wwaSelection2.mobility.medium.answer4,Ich verbringe meine nächsten Ferien in der Schweiz.,Je passe mes prochaines vacances en Suisse.,I will spend my next holidays in Switzerland.,,
+,,,,,
+5.wwaSelection2.mobility.easy.answer0,Ab nächsten Montag lege ich drei autofreie Tage im Monat ein.,"À partir de lundi, je renonce à ma voiture trois jours par mois.",From Monday I will refrain from using my car on three days every month.,,
+5.wwaSelection2.mobility.easy.answer1,Ich verzichte im nächsten Jahr auf einen Kurzstreckenflug.,Je renonce à un vol court l’année prochaine.,I will reduce my air travel by one short-haul flight in the next twelve months.,,
+5.wwaSelection2.mobility.easy.answer2,In den nächsten vier Wochen putze ich mein Velo oder lasse einen Service machen.,Je nettoie mon vélo ou fais faire un service dans les quatre prochaines semaines.,Over the next four weeks I will clean my bicycle or have it serviced.,,
+5.wwaSelection2.mobility.easy.answer3,In den nächsten drei Monaten mache ich zwei Ausflüge ohne Auto.,Je fais deux excursions sans voiture dans les trois prochains mois.,Over the next three months I will plan two outings without the car.,,
+5.wwaSelection2.mobility.easy.answer4,"Im nächsten Monat informiere ich mich darüber, wie ich spritsparender fahren kann.",Je m’informe dans le mois prochain sur les moyens d’économiser de l’essence en conduisant.,Over the next month I will find out how to reduce the amount of petrol I use when driving.,,
+,,,,,
+5.wwaSelection2.food.hard.answer0,Ab nächsten Montag ernähre ich mich drei Monate lang vegan.,"À partir de lundi, je mange végane pendant trois mois.",From Monday I will switch to a vegan diet for three months.,,
+5.wwaSelection2.food.hard.answer1,Ab nächsten Montag ernähre ich mich drei Monate lang vegetarisch.,"À partir de lundi, je mange végétarien pendant trois mois.",From Monday I will switch to a vegetarian diet for three months.,,
+5.wwaSelection2.food.hard.answer2,Im nächsten halben Jahr kaufe ich nur saisonales Gemüse und saisonale Früchte.,Je n’achète plus que des fruits et légumes de saison pendant les six prochains mois.,Over the next six months I will only buy fruit and vegetables that are in season.,,
+5.wwaSelection2.food.hard.answer3,In den nächsten zwei Monaten werfe ich keine Lebensmittel weg.,Je ne jette plus de nourriture pendant les deux prochains mois.,Over the next two months I will not throw out any food.,,
+5.wwaSelection2.food.hard.answer4,Ab nächsten Montag konsumiere ich einen Monat lang keine Milchprodukte.,"À partir de lundi, je ne consomme plus de produits laitiers pendant un mois.",From Monday I will refrain from consuming dairy products for one month.,,
+,,,,,
+5.wwaSelection2.food.medium.answer0,Ich ernähre mich einen Monat lang an einem Tag pro Woche vegan.,Je mange végane un jour par semaine pendant un mois.,I will adhere to a vegan diet once a week for one month.,,
+5.wwaSelection2.food.medium.answer1,Ab nächsten Montag lege ich jede Woche einen fleischlosen Tag ein.,"À partir de lundi, je mange sans viande un jour par semaine.","From Monday, I will have one meat-free day every week.",,
+5.wwaSelection2.food.medium.answer2,Im nächsten Monat kaufe ich nur saisonales Gemüse und saisonale Früchte.,Je n’achète plus que des fruits et légumes de saison le mois prochain.,Next month I will only buy fruit and vegetables that are in season.,,
+5.wwaSelection2.food.medium.answer3,"Ich bringe ab nächsten Montag das Geschirr selbst mit, wenn ich Take-away hole.","À partir de lundi, j’apporte mon récipient quand j’achète un plat à l’emporter.",From Monday I will bring my own containers to buy takeaway food.,,
+5.wwaSelection2.food.medium.answer4,Im nächsten Monat probiere ich drei neue vegetarische Menüs aus.,J’essaie trois nouveaux plats végétariens le mois prochain.,I will try three new vegetarian dishes next month.,,
+,,,,,
+5.wwaSelection2.food.easy.answer0,Ab nächsten Montag verzichte ich für eine Woche auf Take-away.,Je renonce aux plats à l’emporter pendant une semaine le mois prochain.,From next Monday I will refrain from eating takeaway food for one week.,,
+5.wwaSelection2.food.easy.answer1,"In den nächsten zwei Wochen schreibe ich für jeden Einkauf eine Liste und kaufe nur, was darauf steht.",Je fais une liste de course et n’achète plus que les produits qui y sont notés pendant les deux prochaines semaines.,Over the next two weeks I will write a list every time I go shopping and I will only buy what is on the list.,,
+5.wwaSelection2.food.easy.answer2,Nächste Woche klebe ich eine Anleitung zur richtigen Lagerung von Lebensmitteln an den Kühlschrank.,"La semaine prochaine, je colle sur mon réfrigérateur des instructions sur l’emplacement des produits.",Next week I will put up instructions on my fridge on how to store food correctly.,,
+5.wwaSelection2.food.easy.answer3,Ich esse einen Monat lang einmal pro Woche vegetarisch.,Je mange végétarien une fois par semaine pendant un mois.,I will eat vegetarian food once a week for one month.,,
+5.wwaSelection2.food.easy.answer4,Im nächsten Monat probiere ich ein neues vegetarisches Menü aus.,J’essaie un nouveau plat végétarien le mois prochain.,I will try a new vegetarian dish next month.,,
+,,,,,
+5.wwaSelection2.special.answer0,Im nächsten halben Jahr unterstütze ich eine Umweltinitiative mit Zeit oder Geld.,"Dans les six prochains mois, je soutiens une initiative en faveur de l’environnement en donnant du temps ou de l’argent.",Over the next six months I will support an environmental initiative by contributing either time or money.,,
+5.wwaSelection2.special.answer1,In den nächsten drei Monaten führe ich mit drei Leuten ein ausführliches Gespräch über Umweltthemen.,"Dans les trois prochains mois, je discute à fond de thématiques environnementales avec trois personnes.",Over the next three months I will have an in-depth discussion about the environment with three people.,,
+5.wwaSelection2.special.answer2,"Im nächsten halben Jahr schlage ich an meinem Arbeitsplatz zwei Massnahmen vor, um ökologischer zu werden.","Dans les six prochains mois, je propose deux mesures pour être plus écologique au travail.",Over the next six months I will propose two eco-friendly measures at my workplace.,,
+5.wwaSelection2.special.answer3,"Ich gründe am Arbeitsplatz, in der Schule oder an meinem Wohnort eine Arbeitsgruppe für mehr Umweltschutz.","Je créé un groupe de travail, à l’école, là où j’habite ou au travail, en vue de mieux protéger l’environnement.","I will start a working group for more environmental protection at my workplace, school or place of residence.",,
+5.wwaSelection2.special.answer4,Ich engagiere mich eine Woche lang aktiv für ein Umweltprojekt.,Je m’engage activement pendant une semaine en faveur d’un projet environnemental.,I will become actively involved in an environmental project for one week.,,
+,,,,,
+email,"Hallo
+
+Herzlichen Dank, dass du unsere Ausstellung Planetopia - Raum für Weltwandel besucht und ein Weltwandelsabkommen abgeschlossen hast. Du bist super!
+
+Im Anhang findest du dein Abkommen als PDF. Du kannst es ausdrucken, unterschreiben und bei dir aufhängen. Zum Beispiel am Kühlschrank, damit du es nicht vergisst &#128521;. Vielleicht kannst du sogar andere Leute zum Mitmachen ermuntern.
+
+Wir wünschen dir viel Erfolg beim Welwandel! Zusammen sind wir viele!
+
+Museum für Kommunikation
+Helvetiastrasse 16, CH – 3000 Bern 6
+<a href=""https://www.mfk.ch"">www.mfk.ch</a>
+<a href=""https://www.planetopia.ch"">www.planetopia.ch</a>
+ 
+Ausgezeichnet mit dem Museumspreis 2019 des Europarats!
+
+<a href=""https://www.facebook.com/mfkbern"">Facebook</a> <a href=""https://www.instagram.com/mfk_bern/"">Instagram</a> <a href=""https://twitter.com/mfk_bern"">Twitter</a> <a href=""https://www.youtube.com/channel/UC4gi5fBFf5OY9hfP1gmkVVQ/"">Youtube</a>","Hello,
+
+Un grand merci d'avoir visité notre exposition Planetopia - Place au changement mondial et d'avoir conclu un accord sur le changement mondial. Tu es super!
+
+Tu trouveras ci-joint ton accord au format PDF. Tu peux l'imprimer, le signer et l'accrocher chez toi. Par ex. sur le frigidaire, pour ne pas l'oublier &#128521;. Peut-être que tu peux aussi encourager d'autres personnes à participer.
+
+Nous te souhaitons beaucoup de succès dans le changement mondial! Ensemble, nous sommes nombreux!
+
+Musée de la communication
+Helvetiastrasse 16, CH – 3000 Berne 6
+<a href=""https://www.mfk.ch"">www.mfk.ch</a>
+<a href=""https://www.planetopia.ch"">www.planetopia.ch</a>
+ 
+Distingué par le Prix du musée 2019 du Conseil de l'Europe!
+ 
+<a href=""https://www.facebook.com/mfkbern"">Facebook</a> <a href=""https://www.instagram.com/mfk_bern/"">Instagram</a> <a href=""https://twitter.com/mfk_bern"">Twitter</a> <a href=""https://www.youtube.com/channel/UC4gi5fBFf5OY9hfP1gmkVVQ/"">Youtube</a>","Hello
+
+Thank you for visiting our exhibition Planetopia - Space for World Change and for signing a world change agreement. You are super!
+
+Please find attached your agreement in PDF. You can print it out, sign it and put it up at home. On the fridge, for instance, so you don't forget  &#128521;. Perhaps you can even encourage other people to take part as well.
+
+We wish you all the best for your world change! Together we are many!
+
+Museum of Communication
+Helvetiastrasse 16, CH – 3000 Bern 6
+<a href=""https://www.mfk.ch"">www.mfk.ch</a>
+<a href=""https://www.planetopia.ch"">www.planetopia.ch</a>
+ 
+Winner of the 2019 Council of Europe Museum Prize!
+ 
+<a href=""https://www.facebook.com/mfkbern"">Facebook</a> <a href=""https://www.instagram.com/mfk_bern/"">Instagram</a> <a href=""https://twitter.com/mfk_bern"">Twitter</a> <a href=""https://www.youtube.com/channel/UC4gi5fBFf5OY9hfP1gmkVVQ/"">Youtube</a>
+",,
+,,,,,
+,,,,,
+,,,,,
+0.insect1,Ich bin ein Abendpfauenauge.,Je suis un Sphinx demi-paon.,I am an eyed hawkmoth.,,
+0.insect2,Ich bin ein Alpenbock.,Je suis une Rosalie des Alpes.,I am an Alpine longhorn beetle.,,
+0.insect3,Ich bin eine Alpenschrecke.,Je suis une Decticelle montagnarde.,I am a bush cricket of the species Anonconotus alpinus.,,
+0.insect4,Ich bin eine Berglandhummel.,Je suis un Bourdon montagnard.,I am a bilberry bumblebee.,,
+0.insect5,Ich bin ein Berg-Sandlaufkäfer.,Je suis une Cicindèle des bois.,I am a ground beetle of the species Cicindela sylvicola.,,
+0.insect6,Ich bin eine Blaue Federlibelle.,Je suis un Agrion à larges pattes.,I am a white-legged damselfly.,,
+0.insect7,Ich bin eine Blaugrüne Mosaikjungfer.,Je suis une Æschne bleue.,I am a southern hawker.,,
+0.insect8,Ich bin eine Blauschwarze Holzbiene.,Je suis une Abeille charpentière.,I am a violet carpenter bee.,,
+0.insect9,Ich bin eine Büffelzirpe.,Je suis une Cicadelle bison.,I am a buffalo treehopper.,,
+0.insect10,Ich bin ein Bunter Grashüpfer.,Je suis un Criquet verdelet.,I am a common green grasshopper.,,
+0.insect11,Ich bin eine Dornzikade.,Je suis un Demi-diable.,I am a thorn-hopper.,,
+0.insect12,Ich bin ein Eichenwidderbock.,Je suis un Clyte arqué.,I am a beetle of the species Plagionotus arcuatus.,,
+0.insect13,Ich bin eine Feldgrille.,Je suis un Grill champêtre.,I am a field cricket.,,
+0.insect14,Ich bin ein Feldmaikäfer.,Je suis un Hanneton commun.,I am a common cockchafer.,,
+0.insect15,Ich bin eine Gebänderte Prachtlibelle.,Je suis un Caloptéryx éclatant.,I am a banded demoiselle.,,
+0.insect16,Ich bin ein Gebänderter Pinselkäfer.,Je suis une Trichie fasciée.,I am a Eurasian bee beetle.,,
+0.insect17,Ich bin eine Gelbe Dungfliege.,Je suis un Scatophage du fumier.,I am a yellow dung fly.,,
+0.insect18,Ich bin eine Gelbfüssige Kamelhalsfliege.,Je suis une Dichrostigma flavipes.,I am a snake fly of the species Dichrostigma flavipes.,,
+0.insect19,Ich bin eine Goldene Schneckenhausbiene.,Je suis une Osmia aurulenta.,I am a mason bee of the species Osmia aurulenta.,,
+0.insect20,Ich bin ein Grosser Wollschweber.,Je suis un Grand bombyle.,I am a large bee fly.,,
+0.insect21,Ich bin eine Hainschwebfliege.,Je suis un Syrphe ceinturé.,I am a marmalade hoverfly.,,
+0.insect22,Ich bin ein Haselblattroller.,Je suis un Apodère du noisetier.,I am a hazel-leaf roller weevil.,,
+0.insect23,Ich bin eine Juni-Langhornbiene.,Je suis un Eucère à longues antennes.,I am a long-horned bee of the species Eucera longicornis.,,
+0.insect24,Ich bin eine Punktierte Zartschrecke.,Je suis une Leptophye ponctuée.,I am a speckled bush cricket.,,
+0.insect25,Ich bin ein Rosen-Flechtenbärchen.,Je suis une Rosette.,I am a rosy footman.,,
+0.insect26,Ich bin eine Schwarze Mörtelbiene.,Je suis une Abeille maçonne à poils roux.,I am a bee of the species Megachile parietina.,,
+0.insect27,Ich bin eine Schwarzfühler-Hakenwespe.,Je suis un Ancistrocerus aux cornes noires.,I am a potter wasp of the species Ancistrocerus nigricornis.,,
+0.insect28,Ich bin ein Schwarzfühleriger Totengräber.,Je suis un Nécrophore imitateur.,I am a burying beetle of the species Nicrophorus vespilloides.,,
+0.insect29,Ich bin ein Seidiger Glanzrüssler.,Je suis un Charançon vert soyeux.,I am a green immigrant leaf weevil.,,
+0.insect30,Ich bin eine Senf-Blauschillersandbiene.,Je suis une Andrena agilissima.,I am a mining bee of the species Andrena agilissima.,,
+1.insect1,Ich gehöre zur Ordnung der Schmetterlinge und habe eine Flügelspannweite von 6 bis 9 Zentimetern.,J’appartiens à l’ordre des Lépidoptères et mes ailes ont une envergure de 6 à 9 centimètres.,I belong to the Lepidoptera order of insects and have a wingspan of 6 to 9 centimetres.,,
+1.insect2,Ich gehöre zur Ordnung der Käfer und bin 18 bis 38 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 18 à 38 millimètres.,I belong to the Coleoptera order of insects and am 18 to 38 millimetres long.,,
+1.insect3,Ich gehöre zur Ordnung der Heuschrecken und bin 16 bis 23 Millimeter lang.,J’appartiens à l’ordre des Orthoptères et je mesure 16 à 23 millimètres.,I belong to the Orthoptera order of insects and am 16 to 23 millimetres long.,,
+1.insect4,Ich gehöre zur Ordnung der Hautflügler und bin 9 bis 16 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 9 à 16 millimètres.,I belong to the Hymenoptera order of insects and am 9 to 16 millimetres long.,,
+1.insect5,Ich gehöre zur Ordnung der Käfer und bin 12 bis 17 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 12 à 17 millimètres.,I belong to the Coleoptera order of insects and am 12 to 17 millimetres long.,,
+1.insect6,"Ich gehöre zur Ordnung der Libellen, bin etwa 3,5 Zentimeter lang und habe eine Flügelspannweite von 4,5 Zentimetern.","J’appartiens à l’ordre des Odonates, je mesure environ 3,5 centimètres et mes ailes ont une envergure de 4,5 centimètres.","I belong to the Odonata order of insects, am approximately 3.5 centimetres long and have a wingspan of 4.5 centimetres.",,
+1.insect7,"Ich gehöre zur Ordnung der Libellen, bin 7 bis 8 Zentimeter lang und habe eine Flügelspannweite von bis zu 11 Zentimetern.","J’appartiens à l’ordre des Odonates, je mesure 7 à 8 centimètres et mes ailes ont une envergure pouvant atteindre 11 centimètres.","I belong to the Odonata order of insects, am 7 to 8 centimetres long and have a wingspan of up to 11 centimetres.",,
+1.insect8,Ich gehöre zur Ordnung der Hautflügler und bin 20 bis 28 Millimeter lang und ganz dunkel.,"J’appartiens à l’ordre des Hyménoptères, je mesure 20 à 28 millimètres et je suis très foncé.","I belong to the Hymenoptera order of insects, am 20 to 28 millimetres long and very dark in colour.",,
+1.insect9,Ich gehöre zur Ordnung der Zikaden und bin 6 bis 9 Millimeter lang.,J’appartiens à l’ordre des Hémiptères et je mesure 6 à 9 millimètres.,I belong to the Hemiptera order of insects and am 6 to 9 millimetres long.,,
+1.insect10,Ich gehöre zur Ordnung der Heuschrecken und bin 13 bis 24 Millimeter lang.,J’appartiens à l’ordre des Orthoptères et je mesure 13 à 24 millimètres.,I belong to the Orthoptera order of insects and am 13 to 24 millimetres long.,,
+1.insect11,Ich gehöre zur Ordnung der Zikaden und bin 7 bis 10 Millimeter lang.,J’appartiens à l’ordre des Hémiptères et je mesure 7 à 10 millimètres.,I belong to the Hemiptera order of insects and am 7 to 10 millimetres long.,,
+1.insect12,Ich gehöre zur Ordnung der Käfer und bin 8 bis 20 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 8 à 20 millimètres.,I belong to the Coleoptera order of insects and am 8 to 20 millimetres long.,,
+1.insect13,Ich gehöre zur Ordnung der Heuschrecken und bin 20 bis 26 Millimeter lang.,J’appartiens à l’ordre des Orthoptères et je mesure 20 à 26 millimètres.,I belong to the Orthoptera order of insects and am 20 to 26 millimetres long.,,
+1.insect14,Ich gehöre zur Ordnung der Käfer und bin 2 bis 3 Zentimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 2 à 3 centimètres.,I belong to the Coleoptera order of insects and am 20 to 30 millimetres long.,,
+1.insect15,"Ich gehöre zur Ordnung der Libellen, bin etwa 5 Zentimeter lang und habe eine Flügelspannweite von etwa 7 Zentimetern.","J’appartiens à l’ordre des Odonates, je mesure environ 5 centimètres et mes ailes ont une envergure d’environ 7 centimètres.","I belong to the Odonata order of insects, am approximately 5 centimetres long and have a wingspan of around 7 centimetres.",,
+1.insect16,Ich gehöre zur Ordnung der Käfer und bin 9 bis 12 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 9 à 12 millimètres.,I belong to the Coleoptera order of insects and am 9 to 12 millimetres long.,,
+1.insect17,Ich gehöre zur Ordnung der Zweiflügler und bin 6 bis 12 Millimeter lang.,J’appartiens à l’ordre des Diptères et je mesure 6 à 12 millimètres.,I belong to the Diptera order of insects and am 6 to 12 millimetres long.,,
+1.insect18,Ich gehöre zur Ordnung der Kamelhalsfliegen und bin 8 bis 20 Millimeter lang.,J’appartiens à l’ordre des Raphidioptères et je mesure 8 à 20 millimètres.,I belong to the Raphidioptera order of insects and am 8 to 20 millimetres long.,,
+1.insect19,Ich gehöre zur Ordnung der Hautflügler und bin 8 bis 10 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 8 à 10 millimètres.,I belong to the Hymenoptera order of insects and am 8 to 10 millimetres long.,,
+1.insect20,Ich gehöre zur Ordnung der Zweiflügler und bin 8 bis 12 Millimeter lang.,J’appartiens à l’ordre des Diptères et je mesure 8 à 12 millimètres.,I belong to the Diptera order of insects and am 8 to 12 millimetres long.,,
+1.insect21,Ich gehöre zur Ordnung der Zweiflügler und bin 7 bis 12 Millimeter lang.,J’appartiens à l’ordre des Diptères et je mesure 7 à 12 millimètres.,I belong to the Diptera order of insects and am 7 to 12 millimetres long.,,
+1.insect22,Ich gehöre zur Ordnung der Käfer und bin 6 bis 8 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 6 à 8 millimètres.,I belong to the Coleoptera order of insects and am 6 to 8 millimetres long.,,
+1.insect23,Ich gehöre zur Ordnung der Hautflügler und bin 12 bis 15 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 12 à 15 millimètres.,I belong to the Hymenoptera order of insects and am 12 to 15 millimetres long.,,
+1.insect24,Ich gehöre zur Ordnung der Heuschrecken und bin 10 bis 18 Millimeter lang.,J’appartiens à l’ordre des Orthoptères et je mesure 10 à 18 millimètres.,I belong to the Orthoptera order of insects and am 10 to 18 millimetres long.,,
+1.insect25,Ich gehöre zur Ordnung der Schmetterlinge und habe eine Flügelspannweite von 23 bis 27 Millimetern.,J’appartiens à l’ordre des Lépidoptères et mes ailes ont une envergure de 23 à 27 millimètres.,I belong to the Lepidoptera order of insects and have a wingspan of 23 to 27 millimetres.,,
+1.insect26,Ich gehöre zur Ordnung der Hautflügler und bin 14 bis 18 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 14 à 18 millimètres.,I belong to the Hymenoptera order of insects and am 14 to 18 millimetres long.,,
+1.insect27,Ich gehöre zur Ordnung der Hautflügler und bin 9 bis 13 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 9 à 13 millimètres.,I belong to the Hymenoptera order of insects and am 9 to 13 millimetres long.,,
+1.insect28,Ich gehöre zur Ordnung der Käfer und bin 12 bis 18 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 12 à 18 millimètres.,I belong to the Coleoptera order of insects and am 12 to 18 millimetres long.,,
+1.insect29,Ich gehöre zur Ordnung der Käfer und bin 5 bis 7 Millimeter lang.,J’appartiens à l’ordre des Coléoptères et je mesure 5 à 7 millimètres.,I belong to the Coleoptera order of insects and am 5 to 7 millimetres long.,,
+1.insect30,Ich gehöre zur Ordnung der Hautflügler und bin 14 bis 15 Millimeter lang.,J’appartiens à l’ordre des Hyménoptères et je mesure 14 à 15 millimètres.,I belong to the Hymenoptera order of insects and am 14 to 15 millimetres long.,,
+2.insect1,"Du findest mich von Mai bis Juli in Wäldern und an Gewässern, manchmal auch in Parks und Gärten.","Tu me trouveras de mai à juillet dans des forêts et au bord de cours d’eau, parfois aussi dans des parcs et des jardins.","From May to July you can find me in forests and near water, and sometimes in parks and gardens.",,
+2.insect2,"Du findest mich von Juni bis September auf Laubbäumen, mit Vorliebe auf einzeln stehenden Buchen.","Tu me trouveras de juin à septembre sur des feuillus, et de préférence des hêtres isolés.","From June to September you can find me on broadleaf trees, preferably on solitary beech trees.",,
+2.insect3,"Du findest mich von Juli bis Oktober in den Alpen (bis 2300 m ü. M.), am liebsten im niedrigen Gras oder auf Kies.","Tu me trouveras de juillet à octobre dans les Alpes (jusqu’à 2300 m d’altitude), de préférence dans des herbes rases ou sur du gravier.","From July to October you can find me in the Alps (up to 2,300 m above sea level), preferably in low grass or on gravel.",,
+2.insect4,Du findest mich von April bis September in den Alpen (bis 3200 m ü. M.).,Tu me trouveras d’avril à septembre dans les Alpes (jusqu’à 3200 m d’altitude).,"From April to September you can find me in the Alps (up to 3,200 m above sea level).",,
+2.insect5,"Du findest mich von April bis August auf trockenen, lehmigen Böden, in Kiesgruben und Steinbrüchen, oft in bergiger Gegend.","Tu me trouveras d’avril à août sur des sols argileux, secs, dans des carrières de gravier et de pierre, souvent à la montagne.","From April to August you can find me on dry, loamy soils, in gravel pits and stone quarries, often in mountainous regions.",,
+2.insect6,Du findest mich von Mai bis September am Ufer von stehenden und langsam fliessenden Gewässern.,Tu me trouveras de mai à septembre au bord d’eaux stagnantes ou coulant lentement.,From May to September you can find me on the banks of stagnant or slow-flowing water courses.,,
+2.insect7,Du findest mich von Juli bis Oktober an stehenden und langsam fliessenden Gewässern.,Tu me trouveras de juillet à octobre au bord d’eaux stagnantes ou coulant lentement.,From July to October you can find me on the banks of stagnant or slow-flowing water courses.,,
+2.insect8,Du findest mich von März bis August an sonnigen Standorten an den Rändern von menschlichen Siedlungen.,Tu me trouveras de mars à août à des endroits ensoleillés en bordure de zones habitées.,From March to August you can find me in sunny locations on the edges of human settlements.,,
+2.insect9,"Du findest mich von Juli bis Oktober an Flüssen, Bächen und Gräben im hohen Gras und in Gebüschen.","Tu me trouveras de juillet à octobre au bord de rivières ou de ruisseaux, dans des fossés entourés d’herbes hautes et des buissons.","From July to October you can find me near rivers, streams and ditches in high grass and in shrubs.",,
+2.insect10,"Du findest mich von Juni bis September, in warmen Jahren auch bis November, auf offenen Wiesen und in Mooren.","Tu me trouveras de juin à septembre, et même novembre les années chaudes, dans les prairies ouvertes et les marais.","From June to September, and in warmer years until November, you can find me in open meadows and marshes.",,
+2.insect11,Du findest mich von Mai bis August in Gebüschen und niedrigen Bäumen.,Tu me trouveras de mai à août dans des buissons et de petits arbres.,From May to August you can find me in shrubs and low trees.,,
+2.insect12,"Du findest mich von Mai bis Juni in Laubwäldern, mit Vorliebe auf Eichen.","Tu me trouveras de mai à juin dans les forêts de feuillus, avec une préférence pour les chênes.","From May to June you can find me in deciduous forests, preferably in oak trees.",,
+2.insect13,"Du findest mich von Mai bis Juni auf trockener Erde, wo ich in kleinen Erdhöhlen lebe.","Tu me trouveras de mai à juin sur des sols secs, où je vis dans de petits terriers.","From May to June you can find me on dry soil, where I live in a small burrow.",,
+2.insect14,Du findest mich von Mai bis Juni im offenen Feld und an Waldrändern.,Tu me trouveras de mai à juin dans des champs et en bordure de forêt.,From May to June you can find me in open spaces and on the edge of the forest.,,
+2.insect15,"Du findest mich von Mai bis September an sonnigen, krautreichen Ufern von Bächen und Flüssen.",Tu me trouveras de mai à septembre sur les bords ensoleillés et herbacés des ruisseaux et des rivières.,"From May to September you can find me on sunny, herbaceous banks of streams and rivers.",,
+2.insect16,"Du findest mich von Juni bis Juli, vorwiegend auf Waldwiesen und an Waldrändern im Berggebiet.","Tu me trouveras en juin et juillet, principalement dans des clairières et en bordure de forêt à la montagne.",From June to July you can mainly find me in glades and on the edge of the forest in mountainous regions.,,
+2.insect17,"Du findest mich von April bis Oktober in ländlichen Gebieten, vor allem in der Nähe von Kuhweiden.","Tu me trouveras d’avril à octobre dans les régions rurales, essentiellement près des pâturages des vaches.","From April to October you can find me in rural areas, mainly near cow pastures.",,
+2.insect18,Du findest mich von Mai bis Juli in Wäldern und Lichtungen an trockener Lage.,"Tu me trouveras de mai à juillet dans des forêts et des clairières, dans des endroits secs.",From May to July you can find me in forests and forest clearings in dry locations.,,
+2.insect19,"Du findest mich von März bis August an Waldrändern, Kalkfelswänden und Wiesen.","Tu me trouveras de mars à août en bordure de forêt, sur des parois calcaires et dans des prairies.","From March to August you can find me on the edges of forests, on limestone cliff walls and in meadows.",,
+2.insect20,"Du findest mich von April bis Juni an Weg- und Waldrändern, auf Lichtungen und Wiesen, manchmal auch in Gärten.","Tu me trouveras d’avril à juin en bordure de chemins et de forêts, dans des clairières et des prairies, parfois aussi dans des jardins.","From April to June you can find me on the edges of forests and paths, in forest clearings and meadows and sometimes in gardens too.",,
+2.insect21,"Du findest mich von März bis Oktober überall, wo es Blumen hat.",Tu me trouveras de mars à octobre partout où il y a des fleurs.,From March to October you can find me wherever there are flowers.,,
+2.insect22,"Du findest mich von Mai bis September auf Haselnusssträuchern, manchmal auch auf anderen Laubbäumen.","Tu me trouveras de mai à septembre sur des noisetiers, parfois aussi sur d’autres feuillus.",From May to September you can find me on hazelnut trees and sometimes in other broadleaf trees.,,
+2.insect23,Du findest mich von April bis August in Wiesen und Gebüschen an warmer Lage.,"Tu me trouveras d’avril à août dans des prairies et des buissons, à des endroits chauds.",From April to August you can find me in meadows and shrubs in warm locations.,,
+2.insect24,"Du findest mich von Juli bis September an Waldrändern, in Gebüschen und Gärten.","Tu me trouveras de juillet à septembre en bordure de forêt, dans les buissons et les jardins.","From July to September you can find me on the edges of forests, in shrubs and in gardens.",,
+2.insect25,Du findest mich von Juni bis August in feuchtwarmen Waldgebieten.,Tu me trouveras de juin à août dans des forêts chaudes et humides.,From June to August you can find me in warm and humid forest areas.,,
+2.insect26,"Du findest mich von April bis Juni an warmen, sandigen oder steinigen Orten.","Tu me trouveras d’avril à juin dans des endroits chauds, sablonneux ou pierreux.","From April to June you can find me in warm, sandy or stony locations.",,
+2.insect27,"Du findest mich von März bis Oktober auf feuchten Wiesen, häufig in Siedlungsbereichen von Menschen.","Tu me trouveras de mars à octobre dans des prairies humides, souvent près des lieux habités par les humains.","From March to October you can find me in wet meadows, often near human settlements.",,
+2.insect28,"Du findest mich von April bis September an Waldrändern, häufig auf toten Tieren, abgestorbenen Pflanzen und Pilzen.","Tu me trouveras d’avril à septembre en bordure de forêt, souvent sur des animaux, des plantes et des champignons morts.","From April to September you can find me on the edge of the forest, often on dead animals, plants or mushrooms.",,
+2.insect29,Du findest mich von Mai bis August auf Laubbäumen und Sträuchern.,Tu me trouveras de mai à août sur des feuillus et des buissons.,From May to August you can find me in deciduous trees and in shrubs.,,
+2.insect30,"Du findest mich von Mai bis Juni in Sand-, Kies- und Lehmgruben, aber auch an Mauern von menschlichen Siedlungen.","Tu me trouveras de mai à juin dans carrières de sable, de gravier ou d’argile, mais aussi sur les murs d’habitats humains.","From May to June you can find me in sand, gravel or clay pits and on walls in human settlements.",,
+3.insect1,Die zwei blauen Punkte auf meinen Flügeln sehen aus wie Augen. Damit schrecke ich Feinde ab.,Les deux points bleus sur mes ailes ressemblent à des yeux. C’est pour faire peur à mes ennemis.,Two blue dots on my wings look like eyes. They help me scare off my enemies.,,
+3.insect2,"Ich bin eine stark bedrohte Art und stehe unter Schutz. In der Schweiz komme ich nur noch im Jura, im Wallis, im Tessin und im Churer Rheintal vor.","Je suis une espèce très menacée et protégée. En Suisse, on ne me trouve plus que dans le Jura, en Valais, au Tessin et dans le Rheintal grison.","My species is critically endangered and protected. In Switzerland I can only be found in the Jura, Valais and Ticino regions and in the Chur Rhine Valley.",,
+3.insect3,"Wenn die Sonne scheint, singe ich – aber so hoch, dass ihr Menschen es kaum hören könnt.","Quand le soleil brille, je chante, mais si haut que les humains ne m’entendent presque pas.","When the sun shines, I like to sing, but at such a high pitch that humans can barely hear me.",,
+3.insect4,"Ich lebe in Völkern von etwa 50 bis 120 Tieren. Es gibt Arbeiterinnen, Drohnen und eine Königin, wie bei den Honigbienen.","Je vis dans des colonies de 50 à 120 individus. Il y a parmi nous des ouvriers, des faux bourdons et une reine, comme chez les abeilles.","I live in a colony of about 50 to 120 individuals. We have workers, drones and a queen, just like the honeybees.",,
+3.insect5,"Ich heisse zwar Laufkäfer, kann aber auch sehr gut fliegen.","Je marche vite, mais sais aussi très bien voler.","While I am known as a ground beetle, I am also very comfortable flying.",,
+3.insect6,"Nachdem ich aus der Larve geschlüpft bin, lebe ich etwa fünf Wochen lang.","Une fois sorti de ma larve, je vis environ cinq semaines.","After emerging from the larval stage, I live for about five weeks.",,
+3.insect7,Ich gehöre zu den häufigsten Grosslibellen in Europa.,Je suis une des libellules les plus répandues en Europe.,I am one of the most common dragonflies in Europe.,,
+3.insect8,"Als Einsiedlerbiene lebe ich nicht in einem Bienenvolk, sondern niste alleine in abgestorbenem Holz.","En tant qu’ermite, je ne vis pas dans une colonie, mais niche seule dans du bois mort.",As a solitary bee I do not live in a colony but build my nest alone in dead wood.,,
+3.insect9,Ich wurde nach 1900 von Nordamerika nach Europa eingeschleppt. Inzwischen bin ich hier heimisch.,J’ai été importée d’Amérique du Nord en Europe après 1900. Je suis aujourd’hui une espèce indigène.,I was introduced to Europe from North America sometime after 1900. I have now become a native species here.,,
+3.insect10,"Ich bin in Mitteleuropa häufig anzutreffen. Meine Färbung ist spektakulär, findest du nicht?","Je suis répandue en Europe centrale. Ma couleur est spectaculaire, non?","I am common in Central Europe. My colouration is spectacular, don’t you think?",,
+3.insect11,Ich gehöre zur Familie der Buckelzirpen. Weltweit sind von uns bis jetzt 3200 Arten bekannt. Ihr habt aber noch nicht alle entdeckt.,Je fais partie de la famille des membracides. Il en existe à notre connaissance 3200 sortes dans le monde. Mais il en reste à découvrir.,"I am a member of the Membracidae family of treehoppers. So far, 3,200 species are known worldwide. However, not all of us have yet been discovered.",,
+3.insect12,Ich sehe ein bisschen aus wie eine Wespe. Das schützt mich vor Feinden.,Je ressemble un peu à une guêpe. Ça me protège de mes ennemis.,I look a little bit like a wasp. This helps to protect me from my enemies.,,
+3.insect13,"Ich kann nicht fliegen und springe nur selten, aber ich bin eine gute Läuferin.","Je ne peux pas voler et ne saute que rarement, mais je suis un bon marcheur.","I am flightless and rarely hop, but I am a very good runner.",,
+3.insect14,Meistens fliege ich erst in der Abenddämmerung.,"Le plus souvent, je ne vole qu’à la tombée du jour.",I do not usually fly around until dusk.,,
+3.insect15,Im Jahr 2008 war ich das Tier des Jahres in der Schweiz.,J’ai été couronné animal de l’année 2008 en Suisse.,In 2008 I was declared Swiss Animal of the Year.,,
+3.insect16,Durch die gelb-weisse Behaarung am Körper sehe ich ein wenig aus wie eine Hummel. Das schützt mich vor Feinden.,Les poils blanc-jaune de mon corps me font ressembler à un bourdon. Ça me protège de mes ennemis.,The yellow and white hairs on my body make me look a little like a bumblebee. This helps to protect me from my enemies.,,
+3.insect17,"Ich sitze oft auf Kuhfladen und helfe mit, diese abzubauen. Das ist eben auch wichtig.",Je m’installe souvent sur les bouses de vache et aide à leur décomposition. C’est une tâche importante.,I often sit on cowpats and help to break them down. This is an important job too.,,
+3.insect18,Es gibt auf der Erde rund 250 verschiedene Kamelhalsfliegen. 16 davon kommen in Mitteleuropa vor.,Il existe environ 250 raphidioptères différents sur Terre. On en trouve 16 en Europe centrale.,There are some 250 different species of snake fly in the world. Only 16 can be found in Central Europe.,,
+3.insect19,"Ich bin eine Einsiedlerbiene. Im Sommer suche ich ein leeres Schneckenhaus, baue darin ein Nest aus zerkauten Pflanzenteilen und lege ein Ei hinein.","Je suis un ermite. L’été, je cherche une coquille d’escargot vide, j’y fais mon nid à base d’herbes mâchées et j’y ponds un œuf.",I am a solitary bee. In the summer I try to find an empty snail shell where I can build my nest from chewed-up plant matter and then lay an egg in it.,,
+3.insect20,"Ich sehe zwar ein wenig aus wie eine Hummel, gehöre aber zu den Fliegen.","Je ressemble un peu à un bourdon, mais je compte au nombre des mouches.",I look a little bit like a bumblebee but I am actually a type of fly.,,
+3.insect21,"Ich bin ein Wanderinsekt. Im Frühling ziehe ich gegen Norden, im Herbst gegen Süden. Dabei überquere ich sogar Alpenpässe.","Je suis un insecte migrateur. Au printemps, je pars vers le nord, l’automne, je reviens vers le sud. Je franchis même des cols alpins.","I am a migratory insect. In the spring I migrate northwards, in the autumn I go back south. I even cross Alpine passes.",,
+3.insect22,Zur Eiablage wickle ich ein Haselblatt zu einem Röllchen zusammen und lege ein bis zwei Eier in dieses Nest.,"Pour pondre mes œufs, j’enroule une feuille de noisetier et dépose un à deux œufs dans ce nid.",I make a nest by rolling a hazel leaf into a small cigar-shaped roll and then lay one or two eggs into it.,,
+3.insect23,"Wie die meisten Wildbienen, lebe ich als Einzelgängerin. Die langen Dinger auf meinem Kopf sind nicht Hörner, sondern Fühler.","Comme la plupart des abeilles sauvages, je suis un solitaire. Les longs trucs sur mon corps ne sont pas des cornes, mais des antennes.",Like most wild bees I am a solitary insect. The long appendages on my head are not horns but antennae.,,
+3.insect24,"Die Fühler auf meinem Kopf können bis zu viermal so lang werden wie mein Körper. Elegant, nicht?","Mes antennes peuvent être quatre fois plus longues que mon corps. Élégant, non?","The antennae on my head can be four times as long as my body. Very elegant, aren’t they?",,
+3.insect25,"Als Nachtfalter fliege ich meistens, wenn es dunkel ist. Deshalb fällt euch Menschen auch kaum auf, wie chic ich aussehe.","Papillon de nuit, je vole le plus souvent quand il fait sombre. C’est pourquoi vous les humains ne voyez pas comme je suis chic.","As a moth, I usually fly around in the dark. That is why humans rarely realise how pretty I am.",,
+3.insect26,"Ich bin eine bedrohte Art und stehe unter Schutz. In der Schweiz gibt es nur noch wenige, kleine Populationen.","Je suis une espèce menacée et protégée. En Suisse, il ne reste plus que de rares et petites populations.",My species is endangered and protected. There are only a few small populations left in Switzerland.,,
+3.insect27,Als Einsiedlerwespe lege ich meine Eier in Holzröhrchen und -löcher. Siehst du meine typische Wespentaille?,"Ermite, je ponds mes œufs dans des trous d’arbres. Tu vois ma taille de guêpe si typique?",As a solitary bee I lay my eggs in wooden tubes or holes. Can you see my classic wasp waist?,,
+3.insect28,"Ich helfe mit, abgestorbenes Material wie tote Tiere und Pflanzen zu beseitigen. Auch Totengräber sind eben wichtig.",J’aide à éliminer les restes de plantes et d’animaux morts. Les nécrophores jouent aussi un rôle important.,I help to clear away dead matter including animal carcasses and plants. As a burying beetle I perform the important work of a grave digger.,,
+3.insect29,"Mein Körper ist eigentlich schwarz, aber ich bin mit grün schillernden Schuppen bedeckt. Hübsch, nicht?","Mon corps est en fait noir, mais je suis recouvert d’écailles vertes brillantes. C’est beau, non?","My body is in fact black but I am covered in brilliant green scales. Pretty, aren’t I?",,
+3.insect30,Ich kann sehr schnell fliegen und suche meine Nahrung im Umkreis von etwa einem Kilometer.,Je peux voler très vite et je cherche ma nourriture dans un rayon d’environ un kilomètre.,I can fly very fast and cover an area of about a kilometre around my nest in search of food.,,
+4.insect1,"Ich ernähre mich von Nektar und Pflanzensäften, mag aber auch den Saft von überreifen Früchten.","Je me nourris du nectar et de la sève des plantes, mais j’aime aussi le jus des fruits blets.",I feed on nectar and the sap of plants but also like to drink the juice of overripe fruit.,,
+4.insect2,Ich ernähre mich von Blättern und vom Holz von Buchen.,Je me nourris de feuilles et du bois des hêtres.,I feed on leaves and the wood of beech trees.,,
+4.insect3,"Ich ernähre mich von Pflanzen, jage aber auch andere Insekten.","Je me nourris de plantes, mais je chasse aussi d’autres insectes.","I mainly feed on plants, but I also hunt other insects.",,
+4.insect4,Ich ernähre mich von Nektar und bin wichtig für die Bestäubung von Pflanzen.,Je me nourris de nectar et suis un pollinisateur important pour les plantes.,I feed on nectar and am an important pollinator of plants.,,
+4.insect5,Ich bin ein Jäger und ernähre mich von Insekten.,Je suis un chasseur et me nourris d’insectes.,I am a hunter and feed on insects.,,
+4.insect6,"Ich bin eine Jägerin und ernähre mich von Insekten, die kleiner sind als ich.",Je suis un chasseur et me nourris d’insectes plus petits que moi.,I am a hunter and feed on insects that are smaller than me.,,
+4.insect7,Ich ernähre mich von Insekten und unternehme ausgedehnte Jagdflüge.,Je me nourris d’insectes et j’entreprends de longs vols pour chasser.,I feed on insects and go on long flights to hunt my prey.,,
+4.insect8,Ich ernähre mich von Nektar und Pollen und bin wichtig für die Bestäubung der Blüten.,Je me nourris de nectar et de pollen et joue un rôle important pour la pollinisation des fleurs.,I feed on nectar and pollen and am an important pollinator of flowers.,,
+4.insect9,Ich ernähre mich von unterschiedlichen Pflanzensäften.,Je me nourris de la sève de différentes plantes.,I feed on the sap of various plants.,,
+4.insect10,Ich ernähre mich vorwiegend von Gräsern.,Je me nourris principalement d’herbes.,I feed mainly on grasses.,,
+4.insect11,Ich ernähre mich von unterschiedlichen Pflanzensäften.,Je me nourris de la sève de différentes plantes.,I feed on the sap of various plants.,,
+4.insect12,Ich ernähre mich von Blättern und Rinde.,Je me nourris de feuilles et d’écorces.,I feed on leaves and tree bark.,,
+4.insect13,Ich ernähre mich von Pflanzenteilen und kleinen Insekten.,Je me nourris de bouts de plantes et de petits insectes.,I feed on plant matter and small insects.,,
+4.insect14,"Ich ernähre mich von Blättern von Eichen, Buchen und Obstbäumen.","Je me nourris de feuilles de chêne, de hêtre et d’arbres fruitiers.","I feed on the leaves of oak, beech and fruit trees.",,
+4.insect15,Ich bin eine Jägerin und ernähre mich von Insekten.,Je suis un chasseur et me nourris d’insectes.,I am a hunter and feed on insects.,,
+4.insect16,Ich ernähre mich von Blütensaft und kleinen Insekten.,Je me nourris de la sève des fleurs et de petits insectes.,I feed on the sap of flowers and on small insects.,,
+4.insect17,"Ich ernähre mich von Pollen und Nektar, jage aber auch kleinere Insekten.","Je me nourris de pollen et de nectar, mais je chasse aussi les petits insectes.",I feed on pollen and nectar but also like to hunt small insects.,,
+4.insect18,"Ich fresse andere Insekten, vor allem Blattläuse.","Je mange d’autres insectes, principalement des pucerons.","I feed on other insects, mainly on greenfly.",,
+4.insect19,"Ich ernähre mich von Nektar und Pollen von sechs Pflanzenarten, vor allem von Schmetterlings- und Lippenblütlern.","Je me nourris du nectar et du pollen de six sortes de plantes, essentiellement des faboïdées et des lamiacées.","I feed on the nectar and pollen of six different plant species, mainly Faboideae and Lamiaceae.",,
+4.insect20,"Ich ernähre mich von Nektar, den ich mit meinem langen Rüssel aus den Blüten sauge.",Je me nourris de nectar que j’aspire des fleurs à l’aide de ma longue trompe.,I feed on nectar by inserting my long proboscis into the flowers.,,
+4.insect21,Ich ernähre mich von Nektar und Pollen und bin wichtig für die Bestäubung. Als Larve fresse ich massenhaft Blattläuse.,"Je me nourris de nectar et de pollen et je joue un rôle important dans la pollinisation. Au stade larvaire, je mange des quantités de pucerons.",I feed on nectar and pollen and am an important pollinator of flowers. In my larval stage I eat copious amounts of greenfly.,,
+4.insect22,Ich ernähre mich von den Blättern des Haselstrauchs.,Je me nourris de feuilles de noisetier.,I feed on the leaves of hazelnut trees.,,
+4.insect23,"Ich ernähre mich von Pollen, am liebsten von Schmetterlingsblütlern. Ich bin wichtig für die Bestäubung.","Je me nourris de pollen, de préférence de faboïdées. Je suis important pour la pollinisation.","I feed on pollen, preferably of Faboideae. I am an important pollinator.",,
+4.insect24,"Ich ernähre mich von Blättern von Laubbäumen, Rosen und Himbeeren.","Je me nourris des feuilles d’arbres feuillus, de roses et de framboises.","I feed on the leaves of deciduous trees, roses and raspberries.",,
+4.insect25,"Ich ernähre mich von Nektar und Pflanzensäften, mag aber auch den Saft von überreifen Früchten.","Je me nourris de nectar et de sève, j’aime aussi les fruits blets.","I feed on nectar and the sap of plants, but I also like the juice of overripe fruit.",,
+4.insect26,Ich ernähre mich vom Nektar von Schmetterlings- und Lippenblütlern und bin wichtig für ihre Bestäubung.,Je me nourris du nectar de faboïdées et de lamiacées et je suis importante pour la pollinisation.,I feed on the nectar of the Faboideae and Lamiaceae families of plants and am an important pollinator.,,
+4.insect27,Ich ernähre mich von Nektar und Pollen und bin wichtig für die Bestäubung von Blüten.,Je me nourris de nectar et de pollen et je joue un rôle important dans la pollinisation.,I feed on nectar and pollen and am an important pollinator of flowers.,,
+4.insect28,Ich ernähre mich von Tierkadavern und jage auch andere Insekten.,Je me nourris de cadavres d’animaux et je chasse aussi d’autres insectes.,I feed on animal carcasses and also hunt other insects.,,
+4.insect29,"Ich ernähre mich von den Blättern der Bäume und Sträucher, auf denen ich lebe.",Je me nourris des feuilles des arbres et des buissons sur lesquels je vis.,I feed on the leaves of the trees and shrubs I live in.,,
+4.insect30,"Ich ernähre mich von Pollen und Nektar, und zwar ausschliesslich von Kreuzblütlern.","Je me nourris de pollen et de nectar, mais exclusivement de brassicacées.",I feed on pollen and nectar but only of the Brassicaceae family of plants.,,
