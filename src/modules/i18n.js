@@ -41,6 +41,10 @@ export const _ = derived(
 	$localeStore => ((key, ext) => {
     // join path key (.)
     let id = ext ? [key, ext].join(".") : key
+    if ( !(textData.find(r => r.id === id))){
+      console.log(`i18n: ${id} not found in textData`)
+      return "" 
+    }
     return textData.find(r => r.id === id)[currentLocale]
   })
 );
