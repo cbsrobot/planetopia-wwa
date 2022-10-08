@@ -6,8 +6,12 @@ const loadURL = serve({ directory: "public" });
 const nodemailer = require("nodemailer");
 const pdf = require("pdf-creator-node");
 const fs = require("fs");
+const os = require('os');
 const { SerialPort, ReadlineParser } = require("serialport");
 require("dotenv").config();
+
+const tmpdirPath = os.tmpdir();
+const tempdir = fs.realpathSync(tmpdirPath);
 
 let serport;
 let parser;
@@ -213,7 +217,7 @@ ipcMain.on('ping-good', event => {
 
 function createPdf(mailOptions){
   // Read HTML Template
-  const html = fs.readFileSync(__dirname + "public/templates/template.html", "utf8");
+  const html = fs.readFileSync(__dirname + "/public/templates/template.html", "utf8");
   const avatar = fs.readFileSync(__dirname + "/public/assets/avatar/1.jpg");
   const logo = avatar.toString('base64');
 
@@ -243,7 +247,7 @@ function createPdf(mailOptions){
     data: {
       logo: logo
     },
-    path: "/tmp/wwa.pdf",
+    path: `${tempdir}/wwa.pdf`,
     type: "",
   };
 
@@ -271,8 +275,8 @@ function sendEmail(mailOptions) {
   }
   
   mailOptions.attachments = [{   // file on disk as an attachment
-    filename: 'Planetopia.pdf',
-    path: '/tmp/wwa.pdf'
+    filename: "Planetopia.pdf",
+    path: `${tempdir}/wwa.pdf`
   }]
 
   transporter.sendMail(mailOptions, function (err, info) {
