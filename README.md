@@ -5,6 +5,10 @@ Add a .env file on the root level with following content
 STATION=0
 IS_PROD=false
 API_URL=http://10.7.0.111:3000
+EMAIL_HOST=[smtp.server.domain]
+EMAIL_USER=[user@provider.domain]
+EMAIL_PASSWORD=[password]
+EMAIL_TO=[user@provider.domain] # used to override user input and send all emails to this address
 
 <div align="center">
 <img alt="Electron Svelte Crossover Banner" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/svg/Electron_Svelte.svg" width="580" />
