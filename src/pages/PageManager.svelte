@@ -20,8 +20,17 @@
 
   let pageIndex = 0;
   $: totalPages = pageList.length;
-  $: activePage = pageList[pageIndex];
+  $: activePage = getActivePageAndUpdateTextPath(pageIndex);
   $: console.log("🚀 ~ activePage", activePage)
+
+  function getActivePageAndUpdateTextPath(pageIndex){
+    if ("depends" in pageList[pageIndex] ) {
+      let question_id = pageList[pageIndex].depends.question_id
+      let selected_wwa = $userData.stations[STATION].questions[question_id]
+      pageList[pageIndex].props.textPath = pageList[pageIndex].depends.options[selected_wwa]
+    }
+    return pageList[pageIndex]
+  }
 
   function setState() {
     if ($userData.stations[STATION].complete) {
