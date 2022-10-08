@@ -1,5 +1,11 @@
 import DialoguePage from "../pages/DialoguePage.svelte";
 import QuestionPage from "../pages/QuestionPage.svelte";
+import AreaSelectionPage from "../pages/AreaSelectionPage.svelte";
+import WwaSelectionPage from "../pages/WwaSelectionPage.svelte";
+import WwaConfirmationPage1 from "../pages/WwaConfirmationPage1.svelte";
+import WwaConfirmationPage2 from "../pages/WwaConfirmationPage2.svelte";
+import EmailAcceptPage from "../pages/EmailAcceptPage.svelte";
+import EmailPromptPage from "../pages/EmailPromptPage.svelte";
 import InfoPage from "../pages/InfoPage.svelte";
 import { userData } from "./DataManager.js";
 import { get } from "svelte/store";
@@ -92,15 +98,15 @@ const evaluationCore = [
   { component: DialoguePage, props: { textPath: "5.dialogue5" } },
   { component: DialoguePage, props: { textPath: "5.dialogue6" } },
   { component: DialoguePage, props: { textPath: "5.dialogue7" } },
-  // { component: AreaSelectionPage, props: { textPath: "5.areaSelection" } },
+  { component: AreaSelectionPage, props: { textPath: "5.areaSelection1" } }, // question_id 1
   { component: DialoguePage, props: { textPath: "5.dialogue8" } },
-  // { component: WwaSelectionPage, props: { textPath: "5.wwaSelection" } },
-  // { component: DialoguePage, props: { textPath: "-> text depending on wwaSelection (5.dialogueClothes, 5.dialogueLiving, 5.dialogueMobility, 5.dialogueFood, 5.dialogueSpecial, 5.dialogueGeneral)" } },
-  // { component: WwaConfirmation1, props: { textPath: "5.wwaConfirmation1" } },
-  // { component: WwaConfirmation2, props: { textPath: "5.wwaConfirmation2" } },
+  { component: WwaSelectionPage, props: { textPath: "5.wwaSelection2" } }, // question_id 2
+  { component: DialoguePage, depends: {"question_id":1, "options": ["5.dialogueClothes", "5.dialogueLiving", "5.dialogueMobility", "5.dialogueFood", "5.dialogueSpecial", "5.dialogueGeneral"]}, props: { textPath: "5" } },  
+  { component: WwaConfirmationPage1, props: { textPath: "5.wwaConfirmation3" }, conditionalJump:[null, 7] },
+  { component: WwaConfirmationPage2, props: { textPath: "5.wwaConfirmation4" }, conditionalJump:[null, 7] },
   { component: DialoguePage, props: { textPath: "5.dialogue9" } },
-  // { component: EmailAcceptPage, props: { textPath: "5.emailAccept" } },
-  // { component: EmailPromptPage, props: { textPath: "5.emailPrompt" } },
+  { component: EmailAcceptPage, props: { textPath: "5.emailAccept5" }, conditionalJump:[null, 16] },
+  { component: EmailPromptPage, props: { textPath: "5.emailPrompt6" } },
   { component: DialoguePage, props: { textPath: "5.dialogue10" } },
 ];
 
@@ -184,15 +190,15 @@ export function generatePageList() {
       break;
     case 5:
       if ( !introComplete()) {
-      pageList.push(evaluationStart.firstLogIn);
+        pageList.push(evaluationStart.firstLogIn);
       } else if (anyStationHasAnswer() === 0) {
-      pageList.push(evaluationStart.noAnswers);
+        pageList.push(evaluationStart.noAnswers);
       } else if (anyStationComplete() === 0) {
-      pageList.push(evaluationStart.notAllAnswers);
+        pageList.push(evaluationStart.notAllAnswers);
         pageList.push(...evaluationCore);
       } else {
-      pageList.push(evaluationStart.allComplete);
-      pageList.push(...evaluationCore);
+        pageList.push(evaluationStart.allComplete);
+        pageList.push(...evaluationCore);
       }
       break;
     default:
@@ -216,6 +222,18 @@ function addStationNumbersToProps(pageList) {
 function addQuestionNumbersToProps(pageList) {
   pageList.forEach((page) => {
     if (page.component == QuestionPage) {
+      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
+    }
+    if (page.component == AreaSelectionPage) {
+      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
+    }
+    if (page.component == WwaSelectionPage) {
+      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
+    }
+    if (page.component == WwaConfirmationPage1) {
+      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
+    }
+    if (page.component == WwaConfirmationPage2) {
       page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
     }
   });

@@ -1,0 +1,110 @@
+<script>
+  import Navigation from "../components/Navigation.svelte";
+  import Selectable from "../components/Selectable.svelte";
+
+  import { userData, setAnswer } from "../modules/DataManager";
+  import { _ } from "../modules/i18n.js";
+
+  export let textPath;
+  export let pageIndex, totalPages;
+
+  export let stationNumber, questionNumber;
+
+  let overlayOpen = false;
+  let answers = [
+    { textKey: "yes", points: 0 },
+    { textKey: "no", points: 1 },
+  ];
+  shuffleArray(answers);
+
+  let selected = null;
+
+  $: neutral = selected === null ? true : false;
+
+  // Convert points from database back to selected index
+  $: {
+    const points = parseInt($userData.stations[stationNumber].questions[questionNumber]);
+    const answerIndex = answers.findIndex((a) => a.points === points);
+    selected = (answerIndex < 0) ? null : answerIndex;
+  }
+
+  $: saveAnswer(selected)
+  function saveAnswer(selection){
+    if (selection != undefined) 
+      setAnswer(stationNumber, questionNumber, answers[selection].points)
+  }
+
+  // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+</script>
+
+<Navigation bind:pageIndex={pageIndex} on:nextClicked {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
+
+<img on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+
+<div class="content">
+  <p class="question">{$_(textPath)}</p>
+</div>
+<div class="answer-container">
+  <Selectable
+    on:click={() => {
+      selected = 0;
+    }}
+    {neutral}
+    selected={selected == 0}
+    text={$_(answers[0].textKey, "")}
+  />
+  <Selectable
+    on:click={() => {
+      selected = 1;
+    }}
+    {neutral}
+    selected={selected == 1}
+    text={$_(answers[1].textKey, "")}
+  />
+</div>
+
+
+<style>
+
+  img {
+    position: absolute;
+    top: 250px;
+    left: 0;
+    width: 400px;
+  }
+
+  .content {
+    /* position: absolute; */
+    /* top: 20px; */
+    width: 70%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .question {
+    display: block;
+    text-align: left;
+    font-size: 52px;
+    width: 900px;
+  }
+
+  .answer-container {
+    position: absolute;
+    top: 560px;
+    left: 1120px;
+    display: block;
+    width: 20%;
+  }
+
+  p {
+    margin-top: 0;
+  }
+</style>
