@@ -1,4 +1,4 @@
-import { setAnswer } from "DataManager";
+import { setAnswer } from "./DataManager";
 
 // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 export function shuffleArray(array) {
