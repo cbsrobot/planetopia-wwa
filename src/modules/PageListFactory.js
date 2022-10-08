@@ -108,6 +108,30 @@ function introComplete() {
   return get(userData).stations[0].complete;
 }
 
+function anyStationHasAnswer() {
+  // return amount of station besides station intro and evaluation that have an answer
+  var answered = Object.fromEntries(
+    Object.entries(get(userData).stations).filter(([k,v]) => { 
+      let questions = {};
+      if ("questions" in v) {
+        questions = Object.entries(v.questions).filter(([kk,vv]) => vv != null)
+      }; 
+      return k > 0 && k < 5 && Object.keys(questions).length
+    })
+  );
+  return Object.keys(answered).length;
+}
+
+function anyStationComplete() {
+  // return amount of station besides station intro and evaluation that are complete
+  var completed = Object.fromEntries(
+    Object.entries(get(userData).stations).filter(([k,v]) => 
+      k > 0 && k < 5 && v.complete == true
+    )
+  );
+  return Object.keys(completed).length;
+}
+
 // based on User Data and station number
 export function generatePageList() {
   let pageList = [];
@@ -159,15 +183,17 @@ export function generatePageList() {
       }
       break;
     case 5:
-      // TODO: Implement logic
-      // push one of the 4 start screens depending on answer state
+      if ( !introComplete()) {
       pageList.push(evaluationStart.firstLogIn);
+      } else if (anyStationHasAnswer() === 0) {
       pageList.push(evaluationStart.noAnswers);
+      } else if (anyStationComplete() === 0) {
       pageList.push(evaluationStart.notAllAnswers);
+        pageList.push(...evaluationCore);
+      } else {
       pageList.push(evaluationStart.allComplete);
-
       pageList.push(...evaluationCore);
-      
+      }
       break;
     default:
       throw new Error(STATION + " is not a valid station number");
