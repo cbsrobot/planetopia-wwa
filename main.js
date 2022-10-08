@@ -272,6 +272,7 @@ function sendEmail(mailOptions) {
   if (process.env.EMAIL_TO !== "") {
     // override user inpout with env setting
     mailOptions.to = process.env.EMAIL_TO
+    console.info(`Email address was overriden by env variable with ${process.env.EMAIL_TO}`)
   }
   
   mailOptions.attachments = [{   // file on disk as an attachment
@@ -280,7 +281,7 @@ function sendEmail(mailOptions) {
   }]
 
   transporter.sendMail(mailOptions, function (err, info) {
-    if (err) {
+    if (err) { 
       console.error(err);
     } else {
       console.debug(info);
