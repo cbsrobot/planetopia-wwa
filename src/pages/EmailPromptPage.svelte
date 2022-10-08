@@ -9,7 +9,7 @@
   import { _ } from "../modules/i18n.js";
 
   import Keyboard from "simple-keyboard";
-  import "node_modules/simple-keyboard/build/css/index.css";
+  //import "node_modules/simple-keyboard/build/css/index.css";
   import "../styles/simplekeyboard.css";
 
   export let textPath;

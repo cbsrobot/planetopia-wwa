@@ -34,7 +34,6 @@
 
   $: saveAnswer(selected)
   function saveAnswer(selection) {
-    console.log(selection, answers[selection].points)
     if (selection != undefined) 
       setAnswer(stationNumber, questionNumber, answers[selection].points)
   }
@@ -57,7 +56,7 @@
 
   function modifyTextPath(textPath) {
     const level_mapping = [".hard", ".medium", ".easy"]
-    const wwa_mapping = [".cloths", ".living", ".mobility", ".food", ".special"]
+    const wwa_mapping = [".clothes", ".living", ".mobility", ".food", ".special"]
     let selected_wwa = $userData.stations[stationNumber].questions[1] //fixme: do not hardcode
     let sum = 0
     let level = 2
