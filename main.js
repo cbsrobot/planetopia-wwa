@@ -1,10 +1,10 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, dialog, ipcMain } = require('electron');
-const rpath = require('path');
-const serve = require('electron-serve');
-const loadURL = serve({ directory: 'public' });
+const { app, BrowserWindow, dialog, ipcMain } = require("electron");
+const rpath = require("path");
+const serve = require("electron-serve");
+const loadURL = serve({ directory: "public" });
 const { SerialPort, ReadlineParser } = require("serialport");
-require('dotenv').config()
+require("dotenv").config();
 
 let serport;
 let parser;
@@ -30,14 +30,14 @@ async function listSerialPorts() {
                 serport = new SerialPort({ path, baudRate });
 
                 serport.on("error", function (err) {
-                    console.log("SerialPort Error", err)
+          console.log("SerialPort Error", err);
                     serport = undefined;
                     parser = undefined;
                 });
 
                 parser = serport.pipe(new ReadlineParser());
                 parser.on("data", (data) => {
-                    mainWindow.webContents.send('rfid', data);
+          mainWindow.webContents.send("rfid", data);
                 });
             }
         });
@@ -78,11 +78,11 @@ function createWindow() {
         height: 600,
         webPreferences: {
             nodeIntegration: true,
-            preload: rpath.join(__dirname, 'preload.js'),
+      preload: rpath.join(__dirname, "preload.js"),
             enableRemoteModule: true,
-            contextIsolation: false
+      contextIsolation: false,
         },
-        icon: rpath.join(__dirname, 'public/favicon.png'),
+    icon: rpath.join(__dirname, "public/favicon.png"),
         show: false,
         autoHideMenuBar: true,
     });
@@ -102,7 +102,7 @@ function createWindow() {
     //})
 
     //mainWindow.webContents.openDevTools()
-    mainWindow.webContents.on('before-input-event', (event, input) => {
+  mainWindow.webContents.on("before-input-event", (event, input) => {
         /*
         if (input.control && input.key.toLowerCase() === 'i') {
             console.log('Pressed Control+I')
@@ -110,26 +110,25 @@ function createWindow() {
         }
         */
 
-        if (input.key.toLowerCase() === '0') {
-            mainWindow.webContents.openDevTools()
-            event.preventDefault()
+    if (input.key.toLowerCase() === "0") {
+      mainWindow.webContents.openDevTools();
+      event.preventDefault();
         }
 
-        if (input.key.toLowerCase() === '9') {
-            mainWindow.setKiosk(!mainWindow.kiosk)
-            event.preventDefault()
+    if (input.key.toLowerCase() === "9") {
+      mainWindow.setKiosk(!mainWindow.kiosk);
+      event.preventDefault();
         }
 
-        if (input.key === 'Escape') {
-            app.quit()
+    if (input.key === "Escape") {
+      app.quit();
         }
-    })
-
+  });
 
     // This block of code is intended for development purpose only.
     // Delete this entire block of code when you are ready to package the application.
     if (isDev()) {
-        mainWindow.loadURL('http://localhost:5000/');
+    mainWindow.loadURL("http://localhost:5000/");
     } else {
         loadURL(mainWindow);
     }
@@ -142,17 +141,17 @@ function createWindow() {
     // mainWindow.webContents.openDevTools();
 
     // Emitted when the window is closed.
-    mainWindow.on('closed', function () {
+  mainWindow.on("closed", function () {
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
-        mainWindow = null
+    mainWindow = null;
     });
 
     // Emitted when the window is ready to be shown
     // This helps in showing the window gracefully.
-    mainWindow.once('ready-to-show', () => {
-        mainWindow.show()
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.show();
     });
 }
 
@@ -162,36 +161,35 @@ function createWindow() {
 //app.on('ready', createWindow);
 
 app.whenReady().then(() => {
-    createWindow()
+  createWindow();
   
-    app.on('activate', function () {
+  app.on("activate", function () {
       // On macOS it's common to re-create a window in the app when the
       // dock icon is clicked and there are no other windows open.
-      if (BrowserWindow.getAllWindows().length === 0) createWindow()
-    })
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
     
     function enterKiosk() {
       mainWindow.setKiosk(!mainWindow.kiosk);
     }
     
-    if(process.env.IS_PROD === "true") setTimeout(enterKiosk, 500);
-  })
-
-// Quit when all windows are closed.
-app.on('window-all-closed', function () {
-    // On macOS it is common for applications and their menu bar
-    // to stay active until the user quits explicitly with Cmd + Q
-    if (process.platform !== 'darwin') app.quit()
+  if (process.env.IS_PROD === "true") setTimeout(enterKiosk, 500);
 });
 
-app.on('activate', function () {
+// Quit when all windows are closed.
+app.on("window-all-closed", function () {
+    // On macOS it is common for applications and their menu bar
+    // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== "darwin") app.quit();
+});
+
+app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (mainWindow === null) createWindow()
+  if (mainWindow === null) createWindow();
 });
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-
 
 /*
 ipcMain.on('ping-good', event => {
