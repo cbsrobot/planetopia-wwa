@@ -2,7 +2,8 @@
   import { get } from "svelte/store";
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
-  import { userData, setAnswer } from "../modules/DataManager";
+  import { userData } from "../modules/DataManager";
+  import { saveAnswer } from "../modules/PageUtils";
   import { _ } from "../modules/i18n.js";
 
   export let textPath;
@@ -33,10 +34,6 @@
   }
 
   $: saveAnswer(selected)
-  function saveAnswer(selection) {
-    if (selection != undefined) 
-      setAnswer(stationNumber, questionNumber, answers[selection].points)
-  }
 
   // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   function shuffleArrayBiased(array) {
