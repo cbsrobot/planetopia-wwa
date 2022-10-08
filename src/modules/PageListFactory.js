@@ -236,6 +236,9 @@ function addQuestionNumbersToProps(pageList) {
     if (page.component == WwaConfirmationPage2) {
       page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
     }
+    if (page.component == EmailAcceptPage) {
+      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
+    }
   });
   return pageList;
 }
