@@ -17,7 +17,6 @@
   export let pageIndex, totalPages;
   export let stationNumber;
 
-  let simpleKeyboard = false;
   let validated = true;
 
   $: neutral = validated;
@@ -37,6 +36,7 @@
         ],
       },
     });
+    document.querySelector(".input").focus();
   });
 
   function onChange(input) {
@@ -81,14 +81,9 @@
 <div class="content">
   <p class="question">{$_(textPath, "question")}</p>
 <div class="answer-container">
-  <input
-    on:focus={() => (simpleKeyboard = true)}
-    type="input"
-    class="input"
-    placeholder={$_(textPath, "textField")}
-  />
+    <input type="input" class="input" placeholder={$_(textPath, "textField")} />
 </div>
-<div class:shown={!simpleKeyboard} class="simple-keyboard-container">
+  <div class="simple-keyboard-container">
   <div class="simple-keyboard" />
 </div>
 </div>
@@ -152,10 +147,7 @@
     left: 260px;
     top: 460px;
     width: 1200px;
-  }
-
-  .shown {
-    display: none;
+    box-shadow: rgb(0 0 0 / 20%) 20px 20px 30px;
   }
 
   *, *:before, *:after {
