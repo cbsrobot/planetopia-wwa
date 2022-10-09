@@ -52,23 +52,23 @@
   }
 
   function modifyTextPath(textPath) {
-    const level_mapping = [".hard", ".medium", ".easy"]
-    const wwa_mapping = [".clothes", ".living", ".mobility", ".food", ".special"]
-    let selected_wwa = $userData.stations[stationNumber].questions[1] //fixme: do not hardcode
+    const level_mapping = ["hard", "medium", "easy"]
+    const area_mapping = ["clothes", "living", "mobility", "food", "special"]
+    let selected_area = $userData.stations[stationNumber].questions[1] //TODO: do not hardcode
     let sum = 0
     let level = 2
-    let answered_count = Object.keys(get(userData).stations[selected_wwa].questions).length
+    let answered_count = Object.keys(get(userData).stations[selected_area].questions).length
     if (answered_count) {
-      for (const value of Object.values(get(userData).stations[selected_wwa].questions)){
+      for (const value of Object.values(get(userData).stations[selected_area].questions)){
         sum += value
       }
       let max_points = 4 * answered_count
       let average_points = sum / answered_count
       level = Math.floor(3 / max_points * average_points)
     }
-    textPath += wwa_mapping[selected_wwa] 
-    if (selected_wwa != 4) {
-      textPath += level_mapping[level]
+    textPath += `.${area_mapping[selected_area]}`
+    if (selected_area != 4) {
+      textPath += `.${level_mapping[level]}`
     }
     return textPath
   }
