@@ -1,7 +1,8 @@
 <script>
   export let selected = false;
-  export let neutral = true;
   export let text = "Some text";
+
+  $: neutral = selected != true
 </script>
 
 <button on:click class:selected class:neutral>

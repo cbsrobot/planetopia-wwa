@@ -44,7 +44,6 @@
         on:click={() => {
           selected = 0;
         }}
-        {neutral}
         selected={selected == 0}
         text={$_(textPath, answers[0].textKey)}
       />
@@ -52,7 +51,6 @@
         on:click={() => {
           selected = 1;
         }}
-        {neutral}
         selected={selected == 1}
         text={$_(textPath, answers[1].textKey)}
       />
@@ -62,7 +60,6 @@
         on:click={() => {
           selected = 2;
         }}
-        {neutral}
         selected={selected == 2}
         text={$_(textPath, answers[2].textKey)}
       />
@@ -70,7 +67,6 @@
         on:click={() => {
           selected = 3;
         }}
-        {neutral}
         selected={selected == 3}
         text={$_(textPath, answers[3].textKey)}
       />
