@@ -39,37 +39,43 @@
 <Navigation bind:pageIndex={pageIndex} on:nextClicked {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
 <WwaImage textPath="" />
 
-<img on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+<img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+<img id="bubble" alt="bubble" src="assets/bubble_small.svg" />
 
 <div class="content">
   <p class="question">{$_(textPath)}</p>
-<div class="answer-container">
-  <Selectable
-    on:click={() => {
-      selected = 0;
-    }}
-    selected={selected == 0}
-    text={$_(answers[0].textKey, "")}
-  />
-  <Selectable
-    on:click={() => {
-      selected = 1;
-    }}
-    selected={selected == 1}
-    text={$_(answers[1].textKey, "")}
-  />
+  <div class="answer-container">
+    <Selectable
+      on:click={() => {
+        selected = 0;
+      }}
+      selected={selected == 0}
+      text={$_(answers[0].textKey, "")}
+    />
+    <Selectable
+      on:click={() => {
+        selected = 1;
+      }}
+      selected={selected == 1}
+      text={$_(answers[1].textKey, "")}
+    />
   </div>
 </div>
 
 <style>
 
-  img {
+  #avatar {
     position: absolute;
     top: 250px;
     left: 0;
     width: 400px;
   }
-
+  #bubble {
+    position: absolute;
+    top: 200px;
+    left: 320px;
+    width: 1060px;
+  }
   .content {
     /* position: absolute; */
     /* top: 20px; */
@@ -79,6 +85,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    z-index: 2;
   }
   .question {
     display: block;
@@ -86,7 +93,6 @@
     font-size: 52px;
     width: 900px;
   }
-
   .answer-container {
     position: absolute;
     top: 560px;
@@ -94,7 +100,6 @@
     display: block;
     width: 20%;
   }
-
   p {
     margin-top: 0;
   }
