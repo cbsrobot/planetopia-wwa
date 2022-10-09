@@ -22,7 +22,8 @@
     "electron": "wait-on http://localhost:5000 && electron .",
     "electron-dev": "concurrently \"npm run dev\" \"npm run electron\"",
     "preelectron-pack": "npm run build",
-    "electron-pack": "electron-builder"
+    "electron-pack": "electron-builder",
+    "debug-pdf": "node debug-pdf.js"
   },
   "dependencies": {
     "@serialport/bindings-cpp": "^10.7.0",
