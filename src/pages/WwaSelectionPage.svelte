@@ -26,7 +26,7 @@
   $: neutral = selected === null ? true : false;
 
   // Convert points from database back to selected index
-    const points = parseInt($userData.stations[stationNumber].questions[questionNumber]);
+  const points = parseInt($userData.stations[stationNumber].questions[questionNumber]);
   $: {
     const answerIndex = answers.findIndex((a) => a.points === points);
     selected = (answerIndex < 0) ? null : answerIndex;
@@ -57,7 +57,6 @@
       // place the previousely selected item at the beginning
       [array[0], array[selected]] = [array[selected], array[0]]
     }
-
   }
 
   function modifyTextPath(textPath) {

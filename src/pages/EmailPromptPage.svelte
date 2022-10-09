@@ -74,6 +74,8 @@
   }
 
   let overlayOpen = false;
+
+  // TODO add Newsletter option
 </script>
 
 <Navigation bind:pageIndex on:nextClicked={handleNextClicked} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral} />
@@ -83,12 +85,12 @@
 
 <div class="content">
   <p class="question">{$_(textPath, "question")}</p>
-<div class="answer-container">
+  <div class="answer-container">
     <input type="input" class="input" placeholder={$_(textPath, "textField")} />
-</div>
+  </div>
   <div class="simple-keyboard-container">
-  <div class="simple-keyboard" />
-</div>
+    <div class="simple-keyboard" />
+  </div>
 </div>
 
 <style>

@@ -43,22 +43,22 @@
 
 <div class="content">
   <p class="question">{$_(textPath)}</p>
-<div class="answer-container">
-  <Selectable
-    on:click={() => {
-      selected = 0;
-    }}
-    selected={selected == 0}
-    text={$_(answers[0].textKey, "")}
-  />
-  <Selectable
-    on:click={() => {
-      selected = 1;
-    }}
-    selected={selected == 1}
-    text={$_(answers[1].textKey, "")}
-  />
-</div>
+  <div class="answer-container">
+    <Selectable
+      on:click={() => {
+        selected = 0;
+      }}
+      selected={selected == 0}
+      text={$_(answers[0].textKey, "")}
+    />
+    <Selectable
+      on:click={() => {
+        selected = 1;
+      }}
+      selected={selected == 1}
+      text={$_(answers[1].textKey, "")}
+    />
+  </div>
 </div>
 
 <style>
