@@ -4,14 +4,37 @@
     <meta charset="utf-8" />
     <title>Planetopia</title>
     <style>
+      @font-face {
+        font-family: "MANIC";
+        font-style: normal;
+        font-weight: normal;
+        src: url("{{apiurl}}/MANIC-Regular.woff2") format("woff");
+      }
+      @font-face {
+        font-family: "Sanuk";
+        src: url("{{apiurl}}/sanukot-regular-webfont.woff2") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
       body {
         background-color: white;
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: "MANIC", Helvetica, Arial, sans-serif;
+      }
+      #stamp {
+        position: absolute;
+        z-index: 10;
+        width: 133px;
+        top: 0px;
+        right: 0px;
       }
       </style>
   </head>
   <body>
     <h1>Planetopia</h1>
-    <img width="100%" src="data:image/jpg;base64,{{logo}}" alt="Logo" />
+    <p>{{params.areaText}}</p>
+    <p>{{params.wwaText}}</p>
+    <p>{{params.mailOptions.to}}</p>
+    <img width="100%" src="data:image/jpg;base64,{{avatar}}" alt="avatar" />
+    <img id="stamp" src="data:image/svg+xml;base64,{{stamp}}" alt="stamp" />
   </body>
 </html>

@@ -215,11 +215,11 @@ ipcMain.on('ping-good', event => {
 })
 */
 
-function createPdf(mailOptions){
+function createPdf(params){
   // Read HTML Template
   const html = fs.readFileSync(__dirname + "/public/templates/template.html", "utf8");
-  const avatar = fs.readFileSync(__dirname + "/public/assets/avatar/1.jpg");
-  const logo = avatar.toString('base64');
+  const avatar = fs.readFileSync(__dirname + `/public/assets/avatar/${params.avatar}.jpg`).toString('base64');
+  const stamp = fs.readFileSync(__dirname + "/public/assets/cert/stamp.svg").toString('base64');
 
   let options = {
     format: "A4",
@@ -245,7 +245,10 @@ function createPdf(mailOptions){
   let document = {
     html: html,
     data: {
-      logo: logo
+      apiurl: process.env.IS_PROD === "true" ?  process.env.API_URL : process.env.ALT_API_URL,
+      avatar: avatar,
+      stamp: stamp,
+      params: params,
     },
     path: `${tempdir}/wwa.pdf`,
     type: "",
@@ -260,7 +263,7 @@ function createPdf(mailOptions){
     });
 }
 
-function sendEmail(mailOptions) {
+function sendEmail(params) {
   var transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     auth: {
@@ -271,16 +274,16 @@ function sendEmail(mailOptions) {
 
   if (process.env.EMAIL_TO !== "") {
     // override user inpout with env setting
-    mailOptions.to = process.env.EMAIL_TO
+    params.mailOptions.to = process.env.EMAIL_TO
     console.info(`Email address was overriden by env variable with ${process.env.EMAIL_TO}`)
   }
   
-  mailOptions.attachments = [{   // file on disk as an attachment
+  params.mailOptions.attachments = [{   // file on disk as an attachment
     filename: "Planetopia.pdf",
     path: `${tempdir}/wwa.pdf`
   }]
 
-  transporter.sendMail(mailOptions, function (err, info) {
+  transporter.sendMail(params.mailOptions, function (err, info) {
     if (err) { 
       console.error(err);
     } else {

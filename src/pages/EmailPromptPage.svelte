@@ -60,14 +60,17 @@
       return;
     }
     ipcRenderer.send("sendEmail", {
-      from: "test@planetopia.ch",
-      to: emailaddress,
-      subject: "Planetopia",
-      html: `<p>${$_("email", "").replace(/(?:\r\n|\r|\n)/g, "<br>")}</p>`,
-      //"file": "path/to/pdf"
-      // TODO: add email? , selected WWA text
+      "mailOptions": {
+        from: "test@planetopia.ch",
+        to: emailaddress,
+        subject: "Planetopia",
+        html: `<p>${$_("email", "").replace(/(?:\r\n|\r|\n)/g, "<br>")}</p>`,
+      },
+      "avatar": $userData.avatar,
+      "wwaText": $userData.wwa.text,
+      "areaText": $userData.wwa.areaText
     });
-    //TODO: should it bubble up ?
+    //TODO: should it bubble up 
   }
 
   let overlayOpen = false;
