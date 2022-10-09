@@ -8,7 +8,7 @@ export function shuffleArray(array) {
     }
 }
 
-export function saveAnswer(selection){
+export function saveAnswer(stationNumber, questionNumber, answers, selection){
     if (selection != undefined) 
         setAnswer(stationNumber, questionNumber, answers[selection].points)
 }

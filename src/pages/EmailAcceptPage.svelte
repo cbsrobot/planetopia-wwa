@@ -28,7 +28,7 @@
     selected = (answerIndex < 0) ? null : answerIndex;
   }
 
-  $: saveAnswer(selected)
+  $: saveAnswer(stationNumber, questionNumber, answers, selected)
 
 </script>
 
