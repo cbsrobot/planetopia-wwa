@@ -54,7 +54,7 @@
     const answerIndex = answers.findIndex((a) => a.points === points);
     const selected = (answerIndex < 0) ? null : answerIndex;
     if (selected != null && selected > 1) {
-      // place selected at the beginning
+      // place the previousely selected item at the beginning
       [array[0], array[selected]] = [array[selected], array[0]]
     }
 
