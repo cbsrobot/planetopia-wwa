@@ -1,8 +1,8 @@
 <script>
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
-  import { shuffleArray, saveAnswer } from "../modules/PageUtils";
-  import { userData } from "../modules/DataManager";
+  import { shuffleArray } from "../modules/PageUtils";
+  import { userData, saveValue } from "../modules/DataManager";
   import { _ } from "../modules/i18n";
 
   export let textPath;
@@ -31,7 +31,9 @@
     selected = (answerIndex < 0) ? null : answerIndex;
   }
 
-  $: saveAnswer(stationNumber, questionNumber, answers, selected)
+  $: if (selected != null) {
+    saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
+  }
 
 </script>
 

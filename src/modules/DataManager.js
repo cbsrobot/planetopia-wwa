@@ -94,34 +94,17 @@ export function logOut() {
     clearInterval(activePing);
 }
 
-export function setAnswer(stationNumber, questionNumber, points) {
+export function saveValue(key, value) {
   var requestOptions = {
     method: 'PUT',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      "station": stationNumber,
-      "question": questionNumber,
-      "points": points,
+      "key": key,
+      "value": value
     })
   };
 
-  fetch(`${API_URL}/api/users/${currentRfid}/answer`, requestOptions)
-    .then(response => response.json())
-    .then(data => _userData.set(data))
-    .catch(error => console.log(error));
-}
-
-export function setLastPage(stationNumber, lastPageStr) {
-  var requestOptions = {
-    method: 'PUT',
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      "station": stationNumber,
-      "lastPage": lastPageStr,
-    })
-  };
-
-  fetch(`${API_URL}/api/users/${currentRfid}/last-page`, requestOptions)
+  fetch(`${API_URL}/api/users/${currentRfid}/put`, requestOptions)
     .then(response => response.json())
     .then(data => _userData.set(data))
     .catch(error => console.log(error));

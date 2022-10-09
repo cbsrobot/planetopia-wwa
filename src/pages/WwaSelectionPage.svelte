@@ -2,8 +2,8 @@
   import { get } from "svelte/store";
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
-  import { userData } from "../modules/DataManager";
-  import { saveAnswer } from "../modules/PageUtils";
+  import { userData, saveValue } from "../modules/DataManager";
+
   import { _ } from "../modules/i18n.js";
 
   export let textPath;
@@ -26,14 +26,23 @@
   $: neutral = selected === null ? true : false;
 
   // Convert points from database back to selected index
-  $: {
     const points = parseInt($userData.stations[stationNumber].questions[questionNumber]);
+  $: {
     const answerIndex = answers.findIndex((a) => a.points === points);
     selected = (answerIndex < 0) ? null : answerIndex;
     textPathDetailed = modifyTextPath(textPath)
   }
 
-  $: saveAnswer(stationNumber, questionNumber, answers, selected)
+  $: {
+    //saveAnswer(stationNumber, questionNumber, answers, selected)
+    if (selected != null) {
+      saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
+      saveValue("wwa", {
+        textPath: `${textPathDetailed}.${answers[selected].textKey}`,
+        text: $_(textPathDetailed, answers[selected].textKey)
+      })
+    }
+  }
 
   // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   function shuffleArrayBiased(array) {
@@ -70,6 +79,13 @@
     if (selected_area != 4) {
       textPath += `.${level_mapping[level]}`
     }
+    saveValue("wwa", {
+      areaId: selected_area,
+      areaText: area_mapping[selected_area],
+      levelId: level,
+      levelText: level_mapping[level],
+    })
+    console.debug(textPath)
     return textPath
   }
 

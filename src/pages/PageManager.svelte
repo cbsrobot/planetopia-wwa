@@ -1,6 +1,6 @@
 <script>
   import { generatePageList, STATION } from "../modules/PageListFactory.js";
-  import { loggedIn, userData, setAnswer } from "../modules/DataManager.js";
+  import { loggedIn, userData, saveValue } from "../modules/DataManager.js";
   import InfoPage from "./InfoPage.svelte";
   import ContinuePage from "./ContinuePage.svelte";
 
@@ -57,7 +57,7 @@
       const jumpToIndex = pageList[previousPageIndex].conditionalJump[answer]
       if (jumpToIndex) {
         //TODO clear previous saved data
-        //setAnswer(stationNumber, questionNumber, points)
+        //saveValue(stationNumber, questionNumber, points)
         pageIndex = jumpToIndex
       }
     }

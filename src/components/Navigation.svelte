@@ -1,5 +1,5 @@
 <script>
-  import { logOut, setLastPage} from "../modules/DataManager.js";
+  import { logOut, saveValue} from "../modules/DataManager.js";
   import Button from "./Button.svelte";
   import ProgressIndicator from "./ProgressIndicator.svelte";
   import StationIndicator from "./StationIndicator.svelte";
@@ -17,7 +17,7 @@
 
   export let disableNext = false;
 
-  $: setLastPage(station, pageID)
+  $: saveValue(`stations.${station}.lastPage`, pageID)
 
   function handleBackClick() {
     if (pageIndex != undefined) pageIndex += backIncrement;
