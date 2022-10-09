@@ -1,5 +1,4 @@
-const API_URL = process.env.IS_PROD === "true" ?  process.env.API_URL : "http://localhost:3000";
-// const API_URL = process.env.API_URL;
+const API_URL = process.env.IS_PROD === "true" ?  process.env.API_URL : process.env.ALT_API_URL;
 
 import { writable, derived, readable } from "svelte/store";
 import { _, setLocale, resetLocale, locale } from "./i18n.js";
