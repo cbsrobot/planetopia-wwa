@@ -23,7 +23,8 @@
 </script>
 
 <Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath}/>
-<img on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+<img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+<img id="bubble" alt="bubble" src="assets/bubble_big.svg" />
 <p id="dialogue">{dialogueText}</p>
 
 {#if overlayOpen}
@@ -31,13 +32,18 @@
 {/if}
 
 <style>
-  img {
+  #avatar {
     position: absolute;
     top: 250px;
     left: 0;
     width: 800px;
   }
-
+  #bubble {
+    position: absolute;
+    top: 300px;
+    left: 710px;
+    width: 1110px;
+  }
   #dialogue {
     display: block;
     position: absolute;

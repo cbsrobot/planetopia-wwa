@@ -74,16 +74,12 @@
 </script>
 
 <Navigation bind:pageIndex on:nextClicked={handleNextClicked} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral} />
+<img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+<img id="bubble" alt="bubble" src="assets/bubble_small.svg" />
 <WwaImage textPath="" />
 
 <div class="content">
-  <img
-    on:click={() => (overlayOpen = true)}
-    alt="Insect Avatar"
-    src="assets/avatar/{$userData.avatar}.jpg"
-  />
   <p class="question">{$_(textPath, "question")}</p>
-</div>
 <div class="answer-container">
   <input
     on:focus={() => (simpleKeyboard = true)}
@@ -95,13 +91,20 @@
 <div class:shown={!simpleKeyboard} class="simple-keyboard-container">
   <div class="simple-keyboard" />
 </div>
+</div>
 
 <style>
-  img {
+  #avatar {
     position: absolute;
     top: 250px;
     left: 0;
     width: 400px;
+  }
+  #bubble {
+    position: absolute;
+    top: 200px;
+    left: 320px;
+    width: 1060px;
   }
 
   .content {
@@ -113,6 +116,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    z-index: 2;
   }
   .question {
     display: block;
@@ -123,8 +127,8 @@
 
   .answer-container {
     position: absolute;
-    top: 370px;
-    left: 390px;
+    top: 310px;
+    left: 285px;
     display: block;
     width: 60%;
   }
@@ -145,7 +149,7 @@
 
   .simple-keyboard-container {
     position: absolute;
-    left: 370px;
+    left: 260px;
     top: 460px;
     width: 1200px;
   }

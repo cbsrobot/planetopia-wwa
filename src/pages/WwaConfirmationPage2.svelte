@@ -1,6 +1,7 @@
 <script>
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
+  import WwaImage from "../components/WwaImage.svelte";
   import { shuffleArray, saveAnswer } from "../modules/PageUtils";
   import { userData } from "../modules/DataManager";
   import { _ } from "../modules/i18n.js";
@@ -34,8 +35,10 @@
 </script>
 
 <Navigation bind:pageIndex={pageIndex} on:nextClicked {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
+<WwaImage textPath="" />
 
-<img on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+<img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+<img id="bubble" alt="bubble" src="assets/bubble_small.svg" />
 
 <div class="content">
   <p class="question">{$_(textPath)}</p>
@@ -59,13 +62,18 @@
 
 <style>
 
-  img {
+  #avatar {
     position: absolute;
     top: 250px;
     left: 0;
     width: 400px;
   }
-
+  #bubble {
+    position: absolute;
+    top: 200px;
+    left: 320px;
+    width: 1060px;
+  }
   .content {
     /* position: absolute; */
     /* top: 20px; */
@@ -75,6 +83,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    z-index: 2;
   }
   .question {
     display: block;
