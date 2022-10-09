@@ -1,14 +1,21 @@
-Allow serial port access:
-$ sudo usermod -a -G dialout $USER
+# Setup
+
+On Linux allow user to access serial port : `sudo usermod -a -G dialout $USER`
 
 Add a .env file on the root level with following content
-STATION=0
-IS_PROD=false
-API_URL=http://10.7.0.111:3000
-EMAIL_HOST=[smtp.server.domain]
-EMAIL_USER=[user@provider.domain]
-EMAIL_PASSWORD=[password]
-EMAIL_TO=[user@provider.domain] # used to override user input and send all emails to this address
+```shell
+STATION=0                         # station id 0-5
+IS_PROD=false                     # used for dev
+API_URL=http://10.7.0.111:3000    # host running planetopia-server
+ALT_API_URL=http://127.0.0.1:3000 # alternative api url for dev
+EMAIL_HOST=smtp.server.domain     # email provider
+EMAIL_USER=user@provider.domain   # email login
+EMAIL_PASSWORD=password           # email password
+EMAIL_TO=user@provider.domain     # used to override user input and send all emails to this address
+```
+
+
+
 
 <div align="center">
 <img alt="Electron Svelte Crossover Banner" src="https://raw.githubusercontent.com/soulehshaikh99/assets/master/create-electron-framework-app/readme/svg/Electron_Svelte.svg" width="580" />
