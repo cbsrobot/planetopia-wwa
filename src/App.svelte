@@ -26,7 +26,7 @@
   // update inactive time every second and set attemptedLogin to false
   const interval = setInterval(() => {
     inactiveTime = (new Date() - lastInteraction) / 1000;
-    if ($attemptedLogin) $attemptedLogin.set(false)
+    if (attemptedLogin) attemptedLogin.set(false)
   }, 1000);
   onDestroy(() => clearInterval(interval));
 
