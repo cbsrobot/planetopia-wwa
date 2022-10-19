@@ -9,8 +9,15 @@ export const userData = derived(_userData, ($_userData) => $_userData);
 
 let currentRfid;
 userData.subscribe((userData) => {
-  console.log("userData", userData);
+  if (userData !== undefined){
+    console.log("userData", userData);
+    currentRfid = userData?.rfid;  
   currentRfid = userData?.rfid;
+    currentRfid = userData?.rfid;  
+  } else {
+    //TODO: Why is it undefined ?
+    console.warn("userData is undefined")
+  }
 });
 
 let currentLocale
