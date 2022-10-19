@@ -1,6 +1,6 @@
 <script>
   import { onDestroy } from "svelte";
-  import { loggedIn, logOut } from "./modules/DataManager.js";
+  import { loggedIn, attemptedLogin, logOut } from "./modules/DataManager.js";
   import { resetLocale } from "./modules/i18n.js";
   import PageManager from "./pages/PageManager.svelte";
   import DevBar from "./components/DevBar.svelte";
@@ -18,10 +18,10 @@
   let inactiveTime = 0;
 
   // Log out after specified timeout
-  $: if ($loggedIn && inactiveTime > TIMEOUT_RESET) { console.log("inactiveTime logOut"); logOut();}
+  $: if (($loggedIn || $attemptedLogin) && inactiveTime > TIMEOUT_RESET) { console.log("inactiveTime logOut"); logOut();}
 
   // Reset language choice after specified inactive time
-  $: if ( ! $loggedIn && inactiveTime > TIMEOUT_RESET_LANGUAGE) resetLocale();
+  $: if ( ! ($loggedIn || $attemptedLogin) && inactiveTime > TIMEOUT_RESET_LANGUAGE) resetLocale();
 
   // update inactive time every second
   const interval = setInterval(() => {
@@ -34,7 +34,7 @@
     inactiveTime = 0;
     lastInteraction = new Date();
   }
-  $: if ($loggedIn) interactionDetected();
+  $: if ($loggedIn || $attemptedLogin) interactionDetected();
 
 </script>
 

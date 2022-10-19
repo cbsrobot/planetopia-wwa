@@ -24,6 +24,7 @@ locale.subscribe((loc) => {
 });
 
 export const loggedIn = writable(false);
+export const attemptedLogin = writable(false);
 
 const _globalData = writable({});
 export const globalData = derived(_globalData, ($_globalData) => $_globalData);
@@ -31,6 +32,7 @@ export const globalData = derived(_globalData, ($_globalData) => $_globalData);
 ipcRenderer.on("rfid", (event, response) => {
   console.log(response, "detected")
   logIn(String(response).replace(" ", "").replace("UID:", "").trim());
+  attemptedLogin.set(true)
 });
 
 export function simulateLogIn(rfid) {
@@ -96,6 +98,7 @@ function logIn(rfid) {
 
 export function logOut() {
     loggedIn.set(false)
+    attemptedLogin.set(false)
     _userData.set(undefined);
     resetLocale();
     console.log("Logged out");
