@@ -25,6 +25,7 @@
 
   // TODO: Coordinate behaviour with revisit -> UX Testing
   function handleHomeClick(){
+    console.log("handleHomeClick logOut")
     logOut();
   }
 

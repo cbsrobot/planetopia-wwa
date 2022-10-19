@@ -46,7 +46,10 @@ function checkActive() {
     fetch(`${API_URL}/api/users/${currentRfid}/active`, {method: 'GET'})
     .then(response => response.json())
     .then(data => {
-        if(!data.active) logOut();
+        if(!data.active){
+          console.log("checkActive logOut")
+          logOut();
+        } 
     })
     .catch(error => console.log(error));
 }
@@ -57,7 +60,7 @@ function logIn(rfid) {
 
   // if it is a new rfid chip log out old chip
   if(currentRfid && rfid != currentRfid){
-    console.log("forced log out")
+    console.log("logIn forced log out")
     logOut(); 
   }
 
