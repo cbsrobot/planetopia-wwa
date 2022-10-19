@@ -18,7 +18,7 @@
   let inactiveTime = 0;
 
   // Log out after specified timeout
-  $: if ($loggedIn && inactiveTime > TIMEOUT_RESET) logOut();
+  $: if ($loggedIn && inactiveTime > TIMEOUT_RESET) { console.log("inactiveTime logOut"); logOut();}
 
   // Reset language choice after specified inactive time
   $: if ( ! $loggedIn && inactiveTime > TIMEOUT_RESET_LANGUAGE) resetLocale();
