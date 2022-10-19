@@ -68,7 +68,8 @@
       },
       "avatar": $userData.avatar,
       "wwaText": $userData.wwa.text,
-      "areaText": $userData.wwa.areaText
+      "areaText": $userData.wwa.areaText,
+      "wwaNumber": "D - " + Math.floor(Math.random() * 10000) //TODO: fix it
     });
     //TODO: should it bubble up 
   }

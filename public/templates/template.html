@@ -18,23 +18,29 @@
       }
       body {
         background-color: white;
-        font-family: "MANIC", Helvetica, Arial, sans-serif;
+        font-family: "Sanuk", Helvetica, Arial, sans-serif;
+        border: 0px;
+        margin: 5px;
       }
-      #stamp {
+      #wwaNumber {
         position: absolute;
         z-index: 10;
-        width: 133px;
-        top: 0px;
-        right: 0px;
+        width: 500px;
+        top: 300px;
+        left: 150px;
+      }
+      #wwaText {
+        position: absolute;
+        z-index: 10;
+        width: 400px;
+        top: 350px;
+        left: 95px;
       }
       </style>
   </head>
   <body>
-    <h1>Planetopia</h1>
-    <p>{{params.areaText}}</p>
-    <p>{{params.wwaText}}</p>
-    <p>{{params.mailOptions.to}}</p>
-    <img width="100%" src="data:image/jpg;base64,{{avatar}}" alt="avatar" />
-    <img id="stamp" src="data:image/svg+xml;base64,{{stamp}}" alt="stamp" />
+    <div id="wwaNumber">{{params.wwaNumber}}</div>
+    <div id="wwaText">{{params.wwaText}}</div>
+    <img width="100%" src="data:image/png;base64,{{wwaCert}}" alt="wwa" />
   </body>
 </html>

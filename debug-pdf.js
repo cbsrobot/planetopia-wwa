@@ -6,16 +6,17 @@ require("dotenv").config();
 const tmpdirPath = os.tmpdir();
 const tempdir = fs.realpathSync(tmpdirPath);
 
-function createPdf(mailOptions){
+function createPdf(params){
   // Read HTML Template
   const html = fs.readFileSync(__dirname + "/public/templates/template.html", "utf8");
-  const avatar = fs.readFileSync(__dirname + "/public/assets/avatar/1.jpg").toString('base64');
-  const stamp = fs.readFileSync(__dirname + "/public/assets/cert/stamp.svg").toString('base64');
+  //const avatar = fs.readFileSync(__dirname + `/public/assets/avatar/${params.avatar}.jpg`).toString('base64');
+  //const stamp = fs.readFileSync(__dirname + "/public/assets/cert/stamp.svg").toString('base64');
+  const wwaCert = fs.readFileSync(__dirname + `/public/assets/wwa_cert.png`).toString('base64');
 
   let options = {
     format: "A4",
     orientation: "portrait",
-    border: "10mm",
+    border: "0mm",
     /*
     header: {
       height: "45mm",
@@ -36,9 +37,9 @@ function createPdf(mailOptions){
   let document = {
     html: html,
     data: {
-      avatar: avatar,
-      stamp: stamp,
       apiurl: process.env.IS_PROD === "true" ?  process.env.API_URL : process.env.ALT_API_URL,
+      wwaCert: wwaCert,
+      params: params,
     },
     path: `${tempdir}/wwa.pdf`,
     type: "",
@@ -53,4 +54,9 @@ function createPdf(mailOptions){
     });
 }
 
-createPdf()
+const params = {
+  wwaText: "Ich notiere ein halbes Jahr lang, welche Kleider ich trage. Was ich in dieser Zeit nicht anziehe, verschenke ich oder gebe es in den Secondhand-Handel.",
+  wwaNumber: "D - 000001"
+}
+
+createPdf(params)
