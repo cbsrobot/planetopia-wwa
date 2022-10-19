@@ -12,8 +12,6 @@ userData.subscribe((userData) => {
   if (userData !== undefined){
     console.log("userData", userData);
     currentRfid = userData?.rfid;  
-  currentRfid = userData?.rfid;
-    currentRfid = userData?.rfid;  
   } else {
     //TODO: Why is it undefined ?
     console.warn("userData is undefined")
