@@ -18,23 +18,26 @@
   let inactiveTime = 0;
 
   // Log out after specified timeout
-  $: if (($loggedIn || $attemptedLogin) && inactiveTime > TIMEOUT_RESET) { console.log("inactiveTime logOut"); logOut();}
+  $: if ($loggedIn && inactiveTime > TIMEOUT_RESET) { console.log("inactiveTime logOut"); logOut();}
 
   // Reset language choice after specified inactive time
-  $: if ( ! ($loggedIn || $attemptedLogin) && inactiveTime > TIMEOUT_RESET_LANGUAGE) resetLocale();
+  $: if ( ! $loggedIn && inactiveTime > TIMEOUT_RESET_LANGUAGE) resetLocale();
 
-  // update inactive time every second
+  // update inactive time every second and set attemptedLogin to false
   const interval = setInterval(() => {
     inactiveTime = (new Date() - lastInteraction) / 1000;
+    if ($attemptedLogin) $attemptedLogin.set(false)
   }, 1000);
   onDestroy(() => clearInterval(interval));
 
   // resets inactive time
   function interactionDetected() {
+    console.log("interactionDetected")
     inactiveTime = 0;
     lastInteraction = new Date();
   }
-  $: if ($loggedIn || $attemptedLogin) interactionDetected();
+  $: if ($loggedIn) interactionDetected();
+  $: if ($attemptedLogin) interactionDetected();
 
 </script>
 
