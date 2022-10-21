@@ -16,6 +16,9 @@
   export let backIncrement = -1;
 
   export let disableNext = false;
+  export let backHidden = false;
+  export let homeHidden = false;
+  export let nextHidden = false;
 
   $: saveValue(`stations.${station}.lastPage`, pageID)
 
@@ -40,12 +43,12 @@
 {/if}
 
 <div class="container top">
-  <Button back hidden={pageIndex < 1} on:click={handleBackClick} />
-  <Button home on:click={handleHomeClick} />
+  <Button back hidden={backHidden || pageIndex < 1} on:click={handleBackClick} />
+  <Button home hidden={homeHidden} on:click={handleHomeClick} />
 </div>
 
 <div class="container bottom">
-  <Button next on:click={handleNextClick} disabled={disableNext} hidden={pageIndex >= totalPages - 1} />
+  <Button next on:click={handleNextClick} disabled={disableNext} hidden={nextHidden || pageIndex >= totalPages - 1} />
 </div>
 <ProgressIndicator position={pageIndex + 1} length={totalPages} />
 

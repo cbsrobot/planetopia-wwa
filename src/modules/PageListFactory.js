@@ -24,7 +24,7 @@ const introCore = [
   { component: QuestionPage, props: { textPath: "0.question1" } },
   { component: DialoguePage, props: { textPath: "0.dialogue8" } },
   { component: DialoguePage, props: { textPath: "0.dialogue9" } },
-  { component: DialoguePage, props: { textPath: "0.dialogue10" } },
+  { component: DialoguePage, props: { textPath: "0.dialogue10", markComplete: true, stationCompleted: 0 } },
 ];
 const introEnd = {
   0: { component: DialoguePage, props: { textPath: "0.dialogueEnd0" } },
@@ -43,7 +43,7 @@ const clothesCore = [
   { component: QuestionPage, props: { textPath: "1.question3" } },
   { component: QuestionPage, props: { textPath: "1.question4" } },
   { component: QuestionPage, props: { textPath: "1.question5" } },
-  { component: DialoguePage, props: { textPath: "1.dialogue4" } },
+  { component: DialoguePage, props: { textPath: "1.dialogue4", markComplete: true, stationCompleted: 1 } },
 ];
 
 const livingStart = { component: DialoguePage, props: { textPath: "2.dialogue1" } };
@@ -55,7 +55,7 @@ const livingCore = [
   { component: QuestionPage, props: { textPath: "2.question3" } },
   { component: QuestionPage, props: { textPath: "2.question4" } },
   { component: QuestionPage, props: { textPath: "2.question5" } },
-  { component: DialoguePage, props: { textPath: "2.dialogue4" } },
+  { component: DialoguePage, props: { textPath: "2.dialogue4", markComplete: true, stationCompleted: 2 } },
 ];
 
 const mobilityStart = { component: DialoguePage, props: { textPath: "3.dialogue1" } };
@@ -67,7 +67,7 @@ const mobilityCore = [
   { component: QuestionPage, props: { textPath: "3.question3" } },
   { component: QuestionPage, props: { textPath: "3.question4" } },
   { component: QuestionPage, props: { textPath: "3.question5" } },
-  { component: DialoguePage, props: { textPath: "3.dialogue4" } },
+  { component: DialoguePage, props: { textPath: "3.dialogue4", markComplete: true, stationCompleted: 3 } },
 ];
 
 const foodStart = { component: DialoguePage, props: { textPath: "4.dialogue1" } };
@@ -81,7 +81,7 @@ const foodCore = [
   { component: QuestionPage, props: { textPath: "4.question5" } },
   { component: DialoguePage, props: { textPath: "4.dialogue4" } },
   { component: DialoguePage, props: { textPath: "4.dialogue5" } },
-  { component: DialoguePage, props: { textPath: "4.dialogue6" } },
+  { component: DialoguePage, props: { textPath: "4.dialogue6", markComplete: true, stationCompleted: 4 } },
 ];
 
 const evaluationStart = {
@@ -107,7 +107,7 @@ const evaluationCore = [
   { component: DialoguePage, props: { textPath: "5.dialogue9" } },
   { component: EmailAcceptPage, props: { textPath: "5.emailAccept5" }, conditionalJump:[null, 16] },
   { component: EmailPromptPage, props: { textPath: "5.emailPrompt6" } },
-  { component: DialoguePage, props: { textPath: "5.dialogue10" } },
+  { component: DialoguePage, props: { textPath: "5.dialogue10", markComplete: true, stationCompleted: 5 } },
 ];
 
 function introComplete() {
