@@ -12,7 +12,7 @@
   export let stationNumber, questionNumber;
   export let selected = null;
 
-  let textPathDetailed = ""
+  let textPathDetailed = modifyTextPath(textPath)
   let answers = [
     { textKey: "answer0", points: 0 },
     { textKey: "answer1", points: 1 },
@@ -20,7 +20,7 @@
     { textKey: "answer3", points: 3 },
     { textKey: "answer4", points: 4 },
   ];
-  shuffleArray(answers);
+  shuffleArrayBiased(answers);
 
   $: neutral = selected === null ? true : false;
 
@@ -30,19 +30,15 @@
       points = parseInt($userData.stations[stationNumber].questions[questionNumber])
       const answerIndex = answers.findIndex((a) => a.points === points);
       selected = (answerIndex < 0) ? null : answerIndex;
-      textPathDetailed = modifyTextPath(textPath)
     }
 
-  $: {
-    //saveAnswer(stationNumber, questionNumber, answers, selected)
-    if (selected != null) {
+  $: if (selected != null) {
       saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
       saveValue("wwa", {
         textPath: `${textPathDetailed}.${answers[selected].textKey}`,
         text: $_(textPathDetailed, answers[selected].textKey)
       })
     }
-  }
 
   // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   function shuffleArrayBiased(array) {
