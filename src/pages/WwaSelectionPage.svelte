@@ -10,6 +10,7 @@
   export let pageIndex, totalPages;
 
   export let stationNumber, questionNumber;
+  export let selected = null;
 
   let textPathDetailed = ""
   let answers = [
@@ -19,19 +20,18 @@
     { textKey: "answer3", points: 3 },
     { textKey: "answer4", points: 4 },
   ];
-  shuffleArrayBiased(answers);
-
-  let selected = null;
+  shuffleArray(answers);
 
   $: neutral = selected === null ? true : false;
 
+  let points = null
   // Convert points from database back to selected index
-  const points = parseInt($userData.stations[stationNumber].questions[questionNumber]);
-  $: {
-    const answerIndex = answers.findIndex((a) => a.points === points);
-    selected = (answerIndex < 0) ? null : answerIndex;
-    textPathDetailed = modifyTextPath(textPath)
-  }
+  $: if (questionNumber in $userData.stations[stationNumber].questions) {
+      points = parseInt($userData.stations[stationNumber].questions[questionNumber])
+      const answerIndex = answers.findIndex((a) => a.points === points);
+      selected = (answerIndex < 0) ? null : answerIndex;
+      textPathDetailed = modifyTextPath(textPath)
+    }
 
   $: {
     //saveAnswer(stationNumber, questionNumber, answers, selected)

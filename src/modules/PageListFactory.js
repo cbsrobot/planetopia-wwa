@@ -221,23 +221,15 @@ function addStationNumbersToProps(pageList) {
 // Utility function that adds "props.questionNumber: 2" (example)
 function addQuestionNumbersToProps(pageList) {
   pageList.forEach((page) => {
-    if (page.component == QuestionPage) {
+    if (page.component == QuestionPage
+        || page.component == AreaSelectionPage
+        || page.component == WwaSelectionPage
+        || page.component == WwaConfirmationPage1
+        || page.component == WwaConfirmationPage2
+        || page.component == EmailAcceptPage
+        ) {
       page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
-    }
-    if (page.component == AreaSelectionPage) {
-      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
-    }
-    if (page.component == WwaSelectionPage) {
-      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
-    }
-    if (page.component == WwaConfirmationPage1) {
-      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
-    }
-    if (page.component == WwaConfirmationPage2) {
-      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
-    }
-    if (page.component == EmailAcceptPage) {
-      page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
+      page.props.selected = null;
     }
   });
   return pageList;

@@ -9,6 +9,7 @@
   export let pageIndex, totalPages;
 
   export let stationNumber, questionNumber;
+  export let selected = null;
 
   let overlayOpen = false;
   let answers = [
@@ -20,16 +21,15 @@
   ];
   shuffleArray(answers);
 
-  let selected = null;
-
   $: neutral = selected === null ? true : false;
 
+  let points = null  
   // Convert points from database back to selected index
-  $: {
-    const points = parseInt($userData.stations[stationNumber].questions[questionNumber]);
-    const answerIndex = answers.findIndex((a) => a.points === points);
-    selected = (answerIndex < 0) ? null : answerIndex;
-  }
+  $: if (questionNumber in $userData.stations[stationNumber].questions) {
+      points = parseInt($userData.stations[stationNumber].questions[questionNumber])
+      const answerIndex = answers.findIndex((a) => a.points === points);
+      selected = (answerIndex < 0) ? null : answerIndex;
+    }
 
   $: if (selected != null) {
     saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)

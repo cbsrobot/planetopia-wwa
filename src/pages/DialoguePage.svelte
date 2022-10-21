@@ -3,15 +3,20 @@
   import InfoOverlay from "../components/InfoOverlay.svelte";
   import { _ } from "../modules/i18n.js";
 
-  import { userData } from "../modules/DataManager";
+  import { userData, saveValue } from "../modules/DataManager";
 
   export let textPath;
   export let pageIndex, totalPages;
   export let stationNumber;
+  export let markComplete;
+  export let stationCompleted;
 
   let overlayOpen = false;
   $: avatarNr = $userData.avatar;
   $: overlayTextPath = `${stationNumber}.insect${avatarNr}`
+  $: if (markComplete) {
+      saveValue(`stations.${stationCompleted}.complete`, markComplete)
+    }
 
   $: dialogueText = injectAvatarInfo($_(textPath));
   function injectAvatarInfo(str) {
@@ -22,7 +27,7 @@
   }
 </script>
 
-<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath}/>
+<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath} backHidden={markComplete}/>
 <img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
 <img id="bubble" alt="bubble" src="assets/bubble_big.svg" />
 <p id="dialogue">{dialogueText}</p>
