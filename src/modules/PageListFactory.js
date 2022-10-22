@@ -24,14 +24,14 @@ const introCore = [
   { component: QuestionPage, props: { textPath: "0.question1" } },
   { component: DialoguePage, props: { textPath: "0.dialogue8" } },
   { component: DialoguePage, props: { textPath: "0.dialogue9" } },
-  { component: DialoguePage, props: { textPath: "0.dialogue10", markComplete: true, stationCompleted: 0 } },
+  { component: DialoguePage, props: { textPath: "0.dialogue10" } },
 ];
 const introEnd = {
-  0: { component: DialoguePage, props: { textPath: "0.dialogueEnd0" } },
-  1: { component: DialoguePage, props: { textPath: "0.dialogueEnd1" } },
-  2: { component: DialoguePage, props: { textPath: "0.dialogueEnd2" } },
-  3: { component: DialoguePage, props: { textPath: "0.dialogueEnd3" } },
-  4: { component: DialoguePage, props: { textPath: "0.dialogueEnd4" } },
+  0: { component: DialoguePage, props: { textPath: "0.dialogueEnd0", markComplete: true, stationCompleted: 0 } },
+  1: { component: DialoguePage, props: { textPath: "0.dialogueEnd1", markComplete: true, stationCompleted: 0 } },
+  2: { component: DialoguePage, props: { textPath: "0.dialogueEnd2", markComplete: true, stationCompleted: 0 } },
+  3: { component: DialoguePage, props: { textPath: "0.dialogueEnd3", markComplete: true, stationCompleted: 0 } },
+  4: { component: DialoguePage, props: { textPath: "0.dialogueEnd4", markComplete: true, stationCompleted: 0 } },
 };
 
 const clothesStart = { component: DialoguePage, props: { textPath: "1.dialogue1" } };
