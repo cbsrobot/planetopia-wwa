@@ -1,7 +1,5 @@
 # Setup
 
-On Linux allow user to access serial port : `sudo usermod -a -G dialout $USER`
-
 Add a .env file on the root level with following content
 ```shell
 STATION=0                         # station id 0-5
@@ -14,6 +12,27 @@ EMAIL_PASSWORD=password           # email password
 EMAIL_TO=user@provider.domain     # used to override user input and send all emails to this address
 ```
 
+# Startup Script
+
+```shell
+#!/bin/bash
+
+export OPENSSL_CONF=/dev/null # used for phantomjs see: https://github.com/ariya/phantomjs/issues/15449
+export DISPLAY=:0
+export PATH=/home/planetopia-12/.nvm/versions/node/v16.17.1/bin:$PATH
+echo $(date) startup >> /home/planetopia-12/startup.log
+source /home/planetopia-12/.nvm/nvm.sh
+/home/planetopia-12/.nvm/nvm.sh
+cd /home/planetopia-12/Documents/planetopia-wwa
+git pull >> /home/planetopia-12/startup.log
+npm i 2>&1 >> /home/planetopia-12/startup.log
+npm run electron-dev 2>&1 >> /home/planetopia-12/startup.log
+```
+
+# Troubleshoot
+
+* On Linux allow user to access serial port : `sudo usermod -a -G dialout $USER`
+* if node-html-pdf thows an error (using phantomjs) add following line before starting the app: `export OPENSSL_CONF=/dev/null`
 
 
 
