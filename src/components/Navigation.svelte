@@ -16,9 +16,11 @@
   export let backIncrement = -1;
 
   export let disableNext = false;
+  export let disableEnd = false;
   export let backHidden = false;
   export let homeHidden = false;
   export let nextHidden = false;
+  export let endHidden = false;
 
   $: saveValue(`stations.${station}.lastPage`, pageID)
 
@@ -36,6 +38,12 @@
     if (pageIndex != undefined) pageIndex += nextIncrement;
     dispatch("nextClicked");
   }
+
+  function handleEndClick() {
+    logOut()
+    //if (pageIndex != undefined) pageIndex = 0;
+    dispatch("endClicked");
+  }
 </script>
 
 {#if station != undefined}
@@ -48,7 +56,12 @@
 </div>
 
 <div class="container bottom">
-  <Button next on:click={handleNextClick} disabled={disableNext} hidden={nextHidden || pageIndex >= totalPages - 1} />
+{#if !nextHidden && pageIndex < totalPages - 1}
+  <Button next on:click={handleNextClick} disabled={disableNext} />
+{/if}
+{#if !endHidden && pageIndex >= totalPages - 1}
+  <Button end on:click={handleEndClick} disabled={disableEnd} />
+{/if}
 </div>
 <ProgressIndicator position={pageIndex + 1} length={totalPages} />
 

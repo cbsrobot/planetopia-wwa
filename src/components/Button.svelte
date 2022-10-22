@@ -4,7 +4,7 @@
   // choose from 5 different variants:
   // with icons: next, back, home
   // without icons: plain-primary, plain-secondary
-  export let next = false, back = false, home = false, plain_primary = false, plain_secondary = false, handwritten = true;
+  export let next = false, end = false, back = false, home = false, plain_primary = false, plain_secondary = false, handwritten = true;
 
   export let text = ""
   // TODO: Add correct disabled styling
@@ -15,17 +15,22 @@
   $:{
     if (back) defaultText = $_("back");
     if (next) defaultText = $_("next");
+    if (end) defaultText = $_("end");
     if (home) defaultText = $_("home");
+    
   }
   $: buttonText = text || defaultText;
 </script>
 
-<button on:click class:disabled class:hidden class:next class:back class:home class:plain_primary class:plain_secondary class:handwritten>
+<button on:click class:disabled class:hidden class:next class:end class:back class:home class:plain_primary class:plain_secondary class:handwritten>
   {#if back}
     <img alt="" src="assets/icons/back.svg" />
   {/if}
   <span>{buttonText}</span>
   {#if next}
+    <img alt="" src="assets/icons/next.svg" />
+  {/if}
+  {#if end}
     <img alt="" src="assets/icons/next.svg" />
   {/if}
   {#if home}
@@ -57,14 +62,16 @@
   }
 
   .plain_primary,
-  .next {
+  .next,
+  .end {
     background-color: #2d2d2d;
     color: white;
     border-color: white;
   }
 
   .plain_primary:active,
-  .next:active {
+  .next:active,
+  .end:active {
     background-color: hsla(0, 0%, 18%, 0.6);
   }
 
