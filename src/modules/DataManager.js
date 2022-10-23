@@ -45,7 +45,7 @@ export function simulateLogIn(rfid) {
 }
 
 function checkActive() {
-    fetch(`${API_URL}/api/users/${currentRfid}/active`, {method: 'GET'})
+    fetch(`${API_URL}/api/useractive/${currentRfid}`, {method: 'GET'})
     .then(response => response.json())
     .then(data => {
         if(!data.active){
@@ -99,6 +99,7 @@ function logIn(rfid) {
 export function logOut() {
     loggedIn.set(false)
     attemptedLogin.set(false)
+    currentRfid = undefined
     _userData.set(undefined);
     resetLocale();
     console.log("Logged out");
@@ -115,7 +116,7 @@ export function saveValue(key, value) {
     })
   };
 
-  fetch(`${API_URL}/api/users/${currentRfid}/put`, requestOptions)
+  fetch(`${API_URL}/api/users/${currentRfid}`, requestOptions)
     .then(response => response.json())
     .then(data => _userData.set(data))
     .catch(error => console.log(error));
