@@ -15,7 +15,7 @@ change language
 
 import { parse } from "csv-parse/sync";
 const fs = require("fs");
-import { writable, derived} from 'svelte/store';
+import { writable, derived } from "svelte/store";
 
 // Synchronously load textData from csv file
 const rawData = fs.readFileSync("public/assets/translations.csv", "utf8");
@@ -25,39 +25,50 @@ const textData = parse(rawData, {
 });
 
 // store locale in a writable store
-const localeStore = writable(undefined); 
-export const locale = derived(localeStore, ($localeStore) => $localeStore);
-
+const _locale = writable(undefined);
+export const locale = derived(_locale, ($locale) => $locale);
 
 // subscribe to localeStore to be able to use the current value
 let currentLocale;
-localeStore.subscribe(v => {
-    currentLocale = v;
+_locale.subscribe((v) => {
+  currentLocale = v;
 });
 
 // create a public derived store which automatically triggers updates whenever the locale changes
-export const _ = derived(
-	localeStore,
-	$localeStore => ((key, ext) => {
-    // join path key (.)
-    let id = ext ? [key, ext].join(".") : key
-    if ( !(textData.find(r => r.id === id))){
-      console.log(`i18n: ${id} not found in textData`)
-      return "" 
-    }
-    return textData.find(r => r.id === id)[currentLocale]
-  })
-);
+export const _ = derived(_locale, ($locale) => (key, ext) => {
+  let id = ext ? [key, ext].join(".") : key;
+  if(currentLocale){
+    return getLocalizedText(id, currentLocale)
+  }else{
+    console.log("i18n: could not provide translation because locale was not set")
+    return ""
+  }
+});
 
-// public function to change the language 
+// public function to change the language
 export function setLocale(locale) {
   if (locale === "en" || locale === "de" || locale === "fr") {
-    localeStore.set(locale);
+    _locale.set(locale);
   } else {
-    throw new Error(locale + " is not a supported locale!");
+    throw new Error(`i18n: ${locale} is not a supported locale!`);
   }
 }
 
-export function resetLocale(){
-  localeStore.set(undefined);
+export function getLocalizedText(id, locale) {
+  if (!(locale === "en" || locale === "de" || locale === "fr")) {
+    console.log("invalid locale parameter", locale);
+    return "";
+  }
+
+  let translations = textData.find((r) => r.id === id);
+  if (translations) {
+    return translations[locale];
+  } else {
+    console.log(`i18n: ${id} not found in textData`);
+    return "";
+  }
+}
+
+export function resetLocale() {
+  _locale.set(undefined);
 }
