@@ -20,6 +20,10 @@
     opacity: 0.6;
     width: 100%;
     height: 100%;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   .overlay {
@@ -41,6 +45,11 @@
 
     border: 8px solid #2d2d2d;
     box-shadow: 18px 17px 53px rgba(0, 0, 0, 0.25);
+
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius: 15px 255px;
   }
 
   button {
@@ -57,11 +66,11 @@
     outline: none;
 
     border: none;
-    background-color: white;
+    background-color: transparent;
   }
 
   button:active {
-    background-color: white;
+    background-color: transparent;
   }
 
   p {
