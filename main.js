@@ -108,10 +108,11 @@ function createWindow() {
   //  mainWindow.webContents.send('rfid', data);
   //})
 
-  ipcMain.on("sendEmail", (event, mailOptions) => {
-    createPdf(mailOptions);
-    sendEmail(mailOptions);
-    event.returnValue = "email_was_sent"
+  ipcMain.on("sendEmail", (event, params) => {
+    createPdf(params, () =>{
+      sendEmail(params);
+      event.returnValue = "email_was_sent"
+    });
   });
 
   //mainWindow.webContents.openDevTools()
@@ -214,8 +215,7 @@ ipcMain.on('ping-good', event => {
   }, 5000)
 })
 */
-
-function createPdf(params){
+function createPdf(params, callback){
   // Read HTML Template
   const html = fs.readFileSync(__dirname + "/public/templates/template.html", "utf8");
   //const avatar = fs.readFileSync(__dirname + `/public/assets/avatar/${params.avatar}.jpg`).toString('base64');
@@ -257,6 +257,7 @@ function createPdf(params){
   pdf.create(document, options)
     .then((res) => {
       console.debug(res);
+      callback();
     })
     .catch((error) => {
       console.error(error);

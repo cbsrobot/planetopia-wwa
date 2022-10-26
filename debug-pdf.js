@@ -6,7 +6,7 @@ require("dotenv").config();
 const tmpdirPath = os.tmpdir();
 const tempdir = fs.realpathSync(tmpdirPath);
 
-function createPdf(params){
+function createPdf(params, callback){
   // Read HTML Template
   const html = fs.readFileSync(__dirname + "/public/templates/template.html", "utf8");
   //const avatar = fs.readFileSync(__dirname + `/public/assets/avatar/${params.avatar}.jpg`).toString('base64');
@@ -48,6 +48,7 @@ function createPdf(params){
   pdf.create(document, options)
     .then((res) => {
       console.debug(res);
+      callback();
     })
     .catch((error) => {
       console.error(error);
@@ -59,4 +60,6 @@ const params = {
   wwaNumber: "D - 000001"
 }
 
-createPdf(params)
+createPdf(params, () => {
+  console.log("PDF created")
+})
