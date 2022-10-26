@@ -1,11 +1,13 @@
 <script>
   import { onDestroy } from "svelte";
   import { loggedIn, attemptedLogin, logOut } from "./modules/DataManager.js";
+  import { showError, errorMessage } from "./modules/ErrorCollector.js";
   import { resetLocale } from "./modules/i18n.js";
   import PageManager from "./pages/PageManager.svelte";
   import DevBar from "./components/DevBar.svelte";
   import LogInPage from "./pages/LogInPage.svelte";
   import InactiveWarningPage from "./pages/InactiveWarningPage.svelte";
+  import ErrorOverlay from "./components/ErrorOverlay.svelte";
 
   const TIMEOUT_WARNING = 30; // in seconds
   const TIMEOUT_RESET = 40; // in seconds
@@ -55,6 +57,10 @@
   {#if SHOW_DEV_BAR}
     <DevBar text={"inactive: " + Math.round(inactiveTime)} />
   {/if}
+
+  {#if $showError}
+    <ErrorOverlay errorMessage={ $errorMessage } on:exit={() => { $showError = false }} />
+  {/if}
 </main>
 
 <style>
@@ -87,7 +93,7 @@
     user-select: none;
   }
 
-  .selectable-text{
+  .selectable-text {
     user-select: auto;
   }
   @font-face {
