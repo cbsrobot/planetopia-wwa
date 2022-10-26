@@ -16,7 +16,7 @@
   <div class="jeton-container">
     <h2>{$_("jeton")}</h2>
     <p>{$_("no-jeton")}</p>
-    <img src="assets/jeton.jpg" alt="" />
+    <img src="assets/jeton.png" alt="" />
   </div>
 {/if}
 
@@ -46,13 +46,12 @@
 
   p {
     font-size: 40px;
-    width: 70%;
+    width: 75%;
   }
 
   img {
     padding-top: 40px;
-    width: 20%;
+    width: 22%;
     height: auto;
-    mix-blend-mode: multiply;
   }
 </style>
