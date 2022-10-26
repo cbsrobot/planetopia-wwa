@@ -31,7 +31,7 @@ export const globalData = derived(_globalData, ($_globalData) => $_globalData);
 
 ipcRenderer.on("rfid", (event, response) => {
   console.log(response, "detected")
-  logIn(String(response).replace(" ", "").replace("UID:", "").trim());
+  logIn(String(response).replaceAll(" ", "").replace("UID:", "").trim());
   attemptedLogin.set(true)
 });
 
