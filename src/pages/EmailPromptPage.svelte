@@ -80,9 +80,7 @@
 </script>
 
 <Navigation bind:pageIndex on:nextClicked={handleNextClicked} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral} />
-<img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
 <img id="bubble" alt="bubble" src="assets/bubble_small.svg" />
-<WwaImage textPath="" />
 
 <div class="content">
   <p class="question">{$_(textPath, "question")}</p>
