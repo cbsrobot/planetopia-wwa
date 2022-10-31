@@ -273,7 +273,7 @@ function sendEmail(params) {
     },
   });
 
-  if (process.env.EMAIL_TO !== "") {
+  if (process.env.EMAIL_TO && process.env.EMAIL_TO !== "") {
     // override user inpout with env setting
     params.mailOptions.to = process.env.EMAIL_TO
     console.info(`Email address was overriden by env variable with ${process.env.EMAIL_TO}`)
