@@ -2,6 +2,7 @@
   import Navigation from "../components/Navigation.svelte";
   import InfoOverlay from "../components/InfoOverlay.svelte";
   import { _ } from "../modules/i18n.js";
+  import Bubble from "../components/Bubble.svelte";
 
   import { userData, saveValue } from "../modules/DataManager";
 
@@ -29,8 +30,10 @@
 
 <Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath} backHidden={markComplete}/>
 <img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
-<img id="bubble" alt="bubble" src="assets/bubble_big.svg" />
-<p id="dialogue">{dialogueText}</p>
+<div class="bubble-container">
+  <Bubble text={dialogueText}/>
+</div>
+
 
 {#if overlayOpen}
   <InfoOverlay on:exit = {() => overlayOpen = false} textPath={overlayTextPath}/>
@@ -43,21 +46,18 @@
     left: 0;
     width: 800px;
   }
-  #bubble {
-    position: absolute;
-    top: 300px;
-    left: 710px;
-    width: 1110px;
-  }
-  #dialogue {
+  .bubble-container {
     display: block;
     position: absolute;
     text-align: left;
-    font-size: 3rem;
 
-    top: 380px;
-    left: 850px;
-    width: 900px;
-    height: 360px;
+    top: 270px;
+    left: 700px;
+    width: 1100px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 </style>

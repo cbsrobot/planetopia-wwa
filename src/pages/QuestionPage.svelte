@@ -4,6 +4,7 @@
   import { shuffleArray } from "../modules/PageUtils";
   import { userData, saveValue } from "../modules/DataManager";
   import { _ } from "../modules/i18n";
+  import Bubble from "../components/Bubble.svelte";
 
   export let textPath;
   export let pageIndex, totalPages;
@@ -38,7 +39,9 @@
 <Navigation  bind:pageIndex={pageIndex} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
 
 <div class="content">
-  <p class="question">{$_(textPath)}</p>
+  <div class="bubble-container">
+    <Bubble text={$_(textPath)} />
+  </div>
   <div class="answer-container">
     <div class="row">
       <Selectable
@@ -91,6 +94,11 @@
     text-align: left;
     font-size: 52px;
     width: 1000px;
+  }
+
+  .bubble-container{
+    width: 1200px;
+    margin-bottom: 50px;
   }
 
   .answer-container {

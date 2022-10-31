@@ -3,6 +3,7 @@
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
   import { userData, saveValue } from "../modules/DataManager";
+  import Bubble from "../components/Bubble.svelte";
 
   import { _ } from "../modules/i18n.js";
 
@@ -89,7 +90,9 @@
 <Navigation bind:pageIndex={pageIndex} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
 
 <div class="content">
-  <p class="question">{$_(textPath)}</p>
+  <div class="bubble-container">
+    <Bubble text={$_(textPath)}/>
+  </div>
   <div class="answer-container">
     <Selectable
       on:click={() => {
@@ -126,9 +129,16 @@
     width: 1200px;
   }
 
+  .bubble-container {
+    width: 1100px;
+    margin-bottom: 80px;
+  }
+
   .answer-container {
     display: block;
-    width: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
   }
 
   p {
