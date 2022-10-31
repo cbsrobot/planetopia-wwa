@@ -49,25 +49,11 @@
     continuePageIndex = lastPageIndex;
   }
 
-  function handleNextClicked() {
-    // handle pageIndex accordingly
-    const previousPageIndex = pageIndex - 1
-    if ("conditionalJump" in pageList[previousPageIndex] ) {
-      const answer = $userData.stations[STATION].questions[pageList[previousPageIndex].props.questionNumber]
-      const jumpToIndex = pageList[previousPageIndex].conditionalJump[answer]
-      if (jumpToIndex) {
-        //TODO clear previous saved data
-        //saveValue(stationNumber, questionNumber, points)
-        pageIndex = jumpToIndex
-      }
-    }
-  }
-
   
 </script>
 
 {#if state === STATES.SHOW_PAGES}
-  <svelte:component on:nextClicked={handleNextClicked} this={activePage.component} {...activePage.props} bind:pageIndex {totalPages} />
+  <svelte:component this={activePage.component} {...activePage.props} bind:pageIndex {totalPages} />
 {:else if state === STATES.SHOW_PARTLY_COMPLETE}
   <ContinuePage continuePageIndex={continuePageIndex} bind:pageIndex on:exit={() => (state = STATES.SHOW_PAGES)} />
 {:else if state === STATES.SHOW_COMPLETE}
