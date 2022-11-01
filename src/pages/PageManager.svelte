@@ -1,6 +1,8 @@
 <script>
+  const RETURN_TIMEOUT = 10; // in seconds
+
   import { generatePageList, STATION } from "../modules/PageListFactory.js";
-  import { loggedIn, userData, saveValue } from "../modules/DataManager.js";
+  import { loggedIn, userData, logOut } from "../modules/DataManager.js";
   import InfoPage from "./InfoPage.svelte";
   import ContinuePage from "./ContinuePage.svelte";
 
@@ -11,10 +13,15 @@
   };
   let state = STATES.SHOW_PAGES;
 
+  let timeout;
+  $: if(state > 1) {
+    timeout = setTimeout(() => { logOut() }, RETURN_TIMEOUT * 1000);
+  }
+
   let pageList = [];
   $: if ($loggedIn) {
     pageList = generatePageList();
-    setState();
+    state = getState();
     setContinueIndex();
   }
 
@@ -32,13 +39,13 @@
     return pageList[pageIndex]
   }
 
-  function setState() {
+  function getState() {
     if ($userData.stations[STATION].complete) {
-      state = STATES.SHOW_COMPLETE;
+      return STATES.SHOW_COMPLETE;
     } else if (Object.keys($userData.stations[STATION].questions).length > 0) {
-      state = STATES.SHOW_PARTLY_COMPLETE;
+      return STATES.SHOW_PARTLY_COMPLETE;
     } else {
-      state = STATES.SHOW_PAGES;
+      return STATES.SHOW_PAGES;
     }
   }
 
@@ -55,7 +62,7 @@
 {#if state === STATES.SHOW_PAGES}
   <svelte:component this={activePage.component} {...activePage.props} bind:pageIndex {totalPages} />
 {:else if state === STATES.SHOW_PARTLY_COMPLETE}
-  <ContinuePage continuePageIndex={continuePageIndex} bind:pageIndex on:exit={() => (state = STATES.SHOW_PAGES)} />
+  <ContinuePage continuePageIndex={continuePageIndex} bind:pageIndex on:exit={() => {state = STATES.SHOW_PAGES; clearTimeout(timeout)}} />
 {:else if state === STATES.SHOW_COMPLETE}
   <InfoPage textPath={"station-complete"} />
 {/if}
