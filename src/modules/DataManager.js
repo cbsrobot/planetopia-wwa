@@ -3,6 +3,7 @@ const API_URL = process.env.IS_PROD === "true" ?  process.env.API_URL : process.
 import { writable, derived, readable } from "svelte/store";
 import { _, setLocale, resetLocale, locale } from "./i18n.js";
 import { reportError } from "./ErrorCollector.js";
+import { interactionDetected } from "./InteractionObserver.js"
 const { ipcRenderer } = require("electron");
 
 const _userData = writable(undefined);
@@ -25,7 +26,6 @@ locale.subscribe((loc) => {
 });
 
 export const loggedIn = writable(false);
-export const attemptedLogin = writable(false);
 
 const _globalData = writable({});
 export const globalData = derived(_globalData, ($_globalData) => $_globalData);
@@ -33,10 +33,11 @@ export const globalData = derived(_globalData, ($_globalData) => $_globalData);
 ipcRenderer.on("rfid", (event, response) => {
   console.log(response, "detected")
   logIn(String(response).replaceAll(" ", "").replace("UID:", "").trim());
-  attemptedLogin.set(true)
+  interactionDetected()
 });
 
 export function simulateLogIn(rfid) {
+  interactionDetected()
     if(rfid){
       logIn(rfid);
     }else{
@@ -93,6 +94,7 @@ function logIn(rfid) {
         clearInterval(activePing);
         activePing = setInterval(checkActive, 1000);
         loggedIn.set(true)
+        interactionDetected()
     })
     .catch((error) => {
       console.log("error", error)
@@ -102,7 +104,6 @@ function logIn(rfid) {
 
 export function logOut() {
     loggedIn.set(false)
-    attemptedLogin.set(false)
     currentRfid = undefined
     _userData.set(undefined);
     resetLocale();
