@@ -1,4 +1,5 @@
 const API_URL = process.env.IS_PROD === "true" ?  process.env.API_URL : process.env.ALT_API_URL;
+const FETCH_TIMEOUT = 2; // in seconds
 
 import { writable, derived, readable } from "svelte/store";
 import { _, setLocale, resetLocale, locale } from "./i18n.js";
@@ -47,7 +48,12 @@ export function simulateLogIn(rfid) {
 }
 
 function checkActive() {
-    fetch(`${API_URL}/api/useractive/${currentRfid}`, {method: 'GET'})
+
+    // Abort request if it takes too long
+    const abortController = new AbortController();
+    setTimeout(() => abortController.abort(), FETCH_TIMEOUT * 1000);
+ 
+    fetch(`${API_URL}/api/useractive/${currentRfid}`, {method: 'GET', signal: abortController.signal})
     .then(response => response.json())
     .then(data => {
         if(!data.active){
@@ -75,11 +81,16 @@ function logIn(rfid) {
     body.language = currentLocale
   }
 
+  // Abort request if it takes too long
+  const abortController = new AbortController();
+  setTimeout(() => abortController.abort(), FETCH_TIMEOUT * 1000);
+
   // log in to new session
   var requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({...body}),
+    signal: abortController.signal,
+    body: JSON.stringify({...body})
   };
 
   fetch(`${API_URL}/api/users/${rfid}`, requestOptions)
@@ -112,9 +123,15 @@ export function logOut() {
 }
 
 export function saveValue(key, value) {
+
+  // Abort request if it takes too long
+  const abortController = new AbortController();
+  setTimeout(() => abortController.abort(), FETCH_TIMEOUT * 1000);
+
   var requestOptions = {
     method: 'PUT',
     headers: { "Content-Type": "application/json" },
+    signal: abortController.signal,
     body: JSON.stringify({
       "key": key,
       "value": value
@@ -129,11 +146,3 @@ export function saveValue(key, value) {
       reportError("Saving failed: Could not connect to server")
     });
 }
-
-function getUserDataFromServer() {}
-
-function downloadUserData() {}
-
-function uploadUserData() {}
-
-function downloadGlobalData() {}
