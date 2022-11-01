@@ -1,8 +1,16 @@
 <script>
-  import { _, locale, setLocale } from "../modules/i18n.js";
+  const TIMEOUT_RESET_LANGUAGE = 20;
+
+  import { _, locale, setLocale, resetLocale } from "../modules/i18n.js";
+  import { loggedIn } from "../modules/DataManager";
+  import { inactiveTime } from "../modules/InteractionObserver.js"
+  import { STATION } from "../modules/PageListFactory";
   import Button from "../components/Button.svelte";
   import StationIndicator from "../components/StationIndicator.svelte";
-  import { STATION } from "../modules/PageListFactory";
+  
+  // Reset language choice after specified inactive time
+  $: if ( ! $loggedIn && $inactiveTime >= TIMEOUT_RESET_LANGUAGE) resetLocale();
+  
 </script>
 
 <StationIndicator station={STATION} text={false} />
