@@ -1,65 +1,47 @@
 <script>
-  import { onDestroy } from "svelte";
-  import { loggedIn, attemptedLogin, logOut } from "./modules/DataManager.js";
+  // time constants in seconds
+  const TIMEOUT_WARNING = 30;
+  const TIMEOUT_RESET = 40; 
+  const ERROR_TIMEOUT = 600; // TODO: Set to lower value in production
+
+  import { loggedIn, logOut } from "./modules/DataManager.js";
   import { showError, errorMessage } from "./modules/ErrorCollector.js";
-  import { resetLocale } from "./modules/i18n.js";
+  import { interactionDetected, inactiveTime } from "./modules/InteractionObserver.js"
   import PageManager from "./pages/PageManager.svelte";
   import DevBar from "./components/DevBar.svelte";
   import LogInPage from "./pages/LogInPage.svelte";
   import InactiveWarningPage from "./pages/InactiveWarningPage.svelte";
   import ErrorOverlay from "./components/ErrorOverlay.svelte";
 
-  const TIMEOUT_WARNING = 30; // in seconds
-  const TIMEOUT_RESET = 40; // in seconds
-  const TIMEOUT_RESET_LANGUAGE = 30;
-
   const IS_PROD = Boolean(process.env.IS_PROD === "true");
   const SHOW_DEV_BAR = ! IS_PROD;
 
-  let lastInteraction = new Date();
-  let inactiveTime = 0;
-
   // Log out after specified timeout
-  $: if ($loggedIn && inactiveTime > TIMEOUT_RESET) { console.log("inactiveTime logOut"); logOut();}
+  $: if ($loggedIn && $inactiveTime >= TIMEOUT_RESET) { console.log("inactiveTime logOut"); logOut();}
 
-  // Reset language choice after specified inactive time
-  $: if ( ! $loggedIn && inactiveTime > TIMEOUT_RESET_LANGUAGE) resetLocale();
-
-  // update inactive time every second and set attemptedLogin to false
-  const interval = setInterval(() => {
-    inactiveTime = (new Date() - lastInteraction) / 1000;
-    if (attemptedLogin) attemptedLogin.set(false)
-  }, 1000);
-  onDestroy(() => clearInterval(interval));
-
-  // resets inactive time
-  function interactionDetected() {
-    console.log("interactionDetected")
-    inactiveTime = 0;
-    lastInteraction = new Date();
-  }
-  $: if ($loggedIn) interactionDetected();
-  $: if ($attemptedLogin) interactionDetected();
+  // Dismiss error message after specified time
+  let errorTimeout;
+  $: if($showError) errorTimeout = setTimeout(() => { $showError = false }, ERROR_TIMEOUT * 1000);
 
 </script>
 
 <main on:click={interactionDetected} class:selectable-text = { ! IS_PROD }>
   {#if $loggedIn}
-    {#if inactiveTime < TIMEOUT_WARNING}
-      <PageManager />
-    {:else}
-      <InactiveWarningPage/>
-    {/if}
+    <PageManager/>
   {:else}
     <LogInPage/>
   {/if}
 
+  {#if $loggedIn && $inactiveTime >= TIMEOUT_WARNING}
+    <InactiveWarningPage/>
+  {/if}
+
   {#if SHOW_DEV_BAR}
-    <DevBar text={"inactive: " + Math.round(inactiveTime)} />
+    <DevBar text={"inactive: " + Math.round($inactiveTime)} />
   {/if}
 
   {#if $showError}
-    <ErrorOverlay errorMessage={ $errorMessage } on:exit={() => { $showError = false }} />
+    <ErrorOverlay errorMessage={ $errorMessage } on:exit={() => { $showError = false; clearTimeout(errorTimeout) }} />
   {/if}
 </main>
 
