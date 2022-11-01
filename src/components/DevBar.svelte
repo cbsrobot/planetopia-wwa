@@ -1,6 +1,6 @@
 <script>
   import { userData, loggedIn, simulateLogIn, logOut } from "../modules/DataManager.js";
-  import { error } from "../modules/ErrorCollector.js"; 
+  import { reportError } from "../modules/ErrorCollector.js"; 
   
   export let text = ""
 
@@ -12,7 +12,7 @@
   <span on:click={() => simulateLogIn("123")}>Log in with id "123"</span> | 
   {loggedInFlag} {" RFID: " + $userData?.rfid} | 
   <span on:click={() => { console.log("Log out Button logOut"); logOut()}}>Log out</span> | {text} |
-  <span on:click={() => error("test error occured")}>Show error</span>  
+  <span on:click={() => reportError("test error occured")}>Show error</span> |
 </div>
 
 <style>
