@@ -38,6 +38,7 @@ async function listSerialPorts() {
 
         serport.on("error", function (err) {
           console.log("SerialPort Error", err);
+          reportError("RFID Reader Serial Port Error")
           serport = undefined;
           parser = undefined;
         });
@@ -260,6 +261,7 @@ function createPdf(params, callback){
       callback();
     })
     .catch((error) => {
+      reportError("PDF Creation failed")
       console.error(error);
     });
 }
@@ -286,9 +288,14 @@ function sendEmail(params) {
 
   transporter.sendMail(params.mailOptions, function (err, info) {
     if (err) { 
+      reportError("Sending email failed")
       console.error(err);
     } else {
       console.debug(info);
     }
   });
+}
+
+function reportError(errorMessage){
+  mainWindow.webContents.send('mainError', errorMessage);
 }
