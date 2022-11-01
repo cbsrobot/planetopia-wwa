@@ -2,6 +2,7 @@ const API_URL = process.env.IS_PROD === "true" ?  process.env.API_URL : process.
 
 import { writable, derived, readable } from "svelte/store";
 import { _, setLocale, resetLocale, locale } from "./i18n.js";
+import { reportError } from "./ErrorCollector.js";
 const { ipcRenderer } = require("electron");
 
 const _userData = writable(undefined);
@@ -53,7 +54,7 @@ function checkActive() {
           logOut();
         } 
     })
-    .catch(error => console.log(error));
+    .catch(error => console.log("active check failed:", error));
 }
 
 let activePing;
@@ -93,7 +94,10 @@ function logIn(rfid) {
         activePing = setInterval(checkActive, 1000);
         loggedIn.set(true)
     })
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.log("error", error)
+      reportError("Log in failed: Could not connect to server")
+    });
 }
 
 export function logOut() {
@@ -119,7 +123,10 @@ export function saveValue(key, value) {
   fetch(`${API_URL}/api/users/${currentRfid}`, requestOptions)
     .then(response => response.json())
     .then(data => _userData.set(data))
-    .catch(error => console.log(error));
+    .catch(error => {
+      console.log(error)
+      reportError("Saving failed: Could not connect to server")
+    });
 }
 
 function getUserDataFromServer() {}
