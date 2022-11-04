@@ -193,9 +193,9 @@ export function generatePageList() {
     case 5:
       if ( !introComplete()) {
         pageList.push(evaluationStart.firstLogIn);
-      } else if (anyStationHasAnswer() === 0) {
-        pageList.push(evaluationStart.noAnswers);
       } else if (anyStationComplete() === 0) {
+        pageList.push(evaluationStart.noAnswers);
+      } else if (anyStationComplete() < 4) {
         pageList.push(evaluationStart.notAllAnswers);
         pageList.push(...evaluationCore);
       } else {
