@@ -63,12 +63,16 @@ const ipToken = Object.keys(ifs)
 const names = ["Intro", "Kleidung", "Wohnen", "Mobilität", "Ernährung", "Auswertung"]
 const stationName = names[parseInt(process.env.STATION)]
 
+const date = new Date()
+const dateStr = date.toISOString().split('T')[0]
+const errorFilePath = `Desktop/${stationName}-IP-${ipToken}/${dateStr}-${stationName}-${ipToken}-Error.log`
+const networkfilePath = `Desktop/${stationName}-IP-${ipToken}/${dateStr}-${stationName}-${ipToken}-Network.log`
+
 function logToErrorFile(message) {
 
   // set right logging path
   logger.transports.file.resolvePath = (variables) => {
-    const filePath = `Desktop/${stationName}-IP-${ipToken}/${stationName}-${ipToken}-Error.log`
-    return path.join(variables.home, filePath);
+    return path.join(variables.home, errorFilePath);
   }
 
   logger.debug("---------------------------------------------------")
@@ -88,8 +92,7 @@ function logToErrorFile(message) {
 function logToNetworkFile(message) {
   // set right logging path
   logger.transports.file.resolvePath = (variables) => {
-    const filePath = `Desktop/${stationName}-IP-${ipToken}/${stationName}-${ipToken}-Network.log`
-    return path.join(variables.home, filePath);
+    return path.join(variables.home, networkfilePath);
   }
   logger.info(message)
 }
