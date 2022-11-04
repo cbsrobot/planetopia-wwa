@@ -3,7 +3,7 @@ const FETCH_TIMEOUT = 1; // in seconds
 
 import { writable, derived, readable } from "svelte/store";
 import { _, setLocale, resetLocale, locale } from "./i18n.js";
-import { reportError } from "./ErrorCollector.js";
+import { reportError } from "./ProblemCollector.js";
 import { interactionDetected } from "./InteractionObserver.js"
 const { ipcRenderer } = require("electron");
 

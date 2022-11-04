@@ -5,7 +5,7 @@
   const ERROR_TIMEOUT = 600; // TODO: Set to lower value in production
 
   import { loggedIn, logOut } from "./modules/DataManager.js";
-  import { showError, errorMessage } from "./modules/ErrorCollector.js";
+  import { showError, errorMessage } from "./modules/ProblemCollector.js";
   import { interactionDetected, inactiveTime } from "./modules/InteractionObserver.js"
   import PageManager from "./pages/PageManager.svelte";
   import DevBar from "./components/DevBar.svelte";

@@ -37,7 +37,7 @@ async function listSerialPorts() {
         serport = new SerialPort({ path, baudRate });
 
         serport.on("error", function (err) {
-          console.log("SerialPort Error", err);
+          log(`SerialPort Error: ${err}`);
           reportError("RFID Reader Serial Port Error")
           serport = undefined;
           parser = undefined;
@@ -58,7 +58,7 @@ setInterval(() => {
 
 //const { SerialPort, ReadlineParser } = require('serialport')
 //const allowedSerialPorts = ["/dev/tty.usbmodem143201"]
-//console.log(SerialPort.list())
+//log(SerialPort.list())
 
 // Run the command.
 //const { portStatus, portList } = listPorts(true);
@@ -120,7 +120,7 @@ function createWindow() {
   mainWindow.webContents.on("before-input-event", (event, input) => {
     /*
     if (input.control && input.key.toLowerCase() === 'i') {
-        console.log('Pressed Control+I')
+        log('Pressed Control+I')
         event.preventDefault()
     }
     */
@@ -210,7 +210,7 @@ app.on("activate", function () {
 ipcMain.on('ping-good', event => {
   // It's so good because below have a delay 5s to execute, and this don't lock rendereder :)
   setTimeout(() => {
-    console.log('GOOD finshed!')
+    log('GOOD finshed!')
     // Send reply to a renderer
     event.sender.send('ping-good-reply', 'pong')
   }, 5000)
@@ -291,11 +291,16 @@ function sendEmail(params) {
       reportError("Sending email failed")
       console.error(err);
     } else {
-      console.debug(info);
+      log(info);
     }
   });
 }
 
 function reportError(errorMessage){
   mainWindow.webContents.send('mainError', errorMessage);
+}
+
+function log(message){
+  console.log(message)
+  mainWindow.webContents.send('mainLog', message);
 }

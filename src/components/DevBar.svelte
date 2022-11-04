@@ -1,6 +1,6 @@
 <script>
   import { userData, loggedIn, simulateLogIn, logOut } from "../modules/DataManager.js";
-  import { reportError } from "../modules/ErrorCollector.js"; 
+  import { reportError } from "../modules/ProblemCollector.js"; 
   
   export let text = ""
 
