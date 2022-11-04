@@ -28,7 +28,6 @@
   let pageIndex = 0;
   $: totalPages = pageList.length;
   $: activePage = getActivePageAndUpdateTextPath(pageIndex);
-  $: console.log("🚀 ~ activePage", activePage)
 
   function getActivePageAndUpdateTextPath(pageIndex){
     if ("depends" in pageList[pageIndex] ) {

@@ -39,6 +39,6 @@
   }
   h2 {
     font-size: 56px;
-    width: 50%;
+    width: 60%;
   }
 </style>
