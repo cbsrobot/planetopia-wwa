@@ -8,7 +8,7 @@
 
   const STATES = {
     SHOW_PAGES: 1,
-    SHOW_PARTLY_COMPLETE: 2,
+    SHOW_CONTINUE: 2,
     SHOW_COMPLETE: 3,
   };
   let state = STATES.SHOW_PAGES;
@@ -42,7 +42,7 @@
     if ($userData.stations[STATION].complete) {
       return STATES.SHOW_COMPLETE;
     } else if (Object.keys($userData.stations[STATION].questions).length > 0) {
-      return STATES.SHOW_PARTLY_COMPLETE;
+      return STATES.SHOW_CONTINUE;
     } else {
       return STATES.SHOW_PAGES;
     }
@@ -60,7 +60,7 @@
 
 {#if state === STATES.SHOW_PAGES}
   <svelte:component this={activePage.component} {...activePage.props} bind:pageIndex {totalPages} />
-{:else if state === STATES.SHOW_PARTLY_COMPLETE}
+{:else if state === STATES.SHOW_CONTINUE}
   <ContinuePage continuePageIndex={continuePageIndex} bind:pageIndex on:exit={() => {state = STATES.SHOW_PAGES; clearTimeout(timeout)}} />
 {:else if state === STATES.SHOW_COMPLETE}
   <InfoPage textPath={"station-complete"} />
