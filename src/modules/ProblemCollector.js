@@ -33,7 +33,7 @@ let lostDate;
 function checkConnection() {
 
   const abortController = new AbortController();
-  setTimeout(() => abortController.abort(), 500);
+  setTimeout(() => abortController.abort(), 1000);
 
   fetch(API_URL, { method: 'GET', signal: abortController.signal })
     .then(response => response.ok)
@@ -96,5 +96,6 @@ function logToNetworkFile(message) {
   }
   logger.info(message)
 }
+logToNetworkFile("Computer started")
 
 
