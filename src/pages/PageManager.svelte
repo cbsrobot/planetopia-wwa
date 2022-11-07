@@ -5,6 +5,7 @@
   import { loggedIn, userData, logOut } from "../modules/DataManager.js";
   import InfoPage from "./InfoPage.svelte";
   import ContinuePage from "./ContinuePage.svelte";
+  import { onDestroy } from 'svelte';
 
   const STATES = {
     SHOW_PAGES: 1,
@@ -17,6 +18,7 @@
   $: if(state > 1) {
     timeout = setTimeout(() => { logOut() }, RETURN_TIMEOUT * 1000);
   }
+  onDestroy(() => clearTimeout(timeout));
 
   let pageList = [];
   $: if ($loggedIn) {
