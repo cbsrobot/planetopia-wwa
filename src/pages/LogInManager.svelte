@@ -8,6 +8,7 @@
   import Button from "../components/Button.svelte";
   import { STATION } from "../modules/PageListFactory";
   import StationIndicator from "../components/StationIndicator.svelte";
+  import StartPage from "./StartPage.svelte";
   
   // Reset after specified time limit
   $: if ( ! $loggedIn && state === STATES.CHOOSE_LANGUAGE && $inactiveTime >= CHOOSE_LANGUAGE_TIME_LIMIT) {
@@ -43,7 +44,8 @@
 <!-- <StationIndicator station={STATION} text={false} /> -->
 
 {#if state === STATES.START}
-  <Button on:click={handleStartClick} text="Start" handwritten={false}/>
+  <StartPage on:click={handleStartClick}/>
+  <!-- <Button plain_primary on:click={handleStartClick} text="Start" handwritten={false}/> -->
   <!-- <img src="assets/l1.png" alt="Startscreen" /> -->
 {:else if state === STATES.CHOOSE_LANGUAGE}
   <div class="language-container">
