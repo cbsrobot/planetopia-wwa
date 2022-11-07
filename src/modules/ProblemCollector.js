@@ -96,5 +96,6 @@ function logToNetworkFile(message) {
   }
   logger.info(message)
 }
+logToNetworkFile("Computer started")
 
 
