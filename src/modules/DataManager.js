@@ -1,4 +1,4 @@
-const API_URL = process.env.IS_PROD === "true" ?  process.env.API_URL : process.env.ALT_API_URL;
+const API_URL = process.env.IS_PROD === "true" ? process.env.API_URL : process.env.ALT_API_URL;
 const FETCH_TIMEOUT = 1; // in seconds
 
 import { writable, derived, readable } from "svelte/store";
@@ -12,18 +12,21 @@ export const userData = derived(_userData, ($_userData) => $_userData);
 
 let currentRfid;
 userData.subscribe((userData) => {
-  if (userData !== undefined){
-    console.log("userData", userData);
-    currentRfid = userData?.rfid;  
-  } else {
-    //TODO: Why is it undefined ?
-    console.warn("userData is undefined")
-  }
+  console.log("userData", userData);
+  currentRfid = userData?.rfid || undefined
 });
 
 let currentLocale
 locale.subscribe((loc) => {
   currentLocale = loc
+});
+
+// enable caching of the rfid to make login process in LogInManager more user-friendly
+// with this functionality the language can be set after putting the rfid token and login will be retried with the cached rfid value
+let cachedRfid;
+export const rfidCacheEnabled = writable(false);
+rfidCacheEnabled.subscribe(rfidCacheActive => {
+  if(!rfidCacheActive) cachedRfid = undefined;
 });
 
 export const loggedIn = writable(false);
@@ -96,16 +99,20 @@ function logIn(rfid) {
   fetch(`${API_URL}/api/users/${rfid}`, requestOptions)
     .then((response) => response.json())
     .then((data) => {
-        if(!data.language) {
-          console.log("Log in failed because language was not set"); 
-          return;
-        }
-        _userData.set(data);
-        setLocale(data.language);
-        clearInterval(activePing);
-        activePing = setInterval(checkActive, 1000);
-        loggedIn.set(true)
-        interactionDetected()
+      if (!data.language) {
+        console.log("Log in failed because language was not set");
+        cachedRfid = rfid;
+        rfidCacheEnabled.set(true);
+        return;
+      }
+      _userData.set(data);
+      setLocale(data.language);
+      clearInterval(activePing);
+      activePing = setInterval(checkActive, 1000);
+      loggedIn.set(true)
+      interactionDetected()
+      cachedRfid = undefined;
+      rfidCacheEnabled.set(false);
     })
     .catch((error) => {
       console.log("error", error)
@@ -114,12 +121,19 @@ function logIn(rfid) {
 }
 
 export function logOut() {
-    loggedIn.set(false)
-    currentRfid = undefined
-    _userData.set(undefined);
-    resetLocale();
-    console.log("Logged out");
-    clearInterval(activePing);
+  loggedIn.set(false)
+  _userData.set(undefined);
+  resetLocale();
+  console.log("Logged out");
+  clearInterval(activePing);
+  cachedRfid = undefined;
+  rfidCacheEnabled.set(false)
+}
+
+// Retries the log in with the rfid from cache
+// is used to try a second login after the language choice, without having to read rfid chip again
+export function retryLogIn(){
+  if(cachedRfid) logIn(cachedRfid);
 }
 
 export function saveValue(key, value) {

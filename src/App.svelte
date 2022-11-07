@@ -9,7 +9,7 @@
   import { interactionDetected, inactiveTime } from "./modules/InteractionObserver.js"
   import PageManager from "./pages/PageManager.svelte";
   import DevBar from "./components/DevBar.svelte";
-  import LogInPage from "./pages/LogInPage.svelte";
+  import LogInManager from "./pages/LogInManager.svelte";
   import InactiveWarningPage from "./pages/InactiveWarningPage.svelte";
   import ErrorOverlay from "./components/ErrorOverlay.svelte";
 
@@ -25,11 +25,11 @@
 
 </script>
 
-<main on:click={interactionDetected} class:selectable-text = { ! IS_PROD }>
+<main on:click={interactionDetected} on:mousedown={interactionDetected} class:selectable-text = { ! IS_PROD }>
   {#if $loggedIn}
     <PageManager/>
   {:else}
-    <LogInPage/>
+    <LogInManager/>
   {/if}
 
   {#if $loggedIn && $inactiveTime >= TIMEOUT_WARNING}
