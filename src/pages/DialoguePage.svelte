@@ -28,7 +28,7 @@
   }
 </script>
 
-<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath} backHidden={markComplete}/>
+<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath}/>
 <img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
 <div class="bubble-container">
   <Bubble text={dialogueText}/>
