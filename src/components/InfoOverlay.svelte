@@ -24,6 +24,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100;
   }
 
   .overlay {
@@ -50,6 +51,8 @@
     border-top-right-radius: 15px 225px;
     border-bottom-right-radius: 225px 15px;
     border-bottom-left-radius: 15px 255px;
+
+    z-index: 101;
   }
 
   button {

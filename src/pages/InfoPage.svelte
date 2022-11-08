@@ -10,5 +10,6 @@
   h2 {
     font-size: 56px;
     width: 50%;
+    z-index: 10;
   }
 </style>
