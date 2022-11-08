@@ -41,7 +41,7 @@
     font-style: normal;
     font-weight: 400;
     margin-top: -30px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     color: #2D2D2D;
   }
   img {

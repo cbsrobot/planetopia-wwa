@@ -8,7 +8,7 @@ import { interactionDetected } from "./InteractionObserver.js"
 const { ipcRenderer } = require("electron");
 
 const _userData = writable(undefined);
-export const userData = derived(_userData, ($_userData) => $_userData);
+export const userData = derived(_userData, ($userData) => $userData);
 
 let currentRfid;
 userData.subscribe((userData) => {
@@ -32,7 +32,7 @@ rfidCacheEnabled.subscribe(rfidCacheActive => {
 export const loggedIn = writable(false);
 
 const _globalData = writable({});
-export const globalData = derived(_globalData, ($_globalData) => $_globalData);
+export const globalData = derived(_globalData, ($globalData) => $globalData);
 
 ipcRenderer.on("rfid", (event, response) => {
   console.log(response, "detected")
@@ -106,10 +106,10 @@ function logIn(rfid) {
         return;
       }
       _userData.set(data);
+      loggedIn.set(true);
       setLocale(data.language);
       clearInterval(activePing);
       activePing = setInterval(checkActive, 1000);
-      loggedIn.set(true)
       interactionDetected()
       cachedRfid = undefined;
       rfidCacheEnabled.set(false);
@@ -121,6 +121,7 @@ function logIn(rfid) {
 }
 
 export function logOut() {
+  currentRfid = undefined
   loggedIn.set(false)
   _userData.set(undefined);
   resetLocale();

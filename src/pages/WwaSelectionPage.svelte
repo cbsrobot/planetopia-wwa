@@ -1,5 +1,4 @@
 <script>
-  import { get } from "svelte/store";
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
   import { userData, saveValue } from "../modules/DataManager";
@@ -62,9 +61,9 @@
     let selected_area = $userData.stations[stationNumber].questions[1] //TODO: do not hardcode
     let sum = 0
     let level = 2
-    let answered_count = Object.keys(get(userData).stations[selected_area].questions).length
+    let answered_count = Object.keys($userData.stations[selected_area].questions).length
     if (answered_count) {
-      for (const value of Object.values(get(userData).stations[selected_area].questions)){
+      for (const value of Object.values($userData.stations[selected_area].questions)){
         sum += value
       }
       let max_points = 4 * answered_count
