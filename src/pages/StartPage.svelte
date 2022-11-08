@@ -39,6 +39,7 @@
     line-height: 120%;
     font-family: 'MANIC', sans-serif;
     font-style: normal;
+    font-weight: 400;
     margin-top: -30px;
     margin-bottom: 40px;
     color: #2D2D2D;
