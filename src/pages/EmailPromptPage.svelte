@@ -18,8 +18,7 @@
   export let stationNumber;
 
   let validated = true;
-  let stationHidden = true;
-
+  
   $: neutral = validated;
 
   onMount(async () => {
@@ -41,11 +40,11 @@
         '{space}': ' ',
       }
     });
-    document.querySelector(".input").focus();
+    document.querySelector(".email-input").focus();
   });
 
   function onChange(input) {
-    document.querySelector(".input").value = input;
+    document.querySelector(".email-input").value = input;
     validated = ! validator.validate(input)
     // console.log("Input changed", input);
   }
@@ -57,7 +56,7 @@
 
   function handleNextClicked() {
     // gather all facts and send email
-    let emailaddress = document.querySelector(".input").value;
+    let emailaddress = document.querySelector(".email-input").value;
     if (!validator.validate(emailaddress)) {
       // check once more
       console.log("wrong email address");
@@ -74,7 +73,8 @@
       "avatar": $userData.avatar,
       "wwaText": $userData.wwa.text,
       "areaText": $userData.wwa.areaText,
-      "wwaNumber": "D - " + Math.floor(Math.random() * 10000) //TODO: fix it
+      "wwaNumber": "D - " + Math.floor(Math.random() * 10000), //TODO: fix it
+      "newsletter": document.querySelector(".newsletter-input").checked
     });
     //TODO: should it bubble up 
   }
@@ -86,16 +86,24 @@
 
 
 <div class="navigation">
-  <Navigation bind:pageIndex on:nextClicked={handleNextClicked} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral} stationHidden={stationHidden} />
+  <Navigation bind:pageIndex on:nextClicked={handleNextClicked} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral} stationHidden={true} progressHidden={true} />
 </div>
 
 <div class="content">
   <div class="bubble-container">
     <Bubble text={$_(textPath, "question")} />
   </div>
-  <div class="input-container">
-    <input type="input" class="input" placeholder={$_(textPath, "textField")} />
+  <div class="email-container">
+    <input type="input" class="email-input" placeholder={$_(textPath, "textField")} />
   </div>
+  <div class="newsletter-container">
+    <label class="container">
+      {$_(textPath, "newsletter")}
+      <input type="checkbox" class="newsletter-input" />
+      <span class="checkmark"></span>
+    </label>
+  </div>
+
 </div>
 <div class="simple-keyboard-container">
   <div class="simple-keyboard" />
@@ -114,20 +122,68 @@
     z-index: 2;
   }
   .bubble-container {
-    width: 1000px
+    width: 1000px;
   }
-  .input-container {
+  .email-container {
     width: 60%;
     background-image: url("/assets/bubble-base.svg");
-    margin: 1em
+    margin: 1em;
+    box-shadow: inset 10px 10px 10px #ddd;
   }
-  input {
+  .email-input {
     padding: 0.4em 0.8em;
     width: 23em;
     border: 0px solid #FFF;
     margin: 0.9em 0;
   }
 
+  .newsletter-container {
+    display: block;
+    position: relative;
+    padding-left: 68px;
+    margin: 0.9em 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .newsletter-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    background-color: #eee;
+    background: url(/assets/checkbox.svg);
+    background-size: 40px 40px;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .newsletter-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .newsletter-container .checkmark:after {
+    left: 4px;
+    top: -3px;
+    width: 40px;
+    height: 40px;
+    background: url(/assets/checkmark.svg);
+    background-size: 40px 40px;
+
+  }
   :focus-visible {
     outline: none;
   }
