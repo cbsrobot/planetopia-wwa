@@ -104,7 +104,7 @@ const evaluationCore = [
   { component: AreaSelectionPage, props: { textPath: "5.areaSelection1" } }, // question_id 1
   { component: DialoguePage, props: { textPath: "5.dialogue8" } },
   { component: WwaSelectionPage, props: { textPath: "5.wwaSelection2" } }, // question_id 2
-  { component: DialoguePage, props: { textPath: "5", changeTextToLaudation: true } },
+  // { component: DialoguePage, props: { textPath: "5", changeTextToLaudation: true } },
   { component: WwaConfirmationPage1, props: { textPath: "5.wwaConfirmation3" } },
   // { component: WwaConfirmationPage2, props: { textPath: "5.wwaConfirmation4" } },
   { component: DialoguePage, props: { textPath: "5.dialogue9" } },
