@@ -121,12 +121,6 @@
     justify-content: flex-start;
     align-items: center;
   }
-  .question {
-    display: block;
-    text-align: left;
-    font-size: 52px;
-    width: 1200px;
-  }
 
   .bubble-container {
     width: 1100px;
@@ -140,7 +134,4 @@
     flex-direction: row;
   }
 
-  p {
-    margin-top: 0;
-  }
 </style>

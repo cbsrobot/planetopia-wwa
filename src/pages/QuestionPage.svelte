@@ -110,12 +110,6 @@
     justify-content: flex-start;
     align-items: center;
   }
-  .question {
-    display: block;
-    text-align: left;
-    font-size: 52px;
-    width: 1000px;
-  }
 
   .bubble-container{
     width: 1200px;

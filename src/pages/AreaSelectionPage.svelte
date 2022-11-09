@@ -109,7 +109,4 @@
     width: 500px;
   }
 
-  p {
-    margin: 0;
-  }
 </style>
