@@ -2,7 +2,7 @@
   // time constants in seconds
   const TIMEOUT_WARNING = 30;
   const TIMEOUT_RESET = 40; 
-  const ERROR_TIMEOUT = 600; // TODO: Set to lower value in production
+  const ERROR_TIMEOUT = 20; 
 
   import { loggedIn, logOut } from "./modules/DataManager.js";
   import { showError, errorMessage } from "./modules/ProblemCollector.js";
