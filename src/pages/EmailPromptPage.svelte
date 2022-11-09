@@ -25,6 +25,7 @@
     const keyboard = new Keyboard({
       onChange: (input) => onChange(input),
       onKeyPress: (button) => onKeyPress(button),
+      inputName: "email-input",
       theme: "hg-theme-planetopia",
       layout: {
         default: [
@@ -94,7 +95,7 @@
     <Bubble text={$_(textPath, "question")} />
   </div>
   <div class="email-container">
-    <input type="input" class="email-input" placeholder={$_(textPath, "textField")} />
+    <input type="input" class="email-input" name="email-input" placeholder={$_(textPath, "textField")} />
   </div>
   <div class="newsletter-container">
     <label class="container">
