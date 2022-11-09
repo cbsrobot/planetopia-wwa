@@ -9,14 +9,13 @@
   export let textPath;
   export let pageIndex, totalPages;
   export let stationNumber;
-  export let markComplete;
-  export let stationCompleted;
+  export let markComplete = false;
 
   let overlayOpen = false;
   $: avatarNr = $userData.avatar;
   $: overlayTextPath = `${stationNumber}.insect${avatarNr}`
   $: if (markComplete) {
-      saveValue(`stations.${stationCompleted}.complete`, markComplete)
+      saveValue(`stations.${stationNumber}.stationComplete`, true)
     }
 
   $: dialogueText = injectAvatarInfo($_(textPath));
@@ -36,7 +35,7 @@
 
 
 {#if overlayOpen}
-  <InfoOverlay on:exit = {() => overlayOpen = false} textPath={overlayTextPath}/>
+  <InfoOverlay on:exit = {() => overlayOpen = false} textPath={overlayTextPath} showInsectNames={0 < stationNumber && stationNumber < 5}/>
 {/if}
 
 <style>
