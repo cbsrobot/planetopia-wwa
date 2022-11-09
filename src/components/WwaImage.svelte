@@ -15,7 +15,7 @@
   {/if}
   <img class="background" src="assets/wwa-paper-texture.jpg" alt="" />
   <img class="stamp" src="assets/wwa-stamp.jpg" alt="" />
-  <p>{$_($userData.wwa.textPath)}</p>
+  <p>{$_($userData?.wwa.textPath)}</p> 
 </div>
 
 <style>
