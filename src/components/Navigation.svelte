@@ -41,7 +41,6 @@
 
   function handleEndClick() {
     logOut()
-    //if (pageIndex != undefined) pageIndex = 0;
     dispatch("endClicked");
   }
 </script>
