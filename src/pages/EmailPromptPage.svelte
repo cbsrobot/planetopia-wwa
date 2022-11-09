@@ -74,7 +74,7 @@
       "avatar": $userData.avatar,
       "wwaText": $userData.wwa.text,
       "areaText": $userData.wwa.areaText,
-      "wwaNumber": "D - " + Math.floor(Math.random() * 10000), //TODO: fix it
+      "wwaNumber": "D - 000001", //TODO: fix it
       "language": $userData.language,
       "newsletter": document.querySelector(".newsletter-input").checked
     });
