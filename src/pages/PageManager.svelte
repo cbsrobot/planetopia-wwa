@@ -31,18 +31,7 @@
 
   let pageIndex = 0;
   $: totalPages = pageList.length;
-  $: activePage = getActivePageAndUpdateTextPath(pageIndex);
-
-  // TODO: Tidy up
-  function getActivePageAndUpdateTextPath(pageIndex) {
-    if ("depends" in pageList[pageIndex]) {
-      let question_id = pageList[pageIndex].depends.question_id;
-      let selected_wwa = $userData.stations[STATION].questions[question_id];
-      pageList[pageIndex].props.textPath =
-        pageList[pageIndex].depends.options[selected_wwa];
-    }
-    return pageList[pageIndex];
-  }
+  $: activePage = pageList[pageIndex];
 
   function getState() {
     const firstPageStationNumber = pageList[0].props.stationNumber;
@@ -61,12 +50,19 @@
     }
   }
 
+  // TODO: Remove logs and uncomment last line
   let continuePageIndex = 0;
   function setContinueIndex() {
+    console.log("continueIndexRequested")
+    console.log("pageList", pageList);
     const firstPageStationNumber = pageList[0].props.stationNumber;
+    console.log("firstPageStationNumber", firstPageStationNumber);
     const lastPageId = $userData.stations[firstPageStationNumber].lastPage;
+    console.log("lastPageId", lastPageId);
     const lastPageIndex = pageList.findIndex((page) => page.props.textPath == lastPageId);
+    console.log("lastPageIndex", lastPageIndex);
     continuePageIndex = lastPageIndex;
+    // if (lastPageIndex >= 0) continuePageIndex = lastPageIndex; 
   }
 </script>
 

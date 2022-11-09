@@ -4,9 +4,11 @@
   import { _ } from "../modules/i18n.js";
   import Bubble from "../components/Bubble.svelte";
   import { userData, saveValue, STATION } from "../modules/DataManager";
-    
+  
+  export let changeTextToLaudation = false;
 
   export let textPath;
+  $: adjustedTextPath = changeTextToLaudation ? getLaudationTextPath() : textPath;
   export let pageIndex, totalPages;
   export let stationNumber;
 
@@ -17,6 +19,13 @@
   $: avatarNr = $userData.avatar;
   $: overlayTextPath = `${stationNumber}.insect${avatarNr}`
 
+  function getLaudationTextPath(){
+    let selectedArea = $userData.stations[STATION].questions[1]; // Hard coded path to selected area answer
+    let options = ["5.dialogueClothes", "5.dialogueLiving", "5.dialogueMobility", "5.dialogueFood", "5.dialogueSpecial", "5.dialogueGeneral"];
+    return options[selectedArea]
+  }
+  
+
   $: if (markComplete) {
     saveValue(`stations.${stationNumber}.stationComplete`, true)
   }
@@ -25,7 +34,7 @@
     saveValue(`stations.${stationNumber}.realStation`, STATION)
   }
 
-  $: dialogueText = injectAvatarInfo($_(textPath));
+  $: dialogueText = injectAvatarInfo($_(adjustedTextPath));
   function injectAvatarInfo(str) {
     const re = /#(\d)/i;
     const match = str.match(re);
