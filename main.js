@@ -120,7 +120,12 @@ function createWindow() {
       if (params.newsletter) {
         // override Email options
         // keep the order !
-        params.mailOptions.html = `<p>Schönen Guten Tag<br /><br />${params.mailOptions.to} interessiert sich für den Newsletter. <br /><br />Liebe Grüsse aus Planetopia</p>`
+        let languages = {
+          "de": "deutschen",
+          "fr": "französischen",
+          "en": "englischen",
+        };
+        params.mailOptions.html = `<p>Schönen Guten Tag<br /><br />${params.mailOptions.to} interessiert sich für den ${languages[params.language]} Newsletter. <br /><br />Liebe Grüsse aus Planetopia</p>`
         params.mailOptions.to = "communication@mfk.ch"
         params.mailOptions.subject = "Newsletter Abo aus Planetopia"
         delete params.mailOptions.attachments

@@ -75,6 +75,7 @@
       "wwaText": $userData.wwa.text,
       "areaText": $userData.wwa.areaText,
       "wwaNumber": "D - " + Math.floor(Math.random() * 10000), //TODO: fix it
+      "language": $userData.language,
       "newsletter": document.querySelector(".newsletter-input").checked
     });
     //TODO: should it bubble up 
