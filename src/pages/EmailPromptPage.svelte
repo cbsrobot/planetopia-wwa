@@ -202,6 +202,7 @@
     left: 0px;
     bottom: 0px;
     width: 100%;
+    z-index: 10;
   }
   *, *:before, *:after {
     box-sizing: border-box;
