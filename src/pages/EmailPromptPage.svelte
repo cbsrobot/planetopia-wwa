@@ -18,6 +18,7 @@
   export let stationNumber;
 
   let validated = true;
+  let stationHidden = true;
 
   $: neutral = validated;
 

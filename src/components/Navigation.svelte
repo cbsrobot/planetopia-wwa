@@ -21,6 +21,7 @@
   export let homeHidden = false;
   export let nextHidden = false;
   export let endHidden = false;
+  export let stationHidden = false;
 
   $: saveValue(`stations.${station}.lastPage`, pageID)
 
@@ -45,7 +46,7 @@
   }
 </script>
 
-{#if station != undefined}
+{#if station != undefined && !stationHidden}
   <StationIndicator station={station} />
 {/if}
 
