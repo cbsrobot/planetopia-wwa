@@ -65,7 +65,7 @@
     }
     ipcRenderer.send("sendEmail", {
       "mailOptions": {
-        from: "test@planetopia.ch",
+        from: "weltwandel@planetopia.ch",
         to: emailaddress,
         subject: "Planetopia",
         html: `<p>${$_("email", "").replace(/(?:\r\n|\r|\n)/g, "<br>")}</p>`,
