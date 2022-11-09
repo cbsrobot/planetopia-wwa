@@ -7,6 +7,9 @@ import { reportError } from "./ProblemCollector.js";
 import { interactionDetected } from "./InteractionObserver.js"
 const { ipcRenderer } = require("electron");
 
+let envStation = parseInt(process.env.STATION);
+export const STATION = envStation != undefined ? envStation : 5;
+
 const _userData = writable(undefined);
 export const userData = derived(_userData, ($userData) => $userData);
 

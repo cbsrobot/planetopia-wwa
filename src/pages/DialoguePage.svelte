@@ -3,8 +3,7 @@
   import InfoOverlay from "../components/InfoOverlay.svelte";
   import { _ } from "../modules/i18n.js";
   import Bubble from "../components/Bubble.svelte";
-  import { STATION } from "../modules/PageListFactory";
-  import { userData, saveValue } from "../modules/DataManager";
+  import { userData, saveValue, STATION } from "../modules/DataManager";
     
 
   export let textPath;

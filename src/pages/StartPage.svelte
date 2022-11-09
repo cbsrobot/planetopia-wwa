@@ -1,7 +1,7 @@
 <script>
   import Button from "../components/Button.svelte";
     import { getLocalizedText } from "../modules/i18n";
-  import { STATION } from "../modules/PageListFactory";
+  import { STATION } from "../modules/DataManager";
 
   
   $: imagePath = `assets/start-background-${STATION}.png`

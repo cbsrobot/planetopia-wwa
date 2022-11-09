@@ -6,8 +6,6 @@
   import { loggedIn, retryLogIn, rfidCacheEnabled} from "../modules/DataManager";
   import { inactiveTime } from "../modules/InteractionObserver.js"
   import Button from "../components/Button.svelte";
-  import { STATION } from "../modules/PageListFactory";
-  import StationIndicator from "../components/StationIndicator.svelte";
   import StartPage from "./StartPage.svelte";
   
   // Reset after specified time limit

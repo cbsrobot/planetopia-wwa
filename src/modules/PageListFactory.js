@@ -8,11 +8,8 @@ import EmailAcceptPage from "../pages/EmailAcceptPage.svelte";
 import EmailPromptPage from "../pages/EmailPromptPage.svelte";
 import ResultPage from "../pages/ResultPage.svelte";
 import InfoPage from "../pages/InfoPage.svelte";
-import { userData } from "./DataManager.js";
+import { userData, STATION } from "./DataManager.js";
 import { get } from "svelte/store";
-
-let envStation = parseInt(process.env.STATION);
-export const STATION = envStation != undefined ? envStation : 5;
 
 const introCore = [
   { component: DialoguePage, props: { textPath: "0.dialogue1" } },

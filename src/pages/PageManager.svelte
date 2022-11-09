@@ -1,8 +1,8 @@
 <script>
   const RETURN_TIMEOUT = 10; // in seconds
 
-  import { generatePageList, STATION } from "../modules/PageListFactory.js";
-  import { loggedIn, userData, logOut } from "../modules/DataManager.js";
+  import { generatePageList } from "../modules/PageListFactory.js";
+  import { loggedIn, userData, logOut, STATION } from "../modules/DataManager.js";
   import InfoPage from "./InfoPage.svelte";
   import ContinuePage from "./ContinuePage.svelte";
   import { onDestroy } from "svelte";
