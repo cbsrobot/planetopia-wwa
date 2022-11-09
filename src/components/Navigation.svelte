@@ -22,6 +22,7 @@
   export let nextHidden = false;
   export let endHidden = false;
   export let stationHidden = false;
+  export let progressHidden = false;
 
   $: saveValue(`stations.${station}.lastPage`, pageID)
 
@@ -63,7 +64,9 @@
   <Button end on:click={handleEndClick} disabled={disableEnd} />
 {/if}
 </div>
-<ProgressIndicator position={pageIndex + 1} length={totalPages} />
+{#if !progressHidden}
+  <ProgressIndicator position={pageIndex + 1} length={totalPages} />
+{/if}
 
 <style>
   .container {
