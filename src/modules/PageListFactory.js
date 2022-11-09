@@ -28,11 +28,11 @@ const introCore = [
   { component: DialoguePage, props: { textPath: "0.dialogue10" } },
 ];
 const introEnd = {
-  0: { component: DialoguePage, props: { textPath: "0.dialogueEnd0", markComplete: true, stationCompleted: 0 } },
-  1: { component: DialoguePage, props: { textPath: "0.dialogueEnd1", markComplete: true, stationCompleted: 0 } },
-  2: { component: DialoguePage, props: { textPath: "0.dialogueEnd2", markComplete: true, stationCompleted: 0 } },
-  3: { component: DialoguePage, props: { textPath: "0.dialogueEnd3", markComplete: true, stationCompleted: 0 } },
-  4: { component: DialoguePage, props: { textPath: "0.dialogueEnd4", markComplete: true, stationCompleted: 0 } },
+  0: { component: DialoguePage, props: { textPath: "0.dialogueEnd0", markComplete: true } },
+  1: { component: DialoguePage, props: { textPath: "0.dialogueEnd1", markComplete: true } },
+  2: { component: DialoguePage, props: { textPath: "0.dialogueEnd2", markComplete: true } },
+  3: { component: DialoguePage, props: { textPath: "0.dialogueEnd3", markComplete: true } },
+  4: { component: DialoguePage, props: { textPath: "0.dialogueEnd4", markComplete: true } },
 };
 
 const clothesStart = { component: DialoguePage, props: { textPath: "1.dialogue1" } };
@@ -44,7 +44,6 @@ const clothesCore = [
   { component: QuestionPage, props: { textPath: "1.question3" } },
   { component: QuestionPage, props: { textPath: "1.question4" } },
   { component: QuestionPage, props: { textPath: "1.question5" } },
-  { component: DialoguePage, props: { textPath: "1.dialogue4", markComplete: true, stationCompleted: 1 } },
 ];
 
 const livingStart = { component: DialoguePage, props: { textPath: "2.dialogue1" } };
@@ -56,7 +55,6 @@ const livingCore = [
   { component: QuestionPage, props: { textPath: "2.question3" } },
   { component: QuestionPage, props: { textPath: "2.question4" } },
   { component: QuestionPage, props: { textPath: "2.question5" } },
-  { component: DialoguePage, props: { textPath: "2.dialogue4", markComplete: true, stationCompleted: 2 } },
 ];
 
 const mobilityStart = { component: DialoguePage, props: { textPath: "3.dialogue1" } };
@@ -68,7 +66,6 @@ const mobilityCore = [
   { component: QuestionPage, props: { textPath: "3.question3" } },
   { component: QuestionPage, props: { textPath: "3.question4" } },
   { component: QuestionPage, props: { textPath: "3.question5" } },
-  { component: DialoguePage, props: { textPath: "3.dialogue4", markComplete: true, stationCompleted: 3 } },
 ];
 
 const foodStart = { component: DialoguePage, props: { textPath: "4.dialogue1" } };
@@ -80,10 +77,17 @@ const foodCore = [
   { component: QuestionPage, props: { textPath: "4.question3" } },
   { component: QuestionPage, props: { textPath: "4.question4" } },
   { component: QuestionPage, props: { textPath: "4.question5" } },
-  { component: DialoguePage, props: { textPath: "4.dialogue4" } },
-  { component: DialoguePage, props: { textPath: "4.dialogue5" } },
-  { component: DialoguePage, props: { textPath: "4.dialogue6", markComplete: true, stationCompleted: 4 } },
 ];
+
+const stationEndings = {
+  A: [ { component: DialoguePage, props: { textPath: "dialogueEndA", markComplete: true, stationNumber: STATION } } ],
+  B: [ { component: DialoguePage, props: { textPath: "dialogueEndB", markComplete: true, stationNumber: STATION } } ],
+  allComplete: [
+    { component: DialoguePage, props: { textPath: "dialogueEndAllComplete1", stationNumber: STATION} },
+    { component: DialoguePage, props: { textPath: "dialogueEndAllComplete2", stationNumber: STATION } },
+    { component: DialoguePage, props: { textPath: "dialogueEndAllComplete3", markComplete: true, stationNumber: STATION} }
+  ]
+}
 
 const evaluationStart = {
   firstLogIn: { component: InfoPage, props: { textPath: "5.dialogueStart1" } },
@@ -103,46 +107,62 @@ const evaluationCore = [
   { component: AreaSelectionPage, props: { textPath: "5.areaSelection1" } }, // question_id 1
   { component: DialoguePage, props: { textPath: "5.dialogue8" } },
   { component: WwaSelectionPage, props: { textPath: "5.wwaSelection2" } }, // question_id 2
-  { component: DialoguePage, depends: {"question_id":1, "options": ["5.dialogueClothes", "5.dialogueLiving", "5.dialogueMobility", "5.dialogueFood", "5.dialogueSpecial", "5.dialogueGeneral"]}, props: { textPath: "5" } },  
+  { component: DialoguePage, depends: { "question_id": 1, "options": ["5.dialogueClothes", "5.dialogueLiving", "5.dialogueMobility", "5.dialogueFood", "5.dialogueSpecial", "5.dialogueGeneral"] }, props: { textPath: "5" } },
   { component: WwaConfirmationPage1, props: { textPath: "5.wwaConfirmation3" } },
   { component: WwaConfirmationPage2, props: { textPath: "5.wwaConfirmation4" } },
   { component: DialoguePage, props: { textPath: "5.dialogue9" } },
   { component: EmailAcceptPage, props: { textPath: "5.emailAccept5" } },
   { component: EmailPromptPage, props: { textPath: "5.emailPrompt6" } },
-  { component: DialoguePage, props: { textPath: "5.dialogue10", markComplete: true, stationCompleted: 5 } },
+  { component: DialoguePage, props: { textPath: "5.dialogue10", markComplete: true } },
 ];
 
+
+
 function introComplete() {
-  return get(userData).stations[0].complete;
+  return get(userData).stations[0].stationComplete;
 }
 
 function anyStationHasAnswer() {
   // return amount of station besides station intro and evaluation that have an answer
   var answered = Object.fromEntries(
-    Object.entries(get(userData).stations).filter(([k,v]) => { 
+    Object.entries(get(userData).stations).filter(([k, v]) => {
       let questions = {};
       if ("questions" in v) {
-        questions = Object.entries(v.questions).filter(([kk,vv]) => vv != null)
-      }; 
+        questions = Object.entries(v.questions).filter(([kk, vv]) => vv != null)
+      };
       return k > 0 && k < 5 && Object.keys(questions).length
     })
   );
   return Object.keys(answered).length;
 }
 
-function anyStationComplete() {
+function getCompletedStationsCount() {
   // return amount of station besides station intro and evaluation that are complete
   var completed = Object.fromEntries(
-    Object.entries(get(userData).stations).filter(([k,v]) => 
-      k > 0 && k < 5 && v.complete == true
+    Object.entries(get(userData).stations).filter(([k, v]) =>
+      k > 0 && k < 5 && v.questionsComplete == true
     )
   );
   return Object.keys(completed).length;
 }
 
+function getStationEnding() {
+  let count = getCompletedStationsCount();
+  if(count == 0) {
+    return stationEndings.A
+  } else if (count < 3){
+    return stationEndings.B
+  } else {
+    return stationEndings.allComplete
+  }
+
+}
+
 // based on User Data and station number
 export function generatePageList() {
+
   let pageList = [];
+  let stationEnding = getStationEnding()
 
   switch (STATION) {
     case 0:
@@ -159,6 +179,7 @@ export function generatePageList() {
         pageList.push(introEnd[STATION]);
         pageList.push(...clothesCore);
       }
+      pageList.push(...stationEnding)
       break;
     case 2:
       if (introComplete()) {
@@ -169,6 +190,7 @@ export function generatePageList() {
         pageList.push(introEnd[STATION]);
         pageList.push(...livingCore);
       }
+      pageList.push(...stationEnding)
       break;
     case 3:
       if (introComplete()) {
@@ -179,6 +201,7 @@ export function generatePageList() {
         pageList.push(introEnd[STATION]);
         pageList.push(...mobilityCore);
       }
+      pageList.push(...stationEnding)
       break;
     case 4:
       if (introComplete()) {
@@ -189,13 +212,14 @@ export function generatePageList() {
         pageList.push(introEnd[STATION]);
         pageList.push(...foodCore);
       }
+      pageList.push(...stationEnding)
       break;
     case 5:
-      if ( !introComplete()) {
+      if (!introComplete()) {
         pageList.push(evaluationStart.firstLogIn);
-      } else if (anyStationComplete() === 0) {
+      } else if (getCompletedStationsCount() === 0) {
         pageList.push(evaluationStart.noAnswers);
-      } else if (anyStationComplete() < 4) {
+      } else if (getCompletedStationsCount() < 4) {
         pageList.push(evaluationStart.notAllAnswers);
         pageList.push(...evaluationCore);
       } else {
@@ -215,21 +239,25 @@ export function generatePageList() {
 // Utility function that adds "props.stationNumber: 0" (example)
 function addStationNumbersToProps(pageList) {
   pageList.forEach((page) => {
-    page.props.stationNumber = parseInt(page.props.textPath?.charAt(0));
+    if(page.props.stationNumber == undefined) {
+      page.props.stationNumber = parseInt(page.props.textPath?.charAt(0));
+    }
+    
   });
   return pageList;
 }
 
 // Utility function that adds "props.questionNumber: 2" (example)
+// TODO: Remove non QuestionPages?
 function addQuestionNumbersToProps(pageList) {
   pageList.forEach((page) => {
     if (page.component == QuestionPage
-        || page.component == AreaSelectionPage
-        || page.component == WwaSelectionPage
-        || page.component == WwaConfirmationPage1
-        || page.component == WwaConfirmationPage2
-        || page.component == EmailAcceptPage
-        ) {
+      || page.component == AreaSelectionPage
+      || page.component == WwaSelectionPage
+      || page.component == WwaConfirmationPage1
+      || page.component == WwaConfirmationPage2
+      || page.component == EmailAcceptPage
+    ) {
       page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));
       page.props.selected = null;
     }
