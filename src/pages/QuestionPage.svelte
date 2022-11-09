@@ -30,10 +30,31 @@
       selected = (answerIndex < 0) ? null : answerIndex;
     }
 
-  $: if (selected != null) {
+  let syncPending = false;
+  
+  // call function 'saveAnswer' every time when the selection changes
+  $: if (selected != null) saveAnswer();
+  function saveAnswer(){
     saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
+    syncPending = true;
   }
 
+  // Set flag if all questions of a station are complete, execute function when new user data arrives
+  // The syncPending flag is used to avoid an endless loop of saving (userData change -> saveQuestionsComplete -> userData change -> ...)
+  // Little svelte hack: the syncPending flag is hidden inside a function (syncIsPending) in order to exclude it from reactivity
+  // like that calling of saveQuestionsComplete is only dependent on userData change and not on the syncPending flag
+
+  $: if($userData && syncIsPending()) saveQuestionsComplete();
+  function saveQuestionsComplete(){
+    syncPending = false;
+    console.log("questions.length", Object.values($userData.stations[stationNumber].questions).length);
+    if(Object.values($userData.stations[stationNumber].questions).length >= 5) {
+      saveValue(`stations.${stationNumber}.questionsComplete`, true)
+    }
+  }
+  function syncIsPending() {
+    return syncPending;
+  }
 </script>
 
 <Navigation  bind:pageIndex={pageIndex} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
