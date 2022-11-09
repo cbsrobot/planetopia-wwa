@@ -1,9 +1,12 @@
 <script>
+  import Bubble from "../components/Bubble.svelte";
   import { _ } from "../modules/i18n.js";
 </script>
 
 <div class="background" />
-<h2>{$_("inactive-warning")}</h2>
+<div class="bubble-container">
+  <Bubble text={$_("inactive-warning")}/>
+</div>
 
 <style>
   .background {
@@ -16,15 +19,9 @@
     left: 0;
     z-index: 10;
   }
-  h2 {
-    font-size: 56px;
-    z-index: 5;
-    width: 60%;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 11;
+  .bubble-container {
+    width: 1100px;
   }
+
 </style>

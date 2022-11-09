@@ -1,15 +1,16 @@
 <script>
+  import Bubble from "../components/Bubble.svelte";
   import { _ } from "../modules/i18n.js";
   export let textPath;
   
 </script>
 
-<h2>{$_(textPath)}</h2>
+<div class="bubble-container">
+  <Bubble text={$_(textPath)}/>
+</div>
 
 <style>
-  h2 {
-    font-size: 56px;
-    width: 50%;
-    z-index: 10;
+  .bubble-container {
+    width: 1100px;
   }
 </style>
