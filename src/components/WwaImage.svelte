@@ -3,9 +3,16 @@
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
   import { userData } from "../modules/DataManager";
+  // import { userData } from "../modules/PageUtils.js";
+
+  export let attested = false;
+  import { fly } from 'svelte/transition';
 </script>
 
 <div class="wwa">
+  {#if attested}
+    <img in:fly class="attested-stamp" src="assets/attested-stamp.png" alt="" />
+  {/if}
   <img class="background" src="assets/wwa-paper-texture.jpg" alt="" />
   <img class="stamp" src="assets/wwa-stamp.jpg" alt="" />
   <p>{$_($userData.wwa.textPath)}</p>
@@ -42,6 +49,15 @@
     margin-right: 10px;
     margin-top: 10px;
     margin-bottom: -10px;
+  }
+
+  .attested-stamp{
+    position: absolute;
+    width: 380px;
+    top: -132px;
+    left: -90px;
+    z-index: 2;
+    transform: rotate(5.28deg);
   }
 
   p {

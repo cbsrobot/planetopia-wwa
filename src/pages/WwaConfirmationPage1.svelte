@@ -4,23 +4,37 @@
   import { _ } from "../modules/i18n.js";
   import Bubble from "../components/Bubble.svelte";
   import Button from "../components/Button.svelte";
+  import { fly } from 'svelte/transition';
 
   export let textPath;
   export let pageIndex, totalPages;
 
   export let stationNumber;
+
+  let nextHidden = true
+  let showButtons = true;
+  let showAttestedStamp = false;
+
+  function handleConfirmClick(){
+    nextHidden = false;
+    showButtons = false;
+    showAttestedStamp = true;
+  }
 </script>
 
-<Navigation bind:pageIndex nextHidden {totalPages} station={stationNumber} pageID={textPath}/>
-<WwaImage/>
+<Navigation bind:pageIndex {nextHidden} {totalPages} station={stationNumber} pageID={textPath}/>
+<WwaImage attested={showAttestedStamp}/>
 <div class="content">
   <div class="bubble-container">
     <Bubble text={$_(textPath)} />
   </div>
-  <div class="buttons-container">
-    <Button no on:click={() => {pageIndex -= 2 }} handwritten={false} />
-    <Button yes on:click={() => {pageIndex += 1 }} handwritten={false} />
-  </div>
+  {#if showButtons}
+    <div out:fly={{duration: 500}} class="buttons-container">
+      <Button no text={$_("5.wwaConfirmation4", "rethink")} on:click={() => {pageIndex -= 2 }} handwritten={false} />
+      <Button yes text={$_("5.wwaConfirmation4", "accept")} on:click={handleConfirmClick} handwritten={false} />
+    </div>
+  {/if}
+ 
 </div>
 
 <style>

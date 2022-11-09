@@ -3,6 +3,7 @@
   import Button from "./Button.svelte";
   import ProgressIndicator from "./ProgressIndicator.svelte";
   import StationIndicator from "./StationIndicator.svelte";
+  import { fly } from 'svelte/transition';
   import { createEventDispatcher } from "svelte";
   const dispatch = createEventDispatcher();
 
@@ -58,7 +59,9 @@
 
 <div class="container bottom">
 {#if !nextHidden && pageIndex < totalPages - 1}
-  <Button next on:click={handleNextClick} disabled={disableNext} />
+  <div in:fly>
+    <Button next on:click={handleNextClick} disabled={disableNext} />
+  </div>
 {/if}
 {#if !endHidden && pageIndex >= totalPages - 1}
   <Button end on:click={handleEndClick} disabled={disableEnd} />

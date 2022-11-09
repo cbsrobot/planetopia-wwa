@@ -13,7 +13,7 @@
 </script>
 
 <Navigation bind:pageIndex nextHidden {totalPages} station={stationNumber} pageID={textPath}/>
-<WwaImage/>
+<WwaImage attested/>
 <div class="content">
   <div class="bubble-container">
     <Bubble text={$_(textPath)} />
