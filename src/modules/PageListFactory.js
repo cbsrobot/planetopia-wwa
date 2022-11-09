@@ -28,11 +28,11 @@ const introCore = [
   { component: DialoguePage, props: { textPath: "0.dialogue10" } },
 ];
 const introEnd = {
-  0: { component: DialoguePage, props: { textPath: "0.dialogueEnd0", markComplete: true } },
-  1: { component: DialoguePage, props: { textPath: "0.dialogueEnd1", markComplete: true } },
-  2: { component: DialoguePage, props: { textPath: "0.dialogueEnd2", markComplete: true } },
-  3: { component: DialoguePage, props: { textPath: "0.dialogueEnd3", markComplete: true } },
-  4: { component: DialoguePage, props: { textPath: "0.dialogueEnd4", markComplete: true } },
+  0: { component: DialoguePage, props: { textPath: "0.dialogueEnd0", markComplete: true, markRealStation: true } },
+  1: { component: DialoguePage, props: { textPath: "0.dialogueEnd1", markComplete: true, markRealStation: true } },
+  2: { component: DialoguePage, props: { textPath: "0.dialogueEnd2", markComplete: true, markRealStation: true } },
+  3: { component: DialoguePage, props: { textPath: "0.dialogueEnd3", markComplete: true, markRealStation: true } },
+  4: { component: DialoguePage, props: { textPath: "0.dialogueEnd4", markComplete: true, markRealStation: true } },
 };
 
 const clothesStart = { component: DialoguePage, props: { textPath: "1.dialogue1" } };

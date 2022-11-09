@@ -11,7 +11,7 @@ inactive-warning,Bist du noch da? Dann tippe auf den Screen!,Tu es encore là? T
 station-complete,Bitte geh zur nächsten Station. Hier bist du bereits fertig.,Va à la prochaine station. Tu as fini ici.,Please proceed to the next terminal. You have completed this one.,,
 game-over,"Du bist bereits fertig mit den Stationen, du hast dein Weltwandelsabkommen schon abgeschlossen.
 ",Tu es passé à toutes les stations et tu as déjà conclu un accord sur le changement mondial.,You have completed all terminals and have already signed a world change agreement. ,,
-intro-complete,Du hast das Intro bereits bei einer anderen Station abgeschlossen.,Tu as déjà vu l'intro à une autre station.,You have already completed the introduction at another terminal. ,,
+intro-completed-elsewhere,Du hast das Intro bereits bei einer anderen Station abgeschlossen.,Tu as déjà vu l'intro à une autre station.,You have already completed the introduction at another terminal. ,,
 station-partly-complete,Da bist du ja wieder. Willst du dort weiterfahren wo du aufgehört hast?,C'est encore toi. Tu veux continuer là où tu avais arrêté?,There you are again. Would you like to continue where you left off?,,
 station-partly-complete.continue,Weiterfahren,Continuer,Continue,,
 station-partly-complete.restart,Zum Anfang,Retourner au début,Go to start,,

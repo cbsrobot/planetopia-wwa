@@ -3,20 +3,28 @@
   import InfoOverlay from "../components/InfoOverlay.svelte";
   import { _ } from "../modules/i18n.js";
   import Bubble from "../components/Bubble.svelte";
-
+  import { STATION } from "../modules/PageListFactory";
   import { userData, saveValue } from "../modules/DataManager";
+    
 
   export let textPath;
   export let pageIndex, totalPages;
   export let stationNumber;
+
   export let markComplete = false;
+  export let markRealStation = false;
 
   let overlayOpen = false;
   $: avatarNr = $userData.avatar;
   $: overlayTextPath = `${stationNumber}.insect${avatarNr}`
+
   $: if (markComplete) {
-      saveValue(`stations.${stationNumber}.stationComplete`, true)
-    }
+    saveValue(`stations.${stationNumber}.stationComplete`, true)
+  }
+
+  $: if (markRealStation){
+    saveValue(`stations.${stationNumber}.realStation`, STATION)
+  }
 
   $: dialogueText = injectAvatarInfo($_(textPath));
   function injectAvatarInfo(str) {

@@ -11,6 +11,7 @@
     SHOW_PAGES: 1,
     SHOW_CONTINUE: 2,
     SHOW_COMPLETE: 3,
+    SHOW_GAME_OVER: 4
   };
   let state = STATES.SHOW_PAGES;
 
@@ -49,7 +50,9 @@
     const lastPageNotEqualToFirstPage = Boolean(pageList[0].props.textPath != $userData.stations[firstPageStationNumber].lastPage)
     const partlyComplete = Boolean(lastPageExists && lastPageNotEqualToFirstPage)
 
-    if ($userData.stations[STATION].stationComplete) {
+    if ($userData.stations[5].stationComplete){
+      return STATES.SHOW_GAME_OVER
+    } if ($userData.stations[STATION].stationComplete) {
       return STATES.SHOW_COMPLETE;
     } else if (partlyComplete) {
       return STATES.SHOW_CONTINUE;
@@ -72,5 +75,11 @@
 {:else if state === STATES.SHOW_CONTINUE}
   <ContinuePage continuePageIndex={continuePageIndex} bind:pageIndex on:exit={() => {state = STATES.SHOW_PAGES; clearTimeout(timeout)}} />
 {:else if state === STATES.SHOW_COMPLETE}
-  <InfoPage textPath={"station-complete"} />
+    {#if STATION == 0 && $userData.stations[0].realStation != 0 }
+      <InfoPage textPath={"intro-completed-elsewhere"} />
+    {:else}
+      <InfoPage textPath={"station-complete"} />
+    {/if}
+{:else if state === STATES.SHOW_GAME_OVER}
+  <InfoPage textPath={"game-over"} />
 {/if}
