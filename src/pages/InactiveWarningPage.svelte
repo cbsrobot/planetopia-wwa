@@ -22,6 +22,11 @@
 
   .bubble-container {
     width: 1100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
   }
 
 </style>
