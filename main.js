@@ -110,8 +110,22 @@ function createWindow() {
   //})
 
   ipcMain.on("sendEmail", (event, params) => {
-    createPdf(params, () =>{
+    createPdf(params, () => {
+      params.mailOptions.attachments = [{   // file on disk as an attachment
+        filename: "Planetopia.pdf",
+        path: `${tempdir}/wwa.pdf`
+      }]
       sendEmail(params);
+      
+      if (params.newsletter) {
+        // override Email options
+        // keep the order !
+        params.mailOptions.html = `<p>Schönen Guten Tag<br /><br />${params.mailOptions.to} interessiert sich für den Newsletter. <br /><br />Liebe Grüsse aus Planetopia</p>`
+        params.mailOptions.to = "communication@mfk.ch"
+        params.mailOptions.subject = "Newsletter Abo aus Planetopia"
+        delete params.mailOptions.attachments
+        sendEmail(params);
+      }
       event.returnValue = "email_was_sent"
     });
   });
@@ -281,11 +295,6 @@ function sendEmail(params) {
     console.info(`Email address was overriden by env variable with ${process.env.EMAIL_TO}`)
   }
   
-  params.mailOptions.attachments = [{   // file on disk as an attachment
-    filename: "Planetopia.pdf",
-    path: `${tempdir}/wwa.pdf`
-  }]
-
   transporter.sendMail(params.mailOptions, function (err, info) {
     if (err) { 
       reportError("Sending email failed")
