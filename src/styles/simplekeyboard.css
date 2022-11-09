@@ -84,12 +84,15 @@
     background: rgba(5, 25, 70, 0.53);
     color: #fff;
   }
+  .hg-theme-planetopia .hg-button.hg-functionBtn[data-skbtn="{bksp}"] {
+    max-width: 142px;
+  }
   .hg-theme-planetopia .hg-button.hg-standardBtn[data-skbtn=".com"] {
-    max-width: 82px;
+    max-width: 142px;
   }
   .hg-theme-planetopia .hg-button.hg-standardBtn[data-skbtn=".ch"] {
-    max-width: 82px;
+    max-width: 142px;
   }
   .hg-theme-planetopia .hg-button.hg-standardBtn[data-skbtn="@"] {
-    max-width: 80px;
+    max-width: 142px;
   }

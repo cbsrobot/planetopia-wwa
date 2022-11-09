@@ -4,8 +4,8 @@
   
   import { onMount } from "svelte";
   
+  import Bubble from "../components/Bubble.svelte";
   import Navigation from "../components/Navigation.svelte";
-  import WwaImage from "../components/WwaImage.svelte";
   import { userData } from "../modules/DataManager";
   import { _ } from "../modules/i18n.js";
 
@@ -29,13 +29,17 @@
       theme: "hg-theme-planetopia",
       layout: {
         default: [
-          "` 1 2 3 4 5 6 7 8 9 0 - = _ {bksp}",
-          "q w e r t y u i o p { } ! ? | \\",
-          "a s d f g h j k l ; ' ~ $ & ^ #",
-          "z x c v b n m , . / % * +",
-          "@ {space} .com .ch",
-        ],
+          "1 2 3 4 5 6 7 8 9 0 ! ? {bksp}",
+          "q w e r t z u i o p { } %",
+          "a s d f g h j k l ; _ & #",
+          "y x c v b n m , . - * + =",
+          "{space} @ .com .ch",
+        ]
       },
+      display: {
+        '{bksp}': '⌫',
+        '{space}': ' ',
+      }
     });
     document.querySelector(".input").focus();
   });
@@ -80,81 +84,69 @@
   // TODO add Newsletter option
 </script>
 
-<Navigation bind:pageIndex on:nextClicked={handleNextClicked} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral} />
-<img id="bubble" alt="bubble" src="assets/bubble_small.svg" />
+
+<div class="navigation">
+  <Navigation bind:pageIndex on:nextClicked={handleNextClicked} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral} stationHidden={stationHidden} />
+</div>
 
 <div class="content">
-  <p class="question">{$_(textPath, "question")}</p>
-  <div class="answer-container">
+  <div class="bubble-container">
+    <Bubble text={$_(textPath, "question")} />
+  </div>
+  <div class="input-container">
     <input type="input" class="input" placeholder={$_(textPath, "textField")} />
   </div>
-  <div class="simple-keyboard-container">
-    <div class="simple-keyboard" />
-  </div>
+</div>
+<div class="simple-keyboard-container">
+  <div class="simple-keyboard" />
 </div>
 
 <style>
-  #avatar {
-    position: absolute;
-    top: 250px;
-    left: 0;
-    width: 400px;
-  }
-  #bubble {
-    position: absolute;
-    top: 200px;
-    left: 320px;
-    width: 1060px;
-  }
-
   .content {
     /* position: absolute; */
     /* top: 20px; */
     width: 70%;
-    height: 60%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     z-index: 2;
   }
-  .question {
-    display: block;
-    text-align: left;
-    font-size: 52px;
-    width: 900px;
+  .bubble-container {
+    width: 1000px
   }
-
-  .answer-container {
-    position: absolute;
-    top: 310px;
-    left: 285px;
-    display: block;
+  .input-container {
     width: 60%;
+    background-image: url("/assets/bubble-base.svg");
+    margin: 1em
   }
-
-  p {
-    margin-top: 0;
-  }
-
   input {
-    border-radius: 40px;
     padding: 0.4em 0.8em;
     width: 23em;
+    border: 0px solid #FFF;
+    margin: 0.9em 0;
   }
 
   :focus-visible {
     outline: none;
   }
-
+  .navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 650px;
+    width: 1920px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .simple-keyboard-container {
     position: absolute;
-    left: 260px;
-    top: 460px;
-    width: 1200px;
-    box-shadow: rgb(0 0 0 / 20%) 20px 20px 30px;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
   }
-
   *, *:before, *:after {
     box-sizing: border-box;
   }
