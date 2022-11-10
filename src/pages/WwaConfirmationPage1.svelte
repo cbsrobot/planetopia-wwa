@@ -30,7 +30,7 @@
   </div>
   {#if showButtons}
     <div out:fly|local={{duration: 600}} class="buttons-container">
-      <Button no text={$_("5.wwaConfirmation4", "rethink")} on:click={() => {pageIndex -= 2 }} handwritten={false} />
+      <Button no text={$_("5.wwaConfirmation4", "rethink")} on:click={() => {pageIndex -= 1 }} handwritten={false} />
       <Button yes text={$_("5.wwaConfirmation4", "accept")} on:click={handleConfirmClick} handwritten={false} />
     </div>
   {/if}
@@ -40,17 +40,21 @@
 <style>
   .content{
     position: absolute;
-    width: 1000px;
-    top:350px;
-    left: 100px;
+    width: 960px;
+    height: 450px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 140px;
   }
 
   .buttons-container{
     margin-top: 30px;
     box-sizing: border-box;
-    padding-right: 50px;
+    padding-right: 40px;
     display: flex;
-    justify-content: end;
-    width: 100%;
+    justify-content:flex-end;
+    width: 95%;
+    margin-left: auto; 
+    margin-right: 0;
   }
 </style>
