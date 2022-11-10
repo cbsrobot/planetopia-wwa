@@ -1,5 +1,5 @@
 const API_URL = process.env.IS_PROD === "true" ? process.env.API_URL : process.env.ALT_API_URL;
-const FETCH_TIMEOUT = 1; // in seconds
+const FETCH_TIMEOUT = 2.0; // in seconds
 
 import { writable, derived, readable } from "svelte/store";
 import { _, setLocale, resetLocale, locale } from "./i18n.js";
