@@ -8,7 +8,7 @@
   export let textPath;
   export let showInsectNames = true;
 
-  $: avatarNr = $userData.avatar;
+  $: avatarNr = $userData?.avatar;
   $: name = $_(`insect${avatarNr}.name`);
   $: scientificName = $_(`insect${avatarNr}.scientificName`);
   $: showScientificName = !name.includes(scientificName);

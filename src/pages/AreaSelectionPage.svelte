@@ -23,8 +23,8 @@
 
   let points = null  
   // Convert points from database back to selected index
-  $: if (questionNumber in $userData.stations[stationNumber].questions) {
-      points = parseInt($userData.stations[stationNumber].questions[questionNumber])
+  $: if (questionNumber in $userData?.stations[stationNumber].questions) {
+      points = parseInt($userData?.stations[stationNumber].questions[questionNumber])
       const answerIndex = answers.findIndex((a) => a.points === points);
       selected = (answerIndex < 0) ? null : answerIndex;
     }

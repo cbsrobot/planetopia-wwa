@@ -26,8 +26,8 @@
 
   let points = null
   // Convert points from database back to selected index
-  $: if (questionNumber in $userData.stations[stationNumber].questions) {
-      points = parseInt($userData.stations[stationNumber].questions[questionNumber])
+  $: if (questionNumber in $userData?.stations[stationNumber].questions) {
+      points = parseInt($userData?.stations[stationNumber].questions[questionNumber])
       const answerIndex = answers.findIndex((a) => a.points === points);
       selected = (answerIndex < 0) ? null : answerIndex;
     }
@@ -46,7 +46,7 @@
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
-    const points = parseInt($userData.stations[stationNumber].questions[questionNumber]);
+    const points = parseInt($userData?.stations[stationNumber].questions[questionNumber]);
     const answerIndex = answers.findIndex((a) => a.points === points);
     const selected = (answerIndex < 0) ? null : answerIndex;
     if (selected != null && selected > 1) {
@@ -58,12 +58,12 @@
   function modifyTextPath(textPath) {
     const level_mapping = ["hard", "medium", "easy"]
     const area_mapping = ["clothes", "living", "mobility", "food", "special"]
-    let selected_area = $userData.stations[stationNumber].questions[1] //TODO: do not hardcode
+    let selected_area = $userData?.stations[stationNumber].questions[1] //TODO: do not hardcode
     let sum = 0
     let level = 2
-    let answered_count = Object.keys($userData.stations[selected_area].questions).length
+    let answered_count = Object.keys($userData?.stations[selected_area].questions).length
     if (answered_count) {
-      for (const value of Object.values($userData.stations[selected_area].questions)){
+      for (const value of Object.values($userData?.stations[selected_area].questions)){
         sum += value
       }
       let max_points = 4 * answered_count

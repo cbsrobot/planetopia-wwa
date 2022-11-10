@@ -7,7 +7,7 @@
 
   let colors = ["", "#30EFC1", "#9BEF30", "#D4EF30", "#EFC530"];
 
-  let questions = Object.values($userData.stations[area].questions)
+  let questions = Object.values($userData?.stations[area].questions)
   let sum = questions.reduce((a,b) => a+b, 0)
   let average = sum / questions.length
   let score = 15 - average * 5
