@@ -24,6 +24,10 @@
     saveValue(`stations.${stationNumber}.realStation`, STATION)
   }
 
+  // On last page of station 5: jump back 2 pages on back button click
+  let backIncrement = -1;
+  $: if(stationNumber == 5 && pageIndex == totalPages - 1) backIncrement = -2;
+
   $: dialogueText = injectAvatarInfo($_(textPath));
   function injectAvatarInfo(str) {
     const re = /#(\d)/i;
@@ -33,7 +37,7 @@
   }
 </script>
 
-<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath}/>
+<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath} {backIncrement};/>
 <img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData?.avatar}.jpg" />
 <div class="bubble-container">
   <Bubble text={dialogueText}/>
