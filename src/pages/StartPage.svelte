@@ -4,7 +4,7 @@
   import { STATION } from "../modules/DataManager";
 
   
-  $: imagePath = `assets/start-background-${STATION}.png`
+  $: imagePath = `assets/start-background-${STATION}.avif`
   $: text = getText(STATION)
 
   function getText(station){
