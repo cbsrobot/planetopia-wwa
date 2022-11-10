@@ -11,7 +11,7 @@
 
 <div class="wwa">
   {#if attested}
-    <img in:fly class="attested-stamp" src="assets/attested-stamp.png" alt="" />
+    <img in:fly|local={{duration: 2000}} class="attested-stamp" src="assets/attested-stamp.png" alt="" />
   {/if}
   <img class="background" src="assets/wwa-paper-texture.jpg" alt="" />
   <img class="stamp" src="assets/wwa-stamp.jpg" alt="" />

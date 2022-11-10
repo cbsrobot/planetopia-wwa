@@ -29,7 +29,7 @@
     <Bubble text={$_(textPath)} />
   </div>
   {#if showButtons}
-    <div out:fly={{duration: 500}} class="buttons-container">
+    <div out:fly|local={{duration: 600}} class="buttons-container">
       <Button no text={$_("5.wwaConfirmation4", "rethink")} on:click={() => {pageIndex -= 2 }} handwritten={false} />
       <Button yes text={$_("5.wwaConfirmation4", "accept")} on:click={handleConfirmClick} handwritten={false} />
     </div>

@@ -59,7 +59,7 @@
 
 <div class="container bottom">
 {#if !nextHidden && pageIndex < totalPages - 1}
-  <div in:fly>
+  <div in:fly|local={{duration: 1000, delay: 800}}>
     <Button next on:click={handleNextClick} disabled={disableNext} />
   </div>
 {/if}
