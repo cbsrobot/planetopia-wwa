@@ -50,19 +50,17 @@
     }
   }
 
-  // TODO: Remove logs and uncomment last line
+  // TODO: Remove logs
   let continuePageIndex = 0;
   function setContinueIndex() {
     console.log("continueIndexRequested")
     console.log("pageList", pageList);
     const firstPageStationNumber = pageList[0].props.stationNumber;
-    console.log("firstPageStationNumber", firstPageStationNumber);
     const lastPageId = $userData.stations[firstPageStationNumber].lastPage;
     console.log("lastPageId", lastPageId);
     const lastPageIndex = pageList.findIndex((page) => page.props.textPath == lastPageId);
     console.log("lastPageIndex", lastPageIndex);
-    continuePageIndex = lastPageIndex;
-    // if (lastPageIndex >= 0) continuePageIndex = lastPageIndex; 
+    if (lastPageIndex >= 0) continuePageIndex = lastPageIndex; 
   }
 </script>
 
