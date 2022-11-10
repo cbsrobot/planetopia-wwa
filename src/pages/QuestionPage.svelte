@@ -2,7 +2,8 @@
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
   import { shuffleArray } from "../modules/PageUtils";
-  import { userData, saveValue } from "../modules/DataManager";
+  import { saveValue, userData } from "../modules/DataManager";
+  // import { userData } from "../modules/PageUtils";
   import { _ } from "../modules/i18n";
   import Bubble from "../components/Bubble.svelte";
 
@@ -24,8 +25,8 @@
 
   let points = null
   // Convert points from database back to selected index
-  $: if (questionNumber in $userData.stations[stationNumber].questions) {
-      points = parseInt($userData.stations[stationNumber].questions[questionNumber])
+  $: if (questionNumber in $userData?.stations[stationNumber].questions) {
+      points = parseInt($userData?.stations[stationNumber].questions[questionNumber])
       const answerIndex = answers.findIndex((a) => a.points === points);
       selected = (answerIndex < 0) ? null : answerIndex;
     }
@@ -47,8 +48,8 @@
   $: if($userData && syncIsPending()) saveQuestionsComplete();
   function saveQuestionsComplete(){
     syncPending = false;
-    console.log("questions.length", Object.values($userData.stations[stationNumber].questions).length);
-    if(Object.values($userData.stations[stationNumber].questions).length >= 5) {
+    console.log("questions.length", Object.values($userData?.stations[stationNumber].questions).length);
+    if(Object.values($userData?.stations[stationNumber].questions).length >= 5) {
       saveValue(`stations.${stationNumber}.questionsComplete`, true)
     }
   }

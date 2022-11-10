@@ -16,7 +16,7 @@
   export let markRealStation = false;
 
   let overlayOpen = false;
-  $: avatarNr = $userData.avatar;
+  $: avatarNr = $userData?.avatar;
   $: overlayTextPath = `${stationNumber}.insect${avatarNr}`
 
   function getLaudationTextPath(){
@@ -44,7 +44,7 @@
 </script>
 
 <Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath}/>
-<img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData.avatar}.jpg" />
+<img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData?.avatar}.jpg" />
 <div class="bubble-container">
   <Bubble text={dialogueText}/>
 </div>

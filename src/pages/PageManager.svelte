@@ -35,13 +35,13 @@
 
   function getState() {
     const firstPageStationNumber = pageList[0].props.stationNumber;
-    const lastPageExists = Boolean($userData.stations[firstPageStationNumber].lastPage)
-    const lastPageNotEqualToFirstPage = Boolean(pageList[0].props.textPath != $userData.stations[firstPageStationNumber].lastPage)
+    const lastPageExists = Boolean($userData?.stations[firstPageStationNumber].lastPage)
+    const lastPageNotEqualToFirstPage = Boolean(pageList[0].props.textPath != $userData?.stations[firstPageStationNumber].lastPage)
     const partlyComplete = Boolean(lastPageExists && lastPageNotEqualToFirstPage)
 
-    if ($userData.stations[5].stationComplete){
+    if ($userData?.stations[5].stationComplete){
       return STATES.SHOW_GAME_OVER
-    } if ($userData.stations[STATION].stationComplete) {
+    } if ($userData?.stations[STATION].stationComplete) {
       return STATES.SHOW_COMPLETE;
     } else if (partlyComplete) {
       return STATES.SHOW_CONTINUE;
@@ -56,7 +56,7 @@
     console.log("continueIndexRequested")
     console.log("pageList", pageList);
     const firstPageStationNumber = pageList[0].props.stationNumber;
-    const lastPageId = $userData.stations[firstPageStationNumber].lastPage;
+    const lastPageId = $userData?.stations[firstPageStationNumber].lastPage;
     console.log("lastPageId", lastPageId);
     const lastPageIndex = pageList.findIndex((page) => page.props.textPath == lastPageId);
     console.log("lastPageIndex", lastPageIndex);
@@ -69,7 +69,7 @@
 {:else if state === STATES.SHOW_CONTINUE}
   <ContinuePage continuePageIndex={continuePageIndex} bind:pageIndex on:exit={() => {state = STATES.SHOW_PAGES; clearTimeout(timeout)}} />
 {:else if state === STATES.SHOW_COMPLETE}
-    {#if STATION == 0 && $userData.stations[0].realStation != 0 }
+    {#if STATION == 0 && $userData?.stations[0].realStation != 0 }
       <InfoPage textPath={"intro-completed-elsewhere"} />
     {:else}
       <InfoPage textPath={"station-complete"} />

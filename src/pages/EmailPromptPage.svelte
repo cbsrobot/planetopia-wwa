@@ -71,11 +71,11 @@
         subject: "Planetopia",
         html: `<p>${$_("email", "").replace(/(?:\r\n|\r|\n)/g, "<br>")}</p>`,
       },
-      "avatar": $userData.avatar,
-      "wwaText": $userData.wwa.text,
-      "areaText": $userData.wwa.areaText,
+      "avatar": $userData?.avatar,
+      "wwaText": $userData?.wwa.text,
+      "areaText": $userData?.wwa.areaText,
       "wwaNumber": "D - 000001", //TODO: fix it
-      "language": $userData.language,
+      "language": $userData?.language,
       "newsletter": document.querySelector(".newsletter-input").checked
     });
     //TODO: should it bubble up 
