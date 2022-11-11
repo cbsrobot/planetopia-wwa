@@ -5,6 +5,7 @@
   import Bubble from "../components/Bubble.svelte";
   import Button from "../components/Button.svelte";
   import { fly } from 'svelte/transition';
+  import { userData, incrementCounter } from "../modules/DataManager";
 
   export let textPath;
   export let pageIndex, totalPages;
@@ -19,6 +20,7 @@
     nextHidden = false;
     showButtons = false;
     showAttestedStamp = true;
+    incrementCounter(`${$userData.wwa.textPath}`)
   }
 </script>
 
