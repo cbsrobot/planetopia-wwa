@@ -7,7 +7,7 @@ export function shuffleArray(array) {
 }
 
 export function wwaNumberFormatter(s){
-  return `D - ${String(s).padStart(8, '0')}`
+  return `D - ${String(s).padStart(6, '0')}`
 }
 
 import { writable } from "svelte/store";
