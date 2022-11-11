@@ -7,6 +7,11 @@
   import ContinuePage from "./ContinuePage.svelte";
   import { onDestroy } from "svelte";
 
+  export function getStateDescription(){
+    const stateDescriptions = ["", "NORMAL_PAGE", "CONTINUE_PAGE", "COMPLETE_PAGE", "GAME_OVER_PAGE"]
+    return `${stateDescriptions[state]}, ${pageIndex + 1}/${totalPages}, ${activePage?.props.textPath}`;
+  }
+
   const STATES = {
     SHOW_PAGES: 1,
     SHOW_CONTINUE: 2,
@@ -17,7 +22,7 @@
 
   let timeout;
   $: if (state > 1) {
-    timeout = setTimeout(() => {logOut()}, RETURN_TIMEOUT * 1000);
+    timeout = setTimeout(() => {logOut("INFO_PAGE_TIMEOUT, " + getStateDescription())}, RETURN_TIMEOUT * 1000);
   }
   onDestroy(() => clearTimeout(timeout));
 

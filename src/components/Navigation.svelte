@@ -34,7 +34,7 @@
   // TODO: Coordinate behaviour with revisit -> UX Testing
   function handleHomeClick(){
     console.log("handleHomeClick logOut")
-    logOut();
+    logOut("HOME_CLICK, " + getStateDescription());
   }
 
   function handleNextClick() {
@@ -43,8 +43,12 @@
   }
 
   function handleEndClick() {
-    logOut()
+    logOut("END_CLICK, " + getStateDescription())
     dispatch("endClicked");
+  }
+
+  function getStateDescription(){
+    return `NORMAL_PAGE, ${pageIndex + 1}/${totalPages}, ${pageID}`;
   }
 </script>
 

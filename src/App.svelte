@@ -17,17 +17,19 @@
   const SHOW_DEV_BAR = ! IS_PROD;
 
   // Log out after specified timeout
-  $: if ($loggedIn && $inactiveTime >= TIMEOUT_RESET) { console.log("inactiveTime logOut"); logOut();}
+  $: if ($loggedIn && $inactiveTime >= TIMEOUT_RESET) { console.log("inactiveTime logOut"); logOut("INACTIVE_TIMEOUT, " + pageManager?.getStateDescription());}
 
   // Dismiss error message after specified time
   let errorTimeout;
   $: if($showError) errorTimeout = setTimeout(() => { $showError = false }, ERROR_TIMEOUT * 1000);
 
+  let pageManager;
+
 </script>
 
 <main on:click={interactionDetected} on:mousedown={interactionDetected} class:selectable-text = { ! IS_PROD }>
   {#if $loggedIn}
-    <PageManager/>
+    <PageManager bind:this={pageManager}/>
   {:else}
     <LogInManager/>
   {/if}
