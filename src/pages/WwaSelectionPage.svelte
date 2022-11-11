@@ -1,7 +1,7 @@
 <script>
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
-  import { userData, saveValue } from "../modules/DataManager";
+  import { userData, saveValue, globalData } from "../modules/DataManager";
   import Bubble from "../components/Bubble.svelte";
 
   import { _ } from "../modules/i18n.js";
@@ -13,6 +13,7 @@
   export let selected = null;
 
   let textPathDetailed = modifyTextPath(textPath)
+
   let answers = [
     { textKey: "answer0", points: 0 },
     { textKey: "answer1", points: 1 },
@@ -21,6 +22,10 @@
     { textKey: "answer4", points: 4 },
   ];
   shuffleArrayBiased(answers);
+
+  let textCounter1 = ""
+  let textCounter2 = ""
+  updateTextCounter()
 
   $: neutral = selected === null ? true : false;
 
@@ -36,6 +41,14 @@
       saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
       saveValue("wwa.textPath", `${textPathDetailed}.${answers[selected].textKey}`)
       saveValue("wwa.text", $_(textPathDetailed, answers[selected].textKey))
+  }
+
+  function updateTextCounter(){
+    let t = $_(textPath, "count")
+    let count1 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[0].textKey}`] || 0
+    let count2 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[1].textKey}`] || 0
+    textCounter1 = t.replace("##", count1)
+    textCounter2 = t.replace("##", count2)
   }
 
   // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -88,6 +101,10 @@
       text={$_(textPathDetailed, answers[1].textKey)}
     />
   </div>
+  <div class="answer-container">
+    <div class="counter">{textCounter1}</div>
+    <div class="counter">{textCounter2}</div>
+  </div>
 </div>
 
 <style>
@@ -112,6 +129,14 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+  }
+  .counter {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 1rem;
   }
 
 </style>
