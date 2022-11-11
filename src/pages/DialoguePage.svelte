@@ -4,11 +4,8 @@
   import { _ } from "../modules/i18n.js";
   import Bubble from "../components/Bubble.svelte";
   import { userData, saveValue, STATION } from "../modules/DataManager";
-  
-  export let changeTextToLaudation = false;
 
   export let textPath;
-  $: adjustedTextPath = changeTextToLaudation ? getLaudationTextPath() : textPath;
   export let pageIndex, totalPages;
   export let stationNumber;
 
@@ -19,13 +16,6 @@
   $: avatarNr = $userData?.avatar;
   $: overlayTextPath = `${stationNumber}.insect${avatarNr}`
 
-  function getLaudationTextPath(){
-    let selectedArea = $userData.stations[STATION].questions[1]; // Hard coded path to selected area answer
-    let options = ["5.dialogueClothes", "5.dialogueLiving", "5.dialogueMobility", "5.dialogueFood", "5.dialogueSpecial", "5.dialogueGeneral"];
-    return options[selectedArea]
-  }
-  
-
   $: if (markComplete) {
     saveValue(`stations.${stationNumber}.stationComplete`, true)
   }
@@ -34,7 +24,11 @@
     saveValue(`stations.${stationNumber}.realStation`, STATION)
   }
 
-  $: dialogueText = injectAvatarInfo($_(adjustedTextPath));
+  // On last page of station 5: jump back 2 pages on back button click
+  let backIncrement = -1;
+  $: if(stationNumber == 5 && pageIndex == totalPages - 1) backIncrement = -2;
+
+  $: dialogueText = injectAvatarInfo($_(textPath));
   function injectAvatarInfo(str) {
     const re = /#(\d)/i;
     const match = str.match(re);
@@ -43,7 +37,7 @@
   }
 </script>
 
-<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath}/>
+<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath} {backIncrement};/>
 <img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData?.avatar}.jpg" />
 <div class="bubble-container">
   <Bubble text={dialogueText}/>
@@ -57,19 +51,21 @@
 <style>
   #avatar {
     position: absolute;
-    top: 250px;
-    left: 0;
-    width: 800px;
+    top: 260px;
+    left: 70px;
+    width: 900px;
+    clip-path: polygon(1% 0, 99% 2%, 100% 97%, 0 100%);
   }
+
   .bubble-container {
     display: block;
     position: absolute;
     text-align: left;
 
     top: 270px;
-    left: 700px;
-    width: 1100px;
-    height: 500px;
+    left: 850px;
+    width: 1050px;
+    height: 580px;
 
     display: flex;
     flex-direction: column;

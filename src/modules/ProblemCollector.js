@@ -4,9 +4,12 @@ import { writable, derived } from "svelte/store";
 const { ipcRenderer } = require("electron");
 const path = require("path");
 
-const logger = require("electron-log");
-// https://github.com/megahertz/electron-log
+// Simple electron logger from https://github.com/megahertz/electron-log
 // Logs can be found on the desktop
+const logger = require("electron-log");
+
+// Library that gets information about latest commit
+const git = require('git-last-commit');
 
 // Exports for UI error window
 export const showError = writable(false);
@@ -98,4 +101,7 @@ function logToNetworkFile(message) {
 }
 logToNetworkFile("Computer started")
 
-
+// Log latest commit in oder to see if a station did not update
+git.getLastCommit(function(err, commit) {
+  logToNetworkFile(`Software version (git): ${commit.shortHash}, "${commit.subject}"`)
+});
