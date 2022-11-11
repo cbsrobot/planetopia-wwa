@@ -3,7 +3,6 @@ import QuestionPage from "../pages/QuestionPage.svelte";
 import AreaSelectionPage from "../pages/AreaSelectionPage.svelte";
 import WwaSelectionPage from "../pages/WwaSelectionPage.svelte";
 import WwaConfirmationPage1 from "../pages/WwaConfirmationPage1.svelte";
-import WwaConfirmationPage2 from "../pages/WwaConfirmationPage2.svelte";
 import EmailAcceptPage from "../pages/EmailAcceptPage.svelte";
 import EmailPromptPage from "../pages/EmailPromptPage.svelte";
 import ResultPage from "../pages/ResultPage.svelte";
@@ -104,9 +103,7 @@ const evaluationCore = [
   { component: AreaSelectionPage, props: { textPath: "5.areaSelection1" } }, // question_id 1
   { component: DialoguePage, props: { textPath: "5.dialogue8" } },
   { component: WwaSelectionPage, props: { textPath: "5.wwaSelection2" } }, // question_id 2
-  // { component: DialoguePage, props: { textPath: "5", changeTextToLaudation: true } },
   { component: WwaConfirmationPage1, props: { textPath: "5.wwaConfirmation3" } },
-  // { component: WwaConfirmationPage2, props: { textPath: "5.wwaConfirmation4" } },
   { component: DialoguePage, props: { textPath: "5.dialogue9" } },
   { component: EmailAcceptPage, props: { textPath: "5.emailAccept5" } },
   { component: EmailPromptPage, props: { textPath: "5.emailPrompt6" } },
@@ -252,7 +249,6 @@ function addQuestionNumbersToProps(pageList) {
       || page.component == AreaSelectionPage
       || page.component == WwaSelectionPage
       || page.component == WwaConfirmationPage1
-      || page.component == WwaConfirmationPage2
       || page.component == EmailAcceptPage
     ) {
       page.props.questionNumber = parseInt(page.props.textPath?.slice(-1));

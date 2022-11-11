@@ -12,7 +12,7 @@
   <span on:click={() => simulateLogIn("123")}>Log in with id "123"</span> | 
   <span on:click={() => simulateLogIn("567")}>Log in with id "567"</span> | 
   {loggedInFlag} {" RFID: " + $userData?.rfid} | 
-  <span on:click={() => { console.log("Log out Button logOut"); logOut()}}>Log out</span> | {text} |
+  <span on:click={() => { console.log("Log out Button logOut"); logOut("DEV_LOG_OUT_BUTTON")}}>Log out</span> | {text} |
   <span on:click={() => reportError("test error occured")}>Show error</span> |
 </div>
 

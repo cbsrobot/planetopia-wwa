@@ -3,6 +3,8 @@
   import Selectable from "../components/Selectable.svelte";
   import { userData, saveValue, globalData } from "../modules/DataManager";
   import Bubble from "../components/Bubble.svelte";
+  import Button from "../components/Button.svelte";
+  import { fly } from 'svelte/transition';
 
   import { _ } from "../modules/i18n.js";
 
@@ -12,8 +14,9 @@
   export let stationNumber, questionNumber;
   export let selected = null;
 
-  let textPathDetailed = modifyTextPath(textPath)
+  let showMore = false;
 
+  let textPathDetailed = modifyTextPath(textPath);
   let answers = [
     { textKey: "answer0", points: 0 },
     { textKey: "answer1", points: 1 },
@@ -29,13 +32,15 @@
 
   $: neutral = selected === null ? true : false;
 
-  let points = null
+  let points = null;
   // Convert points from database back to selected index
   $: if (questionNumber in $userData?.stations[stationNumber].questions) {
-      points = parseInt($userData?.stations[stationNumber].questions[questionNumber])
-      const answerIndex = answers.findIndex((a) => a.points === points);
-      selected = (answerIndex < 0) ? null : answerIndex;
-    }
+    points = parseInt(
+      $userData?.stations[stationNumber].questions[questionNumber]
+    );
+    const answerIndex = answers.findIndex((a) => a.points === points);
+    selected = answerIndex < 0 ? null : answerIndex;
+  }
 
   $: if (selected != null) {
       saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
@@ -57,12 +62,14 @@
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
-    const points = parseInt($userData?.stations[stationNumber].questions[questionNumber]);
+    const points = parseInt(
+      $userData?.stations[stationNumber].questions[questionNumber]
+    );
     const answerIndex = answers.findIndex((a) => a.points === points);
-    const selected = (answerIndex < 0) ? null : answerIndex;
+    const selected = answerIndex < 0 ? null : answerIndex;
     if (selected != null && selected > 1) {
       // place the previousely selected item at the beginning
-      [array[0], array[selected]] = [array[selected], array[0]]
+      [array[0], array[selected]] = [array[selected], array[0]];
     }
   }
 
@@ -76,14 +83,19 @@
     //console.debug(textPath)
     return textPath
   }
-
 </script>
 
-<Navigation bind:pageIndex={pageIndex} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
+<Navigation
+  bind:pageIndex
+  {totalPages}
+  station={stationNumber}
+  pageID={textPath}
+  disableNext={neutral}
+/>
 
 <div class="content">
   <div class="bubble-container">
-    <Bubble text={$_(textPath)}/>
+    <Bubble text={$_(textPath)} />
   </div>
   <div class="answer-container">
     <Selectable
@@ -101,6 +113,31 @@
       text={$_(textPathDetailed, answers[1].textKey)}
     />
   </div>
+
+  {#if showMore}
+    <div in:fly|local={{duration: 600, delay:0}} class="answer-container">
+      <Selectable
+        on:click={() => {
+          selected = 2;
+        }}
+        selected={selected == 2}
+        text={$_(textPathDetailed, answers[2].textKey)}
+      />
+      <Selectable
+        on:click={() => {
+          selected = 3;
+        }}
+        selected={selected == 3}
+        text={$_(textPathDetailed, answers[3].textKey)}
+      />
+    </div>
+  {/if}
+  {#if ! showMore}
+    <div class="button-wrapper">
+      <Button plain_secondary more on:click={() => { showMore = true}} handwritten={false}/>
+    </div>
+  {/if}
+  
   <div class="answer-container">
     <div class="counter">{textCounter1}</div>
     <div class="counter">{textCounter2}</div>
@@ -121,7 +158,7 @@
 
   .bubble-container {
     width: 1100px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
 
   .answer-container {
@@ -139,4 +176,7 @@
     margin: 1rem;
   }
 
+  .button-wrapper{
+    margin-top: 40px;
+  }
 </style>

@@ -27,13 +27,10 @@ dialogueEndA,"Ssssssuper, vielen Dank! Bis zur nächsten Station.","Ssssssuper, 
 dialogueEndB,Das ging ja fix! Ich freue mich schon auf die nächste Fragerunde. Bis bald!,C’est allé vite! Je me réjouis déjà de te revoir pour la prochaine série de questions. À toute!,That was quick! I look forward to the next round of questions. See you soon!,,
 dialogueEndAllComplete1,"Jetzt hast du alle meine Fragen beantwortet. War doch gar nicht so schlimm, oder?","Tu as répondu à toutes mes questions. C’était pas si dur, ou bien?","You have answered all my questions. That wasn’t so bad, was it?",,
 dialogueEndAllComplete2,"Bei der letzten Station erfährst du, was du für die Umwelt tun kannst. Das wird super, ich schwör’s!","À la dernière station, tu apprendras ce que tu peux faire pour l’environnement. Promis-juré, c’était super!","At the last terminal you will find out what you can do for the environment. It will be great, I promise!",,
-dialogueEndAllComplete3,"Gut, bis zur nächsten Station.
-Tschüss!","On se voit à la prochaine station, tchao!","OK, see you at the next terminal. Bye!",,
+dialogueEndAllComplete3,"Gut, bis zur nächsten Station. Tschüss!","On se voit à la prochaine station, tchao!","OK, see you at the next terminal. Bye!",,
+picture-copyright,Foto: Thomas Marent (www.thomasmarent.com),Photo: Thomas Marent (www.thomasmarent.com),Photo: Thomas Marent (www.thomasmarent.com),,
 ,,,,,
-0.dialogue1,"Hallo, herzlich willkommen auf Planetopia.
-Ich begleite dich durch die Ausstellung.","Hello, bienvenue sur Planetopia.
-Je vais t’accompagner à travers l’exposition.","Hello, welcome to Planetopia.
-I will guide you through the exhibition.",,
+0.dialogue1,"Hallo, herzlich willkommen auf Planetopia. Ich begleite dich durch die Ausstellung.","Hello, bienvenue sur Planetopia. Je vais t’accompagner à travers l’exposition.","Hello, welcome to Planetopia. I will guide you through the exhibition.",,
 0.dialogue2,Erkennst du mich? #0,Tu me reconnais? #0,Do you recognise me? #0,,
 0.dialogue3,"Ja, ich weiss, wir Insekten nerven manchmal ein bisschen. Aber wir sind auch sehr nützlich.","Oui, je sais, nous les insectes sommes parfois énervants. Mais nous sommes aussi très utiles.","I know, insects like me can be a bit of a nuisance. But we have our uses too.",,
 0.dialogue4,"Wir bestäuben Pflanzen, damit Früchte und Samen entstehen.",Nous pollinisons les plantes pour qu’elles produisent des fruits et des graines.,We pollinate plants to help them make fruits and seeds.,,

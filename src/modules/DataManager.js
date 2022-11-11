@@ -1,7 +1,7 @@
 const API_URL = process.env.IS_PROD === "true" ? process.env.API_URL : process.env.ALT_API_URL;
 const FETCH_TIMEOUT = 2.0; // in seconds
 
-import { writable, derived, readable } from "svelte/store";
+import { writable, derived } from "svelte/store";
 import { _, setLocale, resetLocale, locale } from "./i18n.js";
 import { reportError } from "./ProblemCollector.js";
 import { interactionDetected } from "./InteractionObserver.js"
@@ -68,7 +68,7 @@ function checkActive() {
     .then(data => {
         if(!data.active){
           console.log("checkActive logOut")
-          logOut();
+          logOut("ANOTHER_STATION_TOOK_OVER");
         } 
     })
     .catch(error => console.log("active check failed:", error));
@@ -81,7 +81,7 @@ function logIn(rfid) {
   // if it is a new rfid chip log out old chip
   if(currentRfid && rfid != currentRfid){
     console.log("logIn forced log out")
-    logOut(); 
+    logOut("LOG_IN_FORCED_LOG_OUT"); 
   }
 
   const body = {}
@@ -120,6 +120,7 @@ function logIn(rfid) {
       interactionDetected()
       cachedRfid = undefined;
       rfidCacheEnabled.set(false);
+      saveStats("LOG_IN")
       getGlobalValue();
     })
     .catch((error) => {
@@ -128,7 +129,8 @@ function logIn(rfid) {
     });
 }
 
-export function logOut() {
+export function logOut(details) {
+  saveStats("LOG_OUT", details)
   currentRfid = undefined
   loggedIn.set(false)
   _userData.set(undefined);
@@ -239,4 +241,34 @@ export function saveGlobalValue(key, value) {
       console.log(error)
       reportError("Saving failed: Could not connect to server")
     });
+}
+
+const ifs = require('os').networkInterfaces();
+const ipAdress = Object.keys(ifs)
+  .map(x => ifs[x].filter(x => x.family === 'IPv4' && !x.internal)[0])
+  .filter(x => x)[0]?.address;
+
+function saveStats(event, details){
+  const date = new Date();
+  const statsEntry = {event: event, details: details, station: STATION, time: date.toLocaleTimeString(), timestamp: date.toISOString(), ip: ipAdress};
+
+   // Abort request if it takes too long
+   const abortController = new AbortController();
+   setTimeout(() => abortController.abort(), FETCH_TIMEOUT * 1000);
+ 
+   var requestOptions = {
+     method: 'PUT',
+     headers: { "Content-Type": "application/json" },
+     signal: abortController.signal,
+     body: JSON.stringify({
+       statsEntry: statsEntry,
+     })
+   };
+ 
+   fetch(`${API_URL}/api/users/${currentRfid}/stats`, requestOptions)
+     .then(response => response.json())
+     .catch(error => {
+       console.log(error)
+       reportError("Saving stats failed: Could not connect to server")
+     });
 }

@@ -39,6 +39,9 @@
 
 <Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath} {backIncrement};/>
 <img id="avatar" on:click={() => overlayOpen = true} alt="Insect Avatar" src="assets/avatar/{$userData?.avatar}.jpg" />
+{#if pageIndex == 0}
+  <p id="copyright">{$_("picture-copyright")}</p>
+{/if}
 <div class="bubble-container">
   <Bubble text={dialogueText}/>
 </div>
@@ -55,6 +58,14 @@
     left: 70px;
     width: 900px;
     clip-path: polygon(1% 0, 99% 2%, 100% 97%, 0 100%);
+  }
+
+  #copyright{
+    position: absolute;
+    bottom: 175px;
+    left: 70px;
+    font-size: 16px;
+    transform: rotate(-1deg);
   }
 
   .bubble-container {
