@@ -28,6 +28,8 @@
 
   let textCounter1 = ""
   let textCounter2 = ""
+  let textCounter3 = ""
+  let textCounter4 = ""
   updateTextCounter()
 
   $: neutral = selected === null ? true : false;
@@ -52,8 +54,12 @@
     let t = $_(textPath, "count")
     let count1 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[0].textKey}`] || 0
     let count2 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[1].textKey}`] || 0
+    let count3 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[2].textKey}`] || 0
+    let count4 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[3].textKey}`] || 0
     textCounter1 = t.replace("##", count1)
     textCounter2 = t.replace("##", count2)
+    textCounter3 = t.replace("##", count3)
+    textCounter4 = t.replace("##", count4)
   }
 
   // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -113,6 +119,10 @@
       text={$_(textPathDetailed, answers[1].textKey)}
     />
   </div>
+  <div class="counter-container">
+    <div class="counter">{textCounter1}</div>
+    <div class="counter">{textCounter2}</div>
+  </div>
 
   {#if showMore}
     <div in:fly|local={{duration: 600, delay:0}} class="answer-container">
@@ -131,6 +141,10 @@
         text={$_(textPathDetailed, answers[3].textKey)}
       />
     </div>
+    <div class="counter-container">
+      <div class="counter">{textCounter3}</div>
+      <div class="counter">{textCounter4}</div>
+    </div>
   {/if}
   {#if ! showMore}
     <div class="button-wrapper">
@@ -138,10 +152,7 @@
     </div>
   {/if}
   
-  <div class="answer-container">
-    <div class="counter">{textCounter1}</div>
-    <div class="counter">{textCounter2}</div>
-  </div>
+  
 </div>
 
 <style>
@@ -167,13 +178,20 @@
     display: flex;
     flex-direction: row;
   }
+
+  .counter-container {
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
   .counter {
     display: flex;
-    width: 50%;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    margin: 1rem;
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 24px;
+    margin-top: -8px;
+    margin-left: 25px;
   }
 
   .button-wrapper{
