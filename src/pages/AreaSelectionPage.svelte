@@ -71,13 +71,15 @@
       selected={selected == 3}
       text={$_("4")}
     />
-    <Selectable
-      on:click={() => {
-        selected = 4;
-      }}
-      selected={selected == 4}
-      text={$_(textPath, "special")}
-    />
+    {#if ! $userData?.www?.level == "hard"}
+      <Selectable
+        on:click={() => {
+          selected = 4;
+        }}
+        selected={selected == 4}
+        text={$_(textPath, "special")}
+      />
+    {/if}
   </div>
 </div>
 
