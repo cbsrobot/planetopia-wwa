@@ -2,6 +2,7 @@
   import { _ } from "../modules/i18n.js";
   import Button from "../components/Button.svelte";
   import { createEventDispatcher } from "svelte";
+  import { userData } from "../modules/DataManager";
   const dispatch = createEventDispatcher();
 
   export let pageIndex;
@@ -22,7 +23,9 @@
 <div class="content">
   <h2>{$_("station-partly-complete")}</h2>
   <div class="button-container">
-    <Button text={$_("station-partly-complete.restart")} on:click={handleRestartClick} handwritten={false}/>
+    {#if ! $userData?.wwa?.confirmed}
+      <Button text={$_("station-partly-complete.restart")} on:click={handleRestartClick} handwritten={false}/>
+    {/if}
     <Button plain_primary text={$_("station-partly-complete.continue")} on:click={handleContinueClick} handwritten={false}/>
   </div>
 </div>
