@@ -5,7 +5,7 @@
   import Bubble from "../components/Bubble.svelte";
   import Button from "../components/Button.svelte";
   import { fly } from 'svelte/transition';
-  import { saveValue, userData } from "../modules/DataManager";
+  import { userData, incrementCounter, saveValue} from "../modules/DataManager";
 
   export let textPath;
   export let pageIndex, totalPages;
@@ -40,6 +40,7 @@
   }
 
   function handleConfirmClick(){
+    incrementCounter(`${$userData.wwa.textPath}`)
     state = STATES.CONFIRMED
     saveValue(`wwa.confirmed`, true)
   }

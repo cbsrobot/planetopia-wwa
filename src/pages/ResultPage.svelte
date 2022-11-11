@@ -7,7 +7,7 @@
 
   import Navigation from "../components/Navigation.svelte";
   import ResultItem from "../components/ResultItem.svelte";
-  import { userData } from "../modules/DataManager";
+  import { userData, saveValue } from "../modules/DataManager";
   // import { userData } from "../modules/PageUtils";
   import { _ } from "../modules/i18n";
   import p5 from "p5";
@@ -31,16 +31,29 @@
 
   let visData = [];
   console.log("userData", $userData);
+  let total_points = 0;
+  let questions_answered = 0;
   for (let s = 1; s <= 4; s++) {
     for (let i = 1; i <= 5; i++) {
       let points = $userData?.stations[s].questions[i];
       if (points != undefined) {
         visData.push({ color: colors[s], size: points });
+        total_points += points;
+        questions_answered += 1;
       } else {
         visData.push({ color: colors[0], size: 3 });
       }
     }
   }
+  
+  const levels = ["hard", "medium", "easy"]
+  const avg_points = total_points / (questions_answered * 3)
+
+  saveValue("wwa", {
+    "totalPoints": total_points,
+    "questionsAnswered": questions_answered,
+    "level": levels[Math.floor(2.999 * avg_points)]
+  })
 
   onMount(() => {
     let sketch = (p5) => {

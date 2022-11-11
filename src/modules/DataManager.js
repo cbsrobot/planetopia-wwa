@@ -37,6 +37,10 @@ export const loggedIn = writable(false);
 const _globalData = writable({});
 export const globalData = derived(_globalData, ($globalData) => $globalData);
 
+globalData.subscribe((globalData) => {
+  console.log("globalData", globalData);
+});
+
 ipcRenderer.on("rfid", (event, response) => {
   console.log(response, "detected")
   logIn(String(response).replaceAll(" ", "").replace("UID:", "").trim());
@@ -117,6 +121,7 @@ function logIn(rfid) {
       cachedRfid = undefined;
       rfidCacheEnabled.set(false);
       saveStats("LOG_IN")
+      getGlobalValue();
     })
     .catch((error) => {
       console.log("error", error)
@@ -161,6 +166,77 @@ export function saveValue(key, value) {
   fetch(`${API_URL}/api/users/${currentRfid}`, requestOptions)
     .then(response => response.json())
     .then(data => _userData.set(data))
+    .catch(error => {
+      console.log(error)
+      reportError("Saving failed: Could not connect to server")
+    });
+}
+
+export function incrementCounter(key) {
+
+  // Abort request if it takes too long
+// Abort request if it takes too long
+  const abortController = new AbortController();
+  setTimeout(() => abortController.abort(), FETCH_TIMEOUT * 1000);
+
+  var requestOptions = {
+    method: 'PUT',
+    headers: { "Content-Type": "application/json" },
+    signal: abortController.signal,
+    body: JSON.stringify({
+      "key": key
+    })
+  };
+
+  fetch(`${API_URL}/api/globalcounter/increment`, requestOptions)
+    .then(response => response.json())
+    .then(data => _globalData.set(data))
+    .catch(error => {
+      console.log(error)
+      reportError("Saving failed: Could not connect to server")
+    });}
+
+
+export function getGlobalValue() {
+
+  // Abort request if it takes too long
+  const abortController = new AbortController();
+  setTimeout(() => abortController.abort(), FETCH_TIMEOUT * 1000);
+
+  var requestOptions = {
+    method: 'GET',
+    headers: { "Content-Type": "application/json" },
+    signal: abortController.signal,
+  };
+
+  fetch(`${API_URL}/api/global`, requestOptions)
+    .then(response => response.json())
+    .then(data => _globalData.set(data))
+    .catch(error => {
+      console.log(error)
+      reportError("Saving failed: Could not connect to server")
+    });
+}
+
+export function saveGlobalValue(key, value) {
+
+  // Abort request if it takes too long
+  const abortController = new AbortController();
+  setTimeout(() => abortController.abort(), FETCH_TIMEOUT * 1000);
+
+  var requestOptions = {
+    method: 'PUT',
+    headers: { "Content-Type": "application/json" },
+    signal: abortController.signal,
+    body: JSON.stringify({
+      "key": key,
+      "value": value
+    })
+  };
+
+  fetch(`${API_URL}/api/global`, requestOptions)
+    .then(response => response.json())
+    .then(data => _globalData.set(data))
     .catch(error => {
       console.log(error)
       reportError("Saving failed: Could not connect to server")

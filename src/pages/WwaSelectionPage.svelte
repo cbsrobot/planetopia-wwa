@@ -1,8 +1,7 @@
 <script>
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
-  import { saveValue, userData} from "../modules/DataManager";
-  // import { userData } from "../modules/PageUtils";
+  import { userData, saveValue, globalData } from "../modules/DataManager";
   import Bubble from "../components/Bubble.svelte";
   import Button from "../components/Button.svelte";
   import { fly } from 'svelte/transition';
@@ -27,6 +26,12 @@
   ];
   shuffleArrayBiased(answers);
 
+  let textCounter1 = ""
+  let textCounter2 = ""
+  let textCounter3 = ""
+  let textCounter4 = ""
+  updateTextCounter()
+
   $: neutral = selected === null ? true : false;
 
   let points = null;
@@ -40,14 +45,21 @@
   }
 
   $: if (selected != null) {
-    saveValue(
-      `stations.${stationNumber}.questions.${questionNumber}`,
-      answers[selected].points
-    );
-    saveValue("wwa", {
-      textPath: `${textPathDetailed}.${answers[selected].textKey}`,
-      text: $_(textPathDetailed, answers[selected].textKey),
-    });
+      saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
+      saveValue("wwa.textPath", `${textPathDetailed}.${answers[selected].textKey}`)
+      saveValue("wwa.text", $_(textPathDetailed, answers[selected].textKey))
+  }
+
+  function updateTextCounter(){
+    let t = $_(textPath, "count")
+    let count1 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[0].textKey}`] || 0
+    let count2 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[1].textKey}`] || 0
+    let count3 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[2].textKey}`] || 0
+    let count4 = $globalData?.counter[`${textPathDetailed.replaceAll('.','_')}_${answers[3].textKey}`] || 0
+    textCounter1 = t.replace("##", count1)
+    textCounter2 = t.replace("##", count2)
+    textCounter3 = t.replace("##", count3)
+    textCounter4 = t.replace("##", count4)
   }
 
   // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -68,36 +80,14 @@
   }
 
   function modifyTextPath(textPath) {
-    const level_mapping = ["hard", "medium", "easy"];
-    const area_mapping = ["clothes", "living", "mobility", "food", "special"];
-    let selected_area = $userData?.stations[stationNumber].questions[1]; //TODO: do not hardcode
-    let sum = 0;
-    let level = 2;
-    let answered_count = Object.keys(
-      $userData?.stations[selected_area].questions
-    ).length;
-    if (answered_count) {
-      for (const value of Object.values(
-        $userData?.stations[selected_area].questions
-      )) {
-        sum += value;
-      }
-      let max_points = 4 * answered_count;
-      let average_points = sum / answered_count;
-      level = Math.floor((3 / max_points) * average_points);
-    }
-    textPath += `.${area_mapping[selected_area]}`;
+    const area_mapping = ["clothes", "living", "mobility", "food", "special"]
+    const selected_area = $userData?.stations[stationNumber].questions[1]
+    textPath += `.${area_mapping[selected_area]}`
     if (selected_area != 4) {
-      textPath += `.${level_mapping[level]}`;
+      textPath += `.${$userData?.wwa.level}`
     }
-    saveValue("wwa", {
-      areaId: selected_area,
-      areaText: area_mapping[selected_area],
-      levelId: level,
-      levelText: level_mapping[level],
-    });
-    console.debug(textPath);
-    return textPath;
+    //console.debug(textPath)
+    return textPath
   }
 </script>
 
@@ -129,6 +119,10 @@
       text={$_(textPathDetailed, answers[1].textKey)}
     />
   </div>
+  <div class="counter-container">
+    <div class="counter">{textCounter1}</div>
+    <div class="counter">{textCounter2}</div>
+  </div>
 
   {#if showMore}
     <div in:fly|local={{duration: 600, delay:0}} class="answer-container">
@@ -147,12 +141,17 @@
         text={$_(textPathDetailed, answers[3].textKey)}
       />
     </div>
+    <div class="counter-container">
+      <div class="counter">{textCounter3}</div>
+      <div class="counter">{textCounter4}</div>
+    </div>
   {/if}
   {#if ! showMore}
     <div class="button-wrapper">
       <Button plain_secondary more on:click={() => { showMore = true}} handwritten={false}/>
     </div>
   {/if}
+  
   
 </div>
 
@@ -178,6 +177,21 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+  }
+
+  .counter-container {
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .counter {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 24px;
+    margin-top: -8px;
+    margin-left: 25px;
   }
 
   .button-wrapper{
