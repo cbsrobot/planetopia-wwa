@@ -151,8 +151,6 @@
       <Button plain_secondary more on:click={() => { showMore = true}} handwritten={false}/>
     </div>
   {/if}
-  
-  
 </div>
 
 <style>
@@ -160,7 +158,7 @@
     /* position: absolute; */
     /* top: 20px; */
     width: 90%;
-    height: 60%;
+    height: 66%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
