@@ -6,6 +6,10 @@ export function shuffleArray(array) {
   }
 }
 
+export function wwaNumberFormatter(s){
+  return `D - ${String(s).padStart(8, '0')}`
+}
+
 import { writable } from "svelte/store";
 
 const data = JSON.parse(`{
