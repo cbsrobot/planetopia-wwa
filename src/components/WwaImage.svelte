@@ -1,12 +1,13 @@
 <script>
   import { _ } from "../modules/i18n.js";
   import { userData } from "../modules/DataManager";
+  import { wwaNumberFormatter } from "../modules/PageUtils";
   // import { userData } from "../modules/PageUtils.js";
   import { fly } from 'svelte/transition';
 
   export let attested = false;
 
-  let wwaNumberStr = "D - 000001" // TODO: Get Number from userData
+  let wwaNumberStr = wwaNumberFormatter($userData.uuid)
   
 </script>
 

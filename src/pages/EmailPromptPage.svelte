@@ -7,6 +7,7 @@
   import Bubble from "../components/Bubble.svelte";
   import Navigation from "../components/Navigation.svelte";
   import { userData } from "../modules/DataManager";
+  import { wwaNumberFormatter } from "../modules/PageUtils";
   import { _ } from "../modules/i18n.js";
 
   import Keyboard from "simple-keyboard";
@@ -74,7 +75,7 @@
       "avatar": $userData?.avatar,
       "wwaText": $userData?.wwa.text,
       "areaText": $userData?.wwa.areaText,
-      "wwaNumber": "D - 000001", //TODO: fix it
+      "wwaNumber": wwaNumberFormatter($userData?.uuid),
       "language": $userData?.language,
       "newsletter": document.querySelector(".newsletter-input").checked
     });
