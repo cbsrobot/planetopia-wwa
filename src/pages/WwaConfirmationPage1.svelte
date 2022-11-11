@@ -5,24 +5,55 @@
   import Bubble from "../components/Bubble.svelte";
   import Button from "../components/Button.svelte";
   import { fly } from 'svelte/transition';
+  import { saveValue, userData } from "../modules/DataManager";
 
   export let textPath;
   export let pageIndex, totalPages;
 
   export let stationNumber;
 
-  let nextHidden = true
-  let showButtons = true;
-  let showAttestedStamp = false;
+  const STATES = {
+    DEFAULT: 1,
+    CONFIRMED: 2,
+  }
+  let state = STATES.DEFAULT;
+
+
+  let backHidden;
+  let nextHidden;
+  let showButtons;
+  let showAttestedStamp;
+
+  $: setAttributes(state)
+  function setAttributes(state){
+    if(state == STATES.DEFAULT){
+      backHidden = false;
+      nextHidden = true
+      showButtons = true;
+      showAttestedStamp = false;
+    }else if(state == STATES.CONFIRMED){
+      backHidden = true
+      nextHidden = false;
+      showButtons = false;
+      showAttestedStamp = true;
+    }
+  }
 
   function handleConfirmClick(){
-    nextHidden = false;
-    showButtons = false;
-    showAttestedStamp = true;
+    state = STATES.CONFIRMED
+    saveValue(`wwa.confirmed`, true)
+  }
+
+  $: if($userData?.wwa?.confirmed != undefined){
+    if($userData?.wwa?.confirmed) {
+      state = STATES.CONFIRMED
+    }else{
+      state = STATES.DEFAULT
+    }
   }
 </script>
 
-<Navigation bind:pageIndex {nextHidden} {totalPages} station={stationNumber} pageID={textPath}/>
+<Navigation bind:pageIndex {nextHidden} {backHidden} {totalPages} station={stationNumber} pageID={textPath}/>
 <WwaImage attested={showAttestedStamp}/>
 <div class="content">
   <div class="bubble-container">
