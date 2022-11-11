@@ -4,7 +4,7 @@
   // choose from 5 different variants:
   // with icons: next, back, home
   // without icons: plain-primary, plain-secondary
-  export let next = false, end = false, back = false, home = false, yes = false, no = false;
+  export let next = false, end = false, back = false, home = false, yes = false, no = false, more = false;
   export let plain_primary = false, plain_secondary = false, handwritten = true;
 
   export let text = ""
@@ -20,6 +20,7 @@
     if (home) defaultText = $_("home");
     if (yes) defaultText = $_("yes");
     if (no) defaultText = $_("no");
+    if (more) defaultText = $_("show-more");
   }
   $: buttonText = text || defaultText;
 </script>
@@ -33,6 +34,9 @@
   {/if}
   {#if no}
     <img alt="" src="assets/icons/no.svg" />
+  {/if}
+  {#if more}
+    <img alt="" src="assets/icons/plus.svg" />
   {/if}
   <span>{buttonText}</span>
   {#if next}
@@ -100,6 +104,8 @@
     padding: 0 0.3rem;
     height: 2rem;
     width: 2rem;
+    position: relative;
+    top: 0.2rem
   }
 
   .disabled {
