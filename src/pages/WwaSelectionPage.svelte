@@ -34,11 +34,9 @@
 
   $: if (selected != null) {
       saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
-      saveValue("wwa", {
-        textPath: `${textPathDetailed}.${answers[selected].textKey}`,
-        text: $_(textPathDetailed, answers[selected].textKey)
-      })
-    }
+      saveValue("wwa.textPath", `${textPathDetailed}.${answers[selected].textKey}`)
+      saveValue("wwa.text", $_(textPathDetailed, answers[selected].textKey))
+  }
 
   // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   function shuffleArrayBiased(array) {
@@ -56,31 +54,13 @@
   }
 
   function modifyTextPath(textPath) {
-    const level_mapping = ["hard", "medium", "easy"]
     const area_mapping = ["clothes", "living", "mobility", "food", "special"]
-    let selected_area = $userData?.stations[stationNumber].questions[1] //TODO: do not hardcode
-    let sum = 0
-    let level = 2
-    let answered_count = Object.keys($userData?.stations[selected_area].questions).length
-    if (answered_count) {
-      for (const value of Object.values($userData?.stations[selected_area].questions)){
-        sum += value
-      }
-      let max_points = 4 * answered_count
-      let average_points = sum / answered_count
-      level = Math.floor(3 / max_points * average_points)
-    }
+    const selected_area = $userData?.stations[stationNumber].questions[1]
     textPath += `.${area_mapping[selected_area]}`
     if (selected_area != 4) {
-      textPath += `.${level_mapping[level]}`
+      textPath += `.${$userData?.wwa.level}`
     }
-    saveValue("wwa", {
-      areaId: selected_area,
-      areaText: area_mapping[selected_area],
-      levelId: level,
-      levelText: level_mapping[level],
-    })
-    console.debug(textPath)
+    //console.debug(textPath)
     return textPath
   }
 
