@@ -71,7 +71,7 @@
       selected={selected == 3}
       text={$_("4")}
     />
-    {#if ! $userData?.www?.level == "hard"}
+    {#if $userData?.wwa?.level == "hard"}
       <Selectable
         on:click={() => {
           selected = 4;
