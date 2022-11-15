@@ -112,13 +112,8 @@
   });
 </script>
 
-<Navigation
-  bind:pageIndex
-  {totalPages}
-  station={stationNumber}
-  pageID={textPath}
-/>
-
+<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath} stationHidden/>
+<h2 class="title">{$_("5.result")}</h2>
 <div class="content">
   <div class="canvas-wrapper" bind:this={canvasWrapper}>
     <img class="radial-blur" alt="" src="assets/radial-blur.png" />
@@ -136,6 +131,19 @@
 </div>
 
 <style>
+  
+  .title{
+    font-size: 52px;
+    font-weight: 400;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 97%;
+    text-align: center;
+    z-index: 1;
+    pointer-events: none;
+  }
+
   .content {
     width: 85%;
     height: 700px;
