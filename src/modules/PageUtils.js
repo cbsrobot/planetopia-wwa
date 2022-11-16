@@ -1,12 +1,15 @@
-// Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-export function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
+const seedrandom = require('seedrandom');
+
+export function shuffleArray(array, randomSeed) {
+  const random = seedrandom(randomSeed);
+  array = array
+    .map(val => ({ val, sort: random.quick() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ val }) => val)
+  return array;
 }
 
-export function wwaNumberFormatter(s){
+export function wwaNumberFormatter(s) {
   return `D - ${String(s).padStart(6, '0')}`
 }
 
