@@ -67,8 +67,6 @@
 <style>
 
   .content {
-    /* position: absolute; */
-    /* top: 20px; */
     width: 80%;
     height: 60%;
     display: flex;
@@ -90,6 +88,9 @@
   .answer-container {
     display: block;
     width: 500px;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 13px;
   }
 
 </style>
