@@ -9,9 +9,7 @@
 
   export let textPath;
   export let pageIndex, totalPages;
-
   export let stationNumber, questionNumber;
-  export let selected = null;
 
   let answers = [
     { textKey: "answer0", points: 0 },
@@ -19,25 +17,50 @@
     { textKey: "answer2", points: 2 },
     { textKey: "answer3", points: 3 },
   ];
-  shuffleArray(answers);
+  
+  let enableNext = false;
 
-  $: neutral = selected === null ? true : false;
+  $: shuffleAnswers(stationNumber, questionNumber)
+  function shuffleAnswers(station, question){
+    const answersSorted = answers.sort((a, b) => a.points - b.points)
+    const seed = station + "_" + question + "_" + $userData?.rfid;
+    answers = shuffleArray(answersSorted, seed);
+  }
 
-  let points = null
-  // Convert points from database back to selected index
-  $: if (questionNumber in $userData?.stations[stationNumber].questions) {
-      points = parseInt($userData?.stations[stationNumber].questions[questionNumber])
-      const answerIndex = answers.findIndex((a) => a.points === points);
-      selected = (answerIndex < 0) ? null : answerIndex;
-    }
+  function selectAnswer(answerIndex){
+    enableNext = (answerIndex >= 0 && answerIndex < answers.length) ? true : false;
+    answers.forEach((answer, i) => {
+      answer.selected = Boolean(i == answerIndex)
+    })
+    answers = answers;  // trigger svelte reactivity
+  }
+  
+  function getSelectedAnswer(){
+    return answers.find(a => a.selected);
+  }
 
   let syncPending = false;
-  
-  // call function 'saveAnswer' every time when the selection changes
-  $: if (selected != null) saveAnswer();
+
   function saveAnswer(){
-    saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
-    syncPending = true;
+    const answer = getSelectedAnswer()
+    if(answer){
+      saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answer.points)
+      syncPending = true;
+    }
+  }
+
+  $: restoreAnswer($userData, stationNumber, questionNumber)
+  function restoreAnswer(){
+    const points = parseInt($userData?.stations[stationNumber].questions[questionNumber])
+    const answerIndex = answers.findIndex(a => a.points === points);
+    selectAnswer(answerIndex)
+    
+    // Log it
+    if (Number.isNaN(points)) {
+      console.log("Restored unselected answer state")
+    } else {
+      console.log(`Restored answer ${points} (at index ${answerIndex})`)
+    }
   }
 
   // Set flag if all questions of a station are complete, execute function when new user data arrives
@@ -48,7 +71,6 @@
   $: if($userData && syncIsPending()) saveQuestionsComplete();
   function saveQuestionsComplete(){
     syncPending = false;
-    console.log("questions.length", Object.values($userData?.stations[stationNumber].questions).length);
     if(Object.values($userData?.stations[stationNumber].questions).length >= 5) {
       saveValue(`stations.${stationNumber}.questionsComplete`, true)
     }
@@ -58,52 +80,25 @@
   }
 </script>
 
-<Navigation  bind:pageIndex={pageIndex} {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral}/>
-
+<Navigation  bind:pageIndex={pageIndex} {totalPages} station={stationNumber} pageID={textPath} disableNext={! enableNext}/>
 <div class="content">
   <div class="bubble-container">
     <Bubble text={$_(textPath)} />
   </div>
   <div class="answer-container">
     <div class="row">
-      <Selectable
-        on:click={() => {
-          selected = 0;
-        }}
-        selected={selected == 0}
-        text={$_(textPath, answers[0].textKey)}
-      />
-      <Selectable
-        on:click={() => {
-          selected = 1;
-        }}
-        selected={selected == 1}
-        text={$_(textPath, answers[1].textKey)}
-      />
+      <Selectable on:click={() => { selectAnswer(0); saveAnswer(); }} selected={ answers[0].selected } text={$_(textPath, answers[0].textKey)} />
+      <Selectable on:click={() => { selectAnswer(1); saveAnswer(); }} selected={ answers[1].selected } text={$_(textPath, answers[1].textKey)} />
     </div>
     <div class="row">
-      <Selectable
-        on:click={() => {
-          selected = 2;
-        }}
-        selected={selected == 2}
-        text={$_(textPath, answers[2].textKey)}
-      />
-      <Selectable
-        on:click={() => {
-          selected = 3;
-        }}
-        selected={selected == 3}
-        text={$_(textPath, answers[3].textKey)}
-      />
+      <Selectable on:click={() => { selectAnswer(2); saveAnswer(); }} selected={ answers[2].selected } text={$_(textPath, answers[2].textKey)} />
+      <Selectable on:click={() => { selectAnswer(3); saveAnswer(); }} selected={ answers[3].selected } text={$_(textPath, answers[3].textKey)} />
     </div>
   </div>
 </div>
 
 <style>
   .content {
-    /* position: absolute; */
-    /* top: 20px; */
     width: 90%;
     height: 60%;
     display: flex;
@@ -124,7 +119,6 @@
 
   .row {
     display: flex;
-    /* justify-content: space-between; */
     align-items: flex-start;
   }
 </style>

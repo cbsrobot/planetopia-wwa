@@ -2,10 +2,10 @@
   import Navigation from "../components/Navigation.svelte";
   import Selectable from "../components/Selectable.svelte";
   import { userData, saveValue, globalData } from "../modules/DataManager";
+  import { shuffleArray } from "../modules/PageUtils";
   import Bubble from "../components/Bubble.svelte";
   import Button from "../components/Button.svelte";
   import { fly } from 'svelte/transition';
-
   import { _ } from "../modules/i18n.js";
 
   export let textPath;
@@ -24,7 +24,8 @@
     { textKey: "answer3", points: 3 },
     { textKey: "answer4", points: 4 },
   ];
-  shuffleArrayBiased(answers);
+  shuffleAnswers();
+  restoreAnswer();
 
   let textCounter1 = ""
   let textCounter2 = ""
@@ -35,19 +36,21 @@
   $: neutral = selected === null ? true : false;
 
   let points = null;
-  // Convert points from database back to selected index
-  $: if (questionNumber in $userData?.stations[stationNumber].questions) {
-    points = parseInt(
-      $userData?.stations[stationNumber].questions[questionNumber]
-    );
-    const answerIndex = answers.findIndex((a) => a.points === points);
-    selected = answerIndex < 0 ? null : answerIndex;
-  }
 
   $: if (selected != null) {
       saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
       saveValue("wwa.textPath", `${textPathDetailed}.${answers[selected].textKey}`)
       saveValue("wwa.text", $_(textPathDetailed, answers[selected].textKey))
+  }
+
+  function modifyTextPath(textPath) {
+    const area_mapping = ["clothes", "living", "mobility", "food", "special"]
+    const selected_area = $userData?.stations[stationNumber].questions[1]
+    textPath += `.${area_mapping[selected_area]}`
+    if (selected_area != 4) {
+      textPath += `.${$userData?.wwa.level}`
+    }
+    return textPath
   }
 
   function updateTextCounter(){
@@ -62,62 +65,28 @@
     textCounter4 = t.replace("##", count4)
   }
 
-  // Function taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-  function shuffleArrayBiased(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    const points = parseInt(
-      $userData?.stations[stationNumber].questions[questionNumber]
-    );
-    const answerIndex = answers.findIndex((a) => a.points === points);
-    const selected = answerIndex < 0 ? null : answerIndex;
-    if (selected != null && selected > 1) {
-      // place the previousely selected item at the beginning
-      [array[0], array[selected]] = [array[selected], array[0]];
-    }
+  function shuffleAnswers(){
+    const seed = stationNumber + "_" + questionNumber + "_" + $userData?.rfid;
+    answers = shuffleArray(answers, seed);
   }
 
-  function modifyTextPath(textPath) {
-    const area_mapping = ["clothes", "living", "mobility", "food", "special"]
-    const selected_area = $userData?.stations[stationNumber].questions[1]
-    textPath += `.${area_mapping[selected_area]}`
-    if (selected_area != 4) {
-      textPath += `.${$userData?.wwa.level}`
-    }
-    //console.debug(textPath)
-    return textPath
+  function restoreAnswer(){
+    const points = parseInt($userData?.stations[stationNumber].questions[questionNumber])
+    const answerIndex = answers.findIndex(a => a.points === points);
+    selected = answerIndex < 0 ? null : answerIndex;
+    if(selected > 1) showMore = true;
   }
 </script>
 
-<Navigation
-  bind:pageIndex
-  {totalPages}
-  station={stationNumber}
-  pageID={textPath}
-  disableNext={neutral}
-/>
+<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath} disableNext={neutral} />
 
 <div class="content">
   <div class="bubble-container">
     <Bubble text={$_(textPath)} />
   </div>
   <div class="answer-container">
-    <Selectable
-      on:click={() => {
-        selected = 0;
-      }}
-      selected={selected == 0}
-      text={$_(textPathDetailed, answers[0].textKey)}
-    />
-    <Selectable
-      on:click={() => {
-        selected = 1;
-      }}
-      selected={selected == 1}
-      text={$_(textPathDetailed, answers[1].textKey)}
-    />
+    <Selectable on:click={() => { selected = 0; }} selected={selected == 0} text={$_(textPathDetailed, answers[0].textKey)} />
+    <Selectable on:click={() => { selected = 1; }} selected={selected == 1} text={$_(textPathDetailed, answers[1].textKey)} />
   </div>
   <div class="counter-container">
     <div class="counter">{textCounter1}</div>
@@ -126,20 +95,8 @@
 
   {#if showMore}
     <div in:fly|local={{duration: 600, delay:0}} class="answer-container">
-      <Selectable
-        on:click={() => {
-          selected = 2;
-        }}
-        selected={selected == 2}
-        text={$_(textPathDetailed, answers[2].textKey)}
-      />
-      <Selectable
-        on:click={() => {
-          selected = 3;
-        }}
-        selected={selected == 3}
-        text={$_(textPathDetailed, answers[3].textKey)}
-      />
+      <Selectable on:click={() => { selected = 2; }} selected={selected == 2} text={$_(textPathDetailed, answers[2].textKey)} />
+      <Selectable on:click={() => { selected = 3; }} selected={selected == 3} text={$_(textPathDetailed, answers[3].textKey)} />
     </div>
     <div class="counter-container">
       <div class="counter">{textCounter3}</div>
@@ -155,8 +112,6 @@
 
 <style>
   .content {
-    /* position: absolute; */
-    /* top: 20px; */
     width: 90%;
     height: 66%;
     display: flex;

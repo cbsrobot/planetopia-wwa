@@ -167,7 +167,7 @@ export function saveValue(key, value) {
     .then(response => response.json())
     .then(data => _userData.set(data))
     .catch(error => {
-      console.log(error)
+      console.log(`Saving failed. Key: ${key}, Value: ${value} | Error: ${error}`)
       reportError("Saving failed: Could not connect to server")
     });
 }
@@ -175,7 +175,6 @@ export function saveValue(key, value) {
 export function incrementCounter(key) {
 
   // Abort request if it takes too long
-// Abort request if it takes too long
   const abortController = new AbortController();
   setTimeout(() => abortController.abort(), FETCH_TIMEOUT * 1000);
 
@@ -193,7 +192,7 @@ export function incrementCounter(key) {
     .then(data => _globalData.set(data))
     .catch(error => {
       console.log(error)
-      reportError("Saving failed: Could not connect to server")
+      reportError("Counter increment failed: Could not connect to server")
     });}
 
 
@@ -214,7 +213,7 @@ export function getGlobalValue() {
     .then(data => _globalData.set(data))
     .catch(error => {
       console.log(error)
-      reportError("Saving failed: Could not connect to server")
+      reportError("Getting global data failed: Could not connect to server")
     });
 }
 
@@ -239,7 +238,7 @@ export function saveGlobalValue(key, value) {
     .then(data => _globalData.set(data))
     .catch(error => {
       console.log(error)
-      reportError("Saving failed: Could not connect to server")
+      reportError("Saving global data failed: Could not connect to server")
     });
 }
 

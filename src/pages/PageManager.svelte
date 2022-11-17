@@ -27,7 +27,6 @@
   onDestroy(() => clearTimeout(timeout));
 
   let pageList = [];
-  $: console.log("🚀 ~ pageList", pageList);
   $: if ($loggedIn) {
     pageList = generatePageList();
     state = getState();
@@ -55,16 +54,11 @@
     }
   }
 
-  // TODO: Remove logs
   let continuePageIndex = 0;
   function setContinueIndex() {
-    console.log("continueIndexRequested")
-    console.log("pageList", pageList);
     const firstPageStationNumber = pageList[0].props.stationNumber;
     const lastPageId = $userData?.stations[firstPageStationNumber].lastPage;
-    console.log("lastPageId", lastPageId);
     const lastPageIndex = pageList.findIndex((page) => page.props.textPath == lastPageId);
-    console.log("lastPageIndex", lastPageIndex);
     if (lastPageIndex >= 0) continuePageIndex = lastPageIndex; 
   }
 </script>

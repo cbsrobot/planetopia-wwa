@@ -29,8 +29,13 @@
       selected = (answerIndex < 0) ? null : answerIndex;
     }
 
-  $: if (selected != null) {
-    saveValue(`stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points)
+  $: if (selected != null && selectionHasChanged()) {
+    saveValue(`stations.5.questions`, { "1": answers[selected].points })
+    console.log(`Save selected wwa area: ${answers[selected].points}`)
+  }
+
+  function selectionHasChanged(){
+    return Boolean(answers[selected].points != parseInt($userData?.stations[stationNumber].questions[questionNumber]));
   }
 
 </script>
@@ -43,34 +48,10 @@
   </div>
  
   <div class="answer-container">
-    <Selectable
-      on:click={() => {
-        selected = 0;
-      }}
-      selected={selected == 0}
-      text={$_("1")}
-    />
-    <Selectable
-      on:click={() => {
-        selected = 1;
-      }}
-      selected={selected == 1}
-      text={$_("2")}
-    />
-    <Selectable
-      on:click={() => {
-        selected = 2;
-      }}
-      selected={selected == 2}
-      text={$_("3")}
-    />
-    <Selectable
-      on:click={() => {
-        selected = 3;
-      }}
-      selected={selected == 3}
-      text={$_("4")}
-    />
+    <Selectable on:click={() => { selected = 0; }} selected={selected == 0} text={$_("1")} />
+    <Selectable on:click={() => { selected = 1; }} selected={selected == 1} text={$_("2")} />
+    <Selectable on:click={() => { selected = 2; }} selected={selected == 2} text={$_("3")} />
+    <Selectable on:click={() => { selected = 3; }} selected={selected == 3} text={$_("4")} />
     {#if $userData?.wwa?.level == "hard"}
       <Selectable
         on:click={() => {
@@ -86,8 +67,6 @@
 <style>
 
   .content {
-    /* position: absolute; */
-    /* top: 20px; */
     width: 80%;
     height: 60%;
     display: flex;
@@ -109,6 +88,9 @@
   .answer-container {
     display: block;
     width: 500px;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 13px;
   }
 
 </style>
