@@ -78,18 +78,18 @@ function logToErrorFile(message) {
     return path.join(variables.home, errorFilePath);
   }
 
-  logger.debug("---------------------------------------------------")
-  logger.debug("")
+  // logger.debug("---------------------------------------------------")
+  // logger.debug("")
   logger.error(message);
-  logger.debug("")
+  // logger.debug("")
 
-  // Append recent logs of browser console
-  logger.debug("--------------------Log History--------------------")
-  logger.debug("")
-  console.logHistory.forEach(args => {
-    logger.debug.apply(logger.debug, args)
-  });
-  logger.debug("")
+  // // Append recent logs of browser console
+  // logger.debug("--------------------Log History--------------------")
+  // logger.debug("")
+  // console.logHistory.forEach(args => {
+  //   logger.debug.apply(logger.debug, args)
+  // });
+  // logger.debug("")
 }
 
 function logToNetworkFile(message) {
