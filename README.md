@@ -1,3 +1,5 @@
+# Planetopia Client Application
+
 # Setup
 
 Add a .env file on the root level with following content
@@ -10,6 +12,14 @@ EMAIL_HOST=smtp.server.domain     # email provider
 EMAIL_USER=user@provider.domain   # email login
 EMAIL_PASSWORD=password           # email password
 EMAIL_TO=user@provider.domain     # used to override user input and send all emails to this address
+```
+
+# Developement
+
+```
+git pull  
+npm i  
+npm run elevtron-dev  
 ```
 
 # Startup Script
@@ -34,6 +44,12 @@ npm run electron-dev 2>&1 >> /home/planetopia-12/startup.log
 * On Linux allow user to access serial port : `sudo usermod -a -G dialout $USER`
 * if node-html-pdf thows an error (using phantomjs) add following line before starting the app: `export OPENSSL_CONF=/dev/null`
 
+<br>
+<hr>
+<h3>Original Template Readme<h3>
+<hr>
+<br>
+<br>
 
 
 <div align="center">
