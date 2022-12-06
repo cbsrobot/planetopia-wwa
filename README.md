@@ -2,6 +2,12 @@
 
 # Setup
 
+Clone github repo
+```
+git clone https://github.com/cbsrobot/planetopia-wwa.git
+cd planetopia-wwa
+```
+
 Add a .env file on the root level with following content
 ```shell
 STATION=0                         # station id 0-5
@@ -13,16 +19,19 @@ EMAIL_USER=user@provider.domain   # email login
 EMAIL_PASSWORD=password           # email password
 EMAIL_TO=user@provider.domain     # used to override user input and send all emails to this address
 ```
+-> replace email data with correct credentials
 
 # Developement
 
 ```
 git pull  
 npm i  
-npm run elevtron-dev  
+npm run electron-dev  
 ```
 
 # Startup Script
+
+Startup script to run autostart on Linux
 
 ```shell
 #!/bin/bash
