@@ -110,7 +110,7 @@
     {totalPages}
     station={stationNumber}
     pageID={textPath}
-    disableNext={false}
+    disableNext={inputText.length < 3}
     stationHidden={true}
     progressHidden={true}
   />
