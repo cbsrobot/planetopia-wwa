@@ -7,6 +7,7 @@ import EmailAcceptPage from "../pages/EmailAcceptPage.svelte";
 import EmailPromptPage from "../pages/EmailPromptPage.svelte";
 import ResultPage from "../pages/ResultPage.svelte";
 import InfoPage from "../pages/InfoPage.svelte";
+import CustomWwaPromptPage from "../pages/CustomWwaPromptPage.svelte";
 import { userData, STATION } from "./DataManager.js";
 import { get } from "svelte/store";
 
@@ -103,6 +104,7 @@ const evaluationCore = [
   { component: AreaSelectionPage, props: { textPath: "5.areaSelection1" } }, // question_id 1
   { component: DialoguePage, props: { textPath: "5.dialogue8" } },
   { component: WwaSelectionPage, props: { textPath: "5.wwaSelection2" } }, // question_id 2
+  { component: CustomWwaPromptPage, props: { textPath: "5.customWwaPrompt" } }, 
   { component: WwaConfirmationPage1, props: { textPath: "5.wwaConfirmation3" } },
   { component: DialoguePage, props: { textPath: "5.dialogue9" } },
   { component: EmailAcceptPage, props: { textPath: "5.emailAccept5" } },
