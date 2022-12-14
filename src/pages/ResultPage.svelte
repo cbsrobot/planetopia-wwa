@@ -49,11 +49,9 @@
   const levels = ["hard", "medium", "easy"]
   const avg_points = total_points / (questions_answered * 3)
 
-  saveValue("wwa", {
-    "totalPoints": total_points,
-    "questionsAnswered": questions_answered,
-    "level": levels[Math.floor(2.999 * avg_points)]
-  })
+  saveValue("wwa.totalPoints", total_points)
+  saveValue("wwa.questionsAnswered", questions_answered)
+  saveValue("wwa.level", levels[Math.floor(2.999 * avg_points)])
 
   onMount(() => {
     let sketch = (p5) => {

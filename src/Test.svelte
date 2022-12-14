@@ -17,8 +17,8 @@
   import Bubble from "./components/Bubble.svelte";
   import WwaSelectionPage from "./pages/WwaSelectionPage.svelte";
   import WwaConfirmationPage1 from "./pages/WwaConfirmationPage1.svelte";
-  import WwaConfirmationPage2 from "./pages/WwaConfirmationPage2.svelte";
   import ResultPage from "./pages/ResultPage.svelte";
+  import WwaImage from "./components/WwaImage.svelte";
 
 </script>
 
@@ -35,10 +35,11 @@
   <!-- <ErrorOverlay errorMessage={"This is a very detailed and techy error message"}/> -->
   <!-- <AreaSelectionPage textPath="5.areaSelection1" pageIndex={3}, totalPages={10}, stationNumber={5} questionNumber={3}/> -->
   <!-- <Bubble/> -->
-  <!-- <WwaSelectionPage textPath="5.wwaSelection2" pageIndex={3} totalPages={10} stationNumber={5} questionNumber{2}/> -->
+  <WwaSelectionPage textPath="5.wwaSelection2" pageIndex={3} totalPages={10} stationNumber={5} questionNumber{2}/>
   <!-- <WwaConfirmationPage1 textPath="5.wwaConfirmation3" pageIndex={3} totalPages={10} stationNumber={5} questionNumber{2}/> -->
   <!-- <WwaConfirmationPage2 textPath="5.wwaConfirmation4" pageIndex={3} totalPages={10} stationNumber={5} questionNumber{2}/> -->
-  <ResultPage textPath="5.wwaConfirmation4" pageIndex={3} totalPages={10} stationNumber={5}/>
+  <!-- <ResultPage textPath="5.wwaConfirmation4" pageIndex={3} totalPages={10} stationNumber={5}/> -->
+  <!-- <WwaImage/> -->
   
 
 </main>

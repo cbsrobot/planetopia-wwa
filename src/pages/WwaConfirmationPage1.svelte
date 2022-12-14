@@ -41,8 +41,8 @@
 
   function handleConfirmClick(){
     incrementCounter(`${$userData.wwa.textPath}`)
-    state = STATES.CONFIRMED
     saveValue(`wwa.confirmed`, true)
+    state = STATES.CONFIRMED
   }
 
   $: if($userData?.wwa?.confirmed != undefined){
@@ -54,7 +54,7 @@
   }
 </script>
 
-<Navigation bind:pageIndex {nextHidden} {backHidden} {totalPages} station={stationNumber} pageID={textPath}/>
+<Navigation bind:pageIndex {nextHidden} {backHidden} {totalPages} station={stationNumber} pageID={textPath} backIncrement={$userData.wwa.textPath.includes("custom") ? -1 : -2}/>
 <WwaImage attested={showAttestedStamp}/>
 <div class="content">
   <div class="bubble-container">
@@ -62,7 +62,7 @@
   </div>
   {#if showButtons}
     <div out:fly|local={{duration: 600}} class="buttons-container">
-      <Button no text={$_("5.wwaConfirmation4", "rethink")} on:click={() => {pageIndex -= 1 }} handwritten={false} />
+      <Button no text={$_("5.wwaConfirmation4", "rethink")} on:click={() => {pageIndex -= 4 }} handwritten={false} />
       <Button yes text={$_("5.wwaConfirmation4", "accept")} on:click={handleConfirmClick} handwritten={false} />
     </div>
   {/if}

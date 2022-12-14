@@ -2,10 +2,12 @@
     background-color: #ececec;
     border-radius: 5px;
     box-sizing: border-box;
-    font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue,
-      Helvetica, Arial, Lucida Grande, sans-serif;
+    font-family: "Sanuk", Helvetica, sans-serif;
+    /* font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue,
+      Helvetica, Arial, Lucida Grande, sans-serif; */
+    font-weight: bold;
     overflow: hidden;
-    padding: 5px;
+    padding: 6px;
     touch-action: manipulation;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -28,11 +30,11 @@
     display: flex;
   }
   .hg-theme-planetopia .hg-row:not(:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
   }
   .hg-theme-planetopia .hg-row .hg-button-container,
   .hg-theme-planetopia .hg-row .hg-button:not(:last-child) {
-    margin-right: 5px;
+    margin-right: 6px;
   }
   .hg-theme-planetopia .hg-row > div:last-child {
     margin-right: 0;
@@ -44,15 +46,16 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     align-items: center;
     background: #fff;
-    border-bottom: 1px solid #b5b5b5;
-    border-radius: 0px;
-    box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.3);
+
+    border-radius: 0px; 
+    box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.4); 
+
     box-sizing: border-box;
     cursor: pointer;
     display: flex;
     height: 80px;
     justify-content: center;
-    padding: 5px;
+    padding: 6px;
   }
   .hg-theme-planetopia .hg-button.hg-standardBtn {
     width: 20px;
@@ -87,6 +90,9 @@
   .hg-theme-planetopia .hg-button.hg-functionBtn[data-skbtn="{bksp}"] {
     max-width: 142px;
   }
+  .hg-theme-planetopia .hg-button.hg-functionBtn[data-skbtn="{shift}"] {
+    max-width: 142px;
+  }
   .hg-theme-planetopia .hg-button.hg-standardBtn[data-skbtn=".com"] {
     max-width: 142px;
   }
@@ -96,3 +102,4 @@
   .hg-theme-planetopia .hg-button.hg-standardBtn[data-skbtn="@"] {
     max-width: 142px;
   }
+  
