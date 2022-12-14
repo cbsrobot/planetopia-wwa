@@ -20,7 +20,7 @@
     <img class="wwa-stamp" src="assets/wwa-stamp.jpg" alt="" />
     <span class="wwa-number">{wwaNumberStr}</span>
   </div>
-  <p>{$_($userData?.wwa.textPath)}</p> 
+  <p>{$userData?.wwa.text}</p> 
 </div>
 
 <style>
@@ -91,5 +91,6 @@
     z-index: 2;
     margin-top: 0;
     margin-bottom: 40px;
+    overflow-wrap: break-word; 
   }
 </style>
