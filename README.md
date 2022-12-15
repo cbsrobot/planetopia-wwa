@@ -1,4 +1,12 @@
+# Planetopia Client Application
+
 # Setup
+
+Clone github repo
+```
+git clone https://github.com/cbsrobot/planetopia-wwa.git
+cd planetopia-wwa
+```
 
 Add a .env file on the root level with following content
 ```shell
@@ -11,8 +19,19 @@ EMAIL_USER=user@provider.domain   # email login
 EMAIL_PASSWORD=password           # email password
 EMAIL_TO=user@provider.domain     # used to override user input and send all emails to this address
 ```
+-> replace email data with correct credentials
+
+# Developement
+
+```
+git pull  
+npm i  
+npm run electron-dev  
+```
 
 # Startup Script
+
+Startup script to run autostart on Linux
 
 ```shell
 #!/bin/bash
@@ -34,6 +53,12 @@ npm run electron-dev 2>&1 >> /home/planetopia-12/startup.log
 * On Linux allow user to access serial port : `sudo usermod -a -G dialout $USER`
 * if node-html-pdf thows an error (using phantomjs) add following line before starting the app: `export OPENSSL_CONF=/dev/null`
 
+<br>
+<hr>
+<h3>Original Template Readme<h3>
+<hr>
+<br>
+<br>
 
 
 <div align="center">

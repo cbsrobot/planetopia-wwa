@@ -33,16 +33,16 @@
       layout: {
         default: [
           "1 2 3 4 5 6 7 8 9 0 ! ? {bksp}",
-          "q w e r t z u i o p ( ) %",
-          "a s d f g h j k l ; * & #",
-          "{shift} y x c v b n m , . - / {shift}",
+          "q w e r t z u i o p ' ( )",
+          "a s d f g h j k l : * / #",
+          "{shift} y x c v b n m , . _ - {shift}",
           "{space} @",
         ],
         shift: [
           "1 2 3 4 5 6 7 8 9 0 ! ? {bksp}",
-          "Q W E R T Z U I O P ( ) %",
-          "A S D F G H J K L ; * & #",
-          "{shift} Y X C V B N M , . - / {shift}",
+          "Q W E R T Z U I O P ' ( )",
+          "A S D F G H J K L : * / #",
+          "{shift} Y X C V B N M , . _ - {shift}",
           "{space} @",
         ],
       },
@@ -102,7 +102,7 @@
   let overlayOpen = false;
 </script>
 
-<h2 class="title">{"Mein Weltwandelsabkommen"}</h2>
+<h2 class="title">{$_(textPath)}</h2>
 <div class="navigation">
   <Navigation
     bind:pageIndex
@@ -139,7 +139,7 @@
     font-size: 52px;
     font-weight: 400;
     position: absolute;
-    top: 0;
+    top: 4px;
     left: 0;
     width: 97.5%;
     text-align: center;
