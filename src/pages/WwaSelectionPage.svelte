@@ -50,20 +50,22 @@
     return answers;
   }
 
-  $: if (selected != null) {
+  $: if (selected != null) saveSelection();
+  
+  async function saveSelection(){
     nextIncrement = selected == 3 ? 1 : 2;
-    saveValue(
+    await saveValue(
       `stations.${stationNumber}.questions.${questionNumber}`,
       answers[selected].points
-    );
+    )
 
-    
     if (selected != 3) {
-      saveValue( "wwa.textPath", `${textPathDetailed}.${answers[selected].textKey}` );
+      await saveValue( "wwa.textPath", `${textPathDetailed}.${answers[selected].textKey}` )
       saveValue("wwa.text", $_(textPathDetailed, answers[selected].textKey));
+    
     } else {
       // Special case for custom wwa
-      saveValue("wwa.textPath", `${textPath}.customAnswer`);
+      await saveValue("wwa.textPath", `${textPath}.customAnswer`)
       saveValue("wwa.text", "");
     }
   }
