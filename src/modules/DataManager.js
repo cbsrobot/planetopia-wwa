@@ -163,7 +163,7 @@ export function saveValue(key, value) {
     })
   };
 
-  fetch(`${API_URL}/api/users/${currentRfid}`, requestOptions)
+  return fetch(`${API_URL}/api/users/${currentRfid}`, requestOptions)
     .then(response => response.json())
     .then(data => _userData.set(data))
     .catch(error => {
