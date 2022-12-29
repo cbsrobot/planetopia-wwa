@@ -7,7 +7,7 @@
 
   export let attested = false;
 
-  let wwaNumberStr = wwaNumberFormatter($userData.uuid)
+  $: wwaNumberStr = $userData?.wwa.number ? wwaNumberFormatter($userData?.wwa.number) : ""
   
 </script>
 

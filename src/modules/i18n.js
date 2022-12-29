@@ -72,3 +72,10 @@ export function getLocalizedText(id, locale) {
 export function resetLocale() {
   _locale.set(undefined);
 }
+
+export function formatNumber(number){
+  if(currentLocale === "de") return new Intl.NumberFormat('de-CH').format(number)
+  if(currentLocale === "fr") return new Intl.NumberFormat('de-CH').format(number)
+  if(currentLocale === "en") return new Intl.NumberFormat('en-GB').format(number)
+  return number;
+}

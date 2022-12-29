@@ -39,9 +39,11 @@
     }
   }
 
-  function handleConfirmClick(){
+  async function handleConfirmClick(){
+    await saveValue('wwa.number', "") // value will be replaced on the server
+    saveValue('wwa.confirmed', true)
     incrementCounter(`${$userData.wwa.textPath}`)
-    saveValue(`wwa.confirmed`, true)
+    incrementCounter('totalWwa')
     state = STATES.CONFIRMED
   }
 

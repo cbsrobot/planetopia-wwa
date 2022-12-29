@@ -30,10 +30,6 @@
   let textCounterCustom = "";
   updateTextCounter();
 
-  $: neutral = selected === null ? true : false;
-
-  let points = null;
-
   function getShuffledAnswers() {
     let answers = [
       { textKey: "answer0", points: 0 },
@@ -54,10 +50,7 @@
   
   async function saveSelection(){
     nextIncrement = selected == 3 ? 1 : 2;
-    await saveValue(
-      `stations.${stationNumber}.questions.${questionNumber}`,
-      answers[selected].points
-    )
+    await saveValue( `stations.${stationNumber}.questions.${questionNumber}`, answers[selected].points )
 
     if (selected != 3) {
       await saveValue( "wwa.textPath", `${textPathDetailed}.${answers[selected].textKey}` )
@@ -115,14 +108,7 @@
   }
 </script>
 
-<Navigation
-  bind:pageIndex
-  {totalPages}
-  station={stationNumber}
-  pageID={textPath}
-  disableNext={neutral}
-  {nextIncrement}
-/>
+<Navigation bind:pageIndex {totalPages} station={stationNumber} pageID={textPath} disableNext={!Boolean($userData?.wwa.textPath)} {nextIncrement} />
 
 <div class="content">
   <div class="bubble-container">
