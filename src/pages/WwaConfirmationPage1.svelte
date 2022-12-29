@@ -41,9 +41,9 @@
 
   async function handleConfirmClick(){
     await saveValue('wwa.number', "") // value will be replaced on the server
-    saveValue('wwa.confirmed', true)
-    incrementCounter(`${$userData.wwa.textPath}`)
     incrementCounter('totalWwa')
+    incrementCounter(`${$userData.wwa.textPath}`)
+    saveValue('wwa.confirmed', true)
     state = STATES.CONFIRMED
   }
 
