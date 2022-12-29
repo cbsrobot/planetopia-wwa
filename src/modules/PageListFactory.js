@@ -106,7 +106,7 @@ const evaluationCore = [
   { component: WwaSelectionPage, props: { textPath: "5.wwaSelection2" } }, // question_id 2
   { component: CustomWwaPromptPage, props: { textPath: "5.customWwaPrompt" } }, 
   { component: WwaConfirmationPage1, props: { textPath: "5.wwaConfirmation3" } },
-  { component: DialoguePage, props: { textPath: "5.dialogue9" } },
+  { component: DialoguePage, props: { textPath: "5.dialogueWwaNumber" } },
   { component: EmailAcceptPage, props: { textPath: "5.emailAccept5" } },
   { component: EmailPromptPage, props: { textPath: "5.emailPrompt6" } },
   { component: DialoguePage, props: { textPath: "5.dialogue10", markComplete: true } },

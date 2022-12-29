@@ -1,7 +1,7 @@
 <script>
   import Navigation from "../components/Navigation.svelte";
   import InfoOverlay from "../components/InfoOverlay.svelte";
-  import { _ } from "../modules/i18n.js";
+  import { _ , formatNumber} from "../modules/i18n.js";
   import Bubble from "../components/Bubble.svelte";
   import { userData, saveValue, STATION } from "../modules/DataManager";
 
@@ -28,11 +28,16 @@
   let backIncrement = -1;
   $: if(stationNumber == 5 && pageIndex == totalPages - 1) backIncrement = -2;
 
-  $: dialogueText = injectAvatarInfo($_(textPath));
-  function injectAvatarInfo(str) {
+  $: dialogueText = injectTextFragments($_(textPath), $userData);
+  function injectTextFragments(str) {
+
+    // Inject avatar info
     const re = /#(\d)/i;
     const match = str.match(re);
     let text = match ? str.replace(re, $_(`${match[1]}.insect${avatarNr}`)) : str;
+
+    // Inject total wwa count
+    text = text.replace("$$", formatNumber($userData?.wwa?.number))
     return text;
   }
 </script>

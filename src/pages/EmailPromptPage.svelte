@@ -75,7 +75,7 @@
       "avatar": $userData?.avatar,
       "wwaText": $userData?.wwa.text,
       "areaText": $userData?.wwa.areaText,
-      "wwaNumber": wwaNumberFormatter($userData?.uuid),
+      "wwaNumber": wwaNumberFormatter($userData?.wwa.number),
       "language": $userData?.language,
       "newsletter": document.querySelector(".newsletter-input").checked
     });

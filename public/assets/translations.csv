@@ -209,7 +209,7 @@ Tschüss!","On se voit à la prochaine station, tchao!","OK, see you at the next
 5.wwaConfirmation4.accept,Aber sicher! Ich will doch die Welt retten.,Bien sûr! Il faut sauver le monde.,"Sure! After all, I want to save the world.",,
 5.wwaConfirmation4.rethink,Ich muss es mir nochmals überlegen.,Il faut encore que j’y réfléchisse.,I would like to think about it again.,,
 5.dialogue9,"Wow!! Du bist super! Herzlichen Dank, dass du mithilfst, die Welt zu retten!",Ouah! Tu es super! Un grand merci d’aider à sauver le monde!,Wow! You are great! Thank you so much for helping to save the world!,,
-5.dialogueWwaNumber,Wow!! Du bist super! Du hast das ##. Weltwandelsabkommen abgeschlossen.,Génial! Tu as conclu le ##ème accord sur le changement mondial.,Wow! You are great! You made the ##nd world trade agreement.,,
+5.dialogueWwaNumber,Wow!! Du bist super! Du hast das $$. Weltwandelsabkommen abgeschlossen.,Génial! Tu as conclu le $$ème accord sur le changement mondial.,Wow! You are great! You made the $$nd world change agreement.,,
 5.emailAccept5,Möchtest du dir das Weltwandels-Abkommen nach Hause mailen?,Tu aimerais envoyer l’accord sur le changement mondial chez toi par mail?,Would you like to email the world change agreement to yourself?,,
 5.emailPrompt6,Weltwandels-Abkommen zuschicken.,Envoyer l’accord sur le changement mondial.,Send the world change agreement.,,
 5.emailPrompt6.question,Gib deine E-Mail-Adresse ein.,Saisis ton adresse électronique.,Enter your email address.,,
