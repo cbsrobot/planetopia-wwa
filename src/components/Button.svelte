@@ -115,6 +115,10 @@
     pointer-events: none;
   }
 
+  .disabled img{
+    opacity: 0.6;
+  }
+
   .hidden{
     visibility: hidden;
   }
